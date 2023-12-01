@@ -5,7 +5,6 @@ import { Body, Main, Page, Side } from "@polkadot-cloud/react"
 import { AnimatePresence } from "framer-motion"
 import { useEffect, useRef } from "react"
 import { ErrorBoundary } from "react-error-boundary"
-import { Helmet } from "react-helmet"
 import {
   HashRouter,
   Navigate,
@@ -89,9 +88,7 @@ export const RouterInner = () => {
                       path={hash}
                       element={
                         <Page>
-                          <Helmet>
-                            <title>Polkadot Fellowship Dashboard</title>
-                          </Helmet>
+                          <title>Polkadot Fellowship Dashboard</title>
                           <Entry page={page} />
                         </Page>
                       }

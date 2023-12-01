@@ -29,6 +29,6 @@ export const PagesConfig: PagesConfigItems = [
     uri: `${BASE_URL}`,
     hash: "/rfcs",
     Entry: Rfc,
-    lottie: "view",
+    lottie: "globe",
   },
 ]

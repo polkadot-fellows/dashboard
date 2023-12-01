@@ -100,10 +100,7 @@ export const SideMenu = () => {
         <button
           type="button"
           onClick={() =>
-            window.open(
-              "https://github.com/polkadot-fellows/dashboard",
-              "_blank"
-            )
+            window.open("https://github.com/polkadot-fellows", "_blank")
           }
         >
           <LogoGithubSVG width="1.2em" height="1.2em" />

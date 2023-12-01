@@ -20,8 +20,6 @@ export const RequestsGrid = () => {
     fetchOpenPRs()
   }, [])
 
-  console.log("data", data)
-
   return (
     <>
       <Grid row style={{ marginTop: "5rem" }}>

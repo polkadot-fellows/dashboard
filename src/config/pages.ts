@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 import { Overview } from "pages/Overview"
+import { Rfc } from "pages/Rfc"
 import type { PageCategoryItems, PagesConfigItems } from "types"
 
 const BASE_URL = import.meta.env.BASE_URL
@@ -21,5 +22,13 @@ export const PagesConfig: PagesConfigItems = [
     hash: "/overview",
     Entry: Overview,
     lottie: "globe",
+  },
+  {
+    category: 1,
+    key: "RFCs",
+    uri: `${BASE_URL}`,
+    hash: "/rfcs",
+    Entry: Rfc,
+    lottie: "view",
   },
 ]

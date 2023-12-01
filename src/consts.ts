@@ -9,8 +9,8 @@ export const DappName = "Polkadot Fellowship Dashboard"
 export const PolkadotUrl = "https://polkadot-fellows.github.io/dashboard"
 
 export const GithubOwner = "polkadot-fellows"
-export const GithubRepo = "dasgboard"
-export const GithubApiUrl = `https://api.github.com/repos/${GithubOwner}/${GithubRepo}`
+export const GithubRfc = "RFCs"
+export const GithubApiUrl = `https://api.github.com/repos/${GithubOwner}/${GithubRfc}`
 
 export const SideMenuMaximisedWidth = 185
 export const SideMenuMinimisedWidth = 75

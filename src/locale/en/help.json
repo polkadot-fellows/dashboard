@@ -1,0 +1,23 @@
+{
+  "help": {
+    "definitions": {
+      "helpKey": [
+        "Help Key",
+        ["Description Paragraph", "Description Paragraph"]
+      ]
+    },
+    "externals": {
+      "docs": "Fellowship Documentation",
+      "rfcRepo": "RFCs Github",
+      "docsGithub": "Documentation (Github Repository)",
+      "introWiki": "Introduction to Polkadot Fellowship"
+    },
+    "modal": {
+      "articles": "Articles",
+      "close": "Close",
+      "definitions": "Definitions",
+      "helpResources": "Help Resources",
+      "related": "Related"
+    }
+  }
+}

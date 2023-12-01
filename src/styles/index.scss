@@ -1,0 +1,12 @@
+// Copyright 2023 @polkadot-fellows/dashboard authors & contributors
+// SPDX-License-Identifier: GPL-3.0-only
+
+html {
+  font-size: 10.5px;
+  @media (min-width: 600px) {
+    font-size: 11px;
+  }
+  div {
+    color: var(--text-color-primary);
+  }
+}

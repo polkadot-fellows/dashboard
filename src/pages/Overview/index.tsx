@@ -1,0 +1,16 @@
+// Copyright 2023 @polkadot-fellows/dashboard authors & contributors
+// SPDX-License-Identifier: GPL-3.0-only
+
+import { PageRow, PageTitle } from "@polkadot-cloud/react"
+import { RequestsGrid } from "./RequestsGrid"
+
+export const Overview = () => {
+  return (
+    <>
+      <PageTitle title="Polkadot Fellowship Dashboard" />
+      <PageRow>
+        <RequestsGrid />
+      </PageRow>
+    </>
+  )
+}

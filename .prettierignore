@@ -1,0 +1,13 @@
+**/build
+**/dist
+**/node_modules
+**/package.json
+**/yarn.lock
+**/package-lock.json
+**/.eslintrc.js
+**/tsconfig.json
+**/tstsconfig.tsbuildinfo
+
+src/img/**/*
+public/lottie/player.js
+README.md

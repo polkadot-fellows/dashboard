@@ -1,9 +1,8 @@
 // Copyright 2023 @polkadot-fellows/dashboard authors & contributors
 // SPDX-License-Identifier: GPL-3.0-only
 
-import { faTimes } from "@fortawesome/free-solid-svg-icons"
 import {
-  ButtonPrimaryInvert,
+  Button,
   CanvasContainer,
   ModalContent,
   ModalScroll,
@@ -154,10 +153,10 @@ export const Help = () => {
       <ModalScroll size={""}>
         <ModalContent>
           <div className="buttons">
-            <ButtonPrimaryInvert
+            <Button
+              type="primaryInvert"
               lg
-              text={t("modal.close")}
-              iconLeft={faTimes}
+              text={`x ${t("modal.close")}`}
               onClick={() => closeHelp()}
             />
           </div>

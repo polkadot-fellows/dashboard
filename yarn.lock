@@ -166,7 +166,7 @@
   dependencies:
     regenerator-runtime "^0.13.11"
 
-"@babel/runtime@^7.23.2":
+"@babel/runtime@^7.23.2", "@babel/runtime@^7.8.3":
   version "7.23.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.23.5.tgz#11edb98f8aeec529b82b211028177679144242db"
   integrity sha512-NdUTHcPe4C99WxPub+K9l9tK5/lV4UXIoaHSYgzco9BCyjKAAwzdBI+wWtYqHt7LJdbo74ZjRPJgzVweq1sz0w==
@@ -973,6 +973,13 @@
     "@polkadot/util" "12.6.1"
     "@substrate/ss58-registry" "^1.44.0"
     tslib "^2.6.2"
+
+"@polkadot/react-hooks@^0.39.1":
+  version "0.39.1"
+  resolved "https://registry.yarnpkg.com/@polkadot/react-hooks/-/react-hooks-0.39.1.tgz#89f8e5dd4829c5a08dbd68c18304214de481eaed"
+  integrity sha512-aTu8RWRRwtnxt34ihXCw/9aVD26w5ZnbUeUetPIP8nBxkLLLvfixVZ2Xyl9HKMRSTVhnu8C+qTamDDnfWSoubQ==
+  dependencies:
+    "@babel/runtime" "^7.8.3"
 
 "@polkadot/rpc-augment@10.11.1":
   version "10.11.1"

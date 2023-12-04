@@ -1,6 +1,7 @@
 {
   "base": {
     "overview": "Overview",
+    "members": "Members",
     "RFCs": "Open RFCs",
     "feedback": "Feedback",
     "resources": "Resources"

@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 import { Overview } from "pages/Overview"
+import { Members } from "pages/Members"
 import { Rfc } from "pages/Rfc"
 import type { PageCategoryItems, PagesConfigItems } from "types"
 
@@ -21,6 +22,14 @@ export const PagesConfig: PagesConfigItems = [
     uri: `${BASE_URL}`,
     hash: "/overview",
     Entry: Overview,
+    lottie: "globe",
+  },
+  {
+    category: 1,
+    key: "members",
+    uri: `${BASE_URL}`,
+    hash: "/members",
+    Entry: Members,
     lottie: "globe",
   },
   {

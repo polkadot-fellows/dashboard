@@ -1,8 +1,6 @@
 // Copyright 2023 @polkadot-fellows/dashboard authors & contributors
 // SPDX-License-Identifier: GPL-3.0-only
 
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
 import type { APIChainState, APIContextInterface } from "./types"
 
 // import { stringToU8a } from "@polkadot/util"

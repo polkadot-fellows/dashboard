@@ -10,8 +10,8 @@ import { AccountInfo } from "./AccountInfo"
 
 interface AccountInfo {
   name?: string
-  address?: string
-  rank?: number
+  address: string
+  rank: number
 }
 
 export const RequestsGrid = () => {
@@ -26,7 +26,7 @@ export const RequestsGrid = () => {
         (await api?.isReady) &&
         api.query.fellowshipCollective.memberCount(0).then((res) => {
           for (let i = 0; i < parseInt(res.toString()); i++) {
-            const account: AccountInfo = {}
+            const account: AccountInfo = {} as AccountInfo
             api.query.fellowshipCollective.indexToId(0, i).then((result) => {
               account.address = result.toHuman() as string
               api.query.fellowshipCollective
@@ -42,7 +42,9 @@ export const RequestsGrid = () => {
                   members.push(account)
                 })
                 .finally(() => {
-                  setMem([...members])
+                  setMem([
+                    ...members.sort((a, b) => (a.rank > b.rank ? -1 : 1)),
+                  ])
                 })
             })
           }

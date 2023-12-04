@@ -49,11 +49,11 @@ export const NetworkBar = () => {
         </section>
         <section>
           <div className="hide-small">
-            {/* Price feed was here */}
             <p>
               {ORGANISATION === undefined
                 ? "Polkadot Fellowship Dashboard"
                 : ORGANISATION}
+              {" - "}
               {new Date().getFullYear()}
             </p>
           </div>

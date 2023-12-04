@@ -39,9 +39,6 @@ export const RequestsGrid = () => {
                     .then((name) => {
                       account.name = name.toString() || "-"
                     })
-                  // api!.query.system.account(account.address).then((acc) => {
-                  //   console.log("acc", account.address, j?.rank, acc.toHuman())
-                  // })
                   members.push(account)
                 })
                 .finally(() => {
@@ -54,11 +51,9 @@ export const RequestsGrid = () => {
     fetchMembers()
   }, [api, api?.isReady])
 
-  console.log(mem)
-
   return (
     <>
-      <Grid row key={"123"} style={{ padding: "2rem", width: "100%" }}>
+      <Grid row key={"random_key"} style={{ padding: "2rem", width: "100%" }}>
         <Grid column sm={1}>
           Index
         </Grid>

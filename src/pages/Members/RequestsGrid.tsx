@@ -57,16 +57,16 @@ export const RequestsGrid = () => {
     <>
       <Grid row key={"random_key"} style={{ padding: "2rem", width: "100%" }}>
         <Grid column sm={1}>
-          Index
+          {" "}
         </Grid>
-        <Grid column sm={7}>
-          Account Address
+        <Grid column sm={9} md={7}>
+          <h3>Account Address</h3>
         </Grid>
-        <Grid column sm={2}>
-          Name
+        <Grid column sm={1} md={2}>
+          <h3>Name</h3>
         </Grid>
-        <Grid column sm={2}>
-          Rank
+        <Grid column sm={1} md={2}>
+          <h3>Rank</h3>
         </Grid>
       </Grid>
       {mem.map((m, i) => (

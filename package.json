@@ -31,7 +31,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@polkadot-cloud/core": "^1.0.48",
-    "@polkadot-cloud/react": "^0.1.137",
+    "@polkadot-cloud/react": "^0.1.138",
     "@polkadot/keyring": "^12.6.1",
     "@polkadot/react-hooks": "^0.39.1",
     "@polkadot/util": "^12.6.1",

@@ -69,7 +69,7 @@ export const RequestsGrid = () => {
                         src={`${d.user.avatar_url}`}
                       />
                     </Grid>
-                    <Grid column md={3}>
+                    <Grid column md={5}>
                       <Link
                         to={d.user.html_url}
                         target="_blank"
@@ -78,8 +78,10 @@ export const RequestsGrid = () => {
                         {d.user.login}
                       </Link>
                     </Grid>
-                    <Grid column md={7} className="rfc-date">
-                      {new Date(d.created_at).toDateString()}
+                    <Grid column md={5}>
+                      <p className="rfc-date">
+                        {new Date(d.created_at).toDateString()}
+                      </p>
                     </Grid>
                   </Grid>
                 </Card>

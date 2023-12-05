@@ -33,6 +33,7 @@
     "@polkadot-cloud/core": "^1.0.48",
     "@polkadot-cloud/react": "^0.1.137",
     "@polkadot/keyring": "^12.6.1",
+    "@polkadot/react-hooks": "^0.39.1",
     "@polkadot/util": "^12.6.1",
     "@types/lodash.throttle": "^4.1.9",
     "bignumber.js": "^9.1.2",

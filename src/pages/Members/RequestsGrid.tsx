@@ -3,10 +3,11 @@
 
 import { useEffect, useState } from "react"
 import { Grid } from "@polkadot-cloud/react"
+import { AccountCard } from "@polkadot-cloud/recipes"
 
 import "./RequestsGrid.scss"
 import { useApi } from "contexts/Api"
-import { AccountInfo } from "./AccountInfo"
+// import { AccountInfo } from "./AccountInfo"
 
 interface AccountInfo {
   name?: string
@@ -56,17 +57,12 @@ export const RequestsGrid = () => {
   return (
     <>
       <Grid row key={"random_key"} style={{ padding: "2rem", width: "100%" }}>
-        <Grid column sm={1}>
-          Index
+        <Grid column sm={1}></Grid>
+        <Grid column sm={10} md={9}>
+          <h3>Account Address</h3>
         </Grid>
-        <Grid column sm={7}>
-          Account Address
-        </Grid>
-        <Grid column sm={2}>
-          Name
-        </Grid>
-        <Grid column sm={2}>
-          Rank
+        <Grid column sm={1} md={2}>
+          <h3>Rank</h3>
         </Grid>
       </Grid>
       {mem.map((m, i) => (
@@ -74,13 +70,29 @@ export const RequestsGrid = () => {
           <Grid column sm={1}>
             {i + 1}
           </Grid>
-          <Grid column sm={7}>
-            <AccountInfo key={m.address} address={m.address} />
+          <Grid column sm={10} md={9}>
+            <AccountCard
+              style={{
+                background: "transparent",
+                border: 0,
+                boxShadow: "none",
+              }}
+              title={{
+                address: m.address,
+                justify: "flex-start",
+                align: "center",
+              }}
+              icon={{
+                copy: true,
+                size: 20,
+                gridSize: 1,
+                justify: "space-between",
+                outerColor: "transparent",
+                dark: true,
+              }}
+            />
           </Grid>
-          <Grid column sm={2}>
-            <span>{m.name || "-"}</span>
-          </Grid>
-          <Grid column sm={2}>
+          <Grid column sm={1} md={2}>
             <span>{m.rank}</span>
           </Grid>
         </Grid>

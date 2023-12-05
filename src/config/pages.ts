@@ -30,7 +30,7 @@ export const PagesConfig: PagesConfigItems = [
     uri: `${BASE_URL}`,
     hash: "/members",
     Entry: Members,
-    lottie: "globe",
+    lottie: "groups",
   },
   {
     category: 1,
@@ -38,6 +38,6 @@ export const PagesConfig: PagesConfigItems = [
     uri: `${BASE_URL}`,
     hash: "/rfcs",
     Entry: Rfc,
-    lottie: "globe",
+    lottie: "label",
   },
 ]

@@ -7,6 +7,7 @@ import checker from "vite-plugin-checker"
 import eslint from "vite-plugin-eslint"
 import svgr from "vite-plugin-svgr"
 import tsconfigPaths from "vite-tsconfig-paths"
+import mdx from "@mdx-js/rollup"
 
 // https://vitejs.dev/config/
 //
@@ -17,6 +18,7 @@ import tsconfigPaths from "vite-tsconfig-paths"
 // - `BASE_URL`env variable is used in the codebase to refer to the supplied base.
 export default defineConfig({
   plugins: [
+    { enforce: "pre", ...mdx() },
     eslint(),
     react(),
     svgr(),

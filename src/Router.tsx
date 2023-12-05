@@ -88,7 +88,7 @@ export const RouterInner = () => {
                       path={hash}
                       element={
                         <Page>
-                          <title>Polkadot Fellowship Dashboard</title>
+                          <title>Polkadot Fellowship</title>
                           <Entry page={page} />
                         </Page>
                       }

@@ -7,16 +7,16 @@
       ]
     },
     "externals": {
-      "docs": "Fellowship Documentation",
-      "rfcRepo": "RFCs Github",
-      "docsGithub": "Documentation (Github Repository)",
-      "introWiki": "Introduction to Polkadot Fellowship"
+      "github": "Polkadot Fellowship (Github)",
+      "introWiki": "Introduction to Polkadot Fellowship",
+      "gov": "Governance v2",
+      "democracy": "Democracy Pallet"
     },
     "modal": {
-      "articles": "Articles",
+      "articles": "Links",
       "close": "Close",
       "definitions": "Definitions",
-      "helpResources": "Help Resources",
+      "helpResources": "Resources",
       "related": "Related"
     }
   }

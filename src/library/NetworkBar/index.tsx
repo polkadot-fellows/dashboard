@@ -51,7 +51,7 @@ export const NetworkBar = () => {
           <div className="hide-small">
             <p>
               {ORGANISATION === undefined
-                ? "Polkadot Fellowship Dashboard"
+                ? "Polkadot Fellowship"
                 : ORGANISATION}
               {" - "}
               {new Date().getFullYear()}

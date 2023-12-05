@@ -7,7 +7,7 @@ import throttle from "lodash.throttle"
 import { useEffect, useRef } from "react"
 import { useTranslation } from "react-i18next"
 import LogoGithubSVG from "img/logoGithub.svg?react"
-import ForumSVG from "img/forum.svg?react"
+import InfoIcon from "img/manifest.svg?react"
 import InfoSVG from "img/info.svg?react"
 import MoonOutlineSVG from "img/moonOutline.svg?react"
 import SunnyOutlineSVG from "img/sunnyOutline.svg?react"
@@ -62,6 +62,21 @@ export const SideMenu = () => {
     <Wrapper ref={ref} $minimised={sideMenuMinimised}>
       <section>
         <Main />
+        <Separator />
+        <Secondary
+          onClick={() => {
+            window.open(
+              "https://github.com/polkadot-fellows/manifesto/blob/0c3df46d76625980b8b48742cb86f4d8fa6dda8d/manifesto.pdf",
+              "_blank"
+            )
+          }}
+          name={t("manifesto")}
+          minimised={sideMenuMinimised}
+          icon={{
+            Svg: InfoIcon,
+            size: sideMenuMinimised ? "1.4em" : "1.2em",
+          }}
+        />
         <Heading title={t("support")} minimised={sideMenuMinimised} />
         <Secondary
           onClick={() => {
@@ -71,17 +86,6 @@ export const SideMenu = () => {
           minimised={sideMenuMinimised}
           icon={{
             Svg: InfoSVG,
-            size: sideMenuMinimised ? "1.4em" : "1.2em",
-          }}
-        />
-        <Secondary
-          onClick={() => {
-            /* openModalWith('GoToFeedback') */
-          }}
-          name={t("feedback")}
-          minimised={sideMenuMinimised}
-          icon={{
-            Svg: ForumSVG,
             size: sideMenuMinimised ? "1.4em" : "1.2em",
           }}
         />

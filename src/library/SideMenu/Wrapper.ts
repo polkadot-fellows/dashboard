@@ -108,3 +108,14 @@ export const ConnectionSymbol = styled.div`
     color: var(--status-danger-color);
   }
 `
+
+export const IconWrapper = styled.div<{ $minimised: boolean }>`
+  margin-left: ${(props) => (props.$minimised ? 0 : "0.25rem")};
+  margin-right: ${(props) => (props.$minimised ? 0 : "0.65rem")};
+
+  svg {
+    .primary {
+      fill: var(--text-color-primary);
+    }
+  }
+`

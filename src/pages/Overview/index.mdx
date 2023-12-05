@@ -1,28 +1,24 @@
-export function Thing() {
-  return <>World</>
-}
-
-# Hello <Thing />
+import preimage from "./fellowship-add-member-preimage.png"
+import proposal from "./fellowship-add-member-proposal.png"
 
 ## The Polkadot Technical Fellowship
-
-:::info From Technical Committee to the Technical Fellowship
-
-The Polkadot Technical Fellowship is a collection of Substrate experts. This fellowship was
-established in 2022. In Polkadot OpenGov, this fellowship replaces the
-[Technical Committee](./learn-governance.md#technical-committee) in Governance v1, and will serve
-both the Polkadot and Kusama networks.
-
-For more information about the Fellowship see the
-[Fellowship Manifesto](https://github.com/polkadot-fellows/manifesto/blob/0c3df46d76625980b8b48742cb86f4d8fa6dda8d/manifesto.pdf).
-
-:::
 
 The Technical Fellowship is a mostly self-governing expert body with a primary goal of representing
 humans who embody and contain the technical knowledge base of the Kusama and/or Polkadot networks
 and protocols. This is accomplished by associating a rank with members to categorize the degree to
 which the system expects their opinion to be well-informed, of a sound technical basis, and in line
 with the interests of Polkadot and/or Kusama.
+
+<div className="note">
+  <h3>From Technical Committee to the Technical Fellowship</h3>
+  <p>
+    The Polkadot Technical Fellowship is a collection of Substrate experts. This
+    fellowship was established in 2022. In Polkadot OpenGov, this fellowship
+    replaces the [Technical
+    Committee](./learn-governance.md#technical-committee) in Governance v1, and
+    will serve both the Polkadot and Kusama networks.
+  </p>
+</div>
 
 Unlike the Technical Committee in Governance V1, the Fellowship is designed to be far broader in
 membership (i.e. to work well with even tens of thousands of members) and with far lower barriers to
@@ -42,7 +38,7 @@ The fellowship governance is primarily used for its membership management,
 [approving RFCs](https://github.com/polkadot-fellows/RFCs) and whitelisting Polkadot OpenGov
 proposals.
 
-### Ranking System
+### **Ranking System**
 
 To prevent a small group of participants from gaining effective control over the network, this
 system will adhere to three main principles:
@@ -70,7 +66,7 @@ To prevent the Fellowship from becoming a cabal (popularity with Fellowship peer
 be enough to gain access to a top rank), gaining access to the top tiers of the ranks will require a
 referendum.
 
-### Whitelisting
+### **Whitelisting**
 
 Polkadot OpenGov allows the Fellowship to authorize a new origin (known as "Whitelisted-Caller") to
 execute with Root-level privileges for calls that have been approved by the Fellowship (currently
@@ -92,30 +88,36 @@ restrictive passing parameters than Root in the short term. Through an open and 
 a body of global experts on the Polkadot
 protocol have determined that the action is both safe and time-critical.
 
-:::info Submitting Whitelisted Proposals
+<div className="note secondary">
+  <h3>Submitting Whitelisted Proposals</h3>
+  <p>
+    For more information about how to submit a whitelisted proposal see the
+    [dedicated advanced how-to
+    guides](https://wiki.polkadot.network/docs/learn-guides-polkadot-opengov#submitting-a-referendum-on-the-whitelisted-caller-track).
+  </p>
+</div>
+>
 
-For more information about how to submit a whitelisted proposal see the
-[dedicated advanced how-to guides](./learn-guides-polkadot-opengov.md#submitting-a-referendum-on-the-whitelisted-caller-track).
-
-:::
-
-### Becoming a Polkadot Technical Fellowship Member
+### **Becoming a Polkadot Technical Fellowship Member**
 
 Currently, the only way to become a fellowship member is through a referenda. To get added as a
-member of "Rank 1", an existing member of the fellowship needs to submit a referendum with the
+member of **"Rank 1"**, an existing member of the fellowship needs to submit a referendum with the
 preimage of a batch call that has `fellowshipCollective.addMember` and
-`fellowshipCollective.promoteMember` on "2/Proficients" track. On Polkadot-JS UI for Polkadot
-Collectives, navigate to Governance > Fellowship > Referenda and click on "Add Preimage". This
-preimage can be submitted by anyone.
+`fellowshipCollective.promoteMember` on "2/Proficients" track.
 
-![fellowship-add-promote-member-preimage](../assets/fellowship-add-member-preimage.png)
+On Polkadot-JS UI for Polkadot
+Collectives, navigate to Governance > Fellowship > Referenda and click on "Add Preimage".
+
+This preimage can be submitted by anyone.
+
+<img className={"adj-img"} src={preimage} alt="preimage" />
 
 After the preimage is successfully noted, navigate to Governance > Fellowship > Referenda and click
 on "Submit Proposal" (This button is active on the UI only if you have an account that belongs to
 the Fellowship). Choose the appropriate track and the origin, and enter the preimage hash of the
 batch call that adds and promotes the member.
 
-![fellowship-add-promote-member-proposal](../assets/fellowship-add-member-proposal.png)
+<img className={"adj-img"} src={proposal} alt="proposal" />
 
 After the referendum is successfully executed, the member is added to the fellowship with "rank 1".
 For example, check the [Referenda 23](https://collectives.subsquare.io/fellowship/referenda/23) on
@@ -127,3 +129,10 @@ Collectives parachain.
 Future plans include that public members can apply to become a Fellowship candidate by placing a
 small deposit (which will be returned once they become members). Their candidacy will go through a
 referendum to be approved to become a member.
+
+<div className="note">
+  <p>
+    For more information about the Fellowship see the [Fellowship
+    Manifesto](https://github.com/polkadot-fellows/manifesto/blob/0c3df46d76625980b8b48742cb86f4d8fa6dda8d/manifesto.pdf).
+  </p>
+</div>

@@ -56,14 +56,9 @@ export const RequestsGrid = () => {
   return (
     <>
       <Grid row key={"random_key"} style={{ padding: "2rem", width: "100%" }}>
-        <Grid column sm={1}>
-          {" "}
-        </Grid>
+        <Grid column sm={1}></Grid>
         <Grid column sm={9} md={7}>
           <h3>Account Address</h3>
-        </Grid>
-        <Grid column sm={1} md={2}>
-          <h3>Name</h3>
         </Grid>
         <Grid column sm={1} md={2}>
           <h3>Rank</h3>
@@ -76,9 +71,6 @@ export const RequestsGrid = () => {
           </Grid>
           <Grid column sm={7}>
             <AccountInfo key={m.address} address={m.address} />
-          </Grid>
-          <Grid column sm={2}>
-            <span>{m.name || "-"}</span>
           </Grid>
           <Grid column sm={2}>
             <span>{m.rank}</span>

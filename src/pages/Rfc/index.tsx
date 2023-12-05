@@ -7,7 +7,7 @@ import { RequestsGrid } from "./RequestsGrid"
 export const Rfc = () => {
   return (
     <>
-      <PageTitle title="Polkadot Fellowship Open RFCs" />
+      <PageTitle title="Polkadot Fellowship - RFCs" />
       <PageRow>
         <RequestsGrid />
       </PageRow>

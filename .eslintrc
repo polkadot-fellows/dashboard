@@ -8,9 +8,8 @@
     "plugin:import/recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    // "airbnb",
-    // "airbnb-typescript",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:mdx/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -69,7 +68,7 @@
     "react/jsx-filename-extension": [
       "warn",
       {
-        "extensions": [".tsx"]
+        "extensions": [".tsx", ".mdx"]
       }
     ],
     "import/extensions": [
@@ -96,5 +95,13 @@
     "import/resolver": {
       "typescript": {}
     }
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.mdx"],
+      "rules": {
+        "no-undef": "off"
+      }
+    }
+  ]
 }

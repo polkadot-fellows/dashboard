@@ -7,7 +7,7 @@ import MdxCode from "./index.mdx"
 export const Overview = () => {
   return (
     <>
-      <PageTitle title="Polkadot Fellowship Dashboard" />
+      <PageTitle title="Polkadot Fellowship - Overview" />
       <PageRow style={{ paddingTop: "1rem" }}>
         <MdxCode />
       </PageRow>

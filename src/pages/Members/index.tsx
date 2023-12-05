@@ -7,7 +7,7 @@ import { RequestsGrid } from "./RequestsGrid"
 export const Members = () => {
   return (
     <>
-      <PageTitle title="Polkadot Fellowship Members" />
+      <PageTitle title="Polkadot Fellowship - Members" />
       <PageRow>
         <RequestsGrid />
       </PageRow>

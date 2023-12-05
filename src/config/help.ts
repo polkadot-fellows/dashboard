@@ -6,22 +6,22 @@ import type { HelpItems } from "contexts/Help/types"
 export const HelpConfig: HelpItems = [
   {
     key: "overview",
-    definitions: ["Help Key"],
+    // definitions: ["Help Key"],
     external: [
       [
-        "docs",
-        "https://polkadot-fellows.github.io/docs/",
-        "polkadot-fellows.github.io/docs/",
+        "github",
+        "https://github.com/polkadot-fellows/",
+        "github.com/polkadot-fellows/",
       ],
       [
-        "rfcRepo",
-        "https://github.com/polkadot-fellows/format",
-        "github.com/polkadot-fellows/format",
+        "gov",
+        "https://medium.com/polkadot-network/gov2-polkadots-next-generation-of-decentralised-governance-4d9ef657d11b",
+        "medium.com/polkadot-network/gov2-polkadots-next-generation-of-decentralised-governance",
       ],
       [
-        "docsGithub",
-        "https://github.com/polkadot-fellows/docs",
-        "github.com/polkadot-fellows/docs",
+        "democracy",
+        "https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/democracy/README.md",
+        "polkadot-sdk/substrate/frame/democracy/",
       ],
       [
         "introWiki",

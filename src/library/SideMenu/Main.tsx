@@ -9,11 +9,12 @@ import { PageCategories, PagesConfig } from "config/pages"
 import { useUi } from "contexts/UI"
 import type { UIContextInterface } from "contexts/UI/types"
 import type { PageCategory, PageItem, PagesConfigItems } from "types"
-import PolkadotIconSVG from "img/polkadotIcon.svg?react"
-import PolkadotLogoSVG from "img/polkadotLogo.svg?react"
+
+import PolkadotIcon from "img/polkadotIcon.svg?react"
+import PolkadotLogo from "img/polkadotLogo.svg?react"
 import { Heading } from "./Heading/Heading"
 import { Primary } from "./Primary"
-import { LogoWrapper } from "./Wrapper"
+import { IconWrapper, LogoWrapper } from "./Wrapper"
 
 export const Main = () => {
   const { t } = useTranslation("base")
@@ -28,25 +29,43 @@ export const Main = () => {
   // remove pages that network does not support
   const pagesToDisplay: PagesConfigItems = Object.values(pageConfig.pages)
 
+  const size = sideMenuMinimised ? "1.4rem" : "2.2rem"
+  const Svg = sideMenuMinimised ? (
+    <PolkadotIcon
+      style={{
+        maxHeight: "100%",
+        width: "2rem",
+        fill: "var(--accent-color-primary)",
+      }}
+      width={size}
+      height={size}
+    />
+  ) : (
+    <PolkadotLogo
+      style={{
+        maxHeight: "100%",
+        height: "100%",
+        width: "7.2rem",
+        fill: "var(--accent-color-primary)",
+      }}
+      width={size}
+      height={size}
+    />
+  )
+
   return (
     <>
       <LogoWrapper
         $minimised={sideMenuMinimised}
         onClick={() => window.open(PolkadotUrl, "_blank")}
       >
-        {sideMenuMinimised ? (
-          <PolkadotIconSVG style={{ maxHeight: "100%", width: "2rem" }} />
-        ) : (
-          <>
-            <PolkadotLogoSVG
-              style={{
-                maxHeight: "100%",
-                height: "100%",
-                width: "7.2rem",
-              }}
-            />
-          </>
-        )}
+        <IconWrapper
+          $minimised={sideMenuMinimised}
+          className="icon"
+          style={{ width: size, height: size }}
+        >
+          {Svg}
+        </IconWrapper>
       </LogoWrapper>
 
       {pageConfig.categories.map(

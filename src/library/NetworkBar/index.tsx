@@ -20,7 +20,7 @@ export const NetworkBar = () => {
           {PRIVACY_URL !== undefined ? (
             <p>
               <a href={PRIVACY_URL} target="_blank" rel="noreferrer">
-                {t("privacy")}
+                {/* {t("privacy")} */}
               </a>
             </p>
           ) : null}
@@ -28,7 +28,7 @@ export const NetworkBar = () => {
             <>
               <p>
                 <a href={DISCLAIMER_URL} target="_blank" rel="noreferrer">
-                  {t("disclaimer")}
+                  {/* {t("disclaimer")} */}
                 </a>
               </p>
             </>

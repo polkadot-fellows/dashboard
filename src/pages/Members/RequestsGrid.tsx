@@ -7,6 +7,7 @@ import { AccountCard } from "@polkadot-cloud/recipes"
 
 import "./RequestsGrid.scss"
 import { useApi } from "contexts/Api"
+import { AccountName } from "./AccountName"
 // import { AccountInfo } from "./AccountInfo"
 
 interface AccountInfo {
@@ -14,6 +15,19 @@ interface AccountInfo {
   address: string
   rank: number
 }
+
+const rankings = [
+  "Candidate",
+  "Member",
+  "Proficient",
+  "Fellow",
+  "Architect",
+  "Architect Adept",
+  "Grand Architect",
+  "Free Master",
+  "Master Constant",
+  "Grand Master",
+]
 
 export const RequestsGrid = () => {
   const { api } = useApi()
@@ -35,11 +49,6 @@ export const RequestsGrid = () => {
                 .then((r) => {
                   const j: any = r.toHuman()
                   account.rank = j?.rank
-                  api!.query?.identity
-                    ?.identityOf(account.address)
-                    .then((name) => {
-                      account.name = name.toString() || "-"
-                    })
                   members.push(account)
                 })
                 .finally(() => {
@@ -54,23 +63,27 @@ export const RequestsGrid = () => {
     fetchMembers()
   }, [api, api?.isReady])
 
+  console.log("mem", mem)
+
   return (
     <>
       <Grid row key={"random_key"} style={{ padding: "2rem", width: "100%" }}>
-        <Grid column sm={1}></Grid>
-        <Grid column sm={10} md={9}>
+        <Grid column sm={3} md={3} style={{ textAlign: "center" }}>
+          <h3>Name</h3>
+        </Grid>
+        <Grid column sm={7} md={7} style={{ textAlign: "center" }}>
           <h3>Account Address</h3>
         </Grid>
-        <Grid column sm={1} md={2}>
+        <Grid column sm={2} md={2} style={{ textAlign: "center" }}>
           <h3>Rank</h3>
         </Grid>
       </Grid>
-      {mem.map((m, i) => (
-        <Grid row key={m.address} style={{ padding: "0.2rem 0" }}>
-          <Grid column sm={1}>
-            {i + 1}
+      {mem.map((m) => (
+        <Grid row key={m.address} style={{ padding: "0.5rem 0" }}>
+          <Grid column sm={3} md={3}>
+            <AccountName address={m.address} />
           </Grid>
-          <Grid column sm={10} md={9}>
+          <Grid column sm={7} md={7}>
             <AccountCard
               style={{
                 background: "transparent",
@@ -82,9 +95,13 @@ export const RequestsGrid = () => {
                 justify: "flex-start",
                 align: "center",
               }}
+              ellipsis={{
+                active: true,
+                amount: 10,
+              }}
               icon={{
                 copy: true,
-                size: 20,
+                size: 38,
                 gridSize: 1,
                 justify: "space-between",
                 outerColor: "transparent",
@@ -92,8 +109,10 @@ export const RequestsGrid = () => {
               }}
             />
           </Grid>
-          <Grid column sm={1} md={2}>
-            <span>{m.rank}</span>
+          <Grid column sm={2} md={2}>
+            <span>
+              {rankings[m.rank]} ({m.rank})
+            </span>
           </Grid>
         </Grid>
       ))}

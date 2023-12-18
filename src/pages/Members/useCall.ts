@@ -13,19 +13,18 @@ import { isFunction, isNull, isUndefined, nextTick } from "@polkadot/util"
 
 import { useApi } from "contexts/Api"
 import { useIsMountedRef } from "./useIsMountedRef.js"
+import type { Any } from "@polkadot-cloud/react/utils/types.js"
 
 type VoidFn = () => void
 
-export type CallParam = any
+export type CallParam = Any
 
 export type CallParams = [] | CallParam[]
 
 export interface CallOptions<T> {
   defaultValue?: T
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  paramMap?: (params: any) => CallParams
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  transform?: (value: any, api: ApiPromise) => T
+  paramMap?: (params: Any) => CallParams
+  transform?: (value: Any, api: ApiPromise) => T
   withParams?: boolean
   withParamsTransform?: boolean
 }
@@ -127,7 +126,7 @@ const subscribe = <T>(
   tracker: TrackerRef,
   fn: TrackFn | undefined,
   params: CallParams,
-  setValue: (value: any) => void,
+  setValue: (value: Any) => void,
   {
     transform = transformIdentity,
     withParams,

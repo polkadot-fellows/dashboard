@@ -571,28 +571,53 @@
     rxjs "^7.8.1"
     semver "^7.3.5"
 
+"@ledgerhq/devices@^8.2.0":
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/@ledgerhq/devices/-/devices-8.2.0.tgz#ef67bf49628252d1779acaa151b1a941acba790e"
+  integrity sha512-XROTW2gTmmuy+YPPDjdtKKTQ3mfxrPtKtV+a9QFbj8f5MnjVMV0Zpy1BIB4CyIMsVVi4z6+nI67auT7IlsM3SQ==
+  dependencies:
+    "@ledgerhq/errors" "^6.16.1"
+    "@ledgerhq/logs" "^6.12.0"
+    rxjs "^7.8.1"
+    semver "^7.3.5"
+
 "@ledgerhq/errors@^6.16.0":
   version "6.16.0"
   resolved "https://registry.yarnpkg.com/@ledgerhq/errors/-/errors-6.16.0.tgz#0aaf16bbf649a3b43867746781b2e3adebf7fe3a"
   integrity sha512-vnew6lf4jN6E+WI0DFhD4WY0uM8LYL8HCumtUr86hNwvmEfebi7LxxpJGmYfVQD5TgEC7NibYnQ+2q9XWAc02A==
 
-"@ledgerhq/hw-transport-webhid@^6.27.20":
-  version "6.28.0"
-  resolved "https://registry.yarnpkg.com/@ledgerhq/hw-transport-webhid/-/hw-transport-webhid-6.28.0.tgz#828e0737a314163139568a8020db3cfb44a69eea"
-  integrity sha512-3u6YPi5NZUz5FjTdD7Ga5AIkY7HISFfKec77YUJ+WylvNxnGMaijLMcy7b2sNLIrMH+HzApwUFby390UzmgLeg==
+"@ledgerhq/errors@^6.16.1":
+  version "6.16.1"
+  resolved "https://registry.yarnpkg.com/@ledgerhq/errors/-/errors-6.16.1.tgz#df650a9ba105397dee2e8c0ceddf6931c5b25ede"
+  integrity sha512-4D4wKecGzQpIu7sx03Sg4uE1e8g1oZUndWgw9gw776H8h9ov9c5TxPaldTn2j6orPECAERViLf7LTO4L5pE2Cw==
+
+"@ledgerhq/hw-transport-webhid@^6.28.1":
+  version "6.28.1"
+  resolved "https://registry.yarnpkg.com/@ledgerhq/hw-transport-webhid/-/hw-transport-webhid-6.28.1.tgz#af13c517514451bf60ee83d8e2b402028504af5c"
+  integrity sha512-m1FzUaaRdMm+KWz+sm4RGjG1axAIYEnIC3PqwFGMtXDjyPVohdWxRJD9B2L/etR4EY67b7AH/MoQ02rpUqCCEA==
   dependencies:
-    "@ledgerhq/devices" "^8.1.0"
-    "@ledgerhq/errors" "^6.16.0"
-    "@ledgerhq/hw-transport" "^6.30.0"
+    "@ledgerhq/devices" "^8.2.0"
+    "@ledgerhq/errors" "^6.16.1"
+    "@ledgerhq/hw-transport" "^6.30.1"
     "@ledgerhq/logs" "^6.12.0"
 
-"@ledgerhq/hw-transport@^6.27.1", "@ledgerhq/hw-transport@^6.30.0":
+"@ledgerhq/hw-transport@^6.27.1":
   version "6.30.0"
   resolved "https://registry.yarnpkg.com/@ledgerhq/hw-transport/-/hw-transport-6.30.0.tgz#9c8a8f2c8281fbc4a3db1d1f3ac44a456b38281a"
   integrity sha512-wrAwn/wCAaGP2Yuy78cLyqmQNzbuDvUv4gJYF/UO4djvUz0jjvD2w5kxRWxF/W93vyKT+/RplRtFk3CJzD3e3A==
   dependencies:
     "@ledgerhq/devices" "^8.1.0"
     "@ledgerhq/errors" "^6.16.0"
+    "@ledgerhq/logs" "^6.12.0"
+    events "^3.3.0"
+
+"@ledgerhq/hw-transport@^6.30.1":
+  version "6.30.1"
+  resolved "https://registry.yarnpkg.com/@ledgerhq/hw-transport/-/hw-transport-6.30.1.tgz#fd3c825f41197aeaf705e3c066f82843eaf48cae"
+  integrity sha512-Xeeo4nt33g5Fsp3CdsPvcc2Uk7dwYeKRSlSFLWcYAAKprf/PmxgNekhke1eaNU/wLoeLOWhY2Cki8F8w9nLMdQ==
+  dependencies:
+    "@ledgerhq/devices" "^8.2.0"
+    "@ledgerhq/errors" "^6.16.1"
     "@ledgerhq/logs" "^6.12.0"
     events "^3.3.0"
 
@@ -809,12 +834,12 @@
   resolved "https://registry.yarnpkg.com/@polkadot-cloud/assets/-/assets-0.1.35.tgz#5718e6e0b80ac9c01e7fed150012bb2b7563a160"
   integrity sha512-ImyHYQ01s1kFetDE5qlk5x8s/H3WDFcbCcm+GquaJxm4b/QeznSJsBP0ZeaArihsCPcSWux9nFG6P1mfToVhtw==
 
-"@polkadot-cloud/core@^1.0.50", "@polkadot-cloud/core@^1.0.51", "@polkadot-cloud/core@^1.0.52":
+"@polkadot-cloud/core@^1.0.51", "@polkadot-cloud/core@^1.0.52":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@polkadot-cloud/core/-/core-1.1.0.tgz#ac830cc5b6998aad29e6809dd766e00c0dd5a594"
   integrity sha512-be4UNM5K4UDDfB46LW97vAGwtz8WYffM3hHy2FSWlcm3ZK/NP5TrudqCSXGtruQsxm6b7N7Bb79wa6gdruXyAQ==
 
-"@polkadot-cloud/react@^0.1.139", "@polkadot-cloud/react@^0.1.147":
+"@polkadot-cloud/react@^0.1.144", "@polkadot-cloud/react@^0.1.147":
   version "0.1.147"
   resolved "https://registry.yarnpkg.com/@polkadot-cloud/react/-/react-0.1.147.tgz#d5a9b723e98908720e9a0ef57ed8bb1625e0a6ce"
   integrity sha512-OIbTH7iTefGHq9FZermJTz4Wx43zEHQXTEz0RAn3pIrhhORuCtEdvgONANw0RlibJjgfXhUT990TL+UGjCP7lA==
@@ -833,10 +858,10 @@
     "@polkadot/util-crypto" "^12.5.1"
     framer-motion "^10.16.16"
 
-"@polkadot-cloud/recipes@^0.0.9":
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/@polkadot-cloud/recipes/-/recipes-0.0.9.tgz#4c6f8e5eaef1a0203c0a6c38f2d33218c7bb174c"
-  integrity sha512-B4f2ZN910NpAtRLb2C9/nYpRT/nPoy0KQCQtHwmu/pd1yTb3B6VwU3C8uTloQYuzs7rbm444qYu32BNKg1G4/g==
+"@polkadot-cloud/recipes@^0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@polkadot-cloud/recipes/-/recipes-0.0.10.tgz#05f009935bcd2bebe13a5dcc56e8286008397fa0"
+  integrity sha512-M9qrfv8YSwEivkG3DR3BVTl28XJEGXbIAfNJS3+iEhv9/sa0l7anETlzLmw0aRD92A8HM2PkOI5Udh3zH6Dueg==
   dependencies:
     "@chainsafe/metamask-polkadot-adapter" "^0.6.0"
     "@chainsafe/metamask-polkadot-types" "^0.6.0"
@@ -845,21 +870,21 @@
     "@fortawesome/free-regular-svg-icons" "^6.5.1"
     "@fortawesome/free-solid-svg-icons" "^6.5.1"
     "@fortawesome/react-fontawesome" "^0.2.0"
-    "@ledgerhq/hw-transport-webhid" "^6.27.20"
+    "@ledgerhq/hw-transport-webhid" "^6.28.1"
     "@polkadot-cloud/assets" "0.1.35"
-    "@polkadot-cloud/core" "^1.0.50"
-    "@polkadot-cloud/react" "^0.1.139"
+    "@polkadot-cloud/core" "^1.0.51"
+    "@polkadot-cloud/react" "^0.1.144"
     "@polkadot-cloud/utils" "^0.0.25"
     "@polkadot/keyring" "^12.6.1"
     "@polkadot/util" "^12.5.1"
     "@polkadot/util-crypto" "^12.5.1"
     "@zondax/ledger-substrate" "^0.41.3"
     buffer "^6.0.3"
-    framer-motion "^10.16.15"
+    framer-motion "^10.16.16"
     qrcode-generator "^1.4.4"
     react "^18.2.0"
     react-dom "^18.2.0"
-    react-error-boundary "^4.0.11"
+    react-error-boundary "^4.0.12"
     react-qr-reader "^2.2.1"
 
 "@polkadot-cloud/utils@^0.0.25":
@@ -3634,7 +3659,7 @@ formdata-polyfill@^4.0.10:
   dependencies:
     fetch-blob "^3.1.2"
 
-framer-motion@^10.16.12, framer-motion@^10.16.15, framer-motion@^10.16.16:
+framer-motion@^10.16.12, framer-motion@^10.16.16:
   version "10.16.16"
   resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-10.16.16.tgz#a10a03e1190a717109163cfff212a84c8ad11b0c"
   integrity sha512-je6j91rd7NmUX7L1XHouwJ4v3R+SO4umso2LUcgOct3rHZ0PajZ80ETYZTajzEXEl9DlKyzjyt4AvGQ+lrebOw==
@@ -5913,7 +5938,7 @@ react-dom@^18.2.0:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
 
-react-error-boundary@^4.0.11, react-error-boundary@^4.0.12:
+react-error-boundary@^4.0.12:
   version "4.0.12"
   resolved "https://registry.yarnpkg.com/react-error-boundary/-/react-error-boundary-4.0.12.tgz#59f8f1dbc53bbbb34fc384c8db7cf4082cb63e2c"
   integrity sha512-kJdxdEYlb7CPC1A0SeUY38cHpjuu6UkvzKiAmqmOFL21VRfMhOcWxTCBgLVCO0VEMh9JhFNcVaXlV4/BTpiwOA==

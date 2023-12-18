@@ -68,22 +68,22 @@ export const RequestsGrid = () => {
   return (
     <>
       <Grid row key={"random_key"} style={{ padding: "2rem", width: "100%" }}>
-        <Grid column sm={1} md={2} style={{ textAlign: "center" }}>
+        <Grid column sm={3} md={3} style={{ textAlign: "center" }}>
           <h3>Name</h3>
         </Grid>
-        <Grid column sm={8} md={7} style={{ textAlign: "center" }}>
+        <Grid column sm={7} md={7} style={{ textAlign: "center" }}>
           <h3>Account Address</h3>
         </Grid>
-        <Grid column sm={1} md={2} style={{ textAlign: "center" }}>
+        <Grid column sm={2} md={2} style={{ textAlign: "center" }}>
           <h3>Rank</h3>
         </Grid>
       </Grid>
       {mem.map((m) => (
         <Grid row key={m.address} style={{ padding: "0.5rem 0" }}>
-          <Grid column sm={1} md={2}>
+          <Grid column sm={3} md={3}>
             <AccountName address={m.address} />
           </Grid>
-          <Grid column sm={8} md={7}>
+          <Grid column sm={7} md={7}>
             <AccountCard
               style={{
                 background: "transparent",
@@ -109,7 +109,7 @@ export const RequestsGrid = () => {
               }}
             />
           </Grid>
-          <Grid column sm={1} md={2}>
+          <Grid column sm={2} md={2}>
             <span>
               {rankings[m.rank]} ({m.rank})
             </span>

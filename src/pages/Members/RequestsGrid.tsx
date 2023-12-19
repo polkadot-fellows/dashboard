@@ -67,14 +67,14 @@ export const RequestsGrid = () => {
 
   return (
     <>
-      <Grid row key={"random_key"} style={{ padding: "2rem", width: "100%" }}>
-        <Grid column sm={3} md={3} style={{ textAlign: "center" }}>
+      <Grid row key={"random_key"} style={{ padding: "2rem 0", width: "100%" }}>
+        <Grid column sm={3} md={3} style={{ textAlign: "left" }}>
           <h3>Name</h3>
         </Grid>
-        <Grid column sm={7} md={7} style={{ textAlign: "center" }}>
+        <Grid column sm={7} md={7} style={{ textAlign: "left" }}>
           <h3>Account Address</h3>
         </Grid>
-        <Grid column sm={2} md={2} style={{ textAlign: "center" }}>
+        <Grid column sm={2} md={2} style={{ textAlign: "left" }}>
           <h3>Rank</h3>
         </Grid>
       </Grid>
@@ -109,10 +109,10 @@ export const RequestsGrid = () => {
               }}
             />
           </Grid>
-          <Grid column sm={2} md={2}>
-            <span>
+          <Grid column sm={1} md={2}>
+            <p>
               {rankings[m.rank]} ({m.rank})
-            </span>
+            </p>
           </Grid>
         </Grid>
       ))}

@@ -238,14 +238,14 @@
   dependencies:
     "@polkadot/api" "^10.9.1"
 
-"@dotlottie/common@0.7.3":
-  version "0.7.3"
-  resolved "https://registry.yarnpkg.com/@dotlottie/common/-/common-0.7.3.tgz#67bd59da7615d621ead13636ca2df9571819b474"
-  integrity sha512-ZKERcyhyqstxDK+BbNACAbptoxlX/canUEtPfNhegBoTn1o/MHoD2JZuuIgIV/OGqX1oxXW7yYgb2BTuauQugQ==
+"@dotlottie/common@0.7.4":
+  version "0.7.4"
+  resolved "https://registry.yarnpkg.com/@dotlottie/common/-/common-0.7.4.tgz#ab205cfdb354ba3941a1edbc84d405574b49a4c7"
+  integrity sha512-vzxzp5C0k/m1uFa/So7TaTNhBaey+gNFekfTys5x3S3htbRHNrtlYsVMKMj5SuxbLlxjony32t3EP4Ld0vYbVA==
   dependencies:
     "@dotlottie/dotlottie-js" "0.6.0"
     "@lottiefiles/relottie" "1.0.0"
-    "@lottiefiles/relottie-style" "0.4.1"
+    "@lottiefiles/relottie-style" "0.4.3"
     "@preact/signals-core" "^1.2.3"
     howler "^2.2.3"
     lottie-web "^5.12.2"
@@ -262,12 +262,12 @@
     sharp-phash "2.1.0"
     valibot "^0.13.1"
 
-"@dotlottie/player-component@^2.7.2":
-  version "2.7.2"
-  resolved "https://registry.yarnpkg.com/@dotlottie/player-component/-/player-component-2.7.2.tgz#b0570fa5600cf770623c848dfa2be9d1b7d0784d"
-  integrity sha512-rJEinqJSML8kjIK7fSUGHEM4uTUlbHeBsKUorgWBjA0bYQNLtebccoHtC/TZ7PTDxopWLE6FUOJOaFmGDXv8AQ==
+"@dotlottie/player-component@^2.7.3":
+  version "2.7.3"
+  resolved "https://registry.yarnpkg.com/@dotlottie/player-component/-/player-component-2.7.3.tgz#0a8116bbc0113a4072d05f9c224633be90a4e7db"
+  integrity sha512-GBfS17zMU4V+Usbq7wRUpeRXfrEvjZPHEM2/lPu5D1wVcZ8NgjNa4W8Ed/dMyJF0uEiwy0dsXWrXxRlxjlnotw==
   dependencies:
-    "@dotlottie/common" "0.7.3"
+    "@dotlottie/common" "0.7.4"
     lit "^2.7.5"
 
 "@emotion/is-prop-valid@^0.8.2":
@@ -651,10 +651,10 @@
   resolved "https://registry.yarnpkg.com/@lottiefiles/last/-/last-1.0.0.tgz#1fdfe5d126269d8d53798e58d39b0c3f8edbe4c9"
   integrity sha512-kYN6WNglPtVDnupTiYiQCmExJS5PO4MFMeT495fd2RXcbXcWuIz2nVrzuJtwDXhSvsqydIxeTnEkrs6WchV2dg==
 
-"@lottiefiles/lottie-style-sheets@0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@lottiefiles/lottie-style-sheets/-/lottie-style-sheets-0.0.1.tgz#5757632cc6e74257b76b80050019165f533ba8c6"
-  integrity sha512-K8NUc8R2qZfMwBY9HwMbD9pdIH7VgrAXEe+RP3PgQg/0pTlhGC9yjZCmr/2mCe7EB1R1GA0e+ZKPs89PtOX5Vg==
+"@lottiefiles/lottie-style-sheets@0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@lottiefiles/lottie-style-sheets/-/lottie-style-sheets-0.0.2.tgz#d6f79b834a236aaf4a69f462ab942c08a6ae83d9"
+  integrity sha512-1ojHB9of9oq7CNljqUZwXBdV9SkrjIbOojezMA/2W+rsZG1h+KbnAvYjYfR2GLIQAT0BwVAwvk6dR71e9irozg==
   dependencies:
     postcss "8.4.24"
     unist-builder "3.0.1"
@@ -679,12 +679,12 @@
   dependencies:
     "@lottiefiles/last" "1.0.0"
 
-"@lottiefiles/relottie-style@0.4.1":
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/@lottiefiles/relottie-style/-/relottie-style-0.4.1.tgz#f75f71e364c1ad753a619fa5713e1b6843ef99ea"
-  integrity sha512-JJ2PjuJBwiJr6x/86sLsNJGqZyM5o+NU0GURxGGtm8yLZn9SjNczKf7bFrk2kRmqi927/4PrwQDVTFukAnnCmA==
+"@lottiefiles/relottie-style@0.4.3":
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/@lottiefiles/relottie-style/-/relottie-style-0.4.3.tgz#a1e81c514052dda8d240a2a07dc64fc5898f86fd"
+  integrity sha512-hH1SwA6bHJtwCTCxM5RMg3R7UWvk8/fNFFjtmqHxXkcGRQm0/4aeV2TRlxgf+kBqaqmkpxUQrwORf4tnDLBvYQ==
   dependencies:
-    "@lottiefiles/lottie-style-sheets" "0.0.1"
+    "@lottiefiles/lottie-style-sheets" "0.0.2"
     colord "2.9.3"
     gradient-parser "1.0.2"
     parsel-js "1.1.1"

@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 import type React from "react"
+import type { IconType } from "react-icons/lib"
 
 export interface PageCategory {
   id: number
@@ -16,7 +17,7 @@ export interface PageItem {
   uri: string
   hash: string
   Entry: React.FC<PageProps>
-  lottie: AnyJson
+  icon: IconType
   action?: {
     type: string
     status: string

@@ -12,7 +12,7 @@ import type { MinimisedProps } from "./types"
 export const Wrapper = styled.div<MinimisedProps>`
   border-radius: ${(props) => (props.$minimised ? "0.7rem" : 0)};
   background: none;
-  padding: 1rem 1rem 1rem 1.25rem;
+  padding: 0rem 1rem 1rem 1.25rem;
   overflow: auto;
   flex-grow: 1;
   margin: 0.75rem 0 3.35rem 0rem;
@@ -52,7 +52,7 @@ export const Wrapper = styled.div<MinimisedProps>`
         position: relative;
         transition: color var(--transition-duration);
         margin-top: ${(props) => (props.$minimised ? "1rem" : 0)};
-        margin-right: ${(props) => (props.$minimised ? 0 : "0.9rem")};
+        margin-right: ${(props) => (props.$minimised ? 0 : "0.5rem")};
         opacity: 0.75;
         padding: 0.1rem;
 

@@ -5,6 +5,8 @@ import { Overview } from "pages/Overview"
 import { Members } from "pages/Members"
 import { Rfc } from "pages/Rfc"
 import type { PageCategoryItems, PagesConfigItems } from "types"
+import { HiMiniUserGroup, HiGlobeAlt } from "react-icons/hi2"
+import { MdDocumentScanner } from "react-icons/md"
 
 const BASE_URL = import.meta.env.BASE_URL
 
@@ -22,7 +24,7 @@ export const PagesConfig: PagesConfigItems = [
     uri: `${BASE_URL}`,
     hash: "/overview",
     Entry: Overview,
-    lottie: "globe",
+    icon: HiGlobeAlt,
   },
   {
     category: 1,
@@ -30,7 +32,7 @@ export const PagesConfig: PagesConfigItems = [
     uri: `${BASE_URL}`,
     hash: "/members",
     Entry: Members,
-    lottie: "groups",
+    icon: HiMiniUserGroup,
   },
   {
     category: 1,
@@ -38,6 +40,6 @@ export const PagesConfig: PagesConfigItems = [
     uri: `${BASE_URL}`,
     hash: "/rfcs",
     Entry: Rfc,
-    lottie: "label",
+    icon: MdDocumentScanner,
   },
 ]

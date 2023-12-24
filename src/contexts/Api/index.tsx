@@ -57,18 +57,14 @@ export const APIProvider = ({ children, network }: APIProviderProps) => {
 
   // Initialise provider event handlers when provider is set.
   useEffectIgnoreInitial(() => {
-    try {
-      if (provider) {
-        provider.on("connected", () => {
-          setApiStatus("connected")
-        })
-        provider.on("error", () => {
-          setApiStatus("disconnected")
-        })
-        getChainState()
-      }
-    } catch (err) {
-      console.log("err", err)
+    if (provider) {
+      provider.on("connected", () => {
+        setApiStatus("connected")
+      })
+      provider.on("error", () => {
+        setApiStatus("disconnected")
+      })
+      getChainState()
     }
   }, [provider])
 

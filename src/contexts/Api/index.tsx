@@ -42,7 +42,8 @@ export const APIProvider = ({ children, network }: APIProviderProps) => {
   // Connect function sets provider and updates active network.
   const connectProvider = () => {
     const newProvider = new WsProvider(
-      "wss://polkadot-collectives-rpc.polkadot.io"
+      // "wss://polkadot-collectives-rpc.polkadot.io"
+      "wss://polkadot-collectives-rpc.dwellir.com"
     )
     setProvider(newProvider)
   }
@@ -56,14 +57,18 @@ export const APIProvider = ({ children, network }: APIProviderProps) => {
 
   // Initialise provider event handlers when provider is set.
   useEffectIgnoreInitial(() => {
-    if (provider) {
-      provider.on("connected", () => {
-        setApiStatus("connected")
-      })
-      provider.on("error", () => {
-        setApiStatus("disconnected")
-      })
-      getChainState()
+    try {
+      if (provider) {
+        provider.on("connected", () => {
+          setApiStatus("connected")
+        })
+        provider.on("error", () => {
+          setApiStatus("disconnected")
+        })
+        getChainState()
+      }
+    } catch (err) {
+      console.log("err", err)
     }
   }, [provider])
 

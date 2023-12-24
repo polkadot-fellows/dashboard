@@ -42,7 +42,8 @@ export const APIProvider = ({ children, network }: APIProviderProps) => {
   // Connect function sets provider and updates active network.
   const connectProvider = () => {
     const newProvider = new WsProvider(
-      "wss://polkadot-collectives-rpc.polkadot.io"
+      // "wss://polkadot-collectives-rpc.polkadot.io"
+      "wss://polkadot-collectives-rpc.dwellir.com"
     )
     setProvider(newProvider)
   }

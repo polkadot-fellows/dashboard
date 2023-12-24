@@ -63,8 +63,6 @@ export const RequestsGrid = () => {
     fetchMembers()
   }, [api, api?.isReady])
 
-  console.log("mem", mem)
-
   return (
     <>
       <Grid row key={"random_key"} style={{ padding: "2rem 0", width: "100%" }}>

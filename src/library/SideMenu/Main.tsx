@@ -11,12 +11,16 @@ import type { UIContextInterface } from "contexts/UI/types"
 import type { PageCategory, PageItem, PagesConfigItems } from "types"
 
 import PolkadotIcon from "img/polkadotIcon.svg?react"
-import PolkadotLogo from "img/polkadotLogo.svg?react"
+import FellowshipW from "img/fellowshipLogo_w.svg?react"
+import FellowshipB from "img/fellowshipLogo_b.svg?react"
 import { Heading } from "./Heading/Heading"
 import { Primary } from "./Primary"
+import { useTheme } from "contexts/Themes"
+
 import { IconWrapper, LogoWrapper } from "./Wrapper"
 
 export const Main = () => {
+  const { mode } = useTheme()
   const { t } = useTranslation("base")
   const { pathname } = useLocation()
   const { sideMenuMinimised }: UIContextInterface = useUi()
@@ -40,12 +44,23 @@ export const Main = () => {
       width={size}
       height={size}
     />
-  ) : (
-    <PolkadotLogo
+  ) : mode === "dark" ? (
+    <FellowshipW
       style={{
         maxHeight: "100%",
         height: "100%",
-        width: "7.2rem",
+        width: "9.2rem",
+        fill: "var(--accent-color-primary)",
+      }}
+      width={size}
+      height={size}
+    />
+  ) : (
+    <FellowshipB
+      style={{
+        maxHeight: "100%",
+        height: "100%",
+        width: "9.2rem",
         fill: "var(--accent-color-primary)",
       }}
       width={size}
@@ -78,14 +93,14 @@ export const Main = () => {
 
             {/* display category links */}
             {pagesToDisplay.map(
-              ({ category, hash, key, lottie, action }: PageItem) => (
+              ({ category, hash, key, icon, action }: PageItem) => (
                 <React.Fragment key={`sidemenu_page_${categoryId}_${key}`}>
                   {category === categoryId && (
                     <Primary
                       name={t(key)}
                       to={hash}
                       active={hash === pathname}
-                      lottie={lottie}
+                      icon={icon}
                       action={action}
                       minimised={sideMenuMinimised}
                     />

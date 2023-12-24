@@ -6,11 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import throttle from "lodash.throttle"
 import { useEffect, useRef } from "react"
 import { useTranslation } from "react-i18next"
-import LogoGithubSVG from "img/logoGithub.svg?react"
-import InfoIcon from "img/manifest.svg?react"
-import InfoSVG from "img/info.svg?react"
-import MoonOutlineSVG from "img/moonOutline.svg?react"
-import SunnyOutlineSVG from "img/sunnyOutline.svg?react"
 import { SideMenuStickyThreshold } from "consts"
 import { useHelp } from "contexts/Help"
 import { useTheme } from "contexts/Themes"
@@ -22,6 +17,15 @@ import { Main } from "./Main"
 import { Secondary } from "./Secondary"
 import { Separator, Wrapper } from "./Wrapper"
 // import { useModal } from 'contexts/Modal';
+import {
+  IoSunnyOutline,
+  IoMoon,
+  IoLogoGithub,
+  IoDocumentText,
+} from "react-icons/io5"
+import { GrResources } from "react-icons/gr"
+
+const iconSize = "1.25rem"
 
 export const SideMenu = () => {
   const { t } = useTranslation("base")
@@ -72,10 +76,7 @@ export const SideMenu = () => {
           }}
           name={t("manifesto")}
           minimised={sideMenuMinimised}
-          icon={{
-            Svg: InfoIcon,
-            size: sideMenuMinimised ? "1.4em" : "1.2em",
-          }}
+          icon={IoDocumentText}
         />
         <Heading title={t("support")} minimised={sideMenuMinimised} />
         <Secondary
@@ -84,15 +85,21 @@ export const SideMenu = () => {
           }}
           name={t("resources")}
           minimised={sideMenuMinimised}
-          icon={{
-            Svg: InfoSVG,
-            size: sideMenuMinimised ? "1.4em" : "1.2em",
-          }}
+          icon={GrResources}
         />
         <Separator />
       </section>
 
       <section>
+        {mode === "dark" ? (
+          <button type="button" onClick={() => toggleTheme()}>
+            <IoSunnyOutline size={iconSize} />
+          </button>
+        ) : (
+          <button type="button" onClick={() => toggleTheme()}>
+            <IoMoon size={iconSize} />
+          </button>
+        )}
         <button
           type="button"
           onClick={() => setUserSideMenuMinimised(!userSideMenuMinimised)}
@@ -107,17 +114,8 @@ export const SideMenu = () => {
             window.open("https://github.com/polkadot-fellows", "_blank")
           }
         >
-          <LogoGithubSVG width="1.2em" height="1.2em" />
+          <IoLogoGithub size={iconSize} />
         </button>
-        {mode === "dark" ? (
-          <button type="button" onClick={() => toggleTheme()}>
-            <SunnyOutlineSVG width="1.25em" height="1.25em" />
-          </button>
-        ) : (
-          <button type="button" onClick={() => toggleTheme()}>
-            <MoonOutlineSVG width="1.1em" height="1.1em" />
-          </button>
-        )}
       </section>
     </Wrapper>
   )

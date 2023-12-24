@@ -12,7 +12,7 @@ export const Secondary = ({
   minimised,
   onClick,
 }: SecondaryProps) => {
-  const { Svg, size } = icon || {}
+  const size = minimised ? "1.5rem" : "1.25rem"
 
   const StyledWrapper = minimised ? MinimisedWrapper : Wrapper
 
@@ -33,7 +33,7 @@ export const Secondary = ({
         className="icon"
         style={{ width: size, height: size }}
       >
-        {Svg && <Svg width={size} height={size} />}
+        {icon && icon({ size, fill: "var(--accent-color-primary)" })}
       </IconWrapper>
 
       {!minimised && (

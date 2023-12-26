@@ -238,10 +238,10 @@
   dependencies:
     "@polkadot/api" "^10.9.1"
 
-"@dotlottie/common@0.7.4":
-  version "0.7.4"
-  resolved "https://registry.yarnpkg.com/@dotlottie/common/-/common-0.7.4.tgz#ab205cfdb354ba3941a1edbc84d405574b49a4c7"
-  integrity sha512-vzxzp5C0k/m1uFa/So7TaTNhBaey+gNFekfTys5x3S3htbRHNrtlYsVMKMj5SuxbLlxjony32t3EP4Ld0vYbVA==
+"@dotlottie/common@0.7.5":
+  version "0.7.5"
+  resolved "https://registry.yarnpkg.com/@dotlottie/common/-/common-0.7.5.tgz#da2676010a49a553f7ee96fa7ed4830c0e449b6d"
+  integrity sha512-eEe9AbibJ0l7r5BMDEqGc0vbUAxv7aQceBQSA5Ky93dqPXriW/56/YzMNCy2B7T+2auWWNnGwbXtl2FzoSePqA==
   dependencies:
     "@dotlottie/dotlottie-js" "0.6.0"
     "@lottiefiles/relottie" "1.0.0"
@@ -262,12 +262,12 @@
     sharp-phash "2.1.0"
     valibot "^0.13.1"
 
-"@dotlottie/player-component@^2.7.3":
-  version "2.7.3"
-  resolved "https://registry.yarnpkg.com/@dotlottie/player-component/-/player-component-2.7.3.tgz#0a8116bbc0113a4072d05f9c224633be90a4e7db"
-  integrity sha512-GBfS17zMU4V+Usbq7wRUpeRXfrEvjZPHEM2/lPu5D1wVcZ8NgjNa4W8Ed/dMyJF0uEiwy0dsXWrXxRlxjlnotw==
+"@dotlottie/player-component@^2.7.4":
+  version "2.7.4"
+  resolved "https://registry.yarnpkg.com/@dotlottie/player-component/-/player-component-2.7.4.tgz#08828b6eb161caf08c516b75e335ca742bb8f6c4"
+  integrity sha512-BVmCc4POAhrt3j8m94Ss7uYg5j6PxrUioxHiVcVOUWAq3RIn89y9yBR5nfwZqx68ogcpPwmAjonYFsT+FRkWFA==
   dependencies:
-    "@dotlottie/common" "0.7.4"
+    "@dotlottie/common" "0.7.5"
     lit "^2.7.5"
 
 "@emotion/is-prop-valid@1.2.1":

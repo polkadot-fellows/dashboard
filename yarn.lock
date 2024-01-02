@@ -817,6 +817,11 @@
   resolved "https://registry.yarnpkg.com/@pkgjs/parseargs/-/parseargs-0.11.0.tgz#a77ea742fab25775145434eb1d2328cf5013ac33"
   integrity sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==
 
+"@pkgr/core@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@pkgr/core/-/core-0.1.0.tgz#7d8dacb7fdef0e4387caf7396cbd77f179867d06"
+  integrity sha512-Zwq5OCzuwJC2jwqmpEQt7Ds1DTi6BWSwoGkbb1n9pO3hzb35BoJELx7c0T23iDkBGkh2e7tvOtjF3tr3OaQHDQ==
+
 "@pkgr/utils@^2.4.2":
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/@pkgr/utils/-/utils-2.4.2.tgz#9e638bbe9a6a6f165580dc943f138fd3309a2cbc"
@@ -1961,7 +1966,7 @@ acorn-walk@^8.3.0:
   resolved "https://registry.yarnpkg.com/acorn-walk/-/acorn-walk-8.3.0.tgz#2097665af50fd0cf7a2dfccd2b9368964e66540f"
   integrity sha512-FS7hV565M5l1R08MXqo8odwMTB02C2UqzB17RVgu9EyuYFBqJZ3/ZY97sQD5FewVu1UyDFc1yztUDrAwT0EypA==
 
-acorn@^8.0.0, acorn@^8.11.2:
+acorn@^8.0.0:
   version "8.11.2"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.11.2.tgz#ca0d78b51895be5390a5903c5b3bdcdaf78ae40b"
   integrity sha512-nc0Axzp/0FILLEVsm4fNwLCwMttvhEI263QtVPQcbpfZZ3ts0hLsZGOpE6czNlid7CJ9MlyH8reXkpsf3YUY4w==
@@ -1970,6 +1975,11 @@ acorn@^8.10.0, acorn@^8.9.0:
   version "8.10.0"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.10.0.tgz#8be5b3907a67221a81ab23c7889c4c5526b62ec5"
   integrity sha512-F0SAmZ8iUtS//m8DmCTA0jlh6TDKkHQyK6xc6V4KDTyZKA9dnvX9/3sRTVQrWm79glUAZbnmmNcdYwUIHWVybw==
+
+acorn@^8.11.3:
+  version "8.11.3"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.11.3.tgz#71e0b14e13a4ec160724b38fb7b0f233b1b81d7a"
+  integrity sha512-Y9rRfJG5jcKOE0CLisYbojUjIrIEE7AGMzA/Sm4BslANhbS+cDMpgBdcPT91oJ7OuJ9hYJBx59RjbhxVnrF8Xg==
 
 ajv@^6.12.4:
   version "6.12.6"
@@ -3197,19 +3207,19 @@ eslint-import-resolver-typescript@^3.6.1:
     is-core-module "^2.11.0"
     is-glob "^4.0.3"
 
-eslint-mdx@^3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/eslint-mdx/-/eslint-mdx-3.1.1.tgz#62688a93417ba9ba2521655bd8e116bd507a05ef"
-  integrity sha512-GY3nK7YAueZbbMrGU1IyQpEvZ9DL3TSJplCPZbVdNDlpPh5P6LCSJ40PtwJM4ztDPWOs0MbzlXZdh1O6K2HTDQ==
+eslint-mdx@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/eslint-mdx/-/eslint-mdx-3.1.2.tgz#5ef7f7f610934bb5c13a11cb1e752b617a64aa38"
+  integrity sha512-vjJD7YbMb2V9yLdKKG7Gfq69dKyXS24dRSFzC+flhXtcIOzukdoNcMFOJqwzXPhXoonnd9wvEw0fegIhsT6t0Q==
   dependencies:
-    acorn "^8.11.2"
+    acorn "^8.11.3"
     acorn-jsx "^5.3.2"
     espree "^9.6.1"
     estree-util-visit "^2.0.0"
     remark-mdx "^3.0.0"
     remark-parse "^11.0.0"
     remark-stringify "^11.0.0"
-    synckit "^0.8.6"
+    synckit "^0.8.8"
     tslib "^2.6.2"
     unified "^11.0.4"
     unified-engine "^11.2.0"
@@ -3276,12 +3286,12 @@ eslint-plugin-markdown@^3.0.1:
   dependencies:
     mdast-util-from-markdown "^0.8.5"
 
-eslint-plugin-mdx@^3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-mdx/-/eslint-plugin-mdx-3.1.1.tgz#f705a6bf5545dfcb44b7285461b48fd6f33b5629"
-  integrity sha512-6s2pFy4kzu5Tvse5ZjynwVDnMpgSidNvk4IB6j9jo7MIq4oYrXUtQMLmGIidRLL9X25khyjw1iJii9XTbOBgzg==
+eslint-plugin-mdx@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-mdx/-/eslint-plugin-mdx-3.1.2.tgz#e201eef47fc195f5d061a09abae22d4755f77503"
+  integrity sha512-yqSIu8jquV2WOmVzHL9QQF3/eUVQHTuZi8IuB/88GmmO90DbWOz8g2fiI02Ifn0AePvxmQ7yR1/GiUOAX7gghA==
   dependencies:
-    eslint-mdx "^3.1.1"
+    eslint-mdx "^3.1.2"
     eslint-plugin-markdown "^3.0.1"
     remark-mdx "^3.0.0"
     remark-parse "^11.0.0"
@@ -6804,6 +6814,14 @@ synckit@^0.8.6:
   integrity sha512-laHF2savN6sMeHCjLRkheIU4wo3Zg9Ln5YOjOo7sZ5dVQW8yF5pPE5SIw1dsPhq3TRp1jisKRCdPhfs/1WMqDA==
   dependencies:
     "@pkgr/utils" "^2.4.2"
+    tslib "^2.6.2"
+
+synckit@^0.8.8:
+  version "0.8.8"
+  resolved "https://registry.yarnpkg.com/synckit/-/synckit-0.8.8.tgz#fe7fe446518e3d3d49f5e429f443cf08b6edfcd7"
+  integrity sha512-HwOKAP7Wc5aRGYdKH+dw0PRRpbO841v2DENBtjnR5HFWoiNByAl7vrx3p0G/rCyYXQsrxqtX48TImFtPcIHSpQ==
+  dependencies:
+    "@pkgr/core" "^0.1.0"
     tslib "^2.6.2"
 
 tapable@^2.2.0:

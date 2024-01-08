@@ -35,7 +35,7 @@
     "@polkadot-cloud/core": "^1.2.0",
     "@polkadot-cloud/react": "^0.1.147",
     "@polkadot-cloud/recipes": "^0.0.10",
-    "@polkadot/keyring": "^12.6.1",
+    "@polkadot/keyring": "^12.6.2",
     "@polkadot/react-hooks": "^0.39.1",
     "@polkadot/util": "^12.6.1",
     "@types/lodash.throttle": "^4.1.9",

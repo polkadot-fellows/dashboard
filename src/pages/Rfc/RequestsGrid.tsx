@@ -58,18 +58,18 @@ export const RequestsGrid = () => {
                     row
                     alignItems="center"
                     style={{
-                      padding: "2rem 0",
+                      padding: "1rem 0",
                       borderTop: "0.2rem solid var(--accent-color-primary)",
                     }}
                   >
-                    <Grid column md={2}>
+                    <Grid column md={3} style={{ paddingRight: "1rem" }}>
                       <img
                         width="40"
                         style={{ borderRadius: "10rem" }}
                         src={`${d.user.avatar_url}`}
                       />
                     </Grid>
-                    <Grid column md={5}>
+                    <Grid column md={6}>
                       <Link
                         to={d.user.html_url}
                         target="_blank"
@@ -78,7 +78,7 @@ export const RequestsGrid = () => {
                         {d.user.login}
                       </Link>
                     </Grid>
-                    <Grid column md={5}>
+                    <Grid column md={3}>
                       <p className="rfc-date">
                         {new Date(d.created_at).toDateString()}
                       </p>

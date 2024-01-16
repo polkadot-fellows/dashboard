@@ -36,7 +36,7 @@ export const External = ({
         {subtitle}
         <p className="icon">
           <FontAwesomeIcon icon={faExt} className="ext" />
-          {website !== undefined && website}
+          <p>{website !== undefined && website}</p>
         </p>
       </motion.button>
     </ItemWrapper>

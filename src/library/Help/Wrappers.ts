@@ -122,8 +122,9 @@ export const ItemWrapper = styled(motion.div)<any>`
       text-align: left;
 
       &.icon {
-        color: var(--network-color-primary);
         margin-bottom: 0;
+        display: flex;
+        align-items: center;
       }
     }
 

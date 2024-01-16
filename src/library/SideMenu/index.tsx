@@ -69,6 +69,14 @@ export const SideMenu = () => {
         <Separator />
         <Secondary
           onClick={() => {
+            window.open("https://polkadot-fellows.github.io/RFCs/", "_blank")
+          }}
+          name={t("RFCs Book")}
+          minimised={sideMenuMinimised}
+          icon={IoDocumentText}
+        />
+        <Secondary
+          onClick={() => {
             window.open(
               "https://github.com/polkadot-fellows/manifesto/blob/0c3df46d76625980b8b48742cb86f4d8fa6dda8d/manifesto.pdf",
               "_blank"

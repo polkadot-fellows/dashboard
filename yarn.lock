@@ -217,10 +217,10 @@
   dependencies:
     "@polkadot/api" "^10.9.1"
 
-"@dotlottie/common@0.7.6":
-  version "0.7.6"
-  resolved "https://registry.yarnpkg.com/@dotlottie/common/-/common-0.7.6.tgz#22f61b32e8e08998aa9aa0a1a6b242c25979ca75"
-  integrity sha512-sbZNaOcE0XxGdRReokQrgYw/GIVGoIvKrUgul9wRpBsCZNrdYMRaNH6ofPjqbGT/pStlxIXl3f2G+0fAx72MmA==
+"@dotlottie/common@0.7.7":
+  version "0.7.7"
+  resolved "https://registry.yarnpkg.com/@dotlottie/common/-/common-0.7.7.tgz#a33c7785982d353a59ad94a27aafb39aa3449b06"
+  integrity sha512-gVEn9GYDIRpCuwX7KsO4e+mEoHkdnj2AXE+Un1D9gVByDplRYMgcBf2ogvt+/6K3apXuPPZamSU9vqn0MiCxSg==
   dependencies:
     "@dotlottie/dotlottie-js" "0.6.0"
     "@lottiefiles/relottie" "1.0.0"
@@ -241,12 +241,12 @@
     sharp-phash "2.1.0"
     valibot "^0.13.1"
 
-"@dotlottie/player-component@^2.7.5":
-  version "2.7.5"
-  resolved "https://registry.yarnpkg.com/@dotlottie/player-component/-/player-component-2.7.5.tgz#87a3d8d52fba6f5d203b539211e8c2072c804da3"
-  integrity sha512-UA/fCAg2D7dZUZU8Wd0gO+LqBa1h1uIljFR2XCfxfnz0vAAQi2YOJ0p1VlUWVyinwttOuxI0G7RvH5+uMYCUDw==
+"@dotlottie/player-component@^2.7.6":
+  version "2.7.6"
+  resolved "https://registry.yarnpkg.com/@dotlottie/player-component/-/player-component-2.7.6.tgz#2a07d2eec4d0f47872a8c521de89a424d71c232f"
+  integrity sha512-wRaqW0W4NhYJjONLyXTi4+1U5+lqxT2fpJM5mgksxK3h/tbgmM/e3G8a7XZ54RTivgCNFJK12/hF8X0XpmmrGA==
   dependencies:
-    "@dotlottie/common" "0.7.6"
+    "@dotlottie/common" "0.7.7"
     lit "^2.7.5"
 
 "@emotion/is-prop-valid@1.2.1":
@@ -2128,9 +2128,10 @@ binary-extensions@^2.0.0:
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-2.2.0.tgz#75f502eeaf9ffde42fc98829645be4ea76bd9e2d"
   integrity sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==
 
-"bip32-ed25519@git+https://github.com/Zondax/bip32-ed25519.git":
+"bip32-ed25519@https://github.com/Zondax/bip32-ed25519":
   version "0.0.4"
-  resolved "git+https://github.com/Zondax/bip32-ed25519.git#0949df01b5c93885339bc28116690292088f6134"
+  uid "0949df01b5c93885339bc28116690292088f6134"
+  resolved "https://github.com/Zondax/bip32-ed25519#0949df01b5c93885339bc28116690292088f6134"
   dependencies:
     bn.js "^5.1.1"
     elliptic "^6.4.1"
@@ -6151,6 +6152,7 @@ streamx@^2.15.0:
     queue-tick "^1.0.1"
 
 "string-width-cjs@npm:string-width@^4.2.0", string-width@^4.1.0, string-width@^4.2.0, string-width@^4.2.3:
+  name string-width-cjs
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
   integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
@@ -7136,6 +7138,7 @@ wif@^2.0.6:
     bs58check "<3.0.0"
 
 "wrap-ansi-cjs@npm:wrap-ansi@^7.0.0", wrap-ansi@^7.0.0:
+  name wrap-ansi-cjs
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-7.0.0.tgz#67e145cff510a6a6984bdf1152911d69d2eb9e43"
   integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==

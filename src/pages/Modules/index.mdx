@@ -1,0 +1,59 @@
+## On-chain Modules
+
+The Polkadot Technical Fellowship is split across several on-chain modules (pallets):
+
+<h3 style="text-align: center;">Core Fellowship</h3>
+
+This pallet(i.e. `palet_core_fellowship`) enforces cordination of a ranked membership collective(i.e The Polkadot Technical Fellowship), sets salary amount, registers activity / passivity, handles promotion and demotion e.t.c.
+
+### Parameters
+A changable set of values / settings which determine the salary amounts and Temporal parameters for the pallet instance.
+
+**Salary**
+1. Active: Otherwise known as standard allowance, is kept between the 80th-90th percentile of gross income in the OECD group of countries, which is equivalent to $80,000 at present for fellows (i.e. Dan III). The salary allocations for ranked members are intricately calibrated using the following scale:
+
+    | Dan  | Factor |
+    |:----:|:------:|
+    |    I |  0.125 |
+    |   II |  0.25  |
+    |  III |  1     |
+    |   IV |  1.5   |
+    |    V |  2.0   |
+    |   VI |  2.5   |
+    |  VII |  2.5   |
+    | VIII |  2.5   |
+    |   IX |  2.5   |
+
+    Dan III serves as the baseline with a factor of 1. Subsequent increments or decrements follow this scale for higher or lower ranks accordingly. These salary guidelines ensure a fair and structured approach to compensation, aligning with the individual's rank and contribution to the core components of the Polkadot & Kusama runtimes.
+
+2. Passive: A claimable allowance set at 50% of the active salary for members that believe they are unlikely to contribute substantially within any given month. Activity / passivity is toggled with a call to the `is_active` extrinsic. However, passivity does not exclude a member from challenge or grading periods.
+
+**Temporal Parameters**
+
+1. Demotion Period: The elapsed amount of blocks from `last_proof`, which a member ought to have defended their rank prior to this time or risk automatic demotion through the ranks. For Dan I & II the demotion period is set at 657,450 blocks (3 months), while for Dan III through VI, it extends to 1,314,900 blocks (6 months). Ranks higher than VI are excluded from automatic demotion.
+
+2. Min Promotion Period: The minimum period which a member can submit a desire to move up the ranks, this is set to 2,629,800 (1 year) for ranks between II and VII, 13,149,000 (5 years) for Dan VIII and 21,038,400 (8 years) for Dan IX.
+
+3. Offboard Timeout: The alloted time for candidates to become a member, which is 1 year(i.e. 2,629,800 blocks) from the moment the candidate was inducted into this pallet.
+
+<div className="note">
+  <h3>Extrinsics, Origins and Process Flow</h3>
+  <p>
+    Please visit the interactions page to learn more about the dispatchable calls, allowed origins and the technical fellowship's current usage of `pallet_core_fellowship`.
+  </p>
+</div>
+
+<h3 style="text-align: center;">Salary</h3>
+
+This pallet(i.e. `pallet_salary`) handles the disbursment of allowances, claimable by ranked members of the collective within cycles.
+
+### Cycle
+
+Succictly known as a "payroll cycle", is the amount of blocks (i.e. the equivalent of 30 calender days) that must pass before a ranked member becomes eligible to register a claim for a payout. Following this registration period (i.e. the equivalent of 15 calender days), the member can then claim the payout during the designated payout period (i.e. equivalent of 15 calender days) else wait until the next cycle.
+
+<div className="note">
+  <h3>Extrinsics, Origins and Process Flow</h3>
+  <p>
+    Please visit the interactions page to learn more about the dispatchable calls, allowed origins and the technical fellowship's current usage of `pallet_salary`.
+  </p>
+</div>

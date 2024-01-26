@@ -1,5 +1,7 @@
-import preimage from "./fellowship-add-member-preimage.png"
-import proposal from "./fellowship-add-member-proposal.png"
+import preimage from "./fellowship-induct-candidate.png"
+import proposal from "./fellowship-candidate-proposal.png"
+import preimage-promote from "./fellowship-promote-member.png"
+import proposal-promote from "./fellowship-promotion-proposal.png"
 
 ## The Polkadot Technical Fellowship
 
@@ -14,8 +16,7 @@ with the interests of Polkadot and/or Kusama.
   <p>
     The Polkadot Technical Fellowship is a collection of Substrate experts. This
     fellowship was established in 2022. In Polkadot OpenGov, this fellowship
-    replaces the [Technical
-    Committee](./learn-governance.md#technical-committee) in Governance v1, and
+    replaces the Technical Committee in Governance v1, and
     will serve both the Polkadot and Kusama networks.
   </p>
 </div>
@@ -98,37 +99,135 @@ protocol have determined that the action is both safe and time-critical.
 </div>
 >
 
-### **Becoming a Polkadot Technical Fellowship Member**
+## Technical Fellowship Ranking and Salary
 
-Currently, the only way to become a fellowship member is through a referenda. To get added as a
-member of **"Rank 1"**, an existing member of the fellowship needs to submit a referendum with the
-preimage of a batch call that has `fellowshipCollective.addMember` and
-`fellowshipCollective.promoteMember` on "2/Proficients" track.
+The Fellowship [manifesto](https://github.com/polkadot-fellows/manifesto) outlines the requirements
+and expectations for individuals to attain and retain any given rank, ranging between 0 to 9. By
+default, an active account on the collectives system chain has no assigned rank and can be inducted
+into the Polkadot Technical Fellowship starting with rank 0. The Fellowship Manifesto states that
+members should receive a monthly allowance on par with gross income in OECD countries. A
+[fellowship RFC](https://github.com/polkadot-fellows/RFCs/pull/50) was proposed with concrete
+amounts for each ranked members.
 
-On Polkadot-JS UI for Polkadot
-Collectives, navigate to Governance > Fellowship > Referenda and click on "Add Preimage".
+| Dan  |      Title      | Annual Salary |
+| :--: | :-------------: | :-----------: |
+|  I   |     Member      |    $10,000    |
+|  II  |   Proficient    |    $20,000    |
+| III  |     Fellow      |    $80,000    |
+|  IV  |    Architect    |   $120,000    |
+|  V   | Architect Adept |   $160,000    |
+|  VI  | Grand Architect |   $200,000    |
+| VII  |   Free Master   |   $200,000    |
+| VIII | Master Constant |   $200,000    |
+|  IX  |  Grand Master   |   $200,000    |
 
-This preimage can be submitted by anyone.
+## Membership Management
+
+The Polkadot technical Fellowship was initally [seeded](https://github.com/polkadot-fellows/seeding)
+with its members and their corresponding ranks, and got
+[added on to Polkadot's Collectives](https://polkadot.polkassembly.io/motion/403) system chain. All
+new membership requests will go through the fellowship governance and the procedure is outlined in
+the section below.
+
+
+### Becoming a Member
+
+As a member of the Polkadot Technical Fellowship, you are expected to faithfully uphold the below
+tenets:
+
+- Sincerely uphold the interests of Polkadot and avoid actions which clearly work against it.
+- Respect the philosophy and principles of Polkadot.
+- Respect the operational procedures, norms and voting conventions of the Fellowship.
+- Respect fellow Members and the wider community.
+
+<div className="note">
+  <p>
+
+    For new fellowship inductions, Polkassembly has created an interface (still in beta) to
+    [apply for the Polkadot Technical Fellowship.](https://collectives.polkassembly.io/join-fellowship?network=collectives)
+    This initiative is funded by Polkadot treasury through
+    [OpenGov referendum 373](https://polkadot.polkassembly.io/treasury/574)
+
+  </p>
+</div>
+
+The fellowship manifesto states that any account may register to become a candidate for a basic
+deposit, but that feature has not been added to the collectives runtime yet. To be added as a
+candidate of the Polkadot Technical Fellowship, a pre-existing member with rank greater than or
+equal to 1 can initiate the process. The fellowship membership management is administered through
+the
+[core fellowship](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/core-fellowship/src/lib.rs)
+pallet.
+
+Before starting the candidate induction process, please ensure the candidate account is active and
+has a balance greater than the existential deposit of the collectives system chain (0.1 DOT). It is
+recommended that the candidate account also has a verified identity.
+
+The first step is to add a preimage on the collectives system chain. This preimage should include
+the call to `induct` a candidate account, as shown below. The preimage can be added by any account
+on the collectives system chain. The preimage hash of this call will later be used for creating a
+fellowship referenda with an approriate origin and track.
 
 <img className={"adj-img"} src={preimage} alt="preimage" />
 
-After the preimage is successfully noted, navigate to Governance > Fellowship > Referenda and click
-on "Submit Proposal" (This button is active on the UI only if you have an account that belongs to
-the Fellowship). Choose the appropriate track and the origin, and enter the preimage hash of the
-batch call that adds and promotes the member.
+The next step is to create a fellowship referenda, which can only be done by a pre-existing
+Technical Fellowship member. When a fellowship member navigates to Governance > Fellowship >
+Referenda, they should be able to see a submit proposal button. In the example below,submission
+track is chosen as `1/members`, origin as `FellowshipOrigins` and fellowship origins as `Members`.
+This selection should work for inducting an account without any rank to the fellowship as a
+candidate with rank 0. After copying the preimage hash in the designated field, the preimage length
+will automatically be populated.
 
 <img className={"adj-img"} src={proposal} alt="proposal" />
 
-After the referendum is successfully executed, the member is added to the fellowship with "rank 1".
-For example, check the [Referenda 23](https://collectives.subsquare.io/fellowship/referenda/23) on
-the Collectives parachain. If a member has to be added and promoted to “rank 5”, the proposal has to
-be submitted through track “6/Senior Experts” (Always a track with a rank higher). For example,
-check the [Referenda 25](https://collectives.subsquare.io/fellowship/referenda/25) on the
-Collectives parachain.
+After submitting the proposal, the voting can commence. A decision deposit needs to be placed for
+this fellowship referendum to be decided. After the fellowship referenda successfully passes, the
+candidate is successfully inducted into the Polkadot Fellowship with rank 0.
 
-Future plans include that public members can apply to become a Fellowship candidate by placing a
-small deposit (which will be returned once they become members). Their candidacy will go through a
-referendum to be approved to become a member.
+### Rank Updates
+
+The Polkadot Technical Fellowship members are expected to provide a periodic evidence to request for
+retaining their rank or to get promoted to a higher rank. 
+
+#### Promotion
+
+Any fellowship member upto rank 4 can be
+promoted to the next rank through a fellowship referenda that can be voted by the members who are 2
+ranks higher. For instance, the fellowship
+[referenda 64](https://collectives.subsquare.io/fellowship/referenda/64) which promotes a member
+from rank 1 to rank 2 can only be voted by members whose ranks are greater than or equal to 3.
+Promotion of the Polkadot Fellowship members from rank 5 needs to be done through an OpenGov
+referendum.
+
+This preimage example should include the call to `promote` an account to a specific rank, as shown
+below. This preimage can be added by any account on the collectives system chain.
+
+<img className={"adj-img"} src={preimage-promote} alt="preimage" />
+
+In the snapshot below, the submission track is chosen as `21/Promote to I Dan`, origin as
+`FellowshipOrigins` and fellowship origins as `PromoteTo1Dan`. This selection should work for
+promoting a candidate with rank 0 to a member with rank 1.
+
+<img className={"adj-img"} src={proposal-promote} alt="proposal" />
+
+For promoting a member from Rank 1 to Rank 2, the submission track can be chosen as `22/Promote to  II Dan`, origin as
+`FellowshipOrigins` and fellowship origins as `PromoteTo2Dan`. Only the members with Rank >= 3 can 
+vote on this proposal.
+
+#### Retain Rank
+
+To retain a rank, the Polkadot Fellowship members are expected to submit evidence of work in an
+on-going basis.
+
+
+#### Demotion and Suspension
+
+**Demotion** occurs automatically after a given period has elapsed, and the member is unable to
+defend their position to their peers.
+
+**Suspension** can happen only through a Polkadot OpenGov referendum, which ensures that the
+Fellowship's bias alone does not necessarily result in expulsion.
+
 
 <div className="note">
   <p>

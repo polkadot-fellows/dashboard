@@ -1,0 +1,162 @@
+import induct from "./fellowship-induct-call.png"
+import preimagepromote from "./fellowship-promote-member.png"
+import proposalpromote from "./fellowship-promotion-proposal.png"
+
+
+## Technical Fellowship Ranking and Salary
+
+The Fellowship [manifesto](https://github.com/polkadot-fellows/manifesto) outlines the requirements
+and expectations for individuals to attain and retain any given rank, ranging between 0 to 9. By
+default, an active account on the collectives system chain has no assigned rank and can be inducted
+into the Polkadot Technical Fellowship starting with rank 0. The Fellowship Manifesto states that
+members should receive a monthly allowance on par with gross income in OECD countries. A
+[fellowship RFC](https://github.com/polkadot-fellows/RFCs/pull/50) was proposed with concrete
+amounts for each ranked members.
+
+<table>
+  <tr>
+    <td>Dan</td>
+    <td>Title</td>
+    <td>Annual Salary</td>
+  </tr>
+  <tr>
+    <td>I</td>
+    <td>Member</td>
+    <td>$10,000</td>
+  </tr>
+  <tr>
+    <td>II</td>
+    <td>Proficient</td>
+    <td>$20,000</td>
+  </tr>
+  <tr>
+    <td>III</td>
+    <td>Fellow</td>
+    <td>$80,000</td>
+  </tr>
+  <tr>
+    <td>IV</td>
+    <td>Architect</td>
+    <td>$120,000</td>
+  </tr>
+  <tr>
+    <td>V</td>
+    <td>Architect Adept</td>
+    <td>$160,000</td>
+  </tr>
+  <tr>
+    <td>VI</td>
+    <td>Grand Architect</td>
+    <td>$200,000</td>
+  </tr>
+  <tr>
+    <td>VII</td>
+    <td>Free Master</td>
+    <td>$200,000</td>
+  </tr>
+  <tr>
+    <td>VIII</td>
+    <td>Master Constant</td>
+    <td>$200,000</td>
+  </tr>
+  <tr>
+    <td>IX</td>
+    <td>Grand Master</td>
+    <td>$200,000</td>
+  </tr>
+</table>
+
+## Membership Management
+
+The Polkadot technical Fellowship was initally [seeded](https://github.com/polkadot-fellows/seeding)
+with its members and their corresponding ranks, and got
+[added on to Polkadot's Collectives](https://polkadot.polkassembly.io/motion/403) system chain. All
+new membership requests will go through the fellowship governance and the procedure is outlined in
+the section below.
+
+### Becoming a Member
+
+As a member of the Polkadot Technical Fellowship, you are expected to faithfully uphold the below
+tenets:
+
+- Sincerely uphold the interests of Polkadot and avoid actions which clearly work against it.
+- Respect the philosophy and principles of Polkadot.
+- Respect the operational procedures, norms and voting conventions of the Fellowship.
+- Respect fellow Members and the wider community.
+
+<div className="note">
+  <p>
+
+    For new fellowship inductions, Polkassembly has created an interface (still in beta) to
+    [apply for the Polkadot Technical Fellowship.](https://collectives.polkassembly.io/join-fellowship?network=collectives)
+    This initiative is funded by Polkadot treasury through
+    [OpenGov referendum 373](https://polkadot.polkassembly.io/treasury/574)
+
+  </p>
+</div>
+
+The fellowship manifesto states that any account may register to become a candidate for a basic
+deposit, but that feature has not been added to the collectives runtime yet. To be added as a
+candidate of the Polkadot Technical Fellowship, a pre-existing member with rank greater than or
+equal to 1 can initiate the process. The fellowship membership management is administered through
+the
+[core fellowship](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/core-fellowship/src/lib.rs)
+pallet.
+
+An existing Technical Fellowship member with rank greater than or equal to 1 can submit the signed
+`induct` call, as shown below. It is recommended that the candidate account has a verified identity.
+Upon successfuly execution of the extrinsic, the candidate's account will be displayed on the
+[Fellowship Overview](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fpolkadot-collectives-rpc.polkadot.io#/fellowship)
+tab on Polkadot-JS UI.
+
+<img className={"adj-img"} src={induct} alt="induct" />
+
+### Rank Updates
+
+The Polkadot Technical Fellowship members are expected to provide a periodic evidence to request for
+retaining their rank or to get promoted to a higher rank.
+
+#### Promotion
+
+Any fellowship member upto rank 4 can be
+promoted to the next rank through a fellowship referenda that can be voted by the members who are 2
+ranks higher. For instance, the fellowship
+[referenda 64](https://collectives.subsquare.io/fellowship/referenda/64) which promotes a member
+from rank 1 to rank 2 can only be voted by members whose ranks are greater than or equal to 3.
+Promotion of the Polkadot Fellowship members from rank 5 needs to be done through an OpenGov
+referendum.
+
+This preimage example should include the call to `promote` an account to a specific rank, as shown
+below. This preimage can be added by any account on the collectives system chain.
+
+<img className={"adj-img"} src={preimagepromote} alt="preimage" />
+
+In the snapshot below, the submission track is chosen as `21/Promote to I Dan`, origin as
+`FellowshipOrigins` and fellowship origins as `PromoteTo1Dan`. This selection should work for
+promoting a candidate with rank 0 to a member with rank 1.
+
+<img className={"adj-img"} src={proposalpromote} alt="proposal" />
+
+For promoting a member from Rank 1 to Rank 2, the submission track can be chosen as `22/Promote to  II Dan`, origin as
+`FellowshipOrigins` and fellowship origins as `PromoteTo2Dan`. Only the members with Rank >= 3 can
+vote on this proposal.
+
+#### Retain Rank
+
+To retain a rank, the Polkadot Fellowship members are expected to submit evidence of work in an
+on-going basis.
+
+#### Demotion and Suspension
+
+**Demotion** occurs automatically after a given period has elapsed, and the member is unable to
+defend their position to their peers.
+
+**Suspension** can happen only through a Polkadot OpenGov referendum, which ensures that the
+Fellowship's bias alone does not necessarily result in expulsion.
+
+<div className="note">
+  <p>
+    For more information about the Fellowship see the [Fellowship
+    Manifesto](https://github.com/polkadot-fellows/manifesto/blob/0c3df46d76625980b8b48742cb86f4d8fa6dda8d/manifesto.pdf).
+  </p>
+</div>

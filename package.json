@@ -43,7 +43,7 @@
     "buffer": "^6.0.3",
     "date-fns": "^3.3.1",
     "framer-motion": "^10.18.0",
-    "i18next": "^23.7.19",
+    "i18next": "^23.8.2",
     "i18next-browser-languagedetector": "^7.2.0",
     "lodash.throttle": "^4.1.1",
     "react": "^18.2.0",
@@ -57,14 +57,14 @@
     "styled-components": "^6.1.8"
   },
   "devDependencies": {
-    "@types/mdx": "^2.0.10",
-    "@types/react": "^18.2.48",
+    "@types/mdx": "^2.0.11",
+    "@types/react": "^18.2.51",
     "@types/react-dom": "^18.2.18",
     "@types/react-helmet": "^6.1.11",
     "@types/react-router-dom": "^5.3.3",
-    "@typescript-eslint/eslint-plugin": "^6.19.1",
-    "@typescript-eslint/parser": "^6.19.1",
-    "@vitejs/plugin-react-swc": "^3.5.0",
+    "@typescript-eslint/eslint-plugin": "^6.20.0",
+    "@typescript-eslint/parser": "^6.20.0",
+    "@vitejs/plugin-react-swc": "^3.6.0",
     "eslint": "^8.56.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.1.0",
@@ -84,11 +84,11 @@
     "sass": "^1.70.0",
     "typescript": "^5.3.3",
     "vite": "^5.0.12",
-    "vite-bundle-visualizer": "^1.0.0",
-    "vite-plugin-checker": "^0.6.2",
+    "vite-bundle-visualizer": "^1.0.1",
+    "vite-plugin-checker": "^0.6.4",
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-svgr": "^4.2.0",
     "vite-tsconfig-paths": "^4.3.1",
-    "vitest": "^1.2.1"
+    "vitest": "^1.2.2"
   }
 }

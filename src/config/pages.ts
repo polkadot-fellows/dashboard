@@ -3,9 +3,10 @@
 
 import { Overview } from "pages/Overview"
 import { Members } from "pages/Members"
+import { Membership } from "pages/Membership"
 import { Rfc } from "pages/Rfc"
 import type { PageCategoryItems, PagesConfigItems } from "types"
-import { HiMiniUserGroup, HiGlobeAlt } from "react-icons/hi2"
+import { HiMiniUserGroup, HiGlobeAlt, HiMiniUserPlus } from "react-icons/hi2"
 import { MdDocumentScanner } from "react-icons/md"
 
 const BASE_URL = import.meta.env.BASE_URL
@@ -33,6 +34,14 @@ export const PagesConfig: PagesConfigItems = [
     hash: "/members",
     Entry: Members,
     icon: HiMiniUserGroup,
+  },
+  {
+    category: 1,
+    key: "membership",
+    uri: `${BASE_URL}`,
+    hash: "/membership",
+    Entry: Membership,
+    icon: HiMiniUserPlus,
   },
   {
     category: 1,

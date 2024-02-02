@@ -2,12 +2,12 @@
 
 Below is a comprehensive depiction, following a member's journey from induction, showcasing the various stages they undergo within the fellowship.
 
-
 ### [Becoming a Polkadot Technical Fellowship Member](<!-- TODO: Link to updated overview page -->)
 
 Please refer to the overview page.
 
 ### Salary Cycle Initialization, Induction & Continuance
+
 The salary pallet has been [initiated](<!-- TODO: Link to on-chain event -->), members can now `induct` themselves into the payroll cycle(i.e. 30DAY periods)
 
 <!-- TODO: Image with call to `induct` -->
@@ -17,6 +17,7 @@ After an elapsed cycle, any account may call `bump` to move to the next cycle, t
 <!-- TODO: Image with call to `bump` -->
 
 ### Approval
+
 Members of ranks I through VI are required to re-approve their ranks before their respective demotion periods elapses, as configured in the runtime[here](https://github.com/polkadot-fellows/runtimes/issues/111#issuecomment-1872941849).
 
 An evidence detailing a members involvement in the fellowship is submitted at a time before calling `approve`, subsequently the evidence should be sumbitted in the referandum description.
@@ -28,16 +29,19 @@ Any account on the collectives system chain can submit a preimage of the call `a
 <!-- TODO: Image of a call to `approve` with the write parameters and submit a referendum, all images -->
 
 ### Payment Registration
+
 Members should register for salary at the end of the current payroll cycle(i.e. 30DAYS) and within the `RegistrationPeriod`(i.e. within 15DAYS after the current payroll cycle).
 
 <!-- TODO: Image of a call to `register` -->
 
 ### Claim Salary
+
 After a combination of the payroll cycle and `RegistrationPeriod` have elapsed(i.e. 30DAYS + 15DAYS) members can begin claiming salary within the `PayoutPeriod`(i.e. within 15DAYS), either to their fellowship accounts `payout` or any account of their choosing `payuot_other` on the collective system chain.
 
 <!-- TODO: Image of a call to `payout` and `payout_other` -->
 
 ### Retriying Failed Payments
+
 In the event of failed payments members can call `check_payment` to retry within the same cycle `status.cycle_index`
 
 <!-- TODO: Image of a call to `check_payment` -->

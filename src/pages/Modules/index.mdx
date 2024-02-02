@@ -7,9 +7,11 @@ The Polkadot Technical Fellowship is split across several on-chain modules (pall
 This pallet(i.e. `palet_core_fellowship`) enforces cordination of a ranked membership collective(i.e The Polkadot Technical Fellowship), sets salary amount, registers activity / passivity, handles promotion and demotion e.t.c.
 
 ### Parameters
+
 A changable set of values / settings which determine the salary amounts and Temporal parameters for the pallet instance.
 
 **Salary**
+
 1. Active: Otherwise known as standard allowance, is kept between the 80th-90th percentile of gross income in the OECD group of countries, which is equivalent to $80,000 at present for fellows (i.e. Dan III). The salary allocations for ranked members are intricately calibrated by [rank](<!-- TODO: Link to Overview Page -->).
 
 2. Passive: A claimable allowance set at 50% of the active salary for members that believe they are unlikely to contribute substantially within any given month. Activity / passivity is toggled with a call to the `is_active` extrinsic. However, passivity does not exclude a member from challenge or grading periods.
@@ -25,7 +27,9 @@ A changable set of values / settings which determine the salary amounts and Temp
 <div className="note">
   <h3>Extrinsics, Origins and Process Flow</h3>
   <p>
-    Please visit the interactions page to learn more about the dispatchable calls, allowed origins and the technical fellowship's current usage of `pallet_core_fellowship`.
+    Please visit the interactions page to learn more about the dispatchable
+    calls, allowed origins and the technical fellowship's current usage of
+    `pallet_core_fellowship`.
   </p>
 </div>
 
@@ -40,6 +44,8 @@ Succictly known as a "payroll cycle", is the amount of blocks (i.e. the equivale
 <div className="note">
   <h3>Extrinsics, Origins and Process Flow</h3>
   <p>
-    Please visit the interactions page to learn more about the dispatchable calls, allowed origins and the technical fellowship's current usage of `pallet_salary`.
+    Please visit the interactions page to learn more about the dispatchable
+    calls, allowed origins and the technical fellowship's current usage of
+    `pallet_salary`.
   </p>
 </div>

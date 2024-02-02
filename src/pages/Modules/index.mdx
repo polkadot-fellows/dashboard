@@ -10,21 +10,7 @@ This pallet(i.e. `palet_core_fellowship`) enforces cordination of a ranked membe
 A changable set of values / settings which determine the salary amounts and Temporal parameters for the pallet instance.
 
 **Salary**
-1. Active: Otherwise known as standard allowance, is kept between the 80th-90th percentile of gross income in the OECD group of countries, which is equivalent to $80,000 at present for fellows (i.e. Dan III). The salary allocations for ranked members are intricately calibrated using the following scale:
-
-    | Dan  | Factor |
-    |:----:|:------:|
-    |    I |  0.125 |
-    |   II |  0.25  |
-    |  III |  1     |
-    |   IV |  1.5   |
-    |    V |  2.0   |
-    |   VI |  2.5   |
-    |  VII |  2.5   |
-    | VIII |  2.5   |
-    |   IX |  2.5   |
-
-    Dan III serves as the baseline with a factor of 1. Subsequent increments or decrements follow this scale for higher or lower ranks accordingly. These salary guidelines ensure a fair and structured approach to compensation, aligning with the individual's rank and contribution to the core components of the Polkadot & Kusama runtimes.
+1. Active: Otherwise known as standard allowance, is kept between the 80th-90th percentile of gross income in the OECD group of countries, which is equivalent to $80,000 at present for fellows (i.e. Dan III). The salary allocations for ranked members are intricately calibrated by [rank](<!-- TODO: Link to Overview Page -->).
 
 2. Passive: A claimable allowance set at 50% of the active salary for members that believe they are unlikely to contribute substantially within any given month. Activity / passivity is toggled with a call to the `is_active` extrinsic. However, passivity does not exclude a member from challenge or grading periods.
 
@@ -49,7 +35,7 @@ This pallet(i.e. `pallet_salary`) handles the disbursment of allowances, claimab
 
 ### Cycle
 
-Succictly known as a "payroll cycle", is the amount of blocks (i.e. the equivalent of 30 calender days) that must pass before a ranked member becomes eligible to register a claim for a payout. Following this registration period (i.e. the equivalent of 15 calender days), the member can then claim the payout during the designated payout period (i.e. equivalent of 15 calender days) else wait until the next cycle.
+Succictly known as a "payroll cycle", is the amount of blocks (i.e. the equivalent of 30 calender days) that must pass before a ranked member becomes eligible to register a claim for a payout. Following this `RegistrationPeriod` (i.e. the equivalent of 15 calender days), the member can then claim the payout during the designated `PayoutPeriod` (i.e. equivalent of 15 calender days) else wait until the next cycle.
 
 <div className="note">
   <h3>Extrinsics, Origins and Process Flow</h3>

@@ -1,20 +1,25 @@
+import CoreSubmitEvidence from "./fellowshipCore.submitEvidence.png"
+import PreimageCoreApprove from "./preimage.fellowshipCore.approve.png"
+import SalaryInduct from "./fellowshipSalary.induct.png"
+import SalaryBump from "./fellowshipSalary.bump.png"
+
 ## Process Flow
 
 Below is a comprehensive depiction, following a member's journey from induction, showcasing the various stages they undergo within the fellowship.
 
-### [Becoming a Polkadot Technical Fellowship Member](<!-- TODO: Link to updated overview page -->)
+### [Becoming a Polkadot Technical Fellowship Member](https://polkadot-fellows.github.io/dashboard/#/membership)
 
 Please refer to the overview page.
 
 ### Salary Cycle Initialization, Induction & Continuance
 
-The salary pallet has been [initiated](<!-- TODO: Link to on-chain event -->), members can now `induct` themselves into the payroll cycle(i.e. 30DAY periods)
+The salary pallet has been [initiated](https://collectives.statescan.io/#/extrinsics/2983655-2), members can now `induct` themselves into the payroll cycle(i.e. 30DAY periods)
 
-<!-- TODO: Image with call to `induct` -->
+<img className={"adj-img"} src={SalaryInduct} alt="preimage" />
 
 After an elapsed cycle, any account may call `bump` to move to the next cycle, this is required before calls to `register` for payment of the elasped cycle and subsequently calls to claim `payout` is possible.
 
-<!-- TODO: Image with call to `bump` -->
+<img className={"adj-img"} src={SalaryBump} alt="preimage" />
 
 ### Approval
 
@@ -22,9 +27,13 @@ Members of ranks I through VI are required to re-approve their ranks before thei
 
 An evidence detailing a members involvement in the fellowship is submitted at a time before calling `approve`, subsequently the evidence should be sumbitted in the referandum description.
 
-<!-- TODO: Image with call to `submit_evidence` -->
+<img className={"adj-img"} src={SubmitEvidence} alt="preimage" />
 
-Any account on the collectives system chain can submit a preimage of the call `approve` for ranked members of the fellowship and, submit in the appropriate track.
+Any account on the collectives system chain can submit a preimage of the call `approve` for ranked members of the fellowship in the appropriate track.
+
+<img className={"adj-img"} src={PreimageCoreApprove} alt="preimage" />
+
+This preimage should be submitted to the 11 / Retain At I Dan
 
 <!-- TODO: Image of a call to `approve` with the write parameters and submit a referendum, all images -->
 
@@ -42,6 +51,6 @@ After a combination of the payroll cycle and `RegistrationPeriod` have elapsed(i
 
 ### Retriying Failed Payments
 
-In the event of failed payments members can call `check_payment` to retry within the same cycle `status.cycle_index`
+In the event of failed payments members can call `check_payment` to retry within the same cycle.
 
 <!-- TODO: Image of a call to `check_payment` -->

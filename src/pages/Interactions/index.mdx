@@ -1,7 +1,12 @@
 import CoreSubmitEvidence from "./fellowshipCore.submitEvidence.png"
 import PreimageCoreApprove from "./preimage.fellowshipCore.approve.png"
+import ProposalApprove from "./proposal.fellowshipCore.approve.png"
 import SalaryInduct from "./fellowshipSalary.induct.png"
 import SalaryBump from "./fellowshipSalary.bump.png"
+import CoreRegister from "./fellowshipCore.register.png"
+import SalaryPayout from "./fellowshipSalary.payout.png"
+import SalaryPayoutOther from "./fellowshipSalary.payoutOther.png"
+import SalaryCheckPayment from "./fellowshipSalary.checkPayment.png"
 
 ## Process Flow
 
@@ -33,24 +38,28 @@ Any account on the collectives system chain can submit a preimage of the call `a
 
 <img className={"adj-img"} src={PreimageCoreApprove} alt="preimage" />
 
-This preimage should be submitted to the 11 / Retain At I Dan
+The preimage needs to be submitted to the 11 / Retain At I Dan for approval of the member's rank retention. This process will update the last_proof with the block number at which the call is executed.
 
-<!-- TODO: Image of a call to `approve` with the write parameters and submit a referendum, all images -->
+<img className={"adj-img"} src={ProposalApprove} alt="preimage" />
 
 ### Payment Registration
 
 Members should register for salary at the end of the current payroll cycle(i.e. 30DAYS) and within the `RegistrationPeriod`(i.e. within 15DAYS after the current payroll cycle).
 
-<!-- TODO: Image of a call to `register` -->
+<img className={"adj-img"} src={CoreRegister} alt="preimage" />
 
 ### Claim Salary
 
-After a combination of the payroll cycle and `RegistrationPeriod` have elapsed(i.e. 30DAYS + 15DAYS) members can begin claiming salary within the `PayoutPeriod`(i.e. within 15DAYS), either to their fellowship accounts `payout` or any account of their choosing `payuot_other` on the collective system chain.
+After a combination of the payroll cycle and `RegistrationPeriod` have elapsed(i.e. 30DAYS + 15DAYS) members can begin claiming salary within the `PayoutPeriod`(i.e. within 15DAYS), with a call to `payout`.
 
-<!-- TODO: Image of a call to `payout` and `payout_other` -->
+<img className={"adj-img"} src={SalaryPayout} alt="preimage" />
+
+Alternatively members can claim payout to any account on the collectives system chain(i.e. `payout_other`).
+
+<img className={"adj-img"} src={SalaryPayoutOther} alt="preimage" />
 
 ### Retriying Failed Payments
 
 In the event of failed payments members can call `check_payment` to retry within the same cycle.
 
-<!-- TODO: Image of a call to `check_payment` -->
+<img className={"adj-img"} src={SalaryCheckPayment} alt="preimage" />

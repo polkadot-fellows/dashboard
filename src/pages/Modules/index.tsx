@@ -2,14 +2,14 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 import { PageRow, PageTitle } from "@polkadot-cloud/react"
-import { RequestsGrid } from "./RequestsGrid"
+import MdxCode from "./index.mdx"
 
-export const Members = () => {
+export const Modules = () => {
   return (
     <>
-      <PageTitle title="Polkadot Fellowship - Members" />
-      <PageRow>
-        <RequestsGrid />
+      <PageTitle title="Polkadot Technical Fellowship - Modules" />
+      <PageRow style={{ paddingTop: "1rem" }}>
+        <MdxCode />
       </PageRow>
     </>
   )

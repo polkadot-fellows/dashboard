@@ -1,4 +1,4 @@
-// Copyright 2023 @polkadot-fellows/dashboard authors & contributors
+// Copyright 2024 @polkadot-fellows/dashboard authors & contributors
 // SPDX-License-Identifier: GPL-3.0-only
 
 import React, { useState } from "react"

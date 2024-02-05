@@ -1,4 +1,4 @@
-// Copyright 2023 @polkadot-fellows/dashboard authors & contributors
+// Copyright 2024 @polkadot-fellows/dashboard authors & contributors
 // SPDX-License-Identifier: GPL-3.0-only
 
 import { Overview } from "pages/Overview"
@@ -12,8 +12,12 @@ import {
   HiGlobeAlt,
   HiMiniUserPlus,
   HiBuildingLibrary,
+  HiMiniInboxStack,
+  HiMiniCubeTransparent,
 } from "react-icons/hi2"
 import { MdDocumentScanner } from "react-icons/md"
+import { Interactions } from "pages/Interactions"
+import { Modules } from "pages/Modules"
 
 const BASE_URL = import.meta.env.BASE_URL
 
@@ -56,6 +60,22 @@ export const PagesConfig: PagesConfigItems = [
     hash: "/governance",
     Entry: Governance,
     icon: HiBuildingLibrary,
+  },
+  {
+    category: 1,
+    key: "interactions",
+    uri: `${BASE_URL}`,
+    hash: "/interactions",
+    Entry: Interactions,
+    icon: HiMiniCubeTransparent,
+  },
+  {
+    category: 1,
+    key: "modules",
+    uri: `${BASE_URL}`,
+    hash: "/modules",
+    Entry: Modules,
+    icon: HiMiniInboxStack,
   },
   {
     category: 1,

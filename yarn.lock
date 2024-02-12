@@ -814,10 +814,10 @@
   dependencies:
     "@types/mdx" "^2.0.0"
 
-"@mdx-js/rollup@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@mdx-js/rollup/-/rollup-3.0.0.tgz#69894882300d6a93a19bb3aecbeb47c0c555f4bc"
-  integrity sha512-ITvGiwPGEBW+D7CCnpSA9brzAosIWHAi4y+Air8wgfLnez8aWue50avHtWMfnFLCp7vt+JQ9UM8nwfuQuuydxw==
+"@mdx-js/rollup@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@mdx-js/rollup/-/rollup-3.0.1.tgz#1dee20f18880e29b5160cb2b22c27055f41aabe3"
+  integrity sha512-j0II91OCm4ld+l5QVgXXMQGxVVcAWIQJakYWi1dv5pefDHASJyCYER2TsdH7Alf958GoFSM7ugukWyvDq/UY4A==
   dependencies:
     "@mdx-js/mdx" "^3.0.0"
     "@rollup/pluginutils" "^5.0.0"

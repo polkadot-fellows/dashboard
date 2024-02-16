@@ -239,10 +239,10 @@
     sharp-phash "^2.1.0"
     valibot "^0.13.1"
 
-"@dotlottie/player-component@^2.7.9":
-  version "2.7.9"
-  resolved "https://registry.yarnpkg.com/@dotlottie/player-component/-/player-component-2.7.9.tgz#61dd0bdb999833816d0db33342fe27624b173b84"
-  integrity sha512-N5GW3NJqRMHMIU0MFR+znihNQkL8g0VVTJ2FXuRe11hujhpYWNV1mNV7GyVvrMxFg8odfaR+1vWQunftetOwBA==
+"@dotlottie/player-component@^2.7.10":
+  version "2.7.10"
+  resolved "https://registry.yarnpkg.com/@dotlottie/player-component/-/player-component-2.7.10.tgz#fe894d9eed9930252e7aba17211f067c9bd1393f"
+  integrity sha512-UXl6UivxJNWqe5xK+a3KsTRNKDlS1uOR8AmBwcjDrumjDXqecTFQPPekAhMlzOoycugduT4okLkSPC4RIyeESA==
   dependencies:
     "@dotlottie/common" "0.7.10"
     lit "^2.7.5"

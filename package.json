@@ -33,7 +33,7 @@
     "@mdx-js/react": "^3.0.1",
     "@mdx-js/rollup": "^3.0.1",
     "@polkadot-cloud/core": "^1.2.4",
-    "@polkadot-cloud/react": "^0.3.8",
+    "@polkadot-cloud/react": "^0.5.4",
     "@polkadot-cloud/recipes": "^0.0.10",
     "@polkadot/keyring": "^12.6.2",
     "@polkadot/react-hooks": "^0.39.1",

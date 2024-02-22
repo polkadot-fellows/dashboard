@@ -1,7 +1,7 @@
 // Copyright 2024 @polkadot-fellows/dashboard authors & contributors
 // SPDX-License-Identifier: GPL-3.0-only
 
-import { Body, Main, Page, Side } from "@polkadot-cloud/react"
+import { Body, Main, Page, Side } from "@polkadot-ui/react"
 import { AnimatePresence } from "framer-motion"
 import { useEffect, useRef } from "react"
 import { ErrorBoundary } from "react-error-boundary"

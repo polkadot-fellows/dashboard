@@ -2,8 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 import { useEffect, useState } from "react"
-import { Grid } from "@polkadot-cloud/react"
-import { AccountCard } from "@polkadot-cloud/recipes"
+import { Grid, AccountCard } from "@polkadot-ui/react"
 
 import "./RequestsGrid.scss"
 import { useApi } from "contexts/Api"

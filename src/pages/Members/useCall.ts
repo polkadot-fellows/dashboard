@@ -13,7 +13,7 @@ import { isFunction, isNull, isUndefined, nextTick } from "@polkadot/util"
 
 import { useApi } from "contexts/Api"
 import { useIsMountedRef } from "./useIsMountedRef.js"
-import type { Any } from "@polkadot-cloud/react/utils/types.js"
+import type { Any } from "@polkadot-ui/react/utils/types.js"
 
 type VoidFn = () => void
 

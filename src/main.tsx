@@ -2,14 +2,14 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 // Network classes.
-import "@polkadot-cloud/core/theme/default/index.css"
+import "@polkadot-ui/core/theme/default/index.css"
 
 // Fonts with light and dark themes.
-import "@polkadot-cloud/core/theme/default/fonts/index.css"
-import "@polkadot-cloud/core/accent/polkadot-relay.css"
+import "@polkadot-ui/core/theme/default/fonts/index.css"
+import "@polkadot-ui/core/accent/polkadot-relay.css"
 
 // Core UI styles.
-import "@polkadot-cloud/core/css/styles/index.css"
+import "@polkadot-ui/core/css/styles/index.css"
 
 import { createRoot } from "react-dom/client"
 import { App } from "App"

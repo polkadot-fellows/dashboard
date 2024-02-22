@@ -1,7 +1,7 @@
 // Copyright 2024 @polkadot-fellows/dashboard authors & contributors
 // SPDX-License-Identifier: GPL-3.0-only
 
-import { ModalOverlay } from "@polkadot-cloud/react"
+import { ModalOverlay } from "@polkadot-ui/react"
 import { useAnimation } from "framer-motion"
 import { useEffect } from "react"
 import { useHelp } from "contexts/Help"

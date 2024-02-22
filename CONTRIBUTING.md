@@ -8,7 +8,7 @@ This section aims to familiarise developers to the Fellowship Dashboard [[GitHub
 
 - React 18
 - SCSS for theme configuration and Styled Components [[docs](https://styled-components.com/docs)] for component styling.
-- [Polkadot Cloud component library](https://github.com/polkadot-cloud)
+- [Polkadot UI component library](https://github.com/polkadot-ui)
 
 ## Environment Variables
 

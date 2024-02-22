@@ -8,7 +8,7 @@ import type {
   APIProviderProps,
   ApiStatus,
 } from "contexts/Api/types"
-import { useEffectIgnoreInitial } from "@polkadot-cloud/react/hooks"
+import { useEffectIgnoreInitial } from "@polkadot-ui/react/hooks"
 import { defaultApiContext } from "./defaults"
 
 export const APIProvider = ({ children, network }: APIProviderProps) => {

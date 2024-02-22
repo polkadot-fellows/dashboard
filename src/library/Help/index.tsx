@@ -6,8 +6,8 @@ import {
   CanvasContainer,
   ModalContent,
   ModalScroll,
-} from "@polkadot-cloud/react"
-import { camelize } from "@polkadot-cloud/utils"
+} from "@polkadot-ui/react"
+import { camelize } from "@polkadot-ui/utils"
 import { useAnimation } from "framer-motion"
 import { useCallback, useEffect } from "react"
 import { useTranslation } from "react-i18next"

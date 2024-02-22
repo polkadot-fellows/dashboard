@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 import { useEffect, useState } from "react"
-import { Grid, Card, Loader } from "@polkadot-cloud/react"
+import { Grid, Card, Loader } from "@polkadot-ui/react"
 import { GithubApiUrl, GithubOwner, GithubRfc } from "consts"
 import ReactMarkdown from "react-markdown"
 

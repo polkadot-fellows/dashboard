@@ -13,7 +13,7 @@ import { useCall } from "./useCall"
 import { useEffect, useState } from "react"
 import type { ApiStatus } from "contexts/Api/types"
 
-import { useEffectIgnoreInitial } from "@polkadot-cloud/react/hooks"
+import { useEffectIgnoreInitial } from "@polkadot-ui/react/hooks"
 
 export const useDeriveAccountInfo = (
   value?: AccountId | AccountIndex | Address | Uint8Array | string | null

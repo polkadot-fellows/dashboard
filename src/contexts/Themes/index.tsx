@@ -1,7 +1,7 @@
 // Copyright 2024 @polkadot-fellows/dashboard authors & contributors
 // SPDX-License-Identifier: GPL-3.0-only
 
-import { setStateWithRef } from "@polkadot-cloud/utils"
+import { setStateWithRef } from "@polkadot-ui/utils"
 import React, { useRef } from "react"
 import { defaultThemeContext } from "./defaults"
 import type { Theme, ThemeContextInterface } from "./types"

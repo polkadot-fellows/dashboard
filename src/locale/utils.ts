@@ -1,7 +1,7 @@
 // Copyright 2024 @polkadot-fellows/dashboard authors & contributors
 // SPDX-License-Identifier: GPL-3.0-only
 
-import { extractUrlValue, varToUrlHash } from "@polkadot-cloud/utils"
+import { extractUrlValue, varToUrlHash } from "@polkadot-ui/utils"
 import { DefaultLocale } from "consts"
 import type { AnyApi, AnyJson } from "types"
 import { availableLanguages, fallbackResources, lngNamespaces } from "."

@@ -6,7 +6,7 @@ The Polkadot Technical Fellowship is split across several on-chain modules (pall
 
 This pallet(i.e. `palet_core_fellowship`) enforces cordination of a ranked membership collective(i.e The Polkadot Technical Fellowship), sets salary amount, registers activity / passivity, handles promotion and demotion e.t.c.
 
-### Parameters
+#### Parameters
 
 A changable set of values / settings which determine the salary amounts and Temporal parameters for the pallet instance.
 
@@ -27,9 +27,10 @@ A changable set of values / settings which determine the salary amounts and Temp
 <div className="note">
   <h3>Extrinsics, Origins and Process Flow</h3>
   <p>
-    Please visit the interactions page to learn more about the dispatchable
-    calls, allowed origins and the technical fellowship's current usage of
-    `pallet_core_fellowship`.
+    Please visit the [interactions
+    page](https://polkadot-fellows.github.io/dashboard/#/interactions) to learn
+    more about the dispatchable calls, allowed origins and the technical
+    fellowship's current usage of `pallet_core_fellowship`.
   </p>
 </div>
 
@@ -37,15 +38,16 @@ A changable set of values / settings which determine the salary amounts and Temp
 
 This pallet(i.e. `pallet_salary`) handles the disbursment of allowances, claimable by ranked members of the collective within cycles.
 
-### Cycle
+#### Cycle
 
 Succictly known as a "payroll cycle", is the amount of blocks (i.e. the equivalent of 30 calender days) that must pass before a ranked member becomes eligible to register a claim for a payout. Following this `RegistrationPeriod` (i.e. the equivalent of 15 calender days), the member can then claim the payout during the designated `PayoutPeriod` (i.e. equivalent of 15 calender days) else wait until the next cycle.
 
 <div className="note">
   <h3>Extrinsics, Origins and Process Flow</h3>
   <p>
-    Please visit the interactions page to learn more about the dispatchable
-    calls, allowed origins and the technical fellowship's current usage of
-    `pallet_salary`.
+    Please visit the [interactions
+    page](https://polkadot-fellows.github.io/dashboard/#/interactions) to learn
+    more about the dispatchable calls, allowed origins and the technical
+    fellowship's current usage of `pallet_salary`.
   </p>
 </div>

@@ -5,14 +5,27 @@ import { useEffect, useState } from "react"
 import { Grid, AccountCard } from "@polkadot-ui/react"
 
 import "./RequestsGrid.scss"
-import { useApi } from "contexts/Api"
 import { AccountName } from "./AccountName"
-// import { AccountInfo } from "./AccountInfo"
 
-interface AccountInfo {
-  name?: string
+import { Binary, createClient } from "@polkadot-api/client"
+
+import { getLegacyProvider } from "@polkadot-api/legacy-polkadot-provider"
+import { createScClient } from "@substrate/connect"
+import collectivesChainspec from "./collectives-polkadot"
+
+import collectiveTypes from "../../codegen/collectives"
+import type { Queries } from "../../codegen/polkadot"
+import polkadotTypes from "../../codegen/polkadot"
+
+export interface AccountInfoIF {
   address: string
   rank: number
+  display?: string
+  github?: string
+  legal?: string
+  riot?: string
+  twitter?: string
+  web?: string
 }
 
 const rankings = [
@@ -28,39 +41,78 @@ const rankings = [
   "Grand Master",
 ]
 
-export const RequestsGrid = () => {
-  const { api } = useApi()
-  const members: AccountInfo[] = []
+const scProvider = createScClient()
+const { relayChains } = getLegacyProvider(scProvider)
 
-  const [mem, setMem] = useState<AccountInfo[]>([])
+const collectivesParachain =
+  await relayChains.polkadot.getParachain(collectivesChainspec)
+
+const p_client = createClient(relayChains.polkadot.connect)
+const client = createClient(collectivesParachain.connect)
+const api = client?.getTypedApi(collectiveTypes)
+const p_api = p_client?.getTypedApi(polkadotTypes)
+
+const identityDataToString = (value: string | Binary | undefined) =>
+  typeof value === "object" ? value.asText() : value ?? ""
+
+const mapRawIdentity = (
+  rawIdentity?: Queries["Identity"]["IdentityOf"]["Value"]
+) => {
+  if (!rawIdentity) return rawIdentity
+
+  const {
+    info: { additional, ...rawInfo },
+  } = rawIdentity
+
+  const additionalInfo = Object.fromEntries(
+    additional.map(([key, { value }]) => [
+      identityDataToString(key.value!),
+      identityDataToString(value),
+    ])
+  )
+
+  const info = Object.fromEntries(
+    Object.entries(rawInfo)
+      .map(([key, x]) => [
+        key,
+        identityDataToString(
+          x instanceof Binary ? x.asText() : x?.value?.asText()
+        ),
+      ])
+      .filter(([, value]) => value)
+  )
+
+  return { ...info, ...additionalInfo }
+}
+
+export const RequestsGrid = () => {
+  const [mem, setMem] = useState<AccountInfoIF[]>([])
 
   useEffect(() => {
     const fetchMembers = async () => {
-      api &&
-        (await api?.isReady) &&
-        api.query.fellowshipCollective.memberCount(0).then((res) => {
-          for (let i = 0; i < parseInt(res.toString()); i++) {
-            const account: AccountInfo = {} as AccountInfo
-            api.query.fellowshipCollective.indexToId(0, i).then((result) => {
-              account.address = result.toHuman() as string
-              api.query.fellowshipCollective
-                .members(account.address)
-                .then((r) => {
-                  const j: any = r.toHuman()
-                  account.rank = j?.rank
-                  members.push(account)
-                })
-                .finally(() => {
-                  setMem([
-                    ...members.sort((a, b) => (a.rank > b.rank ? -1 : 1)),
-                  ])
-                })
-            })
-          }
-        })
+      const collectiveAddresses: any =
+        await api.query.FellowshipCollective.Members.getEntries().then(
+          (members: any[]) =>
+            p_api.query.Identity.IdentityOf.getValues(
+              members.map((m) => m.keyArgs)
+            ).then((identities: any[]) =>
+              identities.map((identity, idx) => ({
+                address: members[idx].keyArgs[0],
+                rank: members[idx].value,
+                ...mapRawIdentity(identity),
+              }))
+            )
+        )
+
+      setMem([
+        ...collectiveAddresses.sort(
+          (a: { rank: number }, b: { rank: number }) =>
+            a.rank > b.rank ? -1 : 1
+        ),
+      ])
     }
-    fetchMembers()
-  }, [api, api?.isReady])
+    api && fetchMembers()
+  }, [api])
 
   return (
     <>
@@ -78,7 +130,7 @@ export const RequestsGrid = () => {
       {mem.map((m) => (
         <Grid row key={m.address} style={{ padding: "0.5rem 0" }}>
           <Grid column sm={3} md={3}>
-            <AccountName address={m.address} />
+            <AccountName display={m.display || "-"} />
           </Grid>
           <Grid column sm={7} md={7}>
             <AccountCard

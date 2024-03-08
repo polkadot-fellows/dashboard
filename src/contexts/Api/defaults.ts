@@ -3,7 +3,6 @@
 
 import type { APIChainState, APIContextInterface } from "./types"
 
-// import { stringToU8a } from "@polkadot/util"
 // import BigNumber from "bignumber.js"
 
 // export const defaultConsts: APIConstants = {
@@ -30,8 +29,7 @@ export const defaultChainState: APIChainState = {
 
 export const defaultApiContext: APIContextInterface = {
   api: null,
-  isReady: false,
-  apiStatus: "disconnected",
+  client: null,
   // rpcEndpoint: "",
   // setRpcEndpoint: (key) => {},
   // consts: defaultConsts,

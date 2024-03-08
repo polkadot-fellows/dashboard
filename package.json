@@ -10,6 +10,7 @@
   "license": "GPL-3.0-only",
   "scripts": {
     "dev": "vite",
+    "postinstall": "papi",
     "build": "tsc && vite build --base '/'",
     "build:pages": "tsc && vite build --base '/dashboard/'",
     "deploy:pages": "yarn build:pages && gh-pages -d build",
@@ -23,6 +24,18 @@
     "test": "echo 'no test'",
     "visualizer": "vite-bundle-visualizer"
   },
+  "polkadot-api": {
+    "polkadot": {
+      "outputFolder": "src/codegen",
+      "wsUrl": "wss://polkadot-rpc.dwellir.com",
+      "metadata": "polkadot.scale"
+    },
+    "collectives": {
+      "outputFolder": "src/codegen",
+      "wsUrl": "wss://polkadot-collectives-rpc.polkadot.io",
+      "metadata": "collectives.scale"
+    }
+  },
   "dependencies": {
     "@dotlottie/player-component": "^2.7.10",
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
@@ -32,11 +45,14 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@mdx-js/react": "^3.0.1",
     "@mdx-js/rollup": "^3.0.1",
-    "@polkadot-ui/core": "^2.0.2",
-    "@polkadot-ui/react": "^0.5.3",
-    "@polkadot/keyring": "^12.6.2",
-    "@polkadot/react-hooks": "^0.39.1",
-    "@polkadot/util": "^12.6.1",
+    "@polkadot-api/cli": "^0.0.1-78e7aa83d7bae987df486715cca319e2aa1667ea.1.0",
+    "@polkadot-api/client": "^0.0.1-78e7aa83d7bae987df486715cca319e2aa1667ea.1.0",
+    "@polkadot-api/legacy-polkadot-provider": "^0.0.1-78e7aa83d7bae987df486715cca319e2aa1667ea.1.0",
+    "@polkadot-api/node-polkadot-provider": "^0.0.1-78e7aa83d7bae987df486715cca319e2aa1667ea.1.0",
+    "@polkadot-api/substrate-client": "^0.0.1-82a21c0b599d6949b56aff63cdf081b78a281f46.1.0",
+    "@polkadot-api/utils": "^0.0.1-82a21c0b599d6949b56aff63cdf081b78a281f46.1.0",
+    "@polkadot-api/ws-provider": "^0.0.1-78e7aa83d7bae987df486715cca319e2aa1667ea.1.0",
+    "@substrate/connect": "^0.8.7",
     "@types/lodash.throttle": "^4.1.9",
     "bignumber.js": "^9.1.2",
     "buffer": "^6.0.3",
@@ -56,6 +72,7 @@
     "styled-components": "^6.1.8"
   },
   "devDependencies": {
+    "@polkadot-api/rollup-plugin-descriptor-treeshake": "^0.0.1-e5b6c751cfb875da2542f1bd895e0be3aa95cd4a.1.0",
     "@types/mdx": "^2.0.11",
     "@types/react": "^18.2.57",
     "@types/react-dom": "^18.2.19",

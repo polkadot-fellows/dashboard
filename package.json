@@ -52,6 +52,7 @@
     "@polkadot-api/substrate-client": "^0.0.1-82a21c0b599d6949b56aff63cdf081b78a281f46.1.0",
     "@polkadot-api/utils": "^0.0.1-82a21c0b599d6949b56aff63cdf081b78a281f46.1.0",
     "@polkadot-api/ws-provider": "^0.0.1-78e7aa83d7bae987df486715cca319e2aa1667ea.1.0",
+    "@polkadot-ui/react": "^0.5.3",
     "@substrate/connect": "^0.8.7",
     "@types/lodash.throttle": "^4.1.9",
     "bignumber.js": "^9.1.2",
@@ -69,7 +70,8 @@
     "react-icons": "^5.0.1",
     "react-markdown": "^9.0.1",
     "react-router-dom": "^6.22.3",
-    "styled-components": "^6.1.8"
+    "styled-components": "^6.1.8",
+    "usehooks-ts": "^3.0.1"
   },
   "devDependencies": {
     "@polkadot-api/rollup-plugin-descriptor-treeshake": "^0.0.1-e5b6c751cfb875da2542f1bd895e0be3aa95cd4a.1.0",

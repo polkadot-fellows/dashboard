@@ -17,6 +17,8 @@ import collectiveTypes from "../../codegen/collectives"
 import type { Queries } from "../../codegen/polkadot"
 import polkadotTypes from "../../codegen/polkadot"
 
+import { useLocalStorage } from "usehooks-ts"
+
 export interface AccountInfoIF {
   address: string
   rank: number
@@ -87,6 +89,10 @@ const mapRawIdentity = (
 
 export const RequestsGrid = () => {
   const [mem, setMem] = useState<AccountInfoIF[]>([])
+  const [fellowshipMembers, setFellowshipMembers] = useLocalStorage<any[]>(
+    "fellowship-members",
+    []
+  )
 
   useEffect(() => {
     const fetchMembers = async () => {
@@ -111,8 +117,19 @@ export const RequestsGrid = () => {
         ),
       ])
     }
+
+    if (api) {
+      if (fellowshipMembers.length) {
+        setMem(fellowshipMembers)
+      }
+      fetchMembers()
+    }
     api && fetchMembers()
   }, [api])
+
+  useEffect(() => {
+    setFellowshipMembers(mem)
+  }, [mem])
 
   return (
     <>

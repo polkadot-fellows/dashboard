@@ -3,21 +3,17 @@
 
 import { useEffect, useState } from "react"
 import { Grid, AccountCard } from "@polkadot-ui/react"
-
-import "./RequestsGrid.scss"
 import { AccountName } from "./AccountName"
-
 import { Binary, createClient } from "@polkadot-api/client"
-
 import { getLegacyProvider } from "@polkadot-api/legacy-polkadot-provider"
 import { createScClient } from "@substrate/connect"
 import collectivesChainspec from "./collectives-polkadot"
-
 import collectiveTypes from "../../codegen/collectives"
 import type { Queries } from "../../codegen/polkadot"
 import polkadotTypes from "../../codegen/polkadot"
-
 import { useLocalStorage } from "usehooks-ts"
+
+import "./RequestsGrid.scss"
 
 export interface AccountInfoIF {
   address: string

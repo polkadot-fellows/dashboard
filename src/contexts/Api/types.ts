@@ -38,7 +38,9 @@ export type APIChainState = {
 
 export interface APIContextInterface {
   api: any | null
+  papi: any | null
   client: any
+  pclient: any
   // rpcEndpoint: string
   // setRpcEndpoint: (key: string) => void
   // consts: APIConstants

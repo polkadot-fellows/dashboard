@@ -12,18 +12,21 @@ import { createScClient } from "@substrate/connect"
 import collectivesChainspec from "./collectives-polkadot"
 
 import collectiveTypes from "../../codegen/collectives"
+import polkadotTypes from "../../codegen/polkadot"
+
+const scProvider = createScClient()
+const { relayChains } = getLegacyProvider(scProvider)
 
 export const APIProvider = ({ children }: APIProviderProps) => {
   const [client, setClient] = useState<any>()
+  const [pclient, setpClient] = useState<any>()
 
   // API instance state.
   const [api, setApi] = useState()
+  const [papi, setPapi] = useState()
 
   useEffect(() => {
     const create = async () => {
-      const scProvider = createScClient()
-      const { relayChains } = getLegacyProvider(scProvider)
-
       const collectivesParachain =
         await relayChains.polkadot.getParachain(collectivesChainspec)
 
@@ -31,8 +34,16 @@ export const APIProvider = ({ children }: APIProviderProps) => {
       setClient(cl)
     }
 
+    const p_create = () => {
+      const cl = createClient(relayChains.polkadot.connect)
+      setpClient(cl)
+    }
+
     if (!client) {
       create()
+    }
+    if (!pclient) {
+      p_create()
     }
   }, [])
 
@@ -40,11 +51,17 @@ export const APIProvider = ({ children }: APIProviderProps) => {
     setApi(client?.getTypedApi(collectiveTypes))
   }, [client])
 
+  useEffect(() => {
+    setPapi(pclient?.getTypedApi(polkadotTypes))
+  }, [pclient])
+
   return (
     <APIContext.Provider
       value={{
         client,
+        pclient,
         api,
+        papi,
       }}
     >
       {children}

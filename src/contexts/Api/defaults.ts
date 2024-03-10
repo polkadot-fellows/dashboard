@@ -30,6 +30,8 @@ export const defaultChainState: APIChainState = {
 export const defaultApiContext: APIContextInterface = {
   api: null,
   client: null,
+  papi: null,
+  pclient: null,
   // rpcEndpoint: "",
   // setRpcEndpoint: (key) => {},
   // consts: defaultConsts,

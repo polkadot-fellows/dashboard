@@ -4,16 +4,12 @@
 import { useEffect, useState } from "react"
 import { Grid, AccountCard, Loader } from "@polkadot-ui/react"
 import { AccountName } from "./AccountName"
-import { Binary, createClient } from "@polkadot-api/client"
-import { getLegacyProvider } from "@polkadot-api/legacy-polkadot-provider"
-import { createScClient } from "@substrate/connect"
-import collectivesChainspec from "./collectives-polkadot"
-import collectiveTypes from "../../codegen/collectives"
+import { Binary } from "@polkadot-api/client"
 import type { Queries } from "../../codegen/polkadot"
-import polkadotTypes from "../../codegen/polkadot"
 import { useLocalStorage } from "usehooks-ts"
 
 import "./RequestsGrid.scss"
+import { useApi } from "contexts/Api"
 
 export interface AccountInfoIF {
   address: string
@@ -38,17 +34,6 @@ const rankings = [
   "Master Constant",
   "Grand Master",
 ]
-
-const scProvider = createScClient()
-const { relayChains } = getLegacyProvider(scProvider)
-
-const collectivesParachain =
-  await relayChains.polkadot.getParachain(collectivesChainspec)
-
-const p_client = createClient(relayChains.polkadot.connect)
-const client = createClient(collectivesParachain.connect)
-const api = client?.getTypedApi(collectiveTypes)
-const p_api = p_client?.getTypedApi(polkadotTypes)
 
 const identityDataToString = (value: string | Binary | undefined) =>
   typeof value === "object" ? value.asText() : value ?? ""
@@ -90,12 +75,14 @@ export const RequestsGrid = () => {
     []
   )
 
+  const { api, papi } = useApi()
+
   useEffect(() => {
     const fetchMembers = async () => {
       const collectiveAddresses: any =
         await api.query.FellowshipCollective.Members.getEntries().then(
           (members: any[]) =>
-            p_api.query.Identity.IdentityOf.getValues(
+            papi.query.Identity.IdentityOf.getValues(
               members.map((m) => m.keyArgs)
             ).then((identities: any[]) =>
               identities.map((identity, idx) => ({

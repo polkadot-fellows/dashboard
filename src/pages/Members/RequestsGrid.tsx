@@ -69,7 +69,7 @@ const mapRawIdentity = (
 }
 
 export const RequestsGrid = () => {
-  const [mem, setMem] = useState<AccountInfoIF[]>([])
+  const [members, setMembers] = useState<AccountInfoIF[]>([])
   const [fellowshipMembers, setFellowshipMembers] = useLocalStorage<any[]>(
     "fellowship-members",
     []
@@ -81,19 +81,19 @@ export const RequestsGrid = () => {
     const fetchMembers = async () => {
       const collectiveAddresses: any =
         await api.query.FellowshipCollective.Members.getEntries().then(
-          (members: any[]) =>
+          (mems: any[]) =>
             papi.query.Identity.IdentityOf.getValues(
-              members.map((m) => m.keyArgs)
+              mems.map((m) => m.keyArgs)
             ).then((identities: any[]) =>
               identities.map((identity, idx) => ({
-                address: members[idx].keyArgs[0],
-                rank: members[idx].value,
+                address: mems[idx].keyArgs[0],
+                rank: mems[idx].value,
                 ...mapRawIdentity(identity),
               }))
             )
         )
 
-      setMem([
+      setMembers([
         ...collectiveAddresses.sort(
           (a: { rank: number }, b: { rank: number }) =>
             a.rank > b.rank ? -1 : 1
@@ -103,7 +103,7 @@ export const RequestsGrid = () => {
 
     if (api) {
       if (fellowshipMembers.length) {
-        setMem(fellowshipMembers)
+        setMembers(fellowshipMembers)
       }
       fetchMembers()
     }
@@ -111,8 +111,8 @@ export const RequestsGrid = () => {
   }, [api])
 
   useEffect(() => {
-    setFellowshipMembers(mem)
-  }, [mem])
+    setFellowshipMembers(members)
+  }, [members])
 
   return (
     <>
@@ -127,8 +127,8 @@ export const RequestsGrid = () => {
           <h3>Rank</h3>
         </Grid>
       </Grid>
-      {mem.length ? (
-        mem.map((m) => (
+      {members.length ? (
+        members.map((m) => (
           <Grid row key={m.address} style={{ padding: "0.5rem 0" }}>
             <Grid column sm={3} md={3}>
               <AccountName display={m.display || "-"} />

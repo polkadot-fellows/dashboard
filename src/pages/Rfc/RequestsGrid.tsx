@@ -5,12 +5,14 @@ import { useEffect, useState } from "react"
 import { Grid, Card, Loader } from "@polkadot-ui/react"
 import { GithubApiUrl, GithubOwner, GithubRfc } from "consts"
 import ReactMarkdown from "react-markdown"
+import MdxCode from "./index.mdx"
 
 import "./RequestsGrid.scss"
 import { Link } from "react-router-dom"
 
 export const RequestsGrid = () => {
   const [data, setData] = useState<Array<any> | undefined>()
+  // const [rfcText, setRfcText] = useState<Array<any> | undefined>()
 
   useEffect(() => {
     const fetchOpenPRs = async () => {
@@ -22,7 +24,9 @@ export const RequestsGrid = () => {
 
   return (
     <>
-      <Grid row style={{ marginTop: "5rem" }}>
+      <MdxCode />
+      <h1>Open RFCs</h1>
+      <Grid row>
         {!data ? (
           <Grid column sm={12} style={{ padding: "10rem" }}>
             <Loader type="cube" />

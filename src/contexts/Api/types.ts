@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 import type { AnyJson } from "@polkadot-ui/react/types"
-import type { ApiPromise } from "@polkadot/api"
 import type { ReactNode } from "react"
 
 export type ApiStatus = "connecting" | "connected" | "disconnected"
@@ -38,9 +37,10 @@ export type APIChainState = {
 }
 
 export interface APIContextInterface {
-  api: ApiPromise | null
-  isReady: boolean
-  apiStatus: ApiStatus
+  api: any | null
+  papi: any | null
+  client: any
+  pclient: any
   // rpcEndpoint: string
   // setRpcEndpoint: (key: string) => void
   // consts: APIConstants

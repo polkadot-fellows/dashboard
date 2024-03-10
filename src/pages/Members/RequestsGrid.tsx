@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 import { useEffect, useState } from "react"
-import { Grid, AccountCard } from "@polkadot-ui/react"
+import { Grid, AccountCard, Loader } from "@polkadot-ui/react"
 import { AccountName } from "./AccountName"
 import { Binary, createClient } from "@polkadot-api/client"
 import { getLegacyProvider } from "@polkadot-api/legacy-polkadot-provider"
@@ -140,44 +140,50 @@ export const RequestsGrid = () => {
           <h3>Rank</h3>
         </Grid>
       </Grid>
-      {mem.map((m) => (
-        <Grid row key={m.address} style={{ padding: "0.5rem 0" }}>
-          <Grid column sm={3} md={3}>
-            <AccountName display={m.display || "-"} />
+      {mem.length ? (
+        mem.map((m) => (
+          <Grid row key={m.address} style={{ padding: "0.5rem 0" }}>
+            <Grid column sm={3} md={3}>
+              <AccountName display={m.display || "-"} />
+            </Grid>
+            <Grid column sm={7} md={7}>
+              <AccountCard
+                style={{
+                  background: "transparent",
+                  border: 0,
+                  boxShadow: "none",
+                }}
+                title={{
+                  address: m.address,
+                  justify: "flex-start",
+                  align: "center",
+                }}
+                ellipsis={{
+                  active: true,
+                  amount: 10,
+                }}
+                icon={{
+                  copy: true,
+                  size: 38,
+                  gridSize: 1,
+                  justify: "space-between",
+                  outerColor: "transparent",
+                  dark: true,
+                }}
+              />
+            </Grid>
+            <Grid column sm={1} md={2}>
+              <p>
+                {rankings[m.rank]} ({m.rank})
+              </p>
+            </Grid>
           </Grid>
-          <Grid column sm={7} md={7}>
-            <AccountCard
-              style={{
-                background: "transparent",
-                border: 0,
-                boxShadow: "none",
-              }}
-              title={{
-                address: m.address,
-                justify: "flex-start",
-                align: "center",
-              }}
-              ellipsis={{
-                active: true,
-                amount: 10,
-              }}
-              icon={{
-                copy: true,
-                size: 38,
-                gridSize: 1,
-                justify: "space-between",
-                outerColor: "transparent",
-                dark: true,
-              }}
-            />
-          </Grid>
-          <Grid column sm={1} md={2}>
-            <p>
-              {rankings[m.rank]} ({m.rank})
-            </p>
-          </Grid>
+        ))
+      ) : (
+        <Grid column sm={12} style={{ padding: "10rem" }}>
+          <Loader type="cube" />
         </Grid>
-      ))}
+      )}
     </>
   )
 }

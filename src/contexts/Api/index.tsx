@@ -1,79 +1,67 @@
 // Copyright 2024 @polkadot-fellows/dashboard authors & contributors
 // SPDX-License-Identifier: GPL-3.0-only
 
-import { ApiPromise, WsProvider } from "@polkadot/api"
 import { createContext, useContext, useEffect, useState } from "react"
-import type {
-  APIContextInterface,
-  APIProviderProps,
-  ApiStatus,
-} from "contexts/Api/types"
-import { useEffectIgnoreInitial } from "@polkadot-ui/react/hooks"
+import type { APIContextInterface, APIProviderProps } from "contexts/Api/types"
 import { defaultApiContext } from "./defaults"
 
-export const APIProvider = ({ children, network }: APIProviderProps) => {
-  // Store povider instance.
-  const [provider, setProvider] = useState<WsProvider | null>(null)
+import { createClient } from "@polkadot-api/client"
+
+import { getLegacyProvider } from "@polkadot-api/legacy-polkadot-provider"
+import { createScClient } from "@substrate/connect"
+import collectivesChainspec from "./collectives-polkadot"
+
+import collectiveTypes from "../../codegen/collectives"
+import polkadotTypes from "../../codegen/polkadot"
+
+const scProvider = createScClient()
+const { relayChains } = getLegacyProvider(scProvider)
+
+export const APIProvider = ({ children }: APIProviderProps) => {
+  const [client, setClient] = useState<any>()
+  const [pclient, setpClient] = useState<any>()
 
   // API instance state.
-  const [api, setApi] = useState<ApiPromise | null>(null)
+  const [api, setApi] = useState()
+  const [papi, setPapi] = useState()
 
-  // Store API connection status.
-  const [apiStatus, setApiStatus] = useState<ApiStatus>("disconnected")
-
-  // Fetch chain state. Called once `provider` has been initialised.
-  const getChainState = async () => {
-    if (!provider) return
-
-    // initiate new api and set connected.
-    const newApi = await ApiPromise.create({ provider })
-
-    // set connected here in case event listeners have not yet initialised.
-    setApiStatus("connected")
-
-    // store active network in localStorage.
-    // NOTE: this should ideally refer to above `chain` value.
-    localStorage.setItem("network", String(network))
-
-    // Assume chain state is correct and bootstrap network consts.
-    setApi(newApi)
-  }
-
-  // Connect function sets provider and updates active network.
-  const connectProvider = () => {
-    const newProvider = new WsProvider(
-      // "wss://polkadot-collectives-rpc.polkadot.io"
-      "wss://polkadot-collectives-rpc.dwellir.com"
-    )
-    setProvider(newProvider)
-  }
-
-  // Handle an initial RPC connection.
   useEffect(() => {
-    if (!provider) {
-      connectProvider()
-    }
-  })
+    const create = async () => {
+      const collectivesParachain =
+        await relayChains.polkadot.getParachain(collectivesChainspec)
 
-  // Initialise provider event handlers when provider is set.
-  useEffectIgnoreInitial(() => {
-    if (provider) {
-      provider.on("connected", () => {
-        setApiStatus("connected")
-      })
-      provider.on("error", () => {
-        setApiStatus("disconnected")
-      })
-      getChainState()
+      const cl = createClient(collectivesParachain.connect)
+      setClient(cl)
     }
-  }, [provider])
+
+    const p_create = () => {
+      const cl = createClient(relayChains.polkadot.connect)
+      setpClient(cl)
+    }
+
+    if (!client) {
+      create()
+    }
+    if (!pclient) {
+      p_create()
+    }
+  }, [])
+
+  useEffect(() => {
+    setApi(client?.getTypedApi(collectiveTypes))
+  }, [client])
+
+  useEffect(() => {
+    setPapi(pclient?.getTypedApi(polkadotTypes))
+  }, [pclient])
 
   return (
     <APIContext.Provider
       value={{
+        client,
+        pclient,
         api,
-        apiStatus,
-        isReady: apiStatus === "connected" && api !== null,
+        papi,
       }}
     >
       {children}

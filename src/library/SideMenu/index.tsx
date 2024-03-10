@@ -22,8 +22,10 @@ import {
   IoMoon,
   IoLogoGithub,
   IoDocumentText,
+  IoChatbubblesOutline,
 } from "react-icons/io5"
 import { GrResources } from "react-icons/gr"
+import { SiElement } from "react-icons/si"
 
 const iconSize = "1.25rem"
 
@@ -66,7 +68,34 @@ export const SideMenu = () => {
     <Wrapper ref={ref} $minimised={sideMenuMinimised}>
       <section>
         <Main />
+        <Heading
+          title={t("Fellowship Element")}
+          minimised={sideMenuMinimised}
+        />
+        <Secondary
+          onClick={() => {
+            window.open(
+              "https://matrix.to/#/#fellowship-members:parity.io",
+              "_blank"
+            )
+          }}
+          name={t("Members")}
+          minimised={sideMenuMinimised}
+          icon={SiElement}
+        />
+        <Secondary
+          onClick={() => {
+            window.open(
+              "https://matrix.to/#/#fellowship-open-channel:parity.io",
+              "_blank"
+            )
+          }}
+          name={t("Open")}
+          minimised={sideMenuMinimised}
+          icon={IoChatbubblesOutline}
+        />
         <Separator />
+        <Heading title={t("Links")} minimised={sideMenuMinimised} />
         <Secondary
           onClick={() => {
             window.open("https://polkadot-fellows.github.io/RFCs/", "_blank")

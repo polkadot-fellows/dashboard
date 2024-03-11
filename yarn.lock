@@ -1014,10 +1014,10 @@
   resolved "https://registry.yarnpkg.com/@polkadot-api/substrate-client/-/substrate-client-0.0.1-9ec1b77fa23d0b4a103b842511687343a72ff08a.1.0.tgz#f8d29f12c3d080b0ccda300159d7517a65baf062"
   integrity sha512-uVzKFJQC4JFlwC+GHgaEAZcdyJG5HQBTRsQTI8M8pG6NQX8M3izVihR0GRnmDImRr6M1tUWyKIqZ7kG40/j6sA==
 
-"@polkadot-api/substrate-client@^0.0.1-82a21c0b599d6949b56aff63cdf081b78a281f46.1.0":
-  version "0.0.1-ff78a9d8298c091faf39fd801955e6b9cd778f50.1.0"
-  resolved "https://registry.yarnpkg.com/@polkadot-api/substrate-client/-/substrate-client-0.0.1-ff78a9d8298c091faf39fd801955e6b9cd778f50.1.0.tgz#816ea44907eb4af6cac8ee055c3c6f6c8e5759f0"
-  integrity sha512-72Mb0+xtX5Scal6Y4ylmrHA9CKD4y+NFoWGLMxBAd27ne1xH3opoM2WRplIa8xB04Ao6nZl8v4J74/RIgzX7dA==
+"@polkadot-api/substrate-client@^0.0.1-964938186318c12a68aacfe7ee10e8fa919a0491.1.0":
+  version "0.0.1-964938186318c12a68aacfe7ee10e8fa919a0491.1.0"
+  resolved "https://registry.yarnpkg.com/@polkadot-api/substrate-client/-/substrate-client-0.0.1-964938186318c12a68aacfe7ee10e8fa919a0491.1.0.tgz#09dde05a16fa98c5fb75d0ef1d5b5c635dacc1b4"
+  integrity sha512-IAezVR99iLlX2tvstsvovgPgLkXSmF4/z5IQFETYVgvFzcLuFpMAYFgg2Y8MQFuwjp9Bmn2UWc2HdHLxwhDpug==
 
 "@polkadot-api/substrate-codegen@0.0.1-9ec1b77fa23d0b4a103b842511687343a72ff08a.1.0":
   version "0.0.1-9ec1b77fa23d0b4a103b842511687343a72ff08a.1.0"

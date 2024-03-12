@@ -45,7 +45,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@mdx-js/react": "^3.0.1",
     "@mdx-js/rollup": "^3.0.1",
-    "@polkadot-api/cli": "^0.0.1-78e7aa83d7bae987df486715cca319e2aa1667ea.1.0",
+    "@polkadot-api/cli": "^0.0.1-964938186318c12a68aacfe7ee10e8fa919a0491.1.0",
     "@polkadot-api/client": "^0.0.1-78e7aa83d7bae987df486715cca319e2aa1667ea.1.0",
     "@polkadot-api/legacy-polkadot-provider": "^0.0.1-78e7aa83d7bae987df486715cca319e2aa1667ea.1.0",
     "@polkadot-api/node-polkadot-provider": "^0.0.1-069662616274c6bdda4095f8c004d4ed7dc72fc9.1.0",

@@ -53,7 +53,7 @@
     "@polkadot-api/utils": "^0.0.1-964938186318c12a68aacfe7ee10e8fa919a0491.1.0",
     "@polkadot-api/ws-provider": "^0.0.1-8085034060d643c71d85df47784513b07a0a247c.1.0",
     "@polkadot-ui/react": "^0.5.3",
-    "@substrate/connect": "^0.8.7",
+    "@substrate/connect": "^0.8.8",
     "@types/lodash.throttle": "^4.1.9",
     "bignumber.js": "^9.1.2",
     "buffer": "^6.0.3",

@@ -7,17 +7,17 @@ import { defaultApiContext } from "./defaults"
 
 import { createClient } from "@polkadot-api/client"
 
-import { getLegacyProvider } from "@polkadot-api/legacy-polkadot-provider"
-import { createScClient } from "@substrate/connect"
-import collectivesChainspec from "./collectives-polkadot"
+// import { getLegacyProvider } from "@polkadot-api/legacy-polkadot-provider"
+// import { createScClient } from "@substrate/connect"
+// import collectivesChainspec from "./collectives-polkadot"
 
 import collectiveTypes from "../../codegen/collectives"
 import polkadotTypes from "../../codegen/polkadot"
 import { getChain } from "@polkadot-api/node-polkadot-provider"
 import { WebSocketProvider } from "@polkadot-api/ws-provider/web"
 
-const scProvider = createScClient()
-const { relayChains } = getLegacyProvider(scProvider)
+// const scProvider = createScClient()
+// const { relayChains } = getLegacyProvider(scProvider)
 
 export const APIProvider = ({ children }: APIProviderProps) => {
   const [client, setClient] = useState<any>()
@@ -29,22 +29,39 @@ export const APIProvider = ({ children }: APIProviderProps) => {
 
   useEffect(() => {
     const create = async () => {
-      const collectivesParachain =
-        await relayChains.polkadot.getParachain(collectivesChainspec)
+      // const collectivesParachain =
+      //   await relayChains.polkadot.getParachain(collectivesChainspec)
 
-      const cl = createClient(collectivesParachain.connect)
-      setClient(cl)
+      // const cl = createClient(collectivesParachain.connect)
+      // setClient(cl)
+      try {
+        const cl = createClient(
+          getChain({
+            provider: WebSocketProvider(
+              "wss://polkadot-collectives-rpc.polkadot.io"
+            ),
+            keyring: [],
+          })
+        )
+        setClient(cl)
+      } catch (e) {
+        console.log("=====", e)
+      }
     }
 
     const p_create = () => {
-      const cl = createClient(relayChains.polkadot.connect)
-      // const cl = createClient(
-      //   getChain({
-      //     provider: WebSocketProvider("wss://polkadot-rpc.dwellir.com"),
-      //     keyring: [],
-      //   })
-      // )
-      setpClient(cl)
+      // const cl = createClient(relayChains.polkadot.connect)
+      try {
+        const cl = createClient(
+          getChain({
+            provider: WebSocketProvider("wss://rpc.polkadot.io"),
+            keyring: [],
+          })
+        )
+        setpClient(cl)
+      } catch (e) {
+        console.log("=====", e)
+      }
     }
 
     if (!client) {

@@ -14,7 +14,7 @@ import collectivesChainspec from "./collectives-polkadot"
 import collectiveTypes from "../../codegen/collectives"
 import polkadotTypes from "../../codegen/polkadot"
 import { getChain } from "@polkadot-api/node-polkadot-provider"
-import { WebSocketProvider } from "@polkadot-api/ws-provider"
+import { WebSocketProvider } from "@polkadot-api/ws-provider/web"
 
 const scProvider = createScClient()
 const { relayChains } = getLegacyProvider(scProvider)
@@ -37,13 +37,13 @@ export const APIProvider = ({ children }: APIProviderProps) => {
     }
 
     const p_create = () => {
-      // const cl = createClient(relayChains.polkadot.connect)
-      const cl = createClient(
-        getChain({
-          provider: WebSocketProvider("wss://polkadot-rpc.dwellir.com"),
-          keyring: [],
-        })
-      )
+      const cl = createClient(relayChains.polkadot.connect)
+      // const cl = createClient(
+      //   getChain({
+      //     provider: WebSocketProvider("wss://polkadot-rpc.dwellir.com"),
+      //     keyring: [],
+      //   })
+      // )
       setpClient(cl)
     }
 

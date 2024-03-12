@@ -6,7 +6,17 @@ updates:
     schedule:
       interval: daily
     open-pull-requests-limit: 10
+    groups:
+      dependencies:
+      applies-to: version-updates
+          exclude-patterns:
+            - "polkadot-api*"
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
       interval: daily
+    groups:
+      dependencies:
+      applies-to: version-updates
+          exclude-patterns:
+            - "polkadot-api*"

@@ -874,10 +874,10 @@
   resolved "https://registry.yarnpkg.com/@polkadot-api/json-rpc-provider-proxy/-/json-rpc-provider-proxy-0.0.1-78e7aa83d7bae987df486715cca319e2aa1667ea.1.0.tgz#8930be2181e1dafbb2933544030f936fa0f24003"
   integrity sha512-6UUuJYxe9DJydgSCrwK7PGXkB0YgKox5Stnfh3Xq5uM5nrpkoF5LnJqhrsICrJHxcS96z/jKcgEVGx9nVKVzBw==
 
-"@polkadot-api/json-rpc-provider-proxy@0.0.1-8085034060d643c71d85df47784513b07a0a247c.1.0":
-  version "0.0.1-8085034060d643c71d85df47784513b07a0a247c.1.0"
-  resolved "https://registry.yarnpkg.com/@polkadot-api/json-rpc-provider-proxy/-/json-rpc-provider-proxy-0.0.1-8085034060d643c71d85df47784513b07a0a247c.1.0.tgz#97a85ee553ef7a1a272acf700c75d5fd0465a5ce"
-  integrity sha512-qUzIbAH1vXlKno8wt+2AnTrcRe5srOJ4QABKik7MhHkE9jVp3AOuK76S0uGp6xNKEbrwe4TPEz2s446Y0ivLYw==
+"@polkadot-api/json-rpc-provider-proxy@0.0.1-a88cc12e054d60b3c599baf69bf41b99204e053d.1.0":
+  version "0.0.1-a88cc12e054d60b3c599baf69bf41b99204e053d.1.0"
+  resolved "https://registry.yarnpkg.com/@polkadot-api/json-rpc-provider-proxy/-/json-rpc-provider-proxy-0.0.1-a88cc12e054d60b3c599baf69bf41b99204e053d.1.0.tgz#e3858dc39eb0b8c663842db5485158b9627ba26e"
+  integrity sha512-N6Yhhj3avdwe/ZTP7MV9Se+OWuQuugvv3ayqkTSeM/m6HytCKoubCmb94nLi+ondyR7mp0pb5kmcBSiusSVA2Q==
 
 "@polkadot-api/json-rpc-provider@0.0.1-069662616274c6bdda4095f8c004d4ed7dc72fc9.1.0":
   version "0.0.1-069662616274c6bdda4095f8c004d4ed7dc72fc9.1.0"
@@ -899,10 +899,10 @@
   resolved "https://registry.yarnpkg.com/@polkadot-api/json-rpc-provider/-/json-rpc-provider-0.0.1-78e7aa83d7bae987df486715cca319e2aa1667ea.1.0.tgz#dc62aab9c92ad4a5f7f5dec0446ce5ee8a61ffe6"
   integrity sha512-E48fckVDYod937jCmp/ZHMrVU89uaSZUF2F39TMsS900Q0LSoer6qtvGGOIf0vK1buwazrEjpF+PfP/EM3PQ7Q==
 
-"@polkadot-api/json-rpc-provider@0.0.1-8085034060d643c71d85df47784513b07a0a247c.1.0":
-  version "0.0.1-8085034060d643c71d85df47784513b07a0a247c.1.0"
-  resolved "https://registry.yarnpkg.com/@polkadot-api/json-rpc-provider/-/json-rpc-provider-0.0.1-8085034060d643c71d85df47784513b07a0a247c.1.0.tgz#db870c5b6852c553204804b669b8cb6eb9e312b3"
-  integrity sha512-NjyWAZcTI8lPmXO7n1A+33tKXf/KCNdIIMdvEtm8xueqIhUV+aK9Q7tXhCa9R49+xBNH6hdxlRFiU8bCXVIlAw==
+"@polkadot-api/json-rpc-provider@0.0.1-a88cc12e054d60b3c599baf69bf41b99204e053d.1.0":
+  version "0.0.1-a88cc12e054d60b3c599baf69bf41b99204e053d.1.0"
+  resolved "https://registry.yarnpkg.com/@polkadot-api/json-rpc-provider/-/json-rpc-provider-0.0.1-a88cc12e054d60b3c599baf69bf41b99204e053d.1.0.tgz#3756d67251b85ff3f751eb7f9501b0ff79434545"
+  integrity sha512-3i4nvpVh/A9fHd5ewlnR9ejyqx06vkhJ9uwXQMhpF+lhCjAPhW1+Wxwjno/qzJTiEDQrUox1y+yDqy84O5J5HA==
 
 "@polkadot-api/legacy-polkadot-provider@^0.0.1-78e7aa83d7bae987df486715cca319e2aa1667ea.1.0":
   version "0.0.1-78e7aa83d7bae987df486715cca319e2aa1667ea.1.0"
@@ -1107,13 +1107,14 @@
     "@polkadot-api/json-rpc-provider-proxy" "0.0.1-78e7aa83d7bae987df486715cca319e2aa1667ea.1.0"
     ws "^8.14.2"
 
-"@polkadot-api/ws-provider@^0.0.1-8085034060d643c71d85df47784513b07a0a247c.1.0":
-  version "0.0.1-8085034060d643c71d85df47784513b07a0a247c.1.0"
-  resolved "https://registry.yarnpkg.com/@polkadot-api/ws-provider/-/ws-provider-0.0.1-8085034060d643c71d85df47784513b07a0a247c.1.0.tgz#c1e8dd49e634f118c4a2a450c88882b400c8382e"
-  integrity sha512-VS/yAoFw/OE+5Q+YekODMe9ncbmLNTPbinslM7kIZ/o63LslRxKY15nq00/TT99lRxs1pyooEv4bDpP65ICFmA==
+"@polkadot-api/ws-provider@^0.0.1-a88cc12e054d60b3c599baf69bf41b99204e053d.1.0":
+  version "0.0.1-a88cc12e054d60b3c599baf69bf41b99204e053d.1.0"
+  resolved "https://registry.yarnpkg.com/@polkadot-api/ws-provider/-/ws-provider-0.0.1-a88cc12e054d60b3c599baf69bf41b99204e053d.1.0.tgz#d6721245d8af7e31c5ae0ce8c25841ebfb41a13e"
+  integrity sha512-1RJsUPnm2gEtiifbu0PNMk64fdG+BvsJhgyamuEgX+HOBCDz8fAD+xxWr4UfVKH3ErdMlrhWNdf4bE17C3TJ3w==
   dependencies:
-    "@polkadot-api/json-rpc-provider" "0.0.1-8085034060d643c71d85df47784513b07a0a247c.1.0"
-    "@polkadot-api/json-rpc-provider-proxy" "0.0.1-8085034060d643c71d85df47784513b07a0a247c.1.0"
+    "@polkadot-api/json-rpc-provider" "0.0.1-a88cc12e054d60b3c599baf69bf41b99204e053d.1.0"
+    "@polkadot-api/json-rpc-provider-proxy" "0.0.1-a88cc12e054d60b3c599baf69bf41b99204e053d.1.0"
+    ws "^8.14.2"
 
 "@polkadot-ui/assets@^0.5.2":
   version "0.5.2"

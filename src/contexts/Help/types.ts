@@ -10,6 +10,7 @@ export interface HelpItem {
   key?: string
   definitions?: string[]
   external?: ExternalItems
+  alternative?: ExternalItems
 }
 
 export type ExternalItems = ExternalItem[]

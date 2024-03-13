@@ -115,7 +115,6 @@ export const SideMenu = () => {
           minimised={sideMenuMinimised}
           icon={IoDocumentText}
         />
-        <Heading title={t("support")} minimised={sideMenuMinimised} />
         <Secondary
           onClick={() => {
             openHelp(null)

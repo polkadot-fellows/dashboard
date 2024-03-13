@@ -6,15 +6,19 @@
         ["Description Paragraph", "Description Paragraph"]
       ]
     },
+    "alternatives": {
+      "subsquare": "SubSquare",
+      "polkassembly": "Polkassembly"
+    },
     "externals": {
-      "github": "Polkadot Fellowship (Github)",
-      "introWiki": "Introduction to Polkadot Fellowship",
       "gov": "Governance v2",
-      "democracy": "Democracy Pallet"
+      "democracy": "Democracy Pallet",
+      "introWiki": "Introduction to Polkadot Fellowship"
     },
     "modal": {
       "articles": "Links",
       "close": "Close",
+      "alternatives": "Alternative Fellowship UIs",
       "definitions": "Definitions",
       "helpResources": "Resources",
       "related": "Related"

@@ -9,11 +9,6 @@ export const HelpConfig: HelpItems = [
     // definitions: ["Help Key"],
     external: [
       [
-        "github",
-        "https://github.com/polkadot-fellows/",
-        "github.com/polkadot-fellows/",
-      ],
-      [
         "gov",
         "https://medium.com/polkadot-network/gov2-polkadots-next-generation-of-decentralised-governance-4d9ef657d11b",
         "medium.com/polkadot-network/gov2-polkadots-next-generation-of-decentralised-governance",
@@ -27,6 +22,18 @@ export const HelpConfig: HelpItems = [
         "introWiki",
         "https://wiki.polkadot.network/docs/learn-polkadot-fellows",
         "wiki.polkadot.network",
+      ],
+    ],
+    alternative: [
+      [
+        "polkassembly",
+        "https://collectives.polkassembly.io",
+        "collectives.polkassembly.io",
+      ],
+      [
+        "subsquare",
+        "https://collectives.subsquare.io/fellowship",
+        "collectives.subsquare.io/fellowship",
       ],
     ],
   },

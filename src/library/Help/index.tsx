@@ -59,12 +59,14 @@ export const Help = () => {
     // get all items
     let definitions: string[] = []
     let external: ExternalItems = []
+    let alternative: ExternalItems = []
 
     Object.values(HelpConfig).forEach((c) => {
       definitions = definitions.concat([...(c.definitions || [])])
       external = external.concat([...(c.external || [])])
+      alternative = alternative.concat([...(c.alternative || [])])
     })
-    meta = { definitions, external }
+    meta = { definitions, external, alternative }
   }
 
   let definitions = meta?.definitions ?? []
@@ -129,6 +131,19 @@ export const Help = () => {
     }
   })
 
+  const alternatives = meta?.alternative ?? []
+  const altExternals = alternatives.map((e) => {
+    const localeKey = e[0]
+    const url = e[1]
+    const website = e[2]
+
+    return {
+      title: t(`alternatives.${localeKey}`),
+      url,
+      website,
+    }
+  })
+
   return (
     <CanvasContainer
       initial={{
@@ -174,6 +189,21 @@ export const Help = () => {
             <>
               <h3>{t("modal.articles")}</h3>
               {activeExternals.map((item, index: number) => (
+                <External
+                  key={`ext_${index}`}
+                  width="100%"
+                  title={t(item.title)}
+                  url={item.url}
+                  website={item.website}
+                />
+              ))}
+            </>
+          )}
+
+          {altExternals.length > 0 && (
+            <>
+              <h3>{t("modal.alternatives")}</h3>
+              {altExternals.map((item, index: number) => (
                 <External
                   key={`ext_${index}`}
                   width="100%"

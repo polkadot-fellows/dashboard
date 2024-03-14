@@ -102,7 +102,7 @@
     "sass": "^1.72.0",
     "typescript": "^5.4.2",
     "vite": "^5.1.6",
-    "vite-bundle-visualizer": "^1.0.1",
+    "vite-bundle-visualizer": "^1.1.0",
     "vite-plugin-checker": "^0.6.4",
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-svgr": "^4.2.0",

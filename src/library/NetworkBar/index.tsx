@@ -14,7 +14,6 @@ export const NetworkBar = () => {
 
   return (
     <Wrapper>
-      {/* <network.brand.icon className="network_icon" /> */}
       <Summary>
         <section>
           {PRIVACY_URL !== undefined ? (

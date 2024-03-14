@@ -1,158 +1,156 @@
 // Copyright 2024 @polkadot-fellows/dashboard authors & contributors
 // SPDX-License-Identifier: GPL-3.0-only
+import { useState } from "react"
 
-import { faCompressAlt, faExpandAlt } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import throttle from "lodash.throttle"
-import { useEffect, useRef } from "react"
-import { useTranslation } from "react-i18next"
-import { SideMenuStickyThreshold } from "consts"
-import { useHelp } from "contexts/Help"
-import { useTheme } from "contexts/Themes"
-import { useUi } from "contexts/UI"
-import type { UIContextInterface } from "contexts/UI/types"
-import { useOutsideAlerter } from "library/Hooks"
-import { Heading } from "./Heading/Heading"
-import { Main } from "./Main"
-import { Secondary } from "./Secondary"
-import { Separator, Wrapper } from "./Wrapper"
-// import { useModal } from 'contexts/Modal';
+import { PolkadotUrl } from "consts"
+import { Menu, Switch, Layout, Button } from "antd"
+import { IconWrapper, LogoWrapper } from "library/SideMenu/Wrapper"
+
+import PolkadotIcon from "img/polkadotIcon.svg?react"
+// import FellowshipW from "img/fellowshipLogo_w.svg?react"
+import FellowshipB from "img/fellowshipLogo_b.svg?react"
+import type { GetProp, MenuProps } from "antd"
+
 import {
-  IoSunnyOutline,
-  IoMoon,
-  IoLogoGithub,
-  IoDocumentText,
-  IoChatbubblesOutline,
-} from "react-icons/io5"
-import { GrResources } from "react-icons/gr"
-import { SiElement } from "react-icons/si"
+  HiMiniUserGroup,
+  HiGlobeAlt,
+  HiMiniUserPlus,
+  HiBuildingLibrary,
+  HiMiniCubeTransparent,
+} from "react-icons/hi2"
+import { MdDocumentScanner } from "react-icons/md"
+import { GoSidebarCollapse, GoSidebarExpand } from "react-icons/go"
+import { useTheme } from "contexts/Themes"
 
-const iconSize = "1.25rem"
+const { Sider } = Layout
+
+type MenuItem = GetProp<MenuProps, "items">[number]
+
+const getItem = (
+  label: React.ReactNode,
+  key?: React.Key | null,
+  icon?: React.ReactNode,
+  children?: MenuItem[]
+): MenuItem => {
+  return {
+    key,
+    icon,
+    children,
+    label,
+  } as MenuItem
+}
+
+const getLink = (
+  label: string,
+  link: string = "#",
+  target: "_parent" | "_blank" = "_parent"
+): React.ReactNode => (
+  <a href={"#/" + link} target={target} rel="noopener noreferrer">
+    {label}
+  </a>
+)
+
+const mainItems: MenuItem[] = [
+  getItem(getLink("Overview", "overview"), "1", <HiGlobeAlt />),
+  getItem(getLink("Members", "members"), "2", <HiMiniUserGroup />),
+  getItem(getLink("Membership", "membership"), "3", <HiMiniUserPlus />),
+  //   [
+  //     getItem("Option 3", "3"),
+  //     getItem("Option 4", "4"),
+  //     getItem("Submenu", "sub1-2", null, [
+  //       getItem("Option 5", "5"),
+  //       getItem("Option 6", "6"),
+  //     ]),
+  //   ]),
+  getItem(getLink("Governance", "governance"), "4", <HiBuildingLibrary />),
+  getItem(
+    getLink("Interactions", "interactions"),
+    "6",
+    <HiMiniCubeTransparent />
+  ),
+  getItem(getLink("RFCs", "rfcs"), "8", <MdDocumentScanner />),
+]
 
 export const SideMenu = () => {
-  const { t } = useTranslation("base")
+  const [collapsed, setCollapsed] = useState(false)
+  const [type, setType] = useState<"vertical" | "inline">("inline")
   const { mode, toggleTheme } = useTheme()
-  // const { openModalWith } = useModal();
-  const {
-    setSideMenu,
-    sideMenuMinimised,
-    userSideMenuMinimised,
-    setUserSideMenuMinimised,
-  }: UIContextInterface = useUi()
-  const { openHelp } = useHelp()
 
-  // listen to window resize to hide SideMenu
-  useEffect(() => {
-    window.addEventListener("resize", windowThrottle)
-    return () => {
-      window.removeEventListener("resize", windowThrottle)
-    }
-  }, [])
+  console.log("mode", mode)
 
-  const throttleCallback = () => {
-    if (window.innerWidth >= SideMenuStickyThreshold) {
-      setSideMenu(false)
-    }
+  const changeType = (value: boolean) => {
+    setType(value ? "vertical" : "inline")
   }
-  const windowThrottle = throttle(throttleCallback, 200, {
-    trailing: true,
-    leading: false,
-  })
 
-  const ref = useRef(null)
-  useOutsideAlerter(ref, () => {
-    setSideMenu(false)
-  })
+  const size = collapsed ? "1.4rem" : "2.2rem"
+  const Svg = collapsed ? (
+    <PolkadotIcon
+      style={{
+        maxHeight: "100%",
+        width: "2rem",
+        fill: "var(--accent-color-primary)",
+      }}
+      width={size}
+      height={size}
+    />
+  ) : (
+    <FellowshipB
+      style={{
+        maxHeight: "100%",
+        height: "100%",
+        width: "9.2rem",
+        fill: "var(--accent-color-primary)",
+      }}
+      width={size}
+      height={size}
+    />
+  )
 
   return (
-    <Wrapper ref={ref} $minimised={sideMenuMinimised}>
-      <section>
-        <Main />
-        <Heading
-          title={t("Fellowship Element")}
-          minimised={sideMenuMinimised}
-        />
-        <Secondary
-          onClick={() => {
-            window.open(
-              "https://matrix.to/#/#fellowship-members:parity.io",
-              "_blank"
-            )
-          }}
-          name={t("Members")}
-          minimised={sideMenuMinimised}
-          icon={SiElement}
-        />
-        <Secondary
-          onClick={() => {
-            window.open(
-              "https://matrix.to/#/#fellowship-open-channel:parity.io",
-              "_blank"
-            )
-          }}
-          name={t("Open")}
-          minimised={sideMenuMinimised}
-          icon={IoChatbubblesOutline}
-        />
-        <Separator />
-        <Heading title={t("Links")} minimised={sideMenuMinimised} />
-        <Secondary
-          onClick={() => {
-            window.open("https://polkadot-fellows.github.io/RFCs/", "_blank")
-          }}
-          name={t("RFCs Book")}
-          minimised={sideMenuMinimised}
-          icon={IoDocumentText}
-        />
-        <Secondary
-          onClick={() => {
-            window.open(
-              "https://github.com/polkadot-fellows/manifesto/blob/0c3df46d76625980b8b48742cb86f4d8fa6dda8d/manifesto.pdf",
-              "_blank"
-            )
-          }}
-          name={t("manifesto")}
-          minimised={sideMenuMinimised}
-          icon={IoDocumentText}
-        />
-        <Secondary
-          onClick={() => {
-            openHelp(null)
-          }}
-          name={t("resources")}
-          minimised={sideMenuMinimised}
-          icon={GrResources}
-        />
-        <Separator />
-      </section>
+    <Sider
+      collapsible
+      collapsed={collapsed}
+      onCollapse={(value) => setCollapsed(value)}
+    >
+      <LogoWrapper
+        $minimised={collapsed}
+        onClick={() => window.open(PolkadotUrl, "_blank")}
+      >
+        <IconWrapper
+          $minimised={collapsed}
+          className="icon"
+          style={{ width: size, height: size }}
+        >
+          {Svg}
+        </IconWrapper>
+      </LogoWrapper>
+      <Menu
+        style={{ width: "100%" }}
+        defaultSelectedKeys={["1"]}
+        mode={type}
+        theme={mode}
+        items={mainItems}
+      />
+      <Button
+        onClick={() => setCollapsed(!collapsed)}
+        style={{
+          width: "100%",
+          alignContent: "center",
+          border: "0",
+          borderRadius: "0",
+        }}
+      >
+        <div style={{ display: "flex" }}>
+          {collapsed ? <GoSidebarCollapse /> : <GoSidebarExpand />}
+        </div>
+      </Button>
 
-      <section>
-        {mode === "dark" ? (
-          <button type="button" onClick={() => toggleTheme()}>
-            <IoSunnyOutline size={iconSize} />
-          </button>
-        ) : (
-          <button type="button" onClick={() => toggleTheme()}>
-            <IoMoon size={iconSize} />
-          </button>
-        )}
-        <button
-          type="button"
-          onClick={() => setUserSideMenuMinimised(!userSideMenuMinimised)}
-        >
-          <FontAwesomeIcon
-            icon={userSideMenuMinimised ? faExpandAlt : faCompressAlt}
-          />
-        </button>
-        <button
-          type="button"
-          onClick={() =>
-            window.open("https://github.com/polkadot-fellows", "_blank")
-          }
-        >
-          <IoLogoGithub size={iconSize} />
-        </button>
-      </section>
-    </Wrapper>
+      <div style={{ position: "absolute", bottom: "3rem" }}>
+        <Switch onChange={changeType} />
+        <Switch
+          onChange={() => toggleTheme(mode === "dark" ? "light" : "dark")}
+        />
+      </div>
+    </Sider>
   )
 }

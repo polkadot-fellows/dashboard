@@ -27,6 +27,15 @@ export const APIProvider = ({ children }: APIProviderProps) => {
 
   useEffect(() => {
     const create = async () => {
+      // const cl = createClient(
+      //   getChain({
+      //     provider: WebSocketProvider(
+      //       "wss://polkadot-collectives-rpc.polkadot.io"
+      //     ),
+      //     keyring: [],
+      //   })
+      // )
+      // setClient(cl)
       const collectivesParachain =
         await relayChains.polkadot.getParachain(collectivesChainspec)
 

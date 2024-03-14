@@ -101,14 +101,14 @@ export const RequestsGrid = () => {
       ])
     }
 
-    if (api) {
+    if (api && papi) {
       if (fellowshipMembers.length) {
         setMembers(fellowshipMembers)
       }
       fetchMembers()
     }
-    api && fetchMembers()
-  }, [api])
+    api && papi && fetchMembers()
+  }, [api, papi])
 
   useEffect(() => {
     setFellowshipMembers(members)

@@ -98,12 +98,12 @@ export const ItemWrapper = styled(motion.div)<any>`
 
   > * {
     background: var(--background-floating-card);
-    border-radius: 1.5rem;
+    border-radius: 1rem;
     flex: 1;
-    padding: 1.5rem;
+    padding: 1rem 2rem;
     display: flex;
     flex-flow: column nowrap;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
     position: relative;
 
     > h2 {

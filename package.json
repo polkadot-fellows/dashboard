@@ -57,7 +57,7 @@
     "@types/lodash.throttle": "^4.1.9",
     "bignumber.js": "^9.1.2",
     "buffer": "^6.0.3",
-    "date-fns": "^3.4.0",
+    "date-fns": "^3.5.0",
     "framer-motion": "^11.0.13",
     "i18next": "^23.10.1",
     "i18next-browser-languagedetector": "^7.2.0",

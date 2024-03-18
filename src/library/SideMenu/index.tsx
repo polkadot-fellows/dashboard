@@ -3,7 +3,7 @@
 import { useState } from "react"
 
 import { PolkadotUrl } from "consts"
-import { Menu, Layout, Button, Divider } from "antd"
+import { Menu, Layout } from "antd"
 import type { GetProp, MenuProps } from "antd"
 
 import { IconWrapper, LogoWrapper } from "library/SideMenu/Wrapper"
@@ -28,7 +28,6 @@ import {
   IoChatbubblesOutline,
 } from "react-icons/io5"
 import { MdDocumentScanner } from "react-icons/md"
-import { GoSidebarCollapse, GoSidebarExpand } from "react-icons/go"
 import { useTheme } from "contexts/Themes"
 import { SiElement } from "react-icons/si"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -73,14 +72,6 @@ const mainItems: MenuItem[] = [
   getItem(getLink("Overview", "overview"), "1", <HiGlobeAlt />),
   getItem(getLink("Members", "members"), "2", <HiMiniUserGroup />),
   getItem(getLink("Membership", "membership"), "3", <HiMiniUserPlus />),
-  //   [
-  //     getItem("Option 3", "3"),
-  //     getItem("Option 4", "4"),
-  //     getItem("Submenu", "sub1-2", null, [
-  //       getItem("Option 5", "5"),
-  //       getItem("Option 6", "6"),
-  //     ]),
-  //   ]),
   getItem(getLink("Governance", "governance"), "4", <HiBuildingLibrary />),
   getItem(
     getLink("Interactions", "interactions"),
@@ -114,28 +105,12 @@ const secondaryItems: MenuItem[] = [
       <IoChatbubblesOutline />
     ),
   ]),
-  // getItem(getLink("Members", "members"), "2", <HiMiniUserGroup />),
-  // getItem(getLink("Membership", "membership"), "3", <HiMiniUserPlus />),
-  // //   [
-  // //     getItem("Option 3", "3"),
-  // //     getItem("Option 4", "4"),
-  // //     getItem("Submenu", "sub1-2", null, [
-  // //       getItem("Option 5", "5"),
-  // //       getItem("Option 6", "6"),
-  // //     ]),
-  // //   ]),
-  // getItem(getLink("Governance", "governance"), "4", <HiBuildingLibrary />),
-  // getItem(
-  //   getLink("Interactions", "interactions"),
-  //   "6",
-  //   <HiMiniCubeTransparent />
-  // ),
-  // getItem(getLink("RFCs", "rfcs"), "8", <MdDocumentScanner />),
 ]
+
+const type = "vertical"
 
 export const SideMenu = () => {
   const [collapsed, setCollapsed] = useState(false)
-  const [type, setType] = useState<"vertical" | "inline">("vertical")
   const { mode, toggleTheme } = useTheme()
 
   const size = collapsed ? "1.8rem" : "2.2rem"
@@ -165,6 +140,15 @@ export const SideMenu = () => {
 
   return (
     <Sider
+      style={{
+        overflow: "auto",
+        height: "100vh",
+        position: "fixed",
+        left: 0,
+        top: 0,
+        bottom: 0,
+      }}
+      theme={mode}
       collapsible
       collapsed={collapsed}
       onCollapse={(value) => setCollapsed(value)}
@@ -197,25 +181,6 @@ export const SideMenu = () => {
           theme={mode}
           items={secondaryItems}
         />
-        <Button
-          onClick={() => setCollapsed(!collapsed)}
-          style={{
-            width: "100%",
-            alignContent: "center",
-            border: "0",
-            borderRadius: "0",
-          }}
-        >
-          <div
-            style={
-              collapsed
-                ? { display: "flex", justifyContent: "center" }
-                : { display: "flex", padding: "0 1rem" }
-            }
-          >
-            {collapsed ? <GoSidebarCollapse /> : <GoSidebarExpand />}
-          </div>
-        </Button>
       </section>
 
       <section
@@ -256,10 +221,6 @@ export const SideMenu = () => {
         >
           <IoLogoGithub size={iconSize} />
         </button>
-        {/* <Switch onChange={changeType} />
-        <Switch
-          onChange={() => toggleTheme(mode === "dark" ? "light" : "dark")}
-        /> */}
       </section>
     </Sider>
   )

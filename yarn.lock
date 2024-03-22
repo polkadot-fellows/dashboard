@@ -6937,10 +6937,10 @@ uri-js@^4.2.2:
   dependencies:
     punycode "^2.1.0"
 
-usehooks-ts@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/usehooks-ts/-/usehooks-ts-3.0.1.tgz#fc7b7ecf4ba893f75de1023e0c89068360f165ba"
-  integrity sha512-bgJ8S9w/SnQyACd3RvWp3CGncROxEENGqQLCsdaoyTb0zTENIna7MIV3OW6ywCfPaYYD2OPokw7oLPmSLLWP4w==
+usehooks-ts@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/usehooks-ts/-/usehooks-ts-3.0.2.tgz#8d025b88ae36b966b3119188a6d71825ef603e47"
+  integrity sha512-qJScCj8YOxa8RV3Iz2T+2IsydLG0EID5FouTGE7aNFEpFlCXmRrnJiPCESDArKr1FLTaUQSfDQ43UDn7yMLExw==
   dependencies:
     lodash.debounce "^4.0.8"
 

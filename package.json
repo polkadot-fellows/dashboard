@@ -58,7 +58,7 @@
     "bignumber.js": "^9.1.2",
     "buffer": "^6.0.3",
     "date-fns": "^3.6.0",
-    "framer-motion": "^11.0.19",
+    "framer-motion": "^11.0.20",
     "i18next": "^23.10.1",
     "i18next-browser-languagedetector": "^7.2.0",
     "lodash.throttle": "^4.1.1",

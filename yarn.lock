@@ -1025,6 +1025,16 @@
     "@scure/base" "^1.1.1"
     scale-ts "^1.6.0"
 
+"@polkadot-api/substrate-bindings@0.0.1-87b10c43c1862eec15d3a29e752a1b05b4cc16b1.1.0":
+  version "0.0.1-87b10c43c1862eec15d3a29e752a1b05b4cc16b1.1.0"
+  resolved "https://registry.yarnpkg.com/@polkadot-api/substrate-bindings/-/substrate-bindings-0.0.1-87b10c43c1862eec15d3a29e752a1b05b4cc16b1.1.0.tgz#56c157d5b303591de0670fb4a3893583c17016d7"
+  integrity sha512-orAAKbodBkSJ3s6yigu2lLPnCKeF+XjqeaaaypYcw1L3505eZAGITpW5KvvkRlr/tq5UIbv13RSI82IpikEq8A==
+  dependencies:
+    "@noble/hashes" "^1.3.1"
+    "@polkadot-api/utils" "0.0.1-87b10c43c1862eec15d3a29e752a1b05b4cc16b1.1.0"
+    "@scure/base" "^1.1.1"
+    scale-ts "^1.6.0"
+
 "@polkadot-api/substrate-client@0.0.1-069662616274c6bdda4095f8c004d4ed7dc72fc9.1.0":
   version "0.0.1-069662616274c6bdda4095f8c004d4ed7dc72fc9.1.0"
   resolved "https://registry.yarnpkg.com/@polkadot-api/substrate-client/-/substrate-client-0.0.1-069662616274c6bdda4095f8c004d4ed7dc72fc9.1.0.tgz#9e48b26446fc3597114f3cc485ff5e7a8ecfa6cd"
@@ -1093,6 +1103,11 @@
   resolved "https://registry.yarnpkg.com/@polkadot-api/utils/-/utils-0.0.1-78e7aa83d7bae987df486715cca319e2aa1667ea.1.0.tgz#cbfd7cb2c880dc145442f3c21ca5b20edd404aa2"
   integrity sha512-ockNeJxo4b7q85De3VCL+InQA3astLiAvZw+FlnJ6Ivw5NfglwzOjT2P4BWEVTMxZy/ujKZInixTlsfzz1t+JA==
 
+"@polkadot-api/utils@0.0.1-87b10c43c1862eec15d3a29e752a1b05b4cc16b1.1.0":
+  version "0.0.1-87b10c43c1862eec15d3a29e752a1b05b4cc16b1.1.0"
+  resolved "https://registry.yarnpkg.com/@polkadot-api/utils/-/utils-0.0.1-87b10c43c1862eec15d3a29e752a1b05b4cc16b1.1.0.tgz#d1defd728d583ee728b4611a3d1a13e9fea9cb28"
+  integrity sha512-APi2JC/opY7eHlF7lPpPB7aY2dYbFIDjbpGR5D+sBkGyzmKWOTdecK3XdObAhgQv4SYrOYBrRTpSNr4+QgfAsg==
+
 "@polkadot-api/utils@0.0.1-964938186318c12a68aacfe7ee10e8fa919a0491.1.0":
   version "0.0.1-964938186318c12a68aacfe7ee10e8fa919a0491.1.0"
   resolved "https://registry.yarnpkg.com/@polkadot-api/utils/-/utils-0.0.1-964938186318c12a68aacfe7ee10e8fa919a0491.1.0.tgz#d86b71246de259830ee13f1a866a3b157498db22"
@@ -1115,20 +1130,20 @@
     "@polkadot-api/json-rpc-provider" "0.0.1-8085034060d643c71d85df47784513b07a0a247c.1.0"
     "@polkadot-api/json-rpc-provider-proxy" "0.0.1-8085034060d643c71d85df47784513b07a0a247c.1.0"
 
-"@polkadot-ui/assets@^0.5.2":
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/@polkadot-ui/assets/-/assets-0.5.2.tgz#a72a3258b0be98d32e19bf23f341481f16d8802d"
-  integrity sha512-2oXG8Nx0gdCJm7TwkGUM3icJBxNfVPN+DAvb6mE/45JMCHFupFGO+jjk3pdCKMF1DT5WxTJMrjRqstwMQVRnJg==
+"@polkadot-ui/assets@^0.5.3":
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/@polkadot-ui/assets/-/assets-0.5.3.tgz#cfc7bd4aa3413bcab9748397cffb78652171a8e6"
+  integrity sha512-jlDphpSH2USxVjFBbN49yZcT9KVi9Lunob+l5K2qSb+Myx4LSO/XZrB3EGKe2KYdYgleqqfS0abH0ZB70LhHaQ==
 
 "@polkadot-ui/core@^2.0.2":
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/@polkadot-ui/core/-/core-2.0.2.tgz#b631520533c1633d7bab50852009f16ec86b8d65"
   integrity sha512-RDymyKjY/pDIp46yNbKWoynl4HKvXG6mi2KO9eR2w0w96isj4DpnjhEMrBvUB7D3YP5XnF4QRu65HNRwh3WIlQ==
 
-"@polkadot-ui/react@^0.5.3":
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/@polkadot-ui/react/-/react-0.5.3.tgz#f748ce2300c53d555d3a45922eae312978370d1b"
-  integrity sha512-NjCkOJWCfU+eEYGE+I2R78P5MrtqigxHKQnXLxSuWtWXoIlq+RgZgRx8wwki38ynEbG8f9QGatQGWDQZshjbBA==
+"@polkadot-ui/react@^0.5.4":
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/@polkadot-ui/react/-/react-0.5.4.tgz#2b9f5e6d9e5ec26a55822aa65585bbdc05562506"
+  integrity sha512-ZqqVyXtTgRer+Lu+5ohJcHj5+k4YclEp8gXGI8F3W5I7gatZlSu0nbhToX56AMCqofUsp53vzKypk5BzxZkRuQ==
   dependencies:
     "@chainsafe/metamask-polkadot-adapter" "^0.6.0"
     "@chainsafe/metamask-polkadot-types" "^0.6.0"
@@ -1137,14 +1152,15 @@
     "@fortawesome/free-regular-svg-icons" "^6.5.1"
     "@fortawesome/free-solid-svg-icons" "^6.5.1"
     "@fortawesome/react-fontawesome" "^0.2.0"
-    "@polkadot-ui/assets" "^0.5.2"
+    "@polkadot-api/substrate-bindings" "0.0.1-87b10c43c1862eec15d3a29e752a1b05b4cc16b1.1.0"
+    "@polkadot-ui/assets" "^0.5.3"
     "@polkadot-ui/core" "^2.0.2"
     "@polkadot-ui/utils" "^0.4.0"
     "@polkadot/keyring" "^12.6.2"
     "@polkadot/util" "^12.6.2"
     "@polkadot/util-crypto" "^12.6.2"
-    framer-motion "^11.0.5"
-    react-error-boundary "^4.0.12"
+    framer-motion "^11.0.20"
+    react-error-boundary "^4.0.13"
 
 "@polkadot-ui/utils@^0.4.0":
   version "0.4.0"
@@ -3721,7 +3737,7 @@ formdata-polyfill@^4.0.10:
   dependencies:
     fetch-blob "^3.1.2"
 
-framer-motion@^11.0.20, framer-motion@^11.0.5:
+framer-motion@^11.0.20:
   version "11.0.20"
   resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-11.0.20.tgz#6bb72bd0b8020fc417a40453b9247d596acbea78"
   integrity sha512-YSDmWznt3hpdERosbE0UAPYWoYhTnmQ0J1qWPsgpCia9NgY8Xsz5IpOiUEGGj/nzCAW29fSrWugeLRkdp5de7g==
@@ -5774,7 +5790,7 @@ react-dom@^18.2.0:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
 
-react-error-boundary@^4.0.12, react-error-boundary@^4.0.13:
+react-error-boundary@^4.0.13:
   version "4.0.13"
   resolved "https://registry.yarnpkg.com/react-error-boundary/-/react-error-boundary-4.0.13.tgz#80386b7b27b1131c5fbb7368b8c0d983354c7947"
   integrity sha512-b6PwbdSv8XeOSYvjt8LpgpKrZ0yGdtZokYwkwV2wlcZbxgopHX/hgPl5VgpnoVOWd868n1hktM8Qm4b+02MiLQ==

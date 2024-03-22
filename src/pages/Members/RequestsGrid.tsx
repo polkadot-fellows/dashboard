@@ -154,7 +154,7 @@ export const RequestsGrid = () => {
                   size: 38,
                   gridSize: 1,
                   justify: "space-between",
-                  outerColor: "transparent",
+                  outerColor: "#fefefe",
                   dark: true,
                 }}
               />

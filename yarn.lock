@@ -1140,10 +1140,10 @@
   resolved "https://registry.yarnpkg.com/@polkadot-ui/core/-/core-2.0.2.tgz#b631520533c1633d7bab50852009f16ec86b8d65"
   integrity sha512-RDymyKjY/pDIp46yNbKWoynl4HKvXG6mi2KO9eR2w0w96isj4DpnjhEMrBvUB7D3YP5XnF4QRu65HNRwh3WIlQ==
 
-"@polkadot-ui/react@^0.5.4":
-  version "0.5.4"
-  resolved "https://registry.yarnpkg.com/@polkadot-ui/react/-/react-0.5.4.tgz#2b9f5e6d9e5ec26a55822aa65585bbdc05562506"
-  integrity sha512-ZqqVyXtTgRer+Lu+5ohJcHj5+k4YclEp8gXGI8F3W5I7gatZlSu0nbhToX56AMCqofUsp53vzKypk5BzxZkRuQ==
+"@polkadot-ui/react@^0.5.5":
+  version "0.5.5"
+  resolved "https://registry.yarnpkg.com/@polkadot-ui/react/-/react-0.5.5.tgz#00aeae769f79d66b525a45aa532cb7a1b22c9d7e"
+  integrity sha512-b0C1UyK+rCRz+v0B+kGz3aW0JK1IEVJb6aHM85CFZFCi4H/TIURwOeoFlExVFysq2ArQ7y2ZllVoUL8Ag5jIRg==
   dependencies:
     "@chainsafe/metamask-polkadot-adapter" "^0.6.0"
     "@chainsafe/metamask-polkadot-types" "^0.6.0"
@@ -1158,7 +1158,6 @@
     "@polkadot-ui/utils" "^0.4.0"
     "@polkadot/keyring" "^12.6.2"
     "@polkadot/util" "^12.6.2"
-    "@polkadot/util-crypto" "^12.6.2"
     framer-motion "^11.0.20"
     react-error-boundary "^4.0.13"
 

@@ -76,7 +76,7 @@
   "devDependencies": {
     "@polkadot-api/rollup-plugin-descriptor-treeshake": "0.0.1-e5b6c751cfb875da2542f1bd895e0be3aa95cd4a.1.0",
     "@types/mdx": "^2.0.12",
-    "@types/react": "^18.2.71",
+    "@types/react": "^18.2.72",
     "@types/react-dom": "^18.2.22",
     "@types/react-helmet": "^6.1.11",
     "@types/react-router-dom": "^5.3.3",

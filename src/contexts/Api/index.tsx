@@ -1,6 +1,3 @@
-// Copyright 2024 @polkadot-fellows/dashboard authors & contributors
-// SPDX-License-Identifier: GPL-3.0-only
-
 import { createContext, useContext, useEffect, useState } from "react"
 import type { APIContextInterface, APIProviderProps } from "contexts/Api/types"
 import { defaultApiContext } from "./defaults"
@@ -27,24 +24,15 @@ export const APIProvider = ({ children }: APIProviderProps) => {
 
   useEffect(() => {
     const create = async () => {
-      // const cl = createClient(
-      //   getChain({
-      //     provider: WebSocketProvider(
-      //       "wss://polkadot-collectives-rpc.polkadot.io"
-      //     ),
-      //     keyring: [],
-      //   })
-      // )
-      // setClient(cl)
       const collectivesParachain =
         await relayChains.polkadot.getParachain(collectivesChainspec)
 
-      const cl = createClient(collectivesParachain.connect)
+      const cl = createClient(collectivesParachain.provider)
       setClient(cl)
     }
 
     const p_create = () => {
-      const cl = createClient(relayChains.polkadot.connect)
+      const cl = createClient(relayChains.polkadot.provider)
       setpClient(cl)
     }
 

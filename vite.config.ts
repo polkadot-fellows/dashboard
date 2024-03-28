@@ -1,6 +1,3 @@
-// Copyright 2024 @polkadot-fellows/dashboard authors & contributors
-// SPDX-License-Identifier: GPL-3.0-only
-
 import react from "@vitejs/plugin-react-swc"
 import { defineConfig } from "vite"
 import checker from "vite-plugin-checker"

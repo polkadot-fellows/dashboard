@@ -1,10 +1,6 @@
-// Copyright 2024 @polkadot-fellows/dashboard authors & contributors
-// SPDX-License-Identifier: GPL-3.0-only
-
 import { localStorageOrDefault, setStateWithRef } from "@polkadot-ui/utils"
 import React, { useEffect, useRef, useState } from "react"
-import { SideMenuStickyThreshold } from "consts"
-import { useEffectIgnoreInitial } from "library/Hooks/useEffectIgnoreInitial"
+import { SideMenuStickyThreshold } from "../../consts"
 import * as defaults from "./defaults"
 import type { UIContextInterface } from "./types"
 
@@ -50,7 +46,7 @@ export const UIProvider = ({ children }: { children: React.ReactNode }) => {
   }, [])
 
   // re-configure minimised on user change
-  useEffectIgnoreInitial(() => {
+  useEffect(() => {
     resizeCallback()
   }, [userSideMenuMinimised])
 

@@ -1,12 +1,10 @@
-// Copyright 2024 @polkadot-fellows/dashboard authors & contributors
-// SPDX-License-Identifier: GPL-3.0-only
-
 import { useEffect, useState } from "react"
-import { Grid, AccountCard, Loader } from "@polkadot-ui/react"
+import { Grid, AccountCard } from "@polkadot-ui/react"
 import { AccountName } from "./AccountName"
 import { Binary } from "@polkadot-api/client"
-import type { Queries } from "../../codegen/polkadot"
+import type { PolkadotQueries } from "../../codegen/polkadot"
 import { useLocalStorage } from "usehooks-ts"
+import { RevolvingDot } from "react-loader-spinner"
 
 import "./RequestsGrid.scss"
 import { useApi } from "contexts/Api"
@@ -39,7 +37,7 @@ const identityDataToString = (value: string | Binary | undefined) =>
   typeof value === "object" ? value.asText() : value ?? ""
 
 const mapRawIdentity = (
-  rawIdentity?: Queries["Identity"]["IdentityOf"]["Value"]
+  rawIdentity?: PolkadotQueries["Identity"]["IdentityOf"]["Value"]
 ) => {
   if (!rawIdentity) return rawIdentity
 
@@ -76,6 +74,8 @@ export const RequestsGrid = () => {
   )
 
   const { api, papi } = useApi()
+
+  console.log(api, papi)
 
   useEffect(() => {
     const fetchMembers = async () => {
@@ -168,7 +168,15 @@ export const RequestsGrid = () => {
         ))
       ) : (
         <Grid column sm={12} style={{ padding: "10rem" }}>
-          <Loader type="cube" />
+          <RevolvingDot
+            visible={true}
+            height="80"
+            width="80"
+            color="#E6007A"
+            ariaLabel="revolving-dot-loading"
+            wrapperStyle={{}}
+            wrapperClass=""
+          />
         </Grid>
       )}
     </>

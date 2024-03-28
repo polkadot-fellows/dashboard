@@ -1,19 +1,20 @@
-// Copyright 2024 @polkadot-fellows/dashboard authors & contributors
-// SPDX-License-Identifier: GPL-3.0-only
-
 import { setStateWithRef } from "@polkadot-ui/utils"
 import React, { useRef } from "react"
 import { defaultThemeContext } from "./defaults"
 import type { Theme, ThemeContextInterface } from "./types"
+import { useLocalStorage } from "usehooks-ts"
 
 export const ThemesProvider = ({ children }: { children: React.ReactNode }) => {
   let initialTheme: Theme = "light"
 
   // get the current theme
-  const localThemeRaw = localStorage.getItem("theme") || ""
+  const [settings, setSettings] = useLocalStorage("fellowship-settings", {
+    themeMode: "light",
+    collapsed: false,
+  })
 
   // Provide system theme if raw theme is not valid.
-  if (!["light", "dark"].includes(localThemeRaw)) {
+  if (!["light", "dark"].includes(settings.themeMode)) {
     const systemTheme =
       window.matchMedia &&
       window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -21,10 +22,9 @@ export const ThemesProvider = ({ children }: { children: React.ReactNode }) => {
         : "light"
 
     initialTheme = systemTheme
-    localStorage.setItem("theme", systemTheme)
   } else {
     // `localThemeRaw` is a valid theme.
-    initialTheme = localThemeRaw as Theme
+    initialTheme = settings.themeMode as Theme
   }
 
   // the theme mode
@@ -36,7 +36,10 @@ export const ThemesProvider = ({ children }: { children: React.ReactNode }) => {
     .matchMedia("(prefers-color-scheme: dark)")
     .addEventListener("change", (event) => {
       const newTheme = event.matches ? "dark" : "light"
-      localStorage.setItem("theme", newTheme)
+      setSettings({
+        themeMode: newTheme,
+        collapsed: settings.collapsed,
+      })
       setStateWithRef(newTheme, setTheme, themeRef)
     })
 
@@ -44,7 +47,10 @@ export const ThemesProvider = ({ children }: { children: React.ReactNode }) => {
     const newTheme =
       maybeTheme || (themeRef.current === "dark" ? "light" : "dark")
 
-    localStorage.setItem("theme", newTheme)
+    setSettings({
+      themeMode: newTheme,
+      collapsed: settings.collapsed,
+    })
     setStateWithRef(newTheme, setTheme, themeRef)
   }
 

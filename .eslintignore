@@ -23,3 +23,4 @@ public/lottie/player.js
 README.md
 vite.config.ts
 src/codegen/*
+pnpm-lock.yaml

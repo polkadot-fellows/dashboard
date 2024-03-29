@@ -234,7 +234,7 @@ export const App = () => {
           <section
             style={{
               position: "absolute",
-              bottom: "5rem",
+              bottom: "6rem",
               width: collapsed ? "4rem" : "11rem",
               height: collapsed ? "7rem" : "1rem",
               display: "flex",

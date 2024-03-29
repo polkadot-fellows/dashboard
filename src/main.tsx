@@ -27,7 +27,7 @@ import { Members } from "pages/Members"
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/dashboard/",
     element: <App />,
     errorElement: <ErrorPage />,
     children: [

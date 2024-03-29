@@ -1,10 +1,11 @@
 import { RequestsGrid } from "./RequestsGrid"
-import "../../App.css"
 
 export const Rfc = () => {
   return (
     <>
-      <h1>Polkadot Fellowship - RFCs</h1>
+      <div className="header">
+        <h1>Polkadot Fellowship - RFCs</h1>
+      </div>
       <div style={{ padding: "2rem" }}>
         <RequestsGrid />
       </div>

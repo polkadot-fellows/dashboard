@@ -45,10 +45,12 @@ export const APIProvider = ({ children }: APIProviderProps) => {
   }, [])
 
   useEffect(() => {
+    console.log(client)
     setApi(client?.getTypedApi(collectiveTypes))
   }, [client])
 
   useEffect(() => {
+    console.log(pclient)
     setPapi(pclient?.getTypedApi(polkadotTypes))
   }, [pclient])
 

@@ -5,17 +5,18 @@ import { ErrorPage } from "./ErrorPage"
 import { ThemesProvider } from "./contexts/Themes"
 
 // Network classes.
-// import "@polkadot-ui/core/theme/default/index.css"
+import "./index.css"
 
 // Fonts with light and dark themes.
-// import "@polkadot-ui/core/theme/default/fonts/index.css"
-// import "@polkadot-ui/core/accent/polkadot-relay.css"
+import "@polkadot-ui/core/theme/default/fonts/index.css"
+import "@polkadot-ui/core/accent/polkadot-relay.css"
 
 // Core UI styles.
 import "@polkadot-ui/core/css/styles/index.css"
 
 import { createRoot } from "react-dom/client"
 import { App } from "./App"
+
 import { Overview } from "pages/Overview"
 import { Membership } from "pages/Membership"
 import { Interactions } from "pages/Interactions"

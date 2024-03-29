@@ -1,13 +1,20 @@
 import { useEffect, useState } from "react"
 import { Grid, AccountCard } from "@polkadot-ui/react"
 import { AccountName } from "./AccountName"
-import { Binary } from "@polkadot-api/client"
+import type { PolkadotClient } from "@polkadot-api/client"
+import { Binary, createClient } from "@polkadot-api/client"
 import type { PolkadotQueries } from "../../codegen/polkadot"
 import { useLocalStorage } from "usehooks-ts"
 import { RevolvingDot } from "react-loader-spinner"
 
+import collectiveTypes from "../../codegen/collectives"
+import polkadotTypes from "../../codegen/polkadot"
+import collectivesChainspec from "./collectives-polkadot"
+
+import { getLegacyProvider } from "@polkadot-api/legacy-polkadot-provider"
+import { createScClient } from "@substrate/connect"
+
 import "./RequestsGrid.scss"
-import { useApi } from "contexts/Api"
 
 export interface AccountInfoIF {
   address: string
@@ -66,6 +73,25 @@ const mapRawIdentity = (
   return { ...info, ...additionalInfo }
 }
 
+let client: PolkadotClient
+let pclient: PolkadotClient
+
+const scProvider = createScClient()
+const { relayChains } = getLegacyProvider(scProvider)
+const create = async () => {
+  const collectivesParachain =
+    await relayChains.polkadot.getParachain(collectivesChainspec)
+
+  client = createClient(collectivesParachain.provider)
+}
+
+const p_create = () => {
+  pclient = createClient(relayChains.polkadot.provider)
+}
+
+create()
+p_create()
+
 export const RequestsGrid = () => {
   const [members, setMembers] = useState<AccountInfoIF[]>([])
   const [fellowshipMembers, setFellowshipMembers] = useLocalStorage<any[]>(
@@ -73,14 +99,13 @@ export const RequestsGrid = () => {
     []
   )
 
-  const { api, papi } = useApi()
-
-  console.log(api, papi)
-
   useEffect(() => {
     const fetchMembers = async () => {
+      const api = client?.getTypedApi(collectiveTypes)
+      const papi = pclient?.getTypedApi(polkadotTypes)
+
       const collectiveAddresses: any =
-        await api.query.FellowshipCollective.Members.getEntries().then(
+        await api?.query.FellowshipCollective.Members.getEntries().then(
           (mems: any[]) =>
             papi.query.Identity.IdentityOf.getValues(
               mems.map((m) => m.keyArgs)
@@ -101,14 +126,11 @@ export const RequestsGrid = () => {
       ])
     }
 
-    if (api && papi) {
-      if (fellowshipMembers.length) {
-        setMembers(fellowshipMembers)
-      }
-      fetchMembers()
+    if (fellowshipMembers.length) {
+      setMembers(fellowshipMembers)
     }
-    api && papi && fetchMembers()
-  }, [api, papi])
+    fetchMembers()
+  }, [])
 
   useEffect(() => {
     setFellowshipMembers(members)

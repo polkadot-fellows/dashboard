@@ -3,8 +3,10 @@ import { RequestsGrid } from "./RequestsGrid"
 export const Members = () => {
   return (
     <>
-      <h1>Polkadot Fellowship - Members</h1>
-      <div style={{ padding: "2rem" }}>
+      <div className="header">
+        <h1>Polkadot Fellowship - Members</h1>
+      </div>
+      <div style={{ padding: "0 2rem" }}>
         <RequestsGrid />
       </div>
     </>

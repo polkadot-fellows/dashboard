@@ -29,9 +29,11 @@ import {
 import { MdDocumentScanner } from "react-icons/md"
 import { SiElement } from "react-icons/si"
 import { FaInfo } from "react-icons/fa"
-import "./App.css"
+
 import { useEffect, useState } from "react"
 import { Link, Outlet, useLocation } from "react-router-dom"
+
+import "./App.scss"
 
 type MenuItem = GetProp<MenuProps, "items">[number]
 
@@ -64,10 +66,10 @@ const getLink = (
 
 const mainItems: MenuItem[] = [
   getItem(getLink("Overview", "overview"), "overview", <HiGlobeAlt />),
-  getItem("More Info", "sub0", <FaInfo />, [
+  getItem("About", "sub0", <FaInfo />, [
     getItem(
       getLink("Membership", "membership"),
-      ",membership",
+      "membership",
       <HiMiniUserPlus />
     ),
     getItem(
@@ -108,7 +110,7 @@ const secondaryItems: MenuItem[] = [
     ),
   ]),
 ]
-const type = "vertical" //"inline"
+const type = "vertical"
 
 export const App = () => {
   const location = useLocation()
@@ -168,7 +170,7 @@ export const App = () => {
         components: {
           Menu: {
             colorPrimary: "#E6007A",
-            colorBgContainer: "#000D18",
+            colorBgContainer: "var(--background-primary)",
             /* here is your component tokens */
           },
         },
@@ -279,13 +281,15 @@ export const App = () => {
         </Sider>
         <Layout>
           <Content
+            className={"theme-" + mode}
             style={{
               overflow: "auto",
               height: "100vh",
-              marginBottom: "3rem",
+              paddingBottom: "3rem",
               marginLeft: autoWidth,
-              background: mode === "light" ? "#fff" : "#000D18",
-              color: mode === "light" ? "#00152A" : "#E6007A",
+              background:
+                mode === "light" ? "#f8f7f7" : "var(--background-primary)",
+              color: mode === "light" ? "#00152A" : "#f8f7f7",
             }}
           >
             <Outlet />
@@ -296,10 +300,12 @@ export const App = () => {
               bottom: 0,
               zIndex: 1,
               width: "100vw",
-              background: mode === "light" ? "#fff" : "#000D18",
+              background: mode === "light" ? "#f8f7f7" : "#000D18",
               color: mode === "light" ? "#00152A" : "#E6007A",
               display: "flex",
               justifyContent: "flex-end",
+              filter: "alpha(opacity=75)",
+              opacity: "0.75",
             }}
           >
             Polkadot Fellowship ©{new Date().getFullYear()}

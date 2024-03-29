@@ -110,6 +110,11 @@ const secondaryItems: MenuItem[] = [
     ),
   ]),
 ]
+
+// const linksItems: MenuItem[] = [
+//   getItem(getLink("Overview", "overview"), "overview", <HiGlobeAlt />),
+// ]
+
 const type = "vertical"
 
 export const App = () => {
@@ -225,6 +230,7 @@ export const App = () => {
             mode={type}
             items={secondaryItems}
           />
+          {/* <Menu theme={mode} mode={type} items={linksItems} /> */}
           <section
             style={{
               position: "absolute",

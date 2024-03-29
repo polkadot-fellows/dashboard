@@ -100,8 +100,7 @@
   --button-hover-background: rgb(66 61 68);
   --card-shadow-color: rgb(28 24 28 / 25%);
   --card-deep-shadow-color: rgb(28 24 28 / 50%);
-  --card-shadow-color-secondary: #f8f7f7
-  --accent-color-primary: #e6007a;
+  --card-shadow-color-secondary: #f8f7f7 --accent-color-primary: #e6007a;
   --accent-color-secondary: #552bbf;
   --accent-color-tertiary: var(--accent-color-tertiary-dark);
   --accent-color-stroke: var(--accent-color-stroke-dark);

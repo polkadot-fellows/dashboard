@@ -72,11 +72,9 @@ if (!rootElement) throw new Error("Failed to find the root element")
 const root = createRoot(rootElement)
 
 root.render(
-  <StrictMode>
-    <MDXProvider>
-      <ThemesProvider>
-        <RouterProvider router={router} />
-      </ThemesProvider>
-    </MDXProvider>
-  </StrictMode>
+  <MDXProvider>
+    <ThemesProvider>
+      <RouterProvider router={router} />
+    </ThemesProvider>
+  </MDXProvider>
 )

@@ -372,13 +372,7 @@ export const RouterInner = () => {
           >
             <Routes>
               {pages.map(({ path, element }, i) => {
-                return (
-                  <Route
-                    key={`main_interface_page_${i}`}
-                    path={path}
-                    element={element}
-                  />
-                )
+                return <Route key={`page_${i}`} path={path} element={element} />
               })}
             </Routes>
           </Content>

@@ -1,7 +1,4 @@
-import { StrictMode } from "react"
-import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import { MDXProvider } from "@mdx-js/react"
-import { ErrorPage } from "./ErrorPage"
 import { ThemesProvider } from "./contexts/Themes"
 
 // Network classes.

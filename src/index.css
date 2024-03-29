@@ -22,8 +22,8 @@
   --button-tab-background: #e4e2e2;
   --button-hover-background: #e8e6e6;
   --card-shadow-color: rgb(158 158 158 / 20%);
-  --card-deep-shadow-color: rgb(158 158 158 / 50%);
-  --card-shadow-color-secondary: #e7e7e7;
+  --card-deep-shadow-color: rgb(28 24 28 / 25%);
+  --card-shadow-color-secondary: #000;
   --accent-color-primary: #e6007a;
   --accent-color-secondary: #552bbf;
   --accent-color-tertiary: var(--accent-color-tertiary-light);
@@ -100,7 +100,7 @@
   --button-hover-background: rgb(66 61 68);
   --card-shadow-color: rgb(28 24 28 / 25%);
   --card-deep-shadow-color: rgb(28 24 28 / 50%);
-  --card-shadow-color-secondary: rgb(28 24 28 / 25%);
+  --card-shadow-color-secondary: #f8f7f7
   --accent-color-primary: #e6007a;
   --accent-color-secondary: #552bbf;
   --accent-color-tertiary: var(--accent-color-tertiary-dark);

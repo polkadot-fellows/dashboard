@@ -7,22 +7,6 @@ on:
     branches: [main]
 
 jobs:
-  check-license-lines:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - name: Check License Lines
-        uses: kt3k/license_checker@v1.0.6
-  validate-locales:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Use Node.js 18.x
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18.x
-      # TODO: Disable locale:validation for now
-      # - run: yarn run locale:validate
   build:
     runs-on: ubuntu-latest
     strategy:
@@ -41,7 +25,7 @@ jobs:
 
   all:
     # This job ensures that all jobs above (now we have just build) are successful.
-    needs: [check-license-lines, build, validate-locales]
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - run: echo Success

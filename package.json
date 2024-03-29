@@ -13,7 +13,7 @@
     "build": "tsc && vite build",
     "postinstall": "papi",
     "build:pages": "tsc && vite build --base '/dashboard/'",
-    "deploy:pages": "yarn build:pages && gh-pages -d build",
+    "deploy:pages": "pnpm run build:pages && gh-pages -d build",
     "deploy": "gh-pages -d build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 && prettier --check .",
     "lint:fix": "eslint . --ext ts,tsx --fix && prettier --write .",

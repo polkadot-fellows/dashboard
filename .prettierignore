@@ -12,3 +12,4 @@ src/img/**/*
 public/lottie/player.js
 README.md
 src/codegen/*.ts
+pnpm-lock.yaml

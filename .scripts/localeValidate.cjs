@@ -1,6 +1,3 @@
-// Copyright 2024 @polkadot-fellows/dashboard authors & contributors
-// SPDX-License-Identifier: GPL-3.0-only
-
 const fs = require("fs")
 const { join } = require("path")
 const {

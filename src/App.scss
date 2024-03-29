@@ -1,0 +1,109 @@
+@font-face {
+  font-family: "Unbounded";
+  src: url("./assets//Unbounded-Regular.ttf");
+}
+
+html {
+  font-size: 12.5px;
+
+  @media (min-width: 800px) {
+    font-size: 14px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    color: var(--accent-color-primary);
+    font-family: "Unbounded";
+    width: 100%;
+    padding: 2rem 2rem 1rem;
+  }
+
+  // Overriding some theme styles
+  .core-page-row {
+    div,
+    p {
+      color: var(--text-color-primary);
+    }
+
+    a {
+      font-weight: bold;
+      color: var(--accent-color-primary);
+      text-decoration: underline;
+    }
+    a:hover {
+      color: var(--accent-color-secondary);
+    }
+  }
+
+  .header {
+    position: sticky;
+    top: 0;
+    color: #e6007a;
+    background: var(--background-primary);
+    padding: 1.3rem 0 1.5rem 1rem;
+    opacity: 0.75;
+  }
+
+  ul {
+    line-height: 1.5rem;
+  }
+
+  .adj-img {
+    width: 80%;
+    padding: 2rem 0;
+  }
+
+  .note {
+    width: 100%;
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 0.1rem solid var(--accent-color-primary);
+    border-left: 0.65rem solid var(--accent-color-primary);
+    border-right: 0.65rem solid var(--accent-color-primary);
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      padding: 0rem;
+    }
+
+    &.secondary {
+      border: 0.1rem solid var(--accent-color-secondary);
+      border-left: 0.65rem solid var(--accent-color-secondary);
+      border-right: 0.65rem solid var(--accent-color-secondary);
+    }
+  }
+
+  .rfc-date {
+    font-size: 0.8rem;
+  }
+
+  .footer {
+    position: "fixed";
+    bottom: 0;
+    z-index: 1;
+    width: "100vw";
+    background: var(--background-primary);
+    color: var(--accent-color-primary);
+    display: "flex";
+    justify-content: flex-end;
+    filter: alpha(opacity=75);
+    opacity: 0.75;
+  }
+
+  .ant-modal-content {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      padding: 0.5rem 0rem;
+    }
+  }
+}

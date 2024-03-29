@@ -1,10 +1,7 @@
-// Copyright 2024 @polkadot-fellows/dashboard authors & contributors
-// SPDX-License-Identifier: GPL-3.0-only
-
 import react from "@vitejs/plugin-react-swc"
 import { defineConfig } from "vite"
 import checker from "vite-plugin-checker"
-import eslint from "vite-plugin-eslint"
+// import eslint from "vite-plugin-eslint"
 import svgr from "vite-plugin-svgr"
 import tsconfigPaths from "vite-tsconfig-paths"
 import mdx from "@mdx-js/rollup"
@@ -19,7 +16,7 @@ import mdx from "@mdx-js/rollup"
 export default defineConfig({
   plugins: [
     { enforce: "pre", ...mdx() },
-    eslint(),
+    // eslint(),
     react(),
     svgr(),
     tsconfigPaths(),

@@ -4,7 +4,7 @@ export const Overview = () => {
   return (
     <>
       <div className="header">
-        <h1>Polkadot Fellowship - Overview</h1>
+        <h1>Overview</h1>
       </div>
       <div style={{ padding: "2rem" }}>
         <MdxCode />

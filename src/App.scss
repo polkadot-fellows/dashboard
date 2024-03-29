@@ -6,7 +6,7 @@
 html {
   font-size: 12.5px;
 
-  @media (min-width: 600px) {
+  @media (min-width: 800px) {
     font-size: 14px;
   }
 
@@ -61,7 +61,8 @@ html {
     padding: 1rem;
     border-radius: 1rem;
     border: 0.1rem solid var(--accent-color-primary);
-    border-left: 0.5rem solid var(--accent-color-primary);
+    border-left: 0.65rem solid var(--accent-color-primary);
+    border-right: 0.65rem solid var(--accent-color-primary);
 
     h1,
     h2,
@@ -73,7 +74,8 @@ html {
 
     &.secondary {
       border: 0.1rem solid var(--accent-color-secondary);
-      border-left: 0.5rem solid var(--accent-color-secondary);
+      border-left: 0.65rem solid var(--accent-color-secondary);
+      border-right: 0.65rem solid var(--accent-color-secondary);
     }
   }
 

@@ -4,7 +4,7 @@ import { AccountName } from "./AccountName"
 import type { PolkadotClient } from "@polkadot-api/client"
 import { Binary, createClient } from "@polkadot-api/client"
 import type { PolkadotQueries } from "../../codegen/polkadot"
-import { useLocalStorage } from "usehooks-ts"
+import { useLocalStorage, useMediaQuery } from "usehooks-ts"
 import { RevolvingDot } from "react-loader-spinner"
 
 import collectiveTypes from "../../codegen/collectives"
@@ -99,6 +99,8 @@ export const RequestsGrid = () => {
     []
   )
 
+  const isMobile = useMediaQuery("(max-width: 1000px)")
+
   useEffect(() => {
     const fetchMembers = async () => {
       const api = client?.getTypedApi(collectiveTypes)
@@ -138,7 +140,7 @@ export const RequestsGrid = () => {
 
   return (
     <>
-      <Grid row key={"random_key"} style={{ padding: "2rem 0", width: "100%" }}>
+      <Grid row key={"random_key"} style={{ padding: "0rem 0", width: "100%" }}>
         <Grid column sm={3} md={3} style={{ textAlign: "left" }}>
           <h3>Name</h3>
         </Grid>
@@ -168,22 +170,20 @@ export const RequestsGrid = () => {
                   align: "center",
                 }}
                 ellipsis={{
-                  active: true,
+                  active: isMobile,
                   amount: 10,
                 }}
                 icon={{
                   copy: true,
                   size: 38,
-                  gridSize: 1,
+                  gridSize: 2,
                   justify: "space-between",
-                  outerColor: "#fefefe",
-                  dark: true,
                 }}
               />
             </Grid>
             <Grid column sm={1} md={2}>
-              <p>
-                {rankings[m.rank]} ({m.rank})
+              <p style={{ textAlign: "center", width: "100%" }}>
+                {!isMobile ? rankings[m.rank] : null} ({m.rank})
               </p>
             </Grid>
           </Grid>

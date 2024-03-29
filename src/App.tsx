@@ -1,4 +1,4 @@
-import { ConfigProvider, Divider, Layout, Menu } from "antd"
+import { ConfigProvider, Divider, Layout, Menu, Modal } from "antd"
 import type { GetProp, MenuProps } from "antd"
 import {
   HiMiniUserGroup,
@@ -8,6 +8,7 @@ import {
   HiMiniCubeTransparent,
   HiMiniInboxStack,
 } from "react-icons/hi2"
+import { GrResources } from "react-icons/gr"
 
 import { PolkadotUrl } from "consts"
 import { useLocalStorage } from "usehooks-ts"
@@ -20,6 +21,7 @@ import {
   IoMoon,
   IoLogoGithub,
   IoChatbubblesOutline,
+  IoDocumentText,
 } from "react-icons/io5"
 import {
   BsArrowsCollapseVertical,
@@ -111,9 +113,22 @@ const secondaryItems: MenuItem[] = [
   ]),
 ]
 
-// const linksItems: MenuItem[] = [
-//   getItem(getLink("Overview", "overview"), "overview", <HiGlobeAlt />),
-// ]
+const linksItems: MenuItem[] = [
+  getItem(
+    getLink("RFCs Book", "https://polkadot-fellows.github.io/RFCs/", "_blank"),
+    "rfcs book",
+    <IoDocumentText />
+  ),
+  getItem(
+    getLink(
+      "Manifesto",
+      "https://github.com/polkadot-fellows/manifesto/blob/0c3df46d76625980b8b48742cb86f4d8fa6dda8d/manifesto.pdf",
+      "_blank"
+    ),
+    "manifesto",
+    <IoDocumentText />
+  ),
+]
 
 const type = "vertical"
 
@@ -122,6 +137,8 @@ export const App = () => {
   const [collapsed, setCollapsed] = useState<boolean>(false)
   const [token, setToken] = useState({})
   const { mode, toggleTheme } = useTheme()
+
+  const [openModal, setOpenModal] = useState(false)
 
   const [settings, setSettings] = useLocalStorage("fellowship-settings", {
     themeMode: "light",
@@ -230,7 +247,21 @@ export const App = () => {
             mode={type}
             items={secondaryItems}
           />
-          {/* <Menu theme={mode} mode={type} items={linksItems} /> */}
+          <Divider />
+          <Menu
+            theme={mode}
+            mode={type}
+            items={[
+              ...linksItems,
+              getItem(
+                <a href="#" onClick={() => setOpenModal(true)}>
+                  Resources
+                </a>,
+                "resources",
+                <GrResources />
+              ),
+            ]}
+          />
           <section
             style={{
               position: "absolute",
@@ -291,7 +322,7 @@ export const App = () => {
             style={{
               overflow: "auto",
               height: "100vh",
-              paddingBottom: "3rem",
+              paddingBottom: "6rem",
               marginLeft: autoWidth,
               background:
                 mode === "light" ? "#f8f7f7" : "var(--background-primary)",
@@ -300,6 +331,51 @@ export const App = () => {
           >
             <Outlet />
           </Content>
+          <Modal
+            centered
+            open={openModal}
+            onCancel={() => setOpenModal(false)}
+            footer={[]}
+          >
+            <h4>Useful Links</h4>
+            <p>
+              {getLink(
+                "Governance v2",
+                "https://medium.com/polkadot-network/gov2-polkadots-next-generation-of-decentralised-governance-4d9ef657d11b",
+                "_blank"
+              )}
+            </p>
+            <p>
+              {getLink(
+                "Democracy Pallet",
+                "https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/democracy/README.md",
+                "_blank"
+              )}
+            </p>
+            <p>
+              {getLink(
+                "Polkadot Wiki - Technical Fellowship",
+                "https://wiki.polkadot.network/docs/learn-polkadot-technical-fellowship",
+                "_blank"
+              )}
+            </p>
+            <Divider />
+            <h4>Alternative Fellowship UIs</h4>
+            <p>
+              {getLink(
+                "Polkassembly",
+                "https://collectives.polkassembly.io/",
+                "_blank"
+              )}
+            </p>
+            <p>
+              {getLink(
+                "SubSquare",
+                "https://collectives.subsquare.io/fellowship",
+                "_blank"
+              )}
+            </p>
+          </Modal>
           <Footer
             style={{
               position: "fixed",

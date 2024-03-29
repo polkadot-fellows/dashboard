@@ -39,7 +39,13 @@ export const RequestsGrid = () => {
                 >
                   <Card style={{ padding: "1rem" }}>
                     <Grid row alignItems="center">
-                      <h2 style={{ padding: "1rem 0", position: "relative", top: 0 }}>
+                      <h2
+                        style={{
+                          padding: "1rem 0",
+                          position: "relative",
+                          top: 0,
+                        }}
+                      >
                         <Link
                           to={`https://www.github.com/${GithubOwner}/${GithubRfc}/pull/${d.number}`}
                           target="_blank"

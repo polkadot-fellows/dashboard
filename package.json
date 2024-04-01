@@ -40,7 +40,7 @@
     "@polkadot-api/node-polkadot-provider": "0.0.1-28172e65e6c4fb53198b9932ff624f8eef05fe68.1.0",
     "@polkadot-api/substrate-client": "0.0.1-28172e65e6c4fb53198b9932ff624f8eef05fe68.1.0",
     "@polkadot-api/utils": "0.0.1-28172e65e6c4fb53198b9932ff624f8eef05fe68.1.0",
-    "@polkadot-api/ws-provider": "0.0.1-28172e65e6c4fb53198b9932ff624f8eef05fe68.1.0",
+    "@polkadot-api/ws-provider": "0.0.1-8085034060d643c71d85df47784513b07a0a247c.1.0",
     "@polkadot-ui/core": "0.0.1-alpha.2",
     "@polkadot-ui/react": "^0.5.3",
     "@polkadot-ui/utils": "0.0.1-alpha.2",

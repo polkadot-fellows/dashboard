@@ -30,8 +30,8 @@ dependencies:
     specifier: 0.0.1-28172e65e6c4fb53198b9932ff624f8eef05fe68.1.0
     version: 0.0.1-28172e65e6c4fb53198b9932ff624f8eef05fe68.1.0
   '@polkadot-api/ws-provider':
-    specifier: 0.0.1-28172e65e6c4fb53198b9932ff624f8eef05fe68.1.0
-    version: 0.0.1-28172e65e6c4fb53198b9932ff624f8eef05fe68.1.0
+    specifier: 0.0.1-8085034060d643c71d85df47784513b07a0a247c.1.0
+    version: 0.0.1-8085034060d643c71d85df47784513b07a0a247c.1.0
   '@polkadot-ui/core':
     specifier: 0.0.1-alpha.2
     version: 0.0.1-alpha.2
@@ -1065,12 +1065,20 @@ packages:
     resolution: {integrity: sha512-0hZ8vtjcsyCX8AyqP2sqUHa1TFFfxGWmlXJkit0Nqp9b32MwZqn5eaUAiV2rNuEpoglKOdKnkGtUF8t5MoodKw==}
     dev: false
 
+  /@polkadot-api/json-rpc-provider-proxy@0.0.1-8085034060d643c71d85df47784513b07a0a247c.1.0:
+    resolution: {integrity: sha512-qUzIbAH1vXlKno8wt+2AnTrcRe5srOJ4QABKik7MhHkE9jVp3AOuK76S0uGp6xNKEbrwe4TPEz2s446Y0ivLYw==}
+    dev: false
+
   /@polkadot-api/json-rpc-provider@0.0.1-28172e65e6c4fb53198b9932ff624f8eef05fe68.1.0:
     resolution: {integrity: sha512-XCIF9T41jeUhgPnFu9uJg8nvHNiro0U9YBTFx1sFkea5L0ZGblTWNlkOC5zozsUOokryb70DIrU3HbqkV1lCqQ==}
     dev: false
 
   /@polkadot-api/json-rpc-provider@0.0.1-492c132563ea6b40ae1fc5470dec4cd18768d182.1.0:
     resolution: {integrity: sha512-EaUS9Fc3wsiUr6ZS43PQqaRScW7kM6DYbuM/ou0aYjm8N9MBqgDbGm2oL6RE1vAVmOfEuHcXZuZkhzWtyvQUtA==}
+    dev: false
+
+  /@polkadot-api/json-rpc-provider@0.0.1-8085034060d643c71d85df47784513b07a0a247c.1.0:
+    resolution: {integrity: sha512-NjyWAZcTI8lPmXO7n1A+33tKXf/KCNdIIMdvEtm8xueqIhUV+aK9Q7tXhCa9R49+xBNH6hdxlRFiU8bCXVIlAw==}
     dev: false
 
   /@polkadot-api/legacy-polkadot-provider@0.0.1-28172e65e6c4fb53198b9932ff624f8eef05fe68.1.0:
@@ -1211,6 +1219,13 @@ packages:
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
+    dev: false
+
+  /@polkadot-api/ws-provider@0.0.1-8085034060d643c71d85df47784513b07a0a247c.1.0:
+    resolution: {integrity: sha512-VS/yAoFw/OE+5Q+YekODMe9ncbmLNTPbinslM7kIZ/o63LslRxKY15nq00/TT99lRxs1pyooEv4bDpP65ICFmA==}
+    dependencies:
+      '@polkadot-api/json-rpc-provider': 0.0.1-8085034060d643c71d85df47784513b07a0a247c.1.0
+      '@polkadot-api/json-rpc-provider-proxy': 0.0.1-8085034060d643c71d85df47784513b07a0a247c.1.0
     dev: false
 
   /@polkadot-ui/assets@0.5.3:

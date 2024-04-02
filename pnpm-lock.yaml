@@ -27,8 +27,8 @@ dependencies:
     specifier: 0.0.1-964938186318c12a68aacfe7ee10e8fa919a0491.1.0
     version: 0.0.1-964938186318c12a68aacfe7ee10e8fa919a0491.1.0
   '@polkadot-api/utils':
-    specifier: 0.0.1-28172e65e6c4fb53198b9932ff624f8eef05fe68.1.0
-    version: 0.0.1-28172e65e6c4fb53198b9932ff624f8eef05fe68.1.0
+    specifier: 0.0.1-964938186318c12a68aacfe7ee10e8fa919a0491.1.0
+    version: 0.0.1-964938186318c12a68aacfe7ee10e8fa919a0491.1.0
   '@polkadot-api/ws-provider':
     specifier: 0.0.1-8085034060d643c71d85df47784513b07a0a247c.1.0
     version: 0.0.1-8085034060d643c71d85df47784513b07a0a247c.1.0
@@ -1269,6 +1269,10 @@ packages:
 
   /@polkadot-api/utils@0.0.1-87b10c43c1862eec15d3a29e752a1b05b4cc16b1.1.0:
     resolution: {integrity: sha512-APi2JC/opY7eHlF7lPpPB7aY2dYbFIDjbpGR5D+sBkGyzmKWOTdecK3XdObAhgQv4SYrOYBrRTpSNr4+QgfAsg==}
+    dev: false
+
+  /@polkadot-api/utils@0.0.1-964938186318c12a68aacfe7ee10e8fa919a0491.1.0:
+    resolution: {integrity: sha512-on2NVAb1KlN/1pJKb3G8As2GiUsWu7+ZIywwkFji8sxgBX3X81MDdXEN5viqZsCj4k6octAilp9+bSepJjNe3g==}
     dev: false
 
   /@polkadot-api/ws-provider@0.0.1-28172e65e6c4fb53198b9932ff624f8eef05fe68.1.0:

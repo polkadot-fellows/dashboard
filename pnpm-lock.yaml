@@ -72,8 +72,8 @@ dependencies:
     specifier: ^6.22.3
     version: 6.22.3(react-dom@18.2.0)(react@18.2.0)
   usehooks-ts:
-    specifier: ^3.0.2
-    version: 3.0.2(react@18.2.0)
+    specifier: ^3.1.0
+    version: 3.1.0(react@18.2.0)
 
 devDependencies:
   '@polkadot-api/rollup-plugin-descriptor-treeshake':
@@ -7710,8 +7710,8 @@ packages:
       punycode: 2.3.1
     dev: true
 
-  /usehooks-ts@3.0.2(react@18.2.0):
-    resolution: {integrity: sha512-qJScCj8YOxa8RV3Iz2T+2IsydLG0EID5FouTGE7aNFEpFlCXmRrnJiPCESDArKr1FLTaUQSfDQ43UDn7yMLExw==}
+  /usehooks-ts@3.1.0(react@18.2.0):
+    resolution: {integrity: sha512-bBIa7yUyPhE1BCc0GmR96VU/15l/9gP1Ch5mYdLcFBaFGQsdmXkvjV0TtOqW1yUd6VjIwDunm+flSciCQXujiw==}
     engines: {node: '>=16.15.0'}
     peerDependencies:
       react: ^16.8.0  || ^17 || ^18

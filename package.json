@@ -38,7 +38,7 @@
     "@polkadot-api/client": "0.0.1-28172e65e6c4fb53198b9932ff624f8eef05fe68.1.0",
     "@polkadot-api/legacy-polkadot-provider": "0.0.1-28172e65e6c4fb53198b9932ff624f8eef05fe68.1.0",
     "@polkadot-api/node-polkadot-provider": "0.0.1-069662616274c6bdda4095f8c004d4ed7dc72fc9.1.0",
-    "@polkadot-api/substrate-client": "0.0.1-964938186318c12a68aacfe7ee10e8fa919a0491.1.0",
+    "@polkadot-api/substrate-client": "0.0.1",
     "@polkadot-api/utils": "0.0.1",
     "@polkadot-api/ws-provider": "0.0.1",
     "@polkadot-ui/core": "0.0.1-alpha.2",

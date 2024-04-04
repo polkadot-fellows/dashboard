@@ -24,8 +24,8 @@ dependencies:
     specifier: 0.0.1-069662616274c6bdda4095f8c004d4ed7dc72fc9.1.0
     version: 0.0.1-069662616274c6bdda4095f8c004d4ed7dc72fc9.1.0
   '@polkadot-api/substrate-client':
-    specifier: 0.0.1-964938186318c12a68aacfe7ee10e8fa919a0491.1.0
-    version: 0.0.1-964938186318c12a68aacfe7ee10e8fa919a0491.1.0
+    specifier: 0.0.1
+    version: 0.0.1
   '@polkadot-api/utils':
     specifier: 0.0.1
     version: 0.0.1
@@ -1215,6 +1215,10 @@ packages:
       scale-ts: 1.6.0
     dev: false
 
+  /@polkadot-api/substrate-client@0.0.1:
+    resolution: {integrity: sha512-9Bg9SGc3AwE+wXONQoW8GC00N3v6lCZLW74HQzqB6ROdcm5VAHM4CB/xRzWSUF9CXL78ugiwtHx3wBcpx4H4Wg==}
+    dev: false
+
   /@polkadot-api/substrate-client@0.0.1-069662616274c6bdda4095f8c004d4ed7dc72fc9.1.0:
     resolution: {integrity: sha512-n2TzSD4TSiH7B776zVjdNITFXXdHmmkkt9JBAY/W/L4QPTP1bgnhI2JomrCQOIr/8ZAap9iwa/CfgGhUaFePPg==}
     dev: false
@@ -1225,10 +1229,6 @@ packages:
 
   /@polkadot-api/substrate-client@0.0.1-492c132563ea6b40ae1fc5470dec4cd18768d182.1.0:
     resolution: {integrity: sha512-lcdvd2ssUmB1CPzF8s2dnNOqbrDa+nxaaGbuts+Vo8yjgSKwds2Lo7Oq+imZN4VKW7t9+uaVcKFLMF7PdH0RWw==}
-    dev: false
-
-  /@polkadot-api/substrate-client@0.0.1-964938186318c12a68aacfe7ee10e8fa919a0491.1.0:
-    resolution: {integrity: sha512-IAezVR99iLlX2tvstsvovgPgLkXSmF4/z5IQFETYVgvFzcLuFpMAYFgg2Y8MQFuwjp9Bmn2UWc2HdHLxwhDpug==}
     dev: false
 
   /@polkadot-api/substrate-codegen@0.0.1-069662616274c6bdda4095f8c004d4ed7dc72fc9.1.0:

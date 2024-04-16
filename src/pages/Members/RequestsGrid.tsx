@@ -155,6 +155,7 @@ export const RequestsGrid = () => {
                   amount: 10,
                 }}
                 icon={{
+                  address: m.address,
                   copy: true,
                   size: 38,
                   gridSize: 2,

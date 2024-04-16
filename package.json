@@ -24,7 +24,7 @@
     "@mdx-js/rollup": "^3.0.1",
     "@polkadot-api/descriptors": "^0.0.1",
     "@polkadot-ui/core": "0.0.1-alpha.2",
-    "@polkadot-ui/react": "0.0.1-alpha.4",
+    "@polkadot-ui/react": "0.0.1-alpha.5",
     "@polkadot-ui/utils": "0.0.1-alpha.2",
     "antd": "^5.16.2",
     "buffer": "^6.0.3",

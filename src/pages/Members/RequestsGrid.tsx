@@ -6,9 +6,8 @@ import { RevolvingDot } from "react-loader-spinner"
 
 import type { DotQueries } from "@polkadot-api/descriptors"
 import { dot, collectives } from "@polkadot-api/descriptors"
-import { createClient, Binary } from "polkadot-api"
-import type { PolkadotClient } from "polkadot-api"
-import { WebSocketProvider } from "polkadot-api/ws-provider/web"
+import type { Binary } from "polkadot-api"
+import { collectiveClient, polkadotClient } from "./clients"
 
 import "./RequestsGrid.scss"
 
@@ -38,13 +37,16 @@ const rankings = [
 
 const identityDataToString = (value: number | string | Binary | undefined) =>
   typeof value === "object" ? value.asText() : value ?? ""
+
 const mapRawIdentity = (
   rawIdentity?: DotQueries["Identity"]["IdentityOf"]["Value"]
 ) => {
   if (!rawIdentity) return rawIdentity
   const {
-    info: { additional, ...rawInfo },
+    info: { additional, display },
   } = rawIdentity
+
+  const display_id = identityDataToString(display.value)
   const additionalInfo = Object.fromEntries(
     additional.map(([key, { value }]) => [
       identityDataToString(key.value!),
@@ -52,26 +54,8 @@ const mapRawIdentity = (
     ])
   )
 
-  const info = Object.fromEntries(
-    Object.entries(rawInfo)
-      .map(([key, x]) => [
-        key,
-        identityDataToString(
-          x instanceof Binary ? x.asText() : x?.value?.toString()
-        ),
-      ])
-      .filter(([, value]) => value)
-  )
-
-  return { ...info, ...additionalInfo }
+  return { ...additionalInfo, display: display_id }
 }
-
-const client: PolkadotClient = createClient(
-  WebSocketProvider("wss://dot-rpc.stakeworld.io")
-)
-const pclient: PolkadotClient = createClient(
-  WebSocketProvider("wss://polkadot-collectives-rpc.polkadot.io")
-)
 
 export const RequestsGrid = () => {
   const [members, setMembers] = useState<AccountInfoIF[]>([])
@@ -84,8 +68,8 @@ export const RequestsGrid = () => {
 
   useEffect(() => {
     const fetchMembers = async () => {
-      const api = client?.getTypedApi(collectives)
-      const papi = pclient?.getTypedApi(dot)
+      const api = collectiveClient?.getTypedApi(collectives)
+      const papi = polkadotClient?.getTypedApi(dot)
 
       const collectiveAddresses: any =
         await api?.query.FellowshipCollective.Members.getEntries().then(

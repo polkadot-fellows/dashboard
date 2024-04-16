@@ -1,7 +1,7 @@
 {
   "name": "polkadot-fellows-dashboard",
   "private": "false",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "contributors": [
     "Nikolaos Kontakis<wirednkod@gmail.com>"
   ],
@@ -19,34 +19,17 @@
     "lint:fix": "eslint . --ext ts,tsx --fix && prettier --write .",
     "preview": "vite preview"
   },
-  "polkadot-api": {
-    "polkadot": {
-      "outputFolder": "src/codegen",
-      "wsUrl": "wss://polkadot-rpc.dwellir.com",
-      "metadata": "polkadot.scale"
-    },
-    "collectives": {
-      "outputFolder": "src/codegen",
-      "wsUrl": "wss://polkadot-collectives-rpc.polkadot.io",
-      "metadata": "collectives.scale"
-    }
-  },
   "dependencies": {
     "@mdx-js/react": "^3.0.1",
     "@mdx-js/rollup": "^3.0.1",
-    "@polkadot-api/cli": "0.0.1-28172e65e6c4fb53198b9932ff624f8eef05fe68.1.0",
-    "@polkadot-api/client": "0.0.1-28172e65e6c4fb53198b9932ff624f8eef05fe68.1.0",
-    "@polkadot-api/legacy-polkadot-provider": "0.0.1-28172e65e6c4fb53198b9932ff624f8eef05fe68.1.0",
-    "@polkadot-api/node-polkadot-provider": "0.0.1-069662616274c6bdda4095f8c004d4ed7dc72fc9.1.0",
-    "@polkadot-api/substrate-client": "0.0.1",
-    "@polkadot-api/utils": "0.0.1",
-    "@polkadot-api/ws-provider": "0.0.1",
+    "@polkadot-api/descriptors": "^0.0.1",
     "@polkadot-ui/core": "0.0.1-alpha.2",
     "@polkadot-ui/react": "^0.5.3",
     "@polkadot-ui/utils": "0.0.1-alpha.2",
     "@substrate/connect": "^0.8.8",
     "antd": "^5.16.1",
     "buffer": "^6.0.3",
+    "polkadot-api": "^0.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-error-boundary": "^4.0.13",
@@ -57,7 +40,6 @@
     "usehooks-ts": "^3.1.0"
   },
   "devDependencies": {
-    "@polkadot-api/rollup-plugin-descriptor-treeshake": "0.0.1-e5b6c751cfb875da2542f1bd895e0be3aa95cd4a.1.0",
     "@types/mdx": "^2.0.11",
     "@types/react": "^18.2.74",
     "@types/react-dom": "^18.2.24",

@@ -1,18 +1,13 @@
 import { useEffect, useState } from "react"
 import { Grid, AccountCard } from "@polkadot-ui/react"
 import { AccountName } from "./AccountName"
-import type { PolkadotClient } from "@polkadot-api/client"
-import { Binary, createClient } from "@polkadot-api/client"
-import type { PolkadotQueries } from "../../codegen/polkadot"
 import { useLocalStorage, useMediaQuery } from "usehooks-ts"
 import { RevolvingDot } from "react-loader-spinner"
 
-import collectiveTypes from "../../codegen/collectives"
-import polkadotTypes from "../../codegen/polkadot"
-import collectivesChainspec from "./collectives-polkadot"
-
-import { getLegacyProvider } from "@polkadot-api/legacy-polkadot-provider"
-import { createScClient } from "@substrate/connect"
+import { dot, collectives } from "@polkadot-api/descriptors"
+import { createClient, Binary } from "polkadot-api"
+import type { PolkadotClient } from "polkadot-api"
+import { WebSocketProvider } from "polkadot-api/ws-provider/web"
 
 import "./RequestsGrid.scss"
 
@@ -43,9 +38,7 @@ const rankings = [
 const identityDataToString = (value: string | Binary | undefined) =>
   typeof value === "object" ? value.asText() : value ?? ""
 
-const mapRawIdentity = (
-  rawIdentity?: PolkadotQueries["Identity"]["IdentityOf"]["Value"]
-) => {
+const mapRawIdentity = (rawIdentity?: any) => {
   if (!rawIdentity) return rawIdentity
 
   const {
@@ -73,24 +66,12 @@ const mapRawIdentity = (
   return { ...info, ...additionalInfo }
 }
 
-let client: PolkadotClient
-let pclient: PolkadotClient
-
-const scProvider = createScClient()
-const { relayChains } = getLegacyProvider(scProvider)
-const create = async () => {
-  const collectivesParachain =
-    await relayChains.polkadot.getParachain(collectivesChainspec)
-
-  client = createClient(collectivesParachain.provider)
-}
-
-const p_create = () => {
-  pclient = createClient(relayChains.polkadot.provider)
-}
-
-create()
-p_create()
+const client: PolkadotClient = createClient(
+  WebSocketProvider("wss://dot-rpc.stakeworld.io")
+)
+const pclient: PolkadotClient = createClient(
+  WebSocketProvider("wss://polkadot-collectives-rpc.polkadot.io")
+)
 
 export const RequestsGrid = () => {
   const [members, setMembers] = useState<AccountInfoIF[]>([])
@@ -103,8 +84,8 @@ export const RequestsGrid = () => {
 
   useEffect(() => {
     const fetchMembers = async () => {
-      const api = client?.getTypedApi(collectiveTypes)
-      const papi = pclient?.getTypedApi(polkadotTypes)
+      const api = client?.getTypedApi(collectives)
+      const papi = pclient?.getTypedApi(dot)
 
       const collectiveAddresses: any =
         await api?.query.FellowshipCollective.Members.getEntries().then(

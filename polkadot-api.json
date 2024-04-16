@@ -1,0 +1,10 @@
+{
+  "dot": {
+    "chain": "polkadot",
+    "metadata": "dot.scale"
+  },
+  "collectives": {
+    "wsUrl": "wss://polkadot-collectives-rpc.polkadot.io",
+    "metadata": "collectives.scale"
+  }
+}

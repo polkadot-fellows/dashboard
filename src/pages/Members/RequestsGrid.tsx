@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
-import type { Any } from "@polkadot-ui/react"
 import { Grid, AccountCard } from "@polkadot-ui/react"
 import { AccountName } from "./AccountName"
 import { useLocalStorage, useMediaQuery } from "usehooks-ts"
 import { RevolvingDot } from "react-loader-spinner"
 
+import type { DotQueries } from "@polkadot-api/descriptors"
 import { dot, collectives } from "@polkadot-api/descriptors"
 import { createClient, Binary } from "polkadot-api"
 import type { PolkadotClient } from "polkadot-api"
@@ -36,26 +36,20 @@ const rankings = [
   "Grand Master",
 ]
 
-const identityDataToString = (value: string | Binary | undefined) =>
+const identityDataToString = (value: number | string | Binary | undefined) =>
   typeof value === "object" ? value.asText() : value ?? ""
-
-// TODO: Fix this work around with rawidentity being Any
-const mapRawIdentity = (rawIdentity: {
-  info: { [x: string]: Any; additional: Any }
-}) => {
+const mapRawIdentity = (
+  rawIdentity?: DotQueries["Identity"]["IdentityOf"]["Value"]
+) => {
   if (!rawIdentity) return rawIdentity
-
   const {
     info: { additional, ...rawInfo },
   } = rawIdentity
-
   const additionalInfo = Object.fromEntries(
-    // TODO: Fix this work around with rawidentity being Any
-    additional.map((some: Any) => {
-      const key: Any = some[0]
-      const { value }: Any = some[1]
-      return [identityDataToString(key.value!), identityDataToString(value)]
-    })
+    additional.map(([key, { value }]) => [
+      identityDataToString(key.value!),
+      identityDataToString(value),
+    ])
   )
 
   const info = Object.fromEntries(
@@ -63,7 +57,7 @@ const mapRawIdentity = (rawIdentity: {
       .map(([key, x]) => [
         key,
         identityDataToString(
-          x instanceof Binary ? x.asText() : x?.value?.asText()
+          x instanceof Binary ? x.asText() : x?.value?.toString()
         ),
       ])
       .filter(([, value]) => value)

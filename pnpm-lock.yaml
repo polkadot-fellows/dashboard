@@ -23,9 +23,6 @@ dependencies:
   '@polkadot-ui/utils':
     specifier: 0.0.1-alpha.2
     version: 0.0.1-alpha.2(@polkadot/keyring@12.6.2)(@polkadot/util@12.6.2)
-  '@substrate/connect':
-    specifier: ^0.8.10
-    version: 0.8.10
   antd:
     specifier: ^5.16.2
     version: 5.16.2(react-dom@18.2.0)(react@18.2.0)
@@ -1734,41 +1731,6 @@ packages:
   /@sinclair/typebox@0.27.8:
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
     dev: true
-
-  /@substrate/connect-extension-protocol@2.0.0:
-    resolution: {integrity: sha512-nKu8pDrE3LNCEgJjZe1iGXzaD6OSIDD4Xzz/yo4KO9mQ6LBvf49BVrt4qxBFGL6++NneLiWUZGoh+VSd4PyVIg==}
-    dev: false
-
-  /@substrate/connect-known-chains@1.1.4:
-    resolution: {integrity: sha512-iT+BdKqvKl/uBLd8BAJysFM1BaMZXRkaXBP2B7V7ob/EyNs5h0EMhTVbO6MJxV/IEOg5OKsyl6FUqQK7pKnqyw==}
-    dev: false
-
-  /@substrate/connect@0.8.10:
-    resolution: {integrity: sha512-DIyQ13DDlXqVFnLV+S6/JDgiGowVRRrh18kahieJxhgvzcWicw5eLc6jpfQ0moVVLBYkO7rctB5Wreldwpva8w==}
-    dependencies:
-      '@substrate/connect-extension-protocol': 2.0.0
-      '@substrate/connect-known-chains': 1.1.4
-      '@substrate/light-client-extension-helpers': 0.0.6(smoldot@2.0.22)
-      smoldot: 2.0.22
-    transitivePeerDependencies:
-      - bufferutil
-      - utf-8-validate
-    dev: false
-
-  /@substrate/light-client-extension-helpers@0.0.6(smoldot@2.0.22):
-    resolution: {integrity: sha512-girltEuxQ1BvkJWmc8JJlk4ZxnlGXc/wkLcNguhY+UoDEMBK0LsdtfzQKIfrIehi4QdeSBlFEFBoI4RqPmsZzA==}
-    peerDependencies:
-      smoldot: 2.x
-    dependencies:
-      '@polkadot-api/json-rpc-provider': 0.0.1
-      '@polkadot-api/json-rpc-provider-proxy': 0.0.1
-      '@polkadot-api/observable-client': 0.1.0(rxjs@7.8.1)
-      '@polkadot-api/substrate-client': 0.0.1
-      '@substrate/connect-extension-protocol': 2.0.0
-      '@substrate/connect-known-chains': 1.1.4
-      rxjs: 7.8.1
-      smoldot: 2.0.22
-    dev: false
 
   /@substrate/ss58-registry@1.47.0:
     resolution: {integrity: sha512-6kuIJedRcisUJS2pgksEH2jZf3hfSIVzqtFzs/AyjTW3ETbMg5q1Bb7VWa0WYaT6dTrEXp/6UoXM5B9pSIUmcw==}

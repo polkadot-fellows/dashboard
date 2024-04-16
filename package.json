@@ -26,7 +26,6 @@
     "@polkadot-ui/core": "0.0.1-alpha.2",
     "@polkadot-ui/react": "0.0.1-alpha.4",
     "@polkadot-ui/utils": "0.0.1-alpha.2",
-    "@substrate/connect": "^0.8.10",
     "antd": "^5.16.2",
     "buffer": "^6.0.3",
     "polkadot-api": "^0.2.3",

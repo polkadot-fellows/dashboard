@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import type { Any } from "@polkadot-ui/react"
 import { Grid, AccountCard } from "@polkadot-ui/react"
 import { AccountName } from "./AccountName"
 import { useLocalStorage, useMediaQuery } from "usehooks-ts"
@@ -38,7 +39,10 @@ const rankings = [
 const identityDataToString = (value: string | Binary | undefined) =>
   typeof value === "object" ? value.asText() : value ?? ""
 
-const mapRawIdentity = (rawIdentity?: any) => {
+// TODO: Fix this work around with rawidentity being Any
+const mapRawIdentity = (rawIdentity: {
+  info: { [x: string]: Any; additional: Any }
+}) => {
   if (!rawIdentity) return rawIdentity
 
   const {
@@ -46,10 +50,12 @@ const mapRawIdentity = (rawIdentity?: any) => {
   } = rawIdentity
 
   const additionalInfo = Object.fromEntries(
-    additional.map(([key, { value }]) => [
-      identityDataToString(key.value!),
-      identityDataToString(value),
-    ])
+    // TODO: Fix this work around with rawidentity being Any
+    additional.map((some: Any) => {
+      const key: Any = some[0]
+      const { value }: Any = some[1]
+      return [identityDataToString(key.value!), identityDataToString(value)]
+    })
   )
 
   const info = Object.fromEntries(

@@ -39,12 +39,13 @@ const identityDataToString = (value: number | string | Binary | undefined) =>
   typeof value === "object" ? value.asText() : value ?? ""
 
 const mapRawIdentity = (
+  // rawIdentity?: DotQueries["Identity"]["IdentityOf"]["Value"]
   rawIdentity?: DotQueries["Identity"]["IdentityOf"]["Value"]
 ) => {
   if (!rawIdentity) return rawIdentity
   const {
     info: { additional, display },
-  } = rawIdentity
+  } = rawIdentity[0]
 
   const display_id = identityDataToString(display.value)
   const additionalInfo = Object.fromEntries(
@@ -74,7 +75,7 @@ export const RequestsGrid = () => {
       const collectiveAddresses: any =
         await api?.query.FellowshipCollective.Members.getEntries().then(
           (mems: any[]) =>
-            papi.query.Identity.IdentityOf.getValues(
+            papi.query.Identity?.IdentityOf?.getValues(
               mems.map((m) => m.keyArgs)
             ).then((identities: any[]) =>
               identities.map((identity, idx) => ({

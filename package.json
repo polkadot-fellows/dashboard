@@ -28,7 +28,7 @@
     "@polkadot-ui/utils": "0.0.1-alpha.2",
     "antd": "^5.16.4",
     "buffer": "^6.0.3",
-    "polkadot-api": "^0.2.3",
+    "polkadot-api": "^0.2.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.1.0",

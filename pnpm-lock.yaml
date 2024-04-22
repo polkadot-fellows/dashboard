@@ -30,8 +30,8 @@ dependencies:
     specifier: ^6.0.3
     version: 6.0.3
   polkadot-api:
-    specifier: ^0.2.3
-    version: 0.2.3(rxjs@7.8.1)(smoldot@2.0.23)
+    specifier: ^0.2.4
+    version: 0.2.4(rxjs@7.8.1)(smoldot@2.0.23)
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -1254,6 +1254,10 @@ packages:
 
   /@polkadot-api/substrate-client@0.0.1:
     resolution: {integrity: sha512-9Bg9SGc3AwE+wXONQoW8GC00N3v6lCZLW74HQzqB6ROdcm5VAHM4CB/xRzWSUF9CXL78ugiwtHx3wBcpx4H4Wg==}
+    dev: false
+
+  /@polkadot-api/substrate-client@0.0.2:
+    resolution: {integrity: sha512-tqXHOjkLsJzYX29rAFOm8bUk39MHK9UZOHSqvdHSRloVAnJxeL5DrcIO/eKrMy1PJIxr46ZQk2VodnhAq/7DsA==}
     dev: false
 
   /@polkadot-api/utils@0.0.1:
@@ -5661,8 +5665,8 @@ packages:
       pathe: 1.1.2
     dev: true
 
-  /polkadot-api@0.2.3(rxjs@7.8.1)(smoldot@2.0.23):
-    resolution: {integrity: sha512-VfuQFSpyS78Cu1nZqiNA5Fdk4XRTzipSUzspvPU455/KsiH5+9P6H/xoTJ6NH3RmVnb36X6xmmR6OaMlU3DZDQ==}
+  /polkadot-api@0.2.4(rxjs@7.8.1)(smoldot@2.0.23):
+    resolution: {integrity: sha512-qQoK88EOYiswaOc5vGz1jEy/OAl5+tGXmdFklTx2iL7deoVkfcvXIInNHjli8zugiXCbtPE7uiVIoG7NePga3g==}
     hasBin: true
     peerDependencies:
       rxjs: '>=7.8.0'
@@ -5679,7 +5683,7 @@ packages:
       '@polkadot-api/sm-provider': 0.0.1(smoldot@2.0.23)
       '@polkadot-api/smoldot': 0.2.0
       '@polkadot-api/substrate-bindings': 0.0.1
-      '@polkadot-api/substrate-client': 0.0.1
+      '@polkadot-api/substrate-client': 0.0.2
       '@polkadot-api/utils': 0.0.1
       '@polkadot-api/ws-provider': 0.0.1
       rxjs: 7.8.1

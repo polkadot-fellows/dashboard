@@ -24,8 +24,8 @@ dependencies:
     specifier: 0.0.1-alpha.2
     version: 0.0.1-alpha.2(@polkadot/keyring@12.6.2)(@polkadot/util@12.6.2)
   antd:
-    specifier: ^5.16.4
-    version: 5.17.0(react-dom@18.3.1)(react@18.3.1)
+    specifier: ^5.17.2
+    version: 5.17.2(react-dom@18.3.1)(react@18.3.1)
   buffer:
     specifier: ^6.0.3
     version: 6.0.3
@@ -2387,8 +2387,8 @@ packages:
     resolution: {integrity: sha512-bN798gFfQX+viw3R7yrGWRqnrN2oRkEkUjjl4JNn4E8GxxbjtG3FbrEIIY3l8/hrwUwIeCZvi4QuOTP4MErVug==}
     engines: {node: '>=12'}
 
-  /antd@5.17.0(react-dom@18.3.1)(react@18.3.1):
-    resolution: {integrity: sha512-jrzMIcaTJIy12/GJ2PfgchgZGuAlDodlaOKd05/TxEtFilRHnv8oaf0qfqNGG3slvvuy4J/57xn21jM4cLl7Hw==}
+  /antd@5.17.2(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-LVCR4kKWoNwaOEfYuWuXqwrK24W6YY6jlzROB4dTEEFvb2ovPi/5h9GcEB8U7ZJY/Yuvm1ehvRm9vohxVJzC3A==}
     peerDependencies:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'

@@ -42,6 +42,7 @@ import { Governance } from "pages/Governance"
 import { Modules } from "pages/Modules"
 import { Rfc } from "pages/Rfc"
 import { Members } from "pages/Members"
+import { OpenDevMonthlyCalls } from "pages/OpenDevMonthlyCalls"
 
 type MenuItem = GetProp<MenuProps, "items">[number]
 
@@ -77,6 +78,10 @@ const pages = [
   {
     path: "rfcs",
     element: <Rfc />,
+  },
+  {
+    path: "opendev",
+    element: <OpenDevMonthlyCalls />,
   },
 ]
 
@@ -129,6 +134,11 @@ const mainItems: MenuItem[] = [
     getItem(getLink("Modules", "modules"), "modules", <HiMiniInboxStack />),
   ]),
   getItem(getLink("Open RFCs", "rfcs"), "rfcs", <MdDocumentScanner />),
+  getItem(
+    getLink("Monthly Calls", "opendev"),
+    "opendev",
+    <HiBuildingLibrary />
+  ),
 ]
 
 const secondaryItems: MenuItem[] = [

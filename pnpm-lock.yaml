@@ -31,7 +31,7 @@ dependencies:
     version: 6.0.3
   polkadot-api:
     specifier: ^0.8.0
-    version: 0.8.0(rxjs@7.8.1)(smoldot@2.0.26)
+    version: 0.8.0(rxjs@7.8.1)(smoldot@2.0.28)
   react:
     specifier: ^18.2.0
     version: 18.3.1
@@ -128,14 +128,14 @@ devDependencies:
     specifier: ^3.2.4
     version: 3.2.4(prettier@3.2.5)(typescript@5.4.5)
   sass:
-    specifier: ^1.77.3
-    version: 1.77.3
+    specifier: ^1.77.4
+    version: 1.77.4
   typescript:
     specifier: ^5.4.5
     version: 5.4.5
   vite:
     specifier: ^5.2.12
-    version: 5.2.12(sass@1.77.3)
+    version: 5.2.12(sass@1.77.4)
   vite-bundle-visualizer:
     specifier: ^1.1.0
     version: 1.2.1(rollup@4.17.2)
@@ -153,7 +153,7 @@ devDependencies:
     version: 4.3.2(typescript@5.4.5)(vite@5.2.12)
   vitest:
     specifier: ^1.6.0
-    version: 1.6.0(sass@1.77.3)
+    version: 1.6.0(sass@1.77.4)
 
 packages:
 
@@ -1089,7 +1089,7 @@ packages:
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
     dev: true
 
-  /@polkadot-api/cli@0.5.0(smoldot@2.0.26):
+  /@polkadot-api/cli@0.5.0(smoldot@2.0.28):
     resolution: {integrity: sha512-FTph/LJ8HJWnW1sMcSd71eMiQZpn9peREaQ5ilBawUIzouvU8L7VRRYcqwxHrNegc1ROIEgdku9n00eNu4VUdw==}
     hasBin: true
     dependencies:
@@ -1100,7 +1100,7 @@ packages:
       '@polkadot-api/known-chains': 0.1.5
       '@polkadot-api/metadata-builders': 0.3.0
       '@polkadot-api/observable-client': 0.3.0(rxjs@7.8.1)
-      '@polkadot-api/sm-provider': 0.1.0(smoldot@2.0.26)
+      '@polkadot-api/sm-provider': 0.1.0(smoldot@2.0.28)
       '@polkadot-api/smoldot': 0.2.4
       '@polkadot-api/substrate-bindings': 0.5.0
       '@polkadot-api/substrate-client': 0.1.2
@@ -1216,14 +1216,14 @@ packages:
       '@polkadot-api/utils': 0.0.1
     dev: false
 
-  /@polkadot-api/sm-provider@0.1.0(smoldot@2.0.26):
+  /@polkadot-api/sm-provider@0.1.0(smoldot@2.0.28):
     resolution: {integrity: sha512-BaYKouvvTq8xkKAuYLtBgUJ2Icg1qXC8VG9aAoC5YOiBts8yxcTcYljx8jj6D+m7eHWs8AwSPQDLRUL2JyshWw==}
     peerDependencies:
       smoldot: '>=2'
     dependencies:
       '@polkadot-api/json-rpc-provider': 0.0.1
       '@polkadot-api/json-rpc-provider-proxy': 0.1.0
-      smoldot: 2.0.26
+      smoldot: 2.0.28
     dev: false
 
   /@polkadot-api/smoldot@0.2.4:
@@ -2277,7 +2277,7 @@ packages:
       vite: ^4 || ^5
     dependencies:
       '@swc/core': 1.5.7
-      vite: 5.2.12(sass@1.77.3)
+      vite: 5.2.12(sass@1.77.4)
     transitivePeerDependencies:
       - '@swc/helpers'
     dev: true
@@ -5694,13 +5694,13 @@ packages:
       pathe: 1.1.2
     dev: true
 
-  /polkadot-api@0.8.0(rxjs@7.8.1)(smoldot@2.0.26):
+  /polkadot-api@0.8.0(rxjs@7.8.1)(smoldot@2.0.28):
     resolution: {integrity: sha512-lALqJlCblRlPUt0flBW07sVLU24fEu0BJC4+GuSe1qY9Y9z8vTCTWM1uOByMG6HgZy5UyjK5j0pe/C9Z7pJn5A==}
     hasBin: true
     peerDependencies:
       rxjs: '>=7.8.0'
     dependencies:
-      '@polkadot-api/cli': 0.5.0(smoldot@2.0.26)
+      '@polkadot-api/cli': 0.5.0(smoldot@2.0.28)
       '@polkadot-api/json-rpc-provider': 0.0.1
       '@polkadot-api/known-chains': 0.1.5
       '@polkadot-api/logs-provider': 0.0.2
@@ -5709,7 +5709,7 @@ packages:
       '@polkadot-api/pjs-signer': 0.2.0
       '@polkadot-api/polkadot-signer': 0.0.1
       '@polkadot-api/signer': 0.0.1
-      '@polkadot-api/sm-provider': 0.1.0(smoldot@2.0.26)
+      '@polkadot-api/sm-provider': 0.1.0(smoldot@2.0.28)
       '@polkadot-api/smoldot': 0.2.4
       '@polkadot-api/substrate-bindings': 0.5.0
       '@polkadot-api/substrate-client': 0.1.2
@@ -6685,8 +6685,8 @@ packages:
       is-regex: 1.1.4
     dev: true
 
-  /sass@1.77.3:
-    resolution: {integrity: sha512-WJHo+jmFp0dwRuymPmIovuxHaBntcCyja5hCB0yYY9wWrViEp4kF5Cdai98P72v6FzroPuABqu+ddLMbQWmwzA==}
+  /sass@1.77.4:
+    resolution: {integrity: sha512-vcF3Ckow6g939GMA4PeU7b2K/9FALXk2KF9J87txdHzXbUF9XRQRwSxcAs/fGaTnJeBFd7UoV22j3lzMLdM0Pw==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
@@ -6782,15 +6782,6 @@ packages:
   /slash@3.0.0:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}
     engines: {node: '>=8'}
-
-  /smoldot@2.0.26:
-    resolution: {integrity: sha512-F+qYmH4z2s2FK+CxGj8moYcd1ekSIKH8ywkdqlOz88Dat35iB1DIYL11aILN46YSGMzQW/lbJNS307zBSDN5Ig==}
-    dependencies:
-      ws: 8.17.0
-    transitivePeerDependencies:
-      - bufferutil
-      - utf-8-validate
-    dev: false
 
   /smoldot@2.0.28:
     resolution: {integrity: sha512-hxbhklu/eRvxo4waq5ryIy4NPjDkBvuTYe35uqnD8ZZW5+O2dvW6H1KeSnn1dennmJC7fkvCRU9VujBGyfwFDQ==}
@@ -7589,7 +7580,7 @@ packages:
       - supports-color
     dev: true
 
-  /vite-node@1.6.0(sass@1.77.3):
+  /vite-node@1.6.0(sass@1.77.4):
     resolution: {integrity: sha512-de6HJgzC+TFzOu0NTC4RAIsyf/DY/ibWDYQUcuEA84EMHhcefTUGkjFHKKEJhQN4A+6I0u++kr3l36ZF2d7XRw==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -7598,7 +7589,7 @@ packages:
       debug: 4.3.4
       pathe: 1.1.2
       picocolors: 1.0.0
-      vite: 5.2.12(sass@1.77.3)
+      vite: 5.2.12(sass@1.77.4)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -7654,7 +7645,7 @@ packages:
       strip-ansi: 6.0.1
       tiny-invariant: 1.3.3
       typescript: 5.4.5
-      vite: 5.2.12(sass@1.77.3)
+      vite: 5.2.12(sass@1.77.4)
       vscode-languageclient: 7.0.0
       vscode-languageserver: 7.0.0
       vscode-languageserver-textdocument: 1.0.11
@@ -7671,7 +7662,7 @@ packages:
       '@types/eslint': 8.56.10
       eslint: 8.57.0
       rollup: 2.79.1
-      vite: 5.2.12(sass@1.77.3)
+      vite: 5.2.12(sass@1.77.4)
     dev: true
 
   /vite-plugin-svgr@4.2.0(rollup@4.17.2)(typescript@5.4.5)(vite@5.2.12):
@@ -7682,7 +7673,7 @@ packages:
       '@rollup/pluginutils': 5.1.0(rollup@4.17.2)
       '@svgr/core': 8.1.0(typescript@5.4.5)
       '@svgr/plugin-jsx': 8.1.0(@svgr/core@8.1.0)
-      vite: 5.2.12(sass@1.77.3)
+      vite: 5.2.12(sass@1.77.4)
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -7700,13 +7691,13 @@ packages:
       debug: 4.3.4
       globrex: 0.1.2
       tsconfck: 3.0.3(typescript@5.4.5)
-      vite: 5.2.12(sass@1.77.3)
+      vite: 5.2.12(sass@1.77.4)
     transitivePeerDependencies:
       - supports-color
       - typescript
     dev: true
 
-  /vite@5.2.12(sass@1.77.3):
+  /vite@5.2.12(sass@1.77.4):
     resolution: {integrity: sha512-/gC8GxzxMK5ntBwb48pR32GGhENnjtY30G4A0jemunsBkiEZFw60s8InGpN8gkhHEkjnRK1aSAxeQgwvFhUHAA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -7737,12 +7728,12 @@ packages:
       esbuild: 0.20.2
       postcss: 8.4.38
       rollup: 4.17.2
-      sass: 1.77.3
+      sass: 1.77.4
     optionalDependencies:
       fsevents: 2.3.3
     dev: true
 
-  /vitest@1.6.0(sass@1.77.3):
+  /vitest@1.6.0(sass@1.77.4):
     resolution: {integrity: sha512-H5r/dN06swuFnzNFhq/dnz37bPXnq8xB2xB5JOVk8K09rUtoeNN+LHWkoQ0A/i3hvbUKKcCei9KpbxqHMLhLLA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -7784,8 +7775,8 @@ packages:
       strip-literal: 2.1.0
       tinybench: 2.8.0
       tinypool: 0.8.4
-      vite: 5.2.12(sass@1.77.3)
-      vite-node: 1.6.0(sass@1.77.3)
+      vite: 5.2.12(sass@1.77.4)
+      vite-node: 1.6.0(sass@1.77.4)
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
       - less

@@ -3,6 +3,13 @@ import MdxCode from "./index.mdx"
 
 const dataSource2024 = [
   {
+    key: "8",
+    sessions: "21st May 2024",
+    videos: "https://www.youtube.com/watch?v=War1weBu7yU 3",
+    minutes:
+      "https://forum.polkadot.network/t/2024-05-21-technical-fellowship-opendev-call/8264",
+  },
+  {
     key: "7",
     sessions: "23rd April 2024",
     videos: "https://www.youtube.com/watch?v=n6U-UbX546E",

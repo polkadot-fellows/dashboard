@@ -9,6 +9,7 @@
   "type": "module",
   "license": "GPL-3.0-only",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "dev": "vite",
     "build": "tsc && vite build",
     "postinstall": "papi",

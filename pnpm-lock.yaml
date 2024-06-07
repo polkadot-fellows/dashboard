@@ -78,7 +78,7 @@ devDependencies:
     version: 6.21.0(eslint@8.57.0)(typescript@5.4.5)
   '@vitejs/plugin-react-swc':
     specifier: ^3.7.0
-    version: 3.7.0(vite@5.2.12)
+    version: 3.7.0(vite@5.2.13)
   eslint:
     specifier: ^8.56.0
     version: 8.57.0
@@ -134,23 +134,23 @@ devDependencies:
     specifier: ^5.4.5
     version: 5.4.5
   vite:
-    specifier: ^5.2.12
-    version: 5.2.12(sass@1.77.4)
+    specifier: ^5.2.13
+    version: 5.2.13(sass@1.77.4)
   vite-bundle-visualizer:
     specifier: ^1.1.0
     version: 1.2.1(rollup@4.18.0)
   vite-plugin-checker:
     specifier: ^0.6.4
-    version: 0.6.4(eslint@8.57.0)(typescript@5.4.5)(vite@5.2.12)
+    version: 0.6.4(eslint@8.57.0)(typescript@5.4.5)(vite@5.2.13)
   vite-plugin-eslint:
     specifier: ^1.8.1
-    version: 1.8.1(eslint@8.57.0)(vite@5.2.12)
+    version: 1.8.1(eslint@8.57.0)(vite@5.2.13)
   vite-plugin-svgr:
     specifier: ^4.2.0
-    version: 4.2.0(rollup@4.18.0)(typescript@5.4.5)(vite@5.2.12)
+    version: 4.2.0(rollup@4.18.0)(typescript@5.4.5)(vite@5.2.13)
   vite-tsconfig-paths:
     specifier: ^4.3.2
-    version: 4.3.2(typescript@5.4.5)(vite@5.2.12)
+    version: 4.3.2(typescript@5.4.5)(vite@5.2.13)
   vitest:
     specifier: ^1.6.0
     version: 1.6.0(sass@1.77.4)
@@ -2278,13 +2278,13 @@ packages:
   /@ungap/structured-clone@1.2.0:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
 
-  /@vitejs/plugin-react-swc@3.7.0(vite@5.2.12):
+  /@vitejs/plugin-react-swc@3.7.0(vite@5.2.13):
     resolution: {integrity: sha512-yrknSb3Dci6svCd/qhHqhFPDSw0QtjumcqdKMoNNzmOl5lMXTTiqzjWtG4Qask2HdvvzaNgSunbQGet8/GrKdA==}
     peerDependencies:
       vite: ^4 || ^5
     dependencies:
       '@swc/core': 1.5.25
-      vite: 5.2.12(sass@1.77.4)
+      vite: 5.2.13(sass@1.77.4)
     transitivePeerDependencies:
       - '@swc/helpers'
     dev: true
@@ -7604,7 +7604,7 @@ packages:
       debug: 4.3.5
       pathe: 1.1.2
       picocolors: 1.0.1
-      vite: 5.2.12(sass@1.77.4)
+      vite: 5.2.13(sass@1.77.4)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -7616,7 +7616,7 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-checker@0.6.4(eslint@8.57.0)(typescript@5.4.5)(vite@5.2.12):
+  /vite-plugin-checker@0.6.4(eslint@8.57.0)(typescript@5.4.5)(vite@5.2.13):
     resolution: {integrity: sha512-2zKHH5oxr+ye43nReRbC2fny1nyARwhxdm0uNYp/ERy4YvU9iZpNOsueoi/luXw5gnpqRSvjcEPxXbS153O2wA==}
     engines: {node: '>=14.16'}
     peerDependencies:
@@ -7660,14 +7660,14 @@ packages:
       strip-ansi: 6.0.1
       tiny-invariant: 1.3.3
       typescript: 5.4.5
-      vite: 5.2.12(sass@1.77.4)
+      vite: 5.2.13(sass@1.77.4)
       vscode-languageclient: 7.0.0
       vscode-languageserver: 7.0.0
       vscode-languageserver-textdocument: 1.0.11
       vscode-uri: 3.0.8
     dev: true
 
-  /vite-plugin-eslint@1.8.1(eslint@8.57.0)(vite@5.2.12):
+  /vite-plugin-eslint@1.8.1(eslint@8.57.0)(vite@5.2.13):
     resolution: {integrity: sha512-PqdMf3Y2fLO9FsNPmMX+//2BF5SF8nEWspZdgl4kSt7UvHDRHVVfHvxsD7ULYzZrJDGRxR81Nq7TOFgwMnUang==}
     peerDependencies:
       eslint: '>=7'
@@ -7677,10 +7677,10 @@ packages:
       '@types/eslint': 8.56.10
       eslint: 8.57.0
       rollup: 2.79.1
-      vite: 5.2.12(sass@1.77.4)
+      vite: 5.2.13(sass@1.77.4)
     dev: true
 
-  /vite-plugin-svgr@4.2.0(rollup@4.18.0)(typescript@5.4.5)(vite@5.2.12):
+  /vite-plugin-svgr@4.2.0(rollup@4.18.0)(typescript@5.4.5)(vite@5.2.13):
     resolution: {integrity: sha512-SC7+FfVtNQk7So0XMjrrtLAbEC8qjFPifyD7+fs/E6aaNdVde6umlVVh0QuwDLdOMu7vp5RiGFsB70nj5yo0XA==}
     peerDependencies:
       vite: ^2.6.0 || 3 || 4 || 5
@@ -7688,14 +7688,14 @@ packages:
       '@rollup/pluginutils': 5.1.0(rollup@4.18.0)
       '@svgr/core': 8.1.0(typescript@5.4.5)
       '@svgr/plugin-jsx': 8.1.0(@svgr/core@8.1.0)
-      vite: 5.2.12(sass@1.77.4)
+      vite: 5.2.13(sass@1.77.4)
     transitivePeerDependencies:
       - rollup
       - supports-color
       - typescript
     dev: true
 
-  /vite-tsconfig-paths@4.3.2(typescript@5.4.5)(vite@5.2.12):
+  /vite-tsconfig-paths@4.3.2(typescript@5.4.5)(vite@5.2.13):
     resolution: {integrity: sha512-0Vd/a6po6Q+86rPlntHye7F31zA2URZMbH8M3saAZ/xR9QoGN/L21bxEGfXdWmFdNkqPpRdxFT7nmNe12e9/uA==}
     peerDependencies:
       vite: '*'
@@ -7706,14 +7706,14 @@ packages:
       debug: 4.3.5
       globrex: 0.1.2
       tsconfck: 3.1.0(typescript@5.4.5)
-      vite: 5.2.12(sass@1.77.4)
+      vite: 5.2.13(sass@1.77.4)
     transitivePeerDependencies:
       - supports-color
       - typescript
     dev: true
 
-  /vite@5.2.12(sass@1.77.4):
-    resolution: {integrity: sha512-/gC8GxzxMK5ntBwb48pR32GGhENnjtY30G4A0jemunsBkiEZFw60s8InGpN8gkhHEkjnRK1aSAxeQgwvFhUHAA==}
+  /vite@5.2.13(sass@1.77.4):
+    resolution: {integrity: sha512-SSq1noJfY9pR3I1TUENL3rQYDQCFqgD+lM6fTRAM8Nv6Lsg5hDLaXkjETVeBt+7vZBCMoibD+6IWnT2mJ+Zb/A==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -7790,7 +7790,7 @@ packages:
       strip-literal: 2.1.0
       tinybench: 2.8.0
       tinypool: 0.8.4
-      vite: 5.2.12(sass@1.77.4)
+      vite: 5.2.13(sass@1.77.4)
       vite-node: 1.6.0(sass@1.77.4)
       why-is-node-running: 2.2.2
     transitivePeerDependencies:

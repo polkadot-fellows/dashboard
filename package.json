@@ -63,7 +63,7 @@
     "gh-pages": "^6.1.1",
     "prettier": "^3.3.2",
     "prettier-plugin-organize-imports": "^3.2.4",
-    "sass": "^1.77.4",
+    "sass": "^1.77.5",
     "typescript": "^5.4.5",
     "vite": "^5.2.13",
     "vite-bundle-visualizer": "^1.1.0",

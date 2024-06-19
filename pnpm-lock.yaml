@@ -31,7 +31,7 @@ dependencies:
     version: 6.0.3
   polkadot-api:
     specifier: ^0.9.0
-    version: 0.9.0(rxjs@7.8.1)(smoldot@2.0.28)
+    version: 0.9.0(rxjs@7.8.1)(smoldot@2.0.29)
   react:
     specifier: ^18.2.0
     version: 18.3.1
@@ -84,7 +84,7 @@ devDependencies:
     version: 8.57.0
   eslint-config-airbnb:
     specifier: ^19.0.4
-    version: 19.0.4(eslint-plugin-import@2.29.1)(eslint-plugin-jsx-a11y@6.8.0)(eslint-plugin-react-hooks@4.6.2)(eslint-plugin-react@7.34.2)(eslint@8.57.0)
+    version: 19.0.4(eslint-plugin-import@2.29.1)(eslint-plugin-jsx-a11y@6.8.0)(eslint-plugin-react-hooks@4.6.2)(eslint-plugin-react@7.34.3)(eslint@8.57.0)
   eslint-config-airbnb-typescript:
     specifier: ^17.1.0
     version: 17.1.0(@typescript-eslint/eslint-plugin@6.21.0)(@typescript-eslint/parser@6.21.0)(eslint-plugin-import@2.29.1)(eslint@8.57.0)
@@ -113,8 +113,8 @@ devDependencies:
     specifier: ^5.1.3
     version: 5.1.3(eslint-config-prettier@9.1.0)(eslint@8.57.0)(prettier@3.3.2)
   eslint-plugin-react:
-    specifier: ^7.34.2
-    version: 7.34.2(eslint@8.57.0)
+    specifier: ^7.34.3
+    version: 7.34.3(eslint@8.57.0)
   eslint-plugin-unused-imports:
     specifier: ^3.1.0
     version: 3.2.0(@typescript-eslint/eslint-plugin@6.21.0)(eslint@8.57.0)
@@ -866,7 +866,7 @@ packages:
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
     dev: true
 
-  /@polkadot-api/cli@0.5.0(smoldot@2.0.28):
+  /@polkadot-api/cli@0.5.0(smoldot@2.0.29):
     resolution: {integrity: sha512-FTph/LJ8HJWnW1sMcSd71eMiQZpn9peREaQ5ilBawUIzouvU8L7VRRYcqwxHrNegc1ROIEgdku9n00eNu4VUdw==}
     hasBin: true
     dependencies:
@@ -877,7 +877,7 @@ packages:
       '@polkadot-api/known-chains': 0.1.5
       '@polkadot-api/metadata-builders': 0.3.0
       '@polkadot-api/observable-client': 0.3.0(rxjs@7.8.1)
-      '@polkadot-api/sm-provider': 0.1.0(smoldot@2.0.28)
+      '@polkadot-api/sm-provider': 0.1.0(smoldot@2.0.29)
       '@polkadot-api/smoldot': 0.2.4
       '@polkadot-api/substrate-bindings': 0.5.0
       '@polkadot-api/substrate-client': 0.1.2
@@ -997,14 +997,14 @@ packages:
       '@polkadot-api/utils': 0.0.1
     dev: false
 
-  /@polkadot-api/sm-provider@0.1.0(smoldot@2.0.28):
+  /@polkadot-api/sm-provider@0.1.0(smoldot@2.0.29):
     resolution: {integrity: sha512-BaYKouvvTq8xkKAuYLtBgUJ2Icg1qXC8VG9aAoC5YOiBts8yxcTcYljx8jj6D+m7eHWs8AwSPQDLRUL2JyshWw==}
     peerDependencies:
       smoldot: '>=2'
     dependencies:
       '@polkadot-api/json-rpc-provider': 0.0.1
       '@polkadot-api/json-rpc-provider-proxy': 0.1.0
-      smoldot: 2.0.28
+      smoldot: 2.0.29
     dev: false
 
   /@polkadot-api/smoldot@0.2.4:
@@ -3135,7 +3135,7 @@ packages:
       eslint-plugin-import: 2.29.1(@typescript-eslint/parser@6.21.0)(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0)
     dev: true
 
-  /eslint-config-airbnb@19.0.4(eslint-plugin-import@2.29.1)(eslint-plugin-jsx-a11y@6.8.0)(eslint-plugin-react-hooks@4.6.2)(eslint-plugin-react@7.34.2)(eslint@8.57.0):
+  /eslint-config-airbnb@19.0.4(eslint-plugin-import@2.29.1)(eslint-plugin-jsx-a11y@6.8.0)(eslint-plugin-react-hooks@4.6.2)(eslint-plugin-react@7.34.3)(eslint@8.57.0):
     resolution: {integrity: sha512-T75QYQVQX57jiNgpF9r1KegMICE94VYwoFQyMGhrvc+lB8YF2E/M/PYDaQe1AJcWaEgqLE+ErXV1Og/+6Vyzew==}
     engines: {node: ^10.12.0 || ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -3149,7 +3149,7 @@ packages:
       eslint-config-airbnb-base: 15.0.0(eslint-plugin-import@2.29.1)(eslint@8.57.0)
       eslint-plugin-import: 2.29.1(@typescript-eslint/parser@6.21.0)(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0)
       eslint-plugin-jsx-a11y: 6.8.0(eslint@8.57.0)
-      eslint-plugin-react: 7.34.2(eslint@8.57.0)
+      eslint-plugin-react: 7.34.3(eslint@8.57.0)
       eslint-plugin-react-hooks: 4.6.2(eslint@8.57.0)
       object.assign: 4.1.5
       object.entries: 1.1.8
@@ -3389,8 +3389,8 @@ packages:
       eslint: 8.57.0
     dev: true
 
-  /eslint-plugin-react@7.34.2(eslint@8.57.0):
-    resolution: {integrity: sha512-2HCmrU+/JNigDN6tg55cRDKCQWicYAPB38JGSFDQt95jDm8rrvSUo7YPkOIm5l6ts1j1zCvysNcasvfTMQzUOw==}
+  /eslint-plugin-react@7.34.3(eslint@8.57.0):
+    resolution: {integrity: sha512-aoW4MV891jkUulwDApQbPYTVZmeuSyFrudpbTAQuj5Fv8VL+o6df2xIGpw8B0hPjAaih1/Fb0om9grCdyFYemA==}
     engines: {node: '>=4'}
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
@@ -5455,13 +5455,13 @@ packages:
       pathe: 1.1.2
     dev: true
 
-  /polkadot-api@0.9.0(rxjs@7.8.1)(smoldot@2.0.28):
+  /polkadot-api@0.9.0(rxjs@7.8.1)(smoldot@2.0.29):
     resolution: {integrity: sha512-uras3KN8vZJGiAYSv9KsfOPqfmChLwFCHveCTuJOi0FBgJJ35x8QJdz6ASx0QNcjwA2RwICKh3fIIOhylI5Z/g==}
     hasBin: true
     peerDependencies:
       rxjs: '>=7.8.0'
     dependencies:
-      '@polkadot-api/cli': 0.5.0(smoldot@2.0.28)
+      '@polkadot-api/cli': 0.5.0(smoldot@2.0.29)
       '@polkadot-api/json-rpc-provider': 0.0.1
       '@polkadot-api/known-chains': 0.1.6
       '@polkadot-api/logs-provider': 0.0.2
@@ -5470,7 +5470,7 @@ packages:
       '@polkadot-api/pjs-signer': 0.2.0
       '@polkadot-api/polkadot-signer': 0.0.1
       '@polkadot-api/signer': 0.0.1
-      '@polkadot-api/sm-provider': 0.1.0(smoldot@2.0.28)
+      '@polkadot-api/sm-provider': 0.1.0(smoldot@2.0.29)
       '@polkadot-api/smoldot': 0.2.5
       '@polkadot-api/substrate-bindings': 0.5.0
       '@polkadot-api/substrate-client': 0.1.2

@@ -21,18 +21,66 @@ const TipsThresholdMedium = 1200
 
 const collapsedWidth = "6rem"
 const uncollapsedWidth = "16rem"
+const type = "inline"
 
 /*
  * colors
  */
-const colorPrimary = "#E6007A"
-const colorBgContainer = "#fefefe"
-const colorFillAlter = "#eee"
-const lightBg = "#f8f7f7"
-const darkBg = "#000D18"
-const lightColor = "#f8f7f7"
-const darkColor = "#00152A"
 
+const lightTheme = {
+  primary: "#f8f7f7",
+  invert: "rgb(45 41 45)",
+  accent: "#E6007A",
+  colorFillAlter: "#eee",
+  colorBgContainer: "#f8f7f7",
+}
+
+const darkTheme = {
+  primary: "rgb(45 41 45)",
+  invert: "#f8f7f7",
+  accent: "#E6007A",
+  colorFillAlter: "rgb(36 32 36)",
+  colorBgContainer: "rgb(45 41 45)",
+}
+
+// AntD Tokens
+const lightTokens = {
+  components: {
+    Menu: {
+      itemColor: lightTheme.accent,
+      itemSelectedBg: lightTheme.accent,
+      colorPrimary: lightTheme.invert,
+      colorBgContainer: lightTheme.colorBgContainer,
+      colorFillAlter: lightTheme.colorFillAlter,
+    },
+  },
+  token: {
+    colorText: lightTheme.invert,
+    colorBgContainer: lightTheme.colorBgContainer,
+    colorBgLayout: lightTheme.colorBgContainer,
+  },
+}
+
+const darkTokens = {
+  components: {
+    Menu: {
+      itemColor: darkTheme.accent,
+      itemSelectedBg: darkTheme.accent,
+      itemSelectedColor: darkTheme.primary,
+      colorPrimary: darkTheme.accent,
+      colorBgContainer: darkTheme.colorBgContainer,
+      colorFillAlter: darkTheme.colorFillAlter,
+      darkSubMenuItemBg: darkTheme.colorFillAlter,
+    },
+  },
+  token: {
+    colorText: darkTheme.invert,
+    colorBgContainer: darkTheme.colorBgContainer,
+    colorBgLayout: darkTheme.colorBgContainer,
+  },
+}
+
+// Exports
 export {
   AppVersion,
   DappName,
@@ -51,9 +99,9 @@ export {
   TipsThresholdMedium,
   collapsedWidth,
   uncollapsedWidth,
-  lightBg,
-  darkBg,
-  lightColor,
-  darkColor,
+  type,
+  lightTheme,
+  darkTheme,
+  lightTokens,
+  darkTokens,
 }
-export { colorPrimary, colorBgContainer, colorFillAlter }

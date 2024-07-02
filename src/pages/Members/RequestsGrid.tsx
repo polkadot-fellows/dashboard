@@ -71,7 +71,7 @@ const handleChange: OnChange = (pagination, filters, sorter) => {
 const fellMembers: AccountInfoIF[] = []
 
 export const RequestsGrid = () => {
-  const [loading, setLoading] = useState<boolean>(false)
+  const [loading, setLoading] = useState<boolean>(true)
   const [members, setMembers] = useState<AccountInfoIF[]>([])
   const [columns, setColumns] = useState<TableColumnsType<AccountInfoIF>>([])
   const [fellowshipMembers, setFellowshipMembers] = useLocalStorage<any[]>(
@@ -155,10 +155,17 @@ export const RequestsGrid = () => {
         render: (_, r) => {
           console.log(rankings[r.rank])
           const { name, rank, color } = rankings[r.rank]
-          return !isMobile ? (
-            name
-          ) : (
-            <Badge count={rank} color={color} showZero />
+          return (
+            <div
+              style={{
+                display: "flex",
+              }}
+            >
+              {!isMobile ? (
+                <span style={{ marginRight: "1rem" }}>{name}</span>
+              ) : null}
+              <Badge count={rank} color={color} showZero />
+            </div>
           )
         },
       },
@@ -166,14 +173,7 @@ export const RequestsGrid = () => {
         title: "Address",
         dataIndex: "address",
         key: "address",
-        render: (m) => {
-          console.log(m)
-          return (
-            <>
-              {m} <IoCopyOutline onClick={() => console.log(m)} />
-            </>
-          )
-        },
+        render: (m) => m,
       },
     ]
 
@@ -182,6 +182,7 @@ export const RequestsGrid = () => {
 
   return (
     <Table
+      pagination={false}
       loading={loading}
       columns={columns}
       dataSource={members}

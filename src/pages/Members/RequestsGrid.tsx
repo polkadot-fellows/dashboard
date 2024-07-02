@@ -1,17 +1,23 @@
 import { useEffect, useState } from "react"
-import { Grid, AccountCard } from "@polkadot-ui/react"
+import { Polkicon } from "@polkadot-ui/react"
+import { IoCopyOutline } from "react-icons/io5"
 import { AccountName } from "./AccountName"
 import { useLocalStorage, useMediaQuery } from "usehooks-ts"
-import { RevolvingDot } from "react-loader-spinner"
 
 import type { DotQueries } from "@polkadot-api/descriptors"
 import { dot, collectives } from "@polkadot-api/descriptors"
 import type { Binary } from "polkadot-api"
 import { collectiveClient, polkadotClient } from "./clients"
 
+import { Badge, Table } from "antd"
+import type { TableColumnsType, TableProps } from "antd"
+
 import "./RequestsGrid.scss"
 
+type OnChange = NonNullable<TableProps<AccountInfoIF>["onChange"]>
+
 export interface AccountInfoIF {
+  key?: number
   address: string
   rank: number
   display?: string
@@ -23,16 +29,16 @@ export interface AccountInfoIF {
 }
 
 const rankings = [
-  "Candidate",
-  "Member",
-  "Proficient",
-  "Fellow",
-  "Architect",
-  "Architect Adept",
-  "Grand Architect",
-  "Free Master",
-  "Master Constant",
-  "Grand Master",
+  { rank: 0, name: "Candidate", color: "lime" },
+  { rank: 1, name: "Member", color: "blue" },
+  { rank: 2, name: "Proficient", color: "cyan" },
+  { rank: 3, name: "Fellow", color: "green" },
+  { rank: 4, name: "Architect", color: "yellow" },
+  { rank: 5, name: "Architect Adept", color: "orange" },
+  { rank: 6, name: "Grand Architect", color: "volcano" },
+  { rank: 7, name: "Free Master", color: "pink" },
+  { rank: 8, name: "Master Constant", color: "magenta" },
+  { rank: 9, name: "Grand Master", color: "gold" },
 ]
 
 const identityDataToString = (value: number | string | Binary | undefined) =>
@@ -58,8 +64,16 @@ const mapRawIdentity = (
   return { ...additionalInfo, display: display_id }
 }
 
+const handleChange: OnChange = (pagination, filters, sorter) => {
+  console.log("Various parameters", pagination, filters, sorter)
+}
+
+const fellMembers: AccountInfoIF[] = []
+
 export const RequestsGrid = () => {
+  const [loading, setLoading] = useState<boolean>(false)
   const [members, setMembers] = useState<AccountInfoIF[]>([])
+  const [columns, setColumns] = useState<TableColumnsType<AccountInfoIF>>([])
   const [fellowshipMembers, setFellowshipMembers] = useLocalStorage<any[]>(
     "fellowship-members",
     []
@@ -95,79 +109,83 @@ export const RequestsGrid = () => {
     }
 
     if (fellowshipMembers.length) {
+      console.log("fellowshipMembers", fellowshipMembers)
       setMembers(fellowshipMembers)
+      setLoading(false)
     }
     fetchMembers()
   }, [])
 
   useEffect(() => {
+    let i = 0
+    console.log(members)
+    members.forEach((m) => {
+      fellMembers.push({
+        key: i++,
+        display: m.legal || m.display || "-",
+        rank: m.rank,
+        address: m.address,
+      })
+    })
     setFellowshipMembers(members)
   }, [members])
 
+  useEffect(() => {
+    const cols: TableColumnsType<AccountInfoIF> = [
+      {
+        title: "Name",
+        dataIndex: "display",
+        key: "display",
+        render: (_, r) => {
+          console.log(r)
+          return (
+            <div style={{ display: "flex" }}>
+              <div style={{ padding: "0 2rem" }}>
+                <Polkicon address={r.address} copy size={38} />
+              </div>
+              <AccountName display={r.display || "-"} />
+            </div>
+          )
+        },
+      },
+      {
+        title: "Rank",
+        dataIndex: "rank",
+        key: "rank",
+        render: (_, r) => {
+          console.log(rankings[r.rank])
+          const { name, rank, color } = rankings[r.rank]
+          return !isMobile ? (
+            name
+          ) : (
+            <Badge count={rank} color={color} showZero />
+          )
+        },
+      },
+      {
+        title: "Address",
+        dataIndex: "address",
+        key: "address",
+        render: (m) => {
+          console.log(m)
+          return (
+            <>
+              {m} <IoCopyOutline onClick={() => console.log(m)} />
+            </>
+          )
+        },
+      },
+    ]
+
+    setColumns(cols)
+  }, [])
+
   return (
-    <>
-      <Grid row key={"random_key"} style={{ padding: "0rem 0", width: "100%" }}>
-        <Grid column sm={3} md={3} style={{ textAlign: "left" }}>
-          <h3>Name</h3>
-        </Grid>
-        <Grid column sm={7} md={7} style={{ textAlign: "left" }}>
-          <h3>Account Address</h3>
-        </Grid>
-        <Grid column sm={2} md={2} style={{ textAlign: "left" }}>
-          <h3>Rank</h3>
-        </Grid>
-      </Grid>
-      {members.length ? (
-        members.map((m) => (
-          <Grid row key={m.address} style={{ padding: "0.5rem 0" }}>
-            <Grid column sm={3} md={3}>
-              <AccountName display={m.display || "-"} />
-            </Grid>
-            <Grid column sm={7} md={7}>
-              <AccountCard
-                style={{
-                  background: "transparent",
-                  border: 0,
-                  boxShadow: "none",
-                }}
-                title={{
-                  address: m.address,
-                  justify: "flex-start",
-                  align: "center",
-                }}
-                ellipsis={{
-                  active: isMobile,
-                  amount: 10,
-                }}
-                icon={{
-                  address: m.address,
-                  copy: true,
-                  size: 38,
-                  gridSize: 2,
-                  justify: "space-between",
-                }}
-              />
-            </Grid>
-            <Grid column sm={1} md={2}>
-              <p style={{ textAlign: "center", width: "100%" }}>
-                {!isMobile ? rankings[m.rank] : null} ({m.rank})
-              </p>
-            </Grid>
-          </Grid>
-        ))
-      ) : (
-        <Grid column sm={12} style={{ padding: "10rem" }}>
-          <RevolvingDot
-            visible={true}
-            height="80"
-            width="80"
-            color="#E6007A"
-            ariaLabel="revolving-dot-loading"
-            wrapperStyle={{}}
-            wrapperClass=""
-          />
-        </Grid>
-      )}
-    </>
+    <Table
+      loading={loading}
+      columns={columns}
+      dataSource={members}
+      onChange={handleChange}
+    />
   )
 }

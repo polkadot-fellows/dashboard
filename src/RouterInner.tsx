@@ -10,7 +10,18 @@ import {
 } from "react-icons/hi2"
 import { GrResources } from "react-icons/gr"
 
-import { PolkadotUrl } from "consts"
+import {
+  PolkadotUrl,
+  collapsedWidth,
+  uncollapsedWidth,
+  colorPrimary,
+  colorBgContainer,
+  colorFillAlter,
+  lightBg,
+  darkBg,
+  lightColor,
+  darkColor,
+} from "consts"
 import { useLocalStorage } from "usehooks-ts"
 
 import PolkadotIcon from "./img/polkadotIcon.svg?react"
@@ -86,7 +97,7 @@ const pages = [
 ]
 
 const iconSize = "1.25rem"
-const { Content, Footer, Sider } = Layout
+const { Content, Sider } = Layout
 
 const getItem = (
   label: React.ReactNode,
@@ -200,15 +211,15 @@ export const RouterInner = () => {
     setCollapsed(settings.collapsed)
   }, [settings.collapsed])
 
-  const size = collapsed ? "1.8rem" : "2.2rem"
-  const autoWidth = collapsed ? "4rem" : "12rem"
+  const size = collapsed ? "2rem" : "2.2rem"
+  const autoWidth = collapsed ? collapsedWidth : uncollapsedWidth
 
   const Svg = collapsed ? (
     <PolkadotIcon
       style={{
         maxHeight: "100%",
-        width: "2rem",
-        fill: "#E6007A",
+        width: "4rem",
+        fill: colorPrimary,
       }}
       width={size}
       height={size}
@@ -218,8 +229,8 @@ export const RouterInner = () => {
       style={{
         maxHeight: "100%",
         height: "100%",
-        width: "9.2rem",
-        fill: "#E6007A",
+        width: "13rem",
+        fill: colorPrimary,
       }}
       width={size}
       height={size}
@@ -231,9 +242,9 @@ export const RouterInner = () => {
       setToken({
         components: {
           Menu: {
-            colorPrimary: "#E6007A",
-            colorBgContainer: "#fefefe",
-            colorFillAlter: "#eee",
+            colorPrimary,
+            colorBgContainer,
+            colorFillAlter,
             /* here is your component tokens */
           },
         },
@@ -242,7 +253,7 @@ export const RouterInner = () => {
       setToken({
         components: {
           Menu: {
-            colorPrimary: "#E6007A",
+            colorPrimary,
             colorBgContainer: "var(--background-primary)",
             /* here is your component tokens */
           },
@@ -264,11 +275,11 @@ export const RouterInner = () => {
             bottom: 0,
           }}
           theme={mode}
-          width="12rem"
+          width={uncollapsedWidth}
           breakpoint="md"
-          collapsedWidth="4rem"
+          collapsedWidth={collapsedWidth}
           collapsed={collapsed}
-          onBreakpoint={(val) => {
+          onBreakpoint={(val: boolean | ((prevState: boolean) => boolean)) => {
             setCollapsed(val)
           }}
         >
@@ -276,7 +287,7 @@ export const RouterInner = () => {
             style={{
               height: "3rem",
               marginBottom: "2rem",
-              marginTop: "2rem",
+              marginTop: collapsed ? "3rem" : "2rem",
               display: "flex",
               justifyContent: "center",
             }}
@@ -317,7 +328,7 @@ export const RouterInner = () => {
             style={{
               position: "absolute",
               bottom: "6rem",
-              width: collapsed ? "4rem" : "11rem",
+              width: collapsed ? "6rem" : "16rem",
               height: collapsed ? "7rem" : "1rem",
               display: "flex",
               flexDirection: collapsed ? "column" : "row",
@@ -326,21 +337,24 @@ export const RouterInner = () => {
           >
             {mode === "dark" ? (
               <button
-                style={{ color: "#E6007A" }}
+                style={{ color: colorPrimary }}
                 type="button"
                 onClick={() => {
                   toggleTheme()
                 }}
               >
-                <IoSunnyOutline size={iconSize} style={{ color: "#E6007A" }} />
+                <IoSunnyOutline
+                  size={iconSize}
+                  style={{ color: colorPrimary }}
+                />
               </button>
             ) : (
               <button type="button" onClick={() => toggleTheme()}>
-                <IoMoon size={iconSize} style={{ color: "#E6007A" }} />
+                <IoMoon size={iconSize} style={{ color: colorPrimary }} />
               </button>
             )}
             <button
-              style={{ color: "#E6007A" }}
+              style={{ color: colorPrimary }}
               type="button"
               onClick={() => {
                 console.log(settings)
@@ -357,7 +371,7 @@ export const RouterInner = () => {
               )}
             </button>
             <button
-              style={{ color: "#E6007A" }}
+              style={{ color: colorPrimary }}
               type="button"
               onClick={() =>
                 window.open("https://github.com/polkadot-fellows", "_blank")
@@ -366,6 +380,24 @@ export const RouterInner = () => {
               <IoLogoGithub size={iconSize} />
             </button>
           </section>
+          {/* Copyright footer  */}
+          <div
+            style={{
+              position: "fixed",
+              bottom: 0,
+              padding: "2rem 1rem",
+              zIndex: 1,
+              color: colorPrimary,
+              fontWeight: "bolder",
+              display: "flex",
+              justifyContent: "flex-end",
+              filter: "alpha(opacity=75)",
+              opacity: "0.75",
+            }}
+          >
+            {!collapsed ? "Polkadot Fellowship " : ""}©
+            {new Date().getFullYear()}
+          </div>
         </Sider>
         <Layout>
           <Content
@@ -373,11 +405,9 @@ export const RouterInner = () => {
             style={{
               overflow: "auto",
               height: "100vh",
-              paddingBottom: "6rem",
               marginLeft: autoWidth,
-              background:
-                mode === "light" ? "#f8f7f7" : "var(--background-primary)",
-              color: mode === "light" ? "#00152A" : "#f8f7f7",
+              background: mode === "light" ? lightBg : darkBg,
+              color: mode === "light" ? darkColor : lightColor,
             }}
           >
             <Routes>
@@ -386,6 +416,7 @@ export const RouterInner = () => {
               })}
             </Routes>
           </Content>
+
           <Modal
             centered
             open={openModal}
@@ -431,23 +462,6 @@ export const RouterInner = () => {
               )}
             </p>
           </Modal>
-          <Footer
-            style={{
-              position: "fixed",
-              bottom: 0,
-              zIndex: 1,
-              width: "100vw",
-              background: mode === "light" ? "#fff" : "#000D18",
-              color: "#E6007A",
-              fontWeight: "bolder",
-              display: "flex",
-              justifyContent: "flex-end",
-              filter: "alpha(opacity=75)",
-              opacity: "0.75",
-            }}
-          >
-            Polkadot Fellowship ©{new Date().getFullYear()}
-          </Footer>
         </Layout>
       </Layout>
     </ConfigProvider>

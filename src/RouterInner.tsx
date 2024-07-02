@@ -10,7 +10,18 @@ import {
 } from "react-icons/hi2"
 import { GrResources } from "react-icons/gr"
 
-import { PolkadotUrl, collapsedWidth, uncollapsedWidth, colorPrimary, colorBgContainer, colorFillAlter, lightBg, darkBg, lightColor, darkColor } from "consts"
+import {
+  PolkadotUrl,
+  collapsedWidth,
+  uncollapsedWidth,
+  colorPrimary,
+  colorBgContainer,
+  colorFillAlter,
+  lightBg,
+  darkBg,
+  lightColor,
+  darkColor,
+} from "consts"
 import { useLocalStorage } from "usehooks-ts"
 
 import PolkadotIcon from "./img/polkadotIcon.svg?react"
@@ -86,7 +97,7 @@ const pages = [
 ]
 
 const iconSize = "1.25rem"
-const { Content, Footer, Sider } = Layout
+const { Content, Sider } = Layout
 
 const getItem = (
   label: React.ReactNode,
@@ -332,7 +343,10 @@ export const RouterInner = () => {
                   toggleTheme()
                 }}
               >
-                <IoSunnyOutline size={iconSize} style={{ color: colorPrimary }} />
+                <IoSunnyOutline
+                  size={iconSize}
+                  style={{ color: colorPrimary }}
+                />
               </button>
             ) : (
               <button type="button" onClick={() => toggleTheme()}>
@@ -381,7 +395,8 @@ export const RouterInner = () => {
               opacity: "0.75",
             }}
           >
-            {!collapsed ? "Polkadot Fellowship " : ""}©{new Date().getFullYear()}
+            {!collapsed ? "Polkadot Fellowship " : ""}©
+            {new Date().getFullYear()}
           </div>
         </Sider>
         <Layout>
@@ -391,8 +406,7 @@ export const RouterInner = () => {
               overflow: "auto",
               height: "100vh",
               marginLeft: autoWidth,
-              background:
-                mode === "light" ? lightBg : darkBg,
+              background: mode === "light" ? lightBg : darkBg,
               color: mode === "light" ? darkColor : lightColor,
             }}
           >
@@ -402,7 +416,6 @@ export const RouterInner = () => {
               })}
             </Routes>
           </Content>
-
 
           <Modal
             centered

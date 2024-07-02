@@ -64,10 +64,6 @@ const mapRawIdentity = (
   return { ...additionalInfo, display: display_id }
 }
 
-const handleChange: OnChange = (pagination, filters, sorter) => {
-  console.log("Various parameters", pagination, filters, sorter)
-}
-
 const fellMembers: AccountInfoIF[] = []
 
 export const RequestsGrid = () => {
@@ -109,16 +105,13 @@ export const RequestsGrid = () => {
     }
 
     if (fellowshipMembers.length) {
-      console.log("fellowshipMembers", fellowshipMembers)
       setMembers(fellowshipMembers)
-      setLoading(false)
     }
     fetchMembers()
   }, [])
 
   useEffect(() => {
     let i = 0
-    console.log(members)
     members.forEach((m) => {
       fellMembers.push({
         key: i++,
@@ -128,6 +121,7 @@ export const RequestsGrid = () => {
       })
     })
     setFellowshipMembers(members)
+    if (members.length) setLoading(false)
   }, [members])
 
   useEffect(() => {
@@ -136,24 +130,22 @@ export const RequestsGrid = () => {
         title: "Name",
         dataIndex: "display",
         key: "display",
-        render: (_, r) => {
-          console.log(r)
-          return (
-            <div style={{ display: "flex" }}>
-              <div style={{ padding: "0 2rem" }}>
-                <Polkicon address={r.address} copy size={38} />
-              </div>
-              <AccountName display={r.display || "-"} />
+        render: (_, r) => (
+          <div style={{ display: "flex" }}>
+            <div style={{ padding: "0 2rem" }}>
+              <Polkicon address={r.address} copy size={38} />
             </div>
-          )
-        },
+            <AccountName display={r.display || "-"} />
+          </div>
+        ),
       },
       {
         title: "Rank",
         dataIndex: "rank",
+        defaultSortOrder: "descend",
+        sorter: (a, b) => a.rank - b.rank,
         key: "rank",
         render: (_, r) => {
-          console.log(rankings[r.rank])
           const { name, rank, color } = rankings[r.rank]
           return (
             <div
@@ -186,7 +178,6 @@ export const RequestsGrid = () => {
       loading={loading}
       columns={columns}
       dataSource={members}
-      onChange={handleChange}
     />
   )
 }

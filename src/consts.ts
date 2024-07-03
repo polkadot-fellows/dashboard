@@ -1,9 +1,7 @@
-import { dot, collectives } from "@polkadot-api/descriptors"
-
 /*
  * Global Constants
  */
-const AppVersion = "0.1.0"
+const AppVersion = "0.1.1"
 const DappName = "Polkadot Fellowship Dashboard"
 const PolkadotUrl = "https://polkadot-fellows.github.io/dashboard"
 

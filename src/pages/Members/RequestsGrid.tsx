@@ -1,77 +1,92 @@
 import { useEffect, useState } from "react"
-import { Grid, AccountCard } from "@polkadot-ui/react"
+import { Polkicon } from "@polkadot-ui/react"
 import { AccountName } from "./AccountName"
 import { useLocalStorage, useMediaQuery } from "usehooks-ts"
-import { RevolvingDot } from "react-loader-spinner"
 
 import type { DotQueries } from "@polkadot-api/descriptors"
-import { dot, collectives } from "@polkadot-api/descriptors"
 import type { Binary } from "polkadot-api"
-import { collectiveClient, polkadotClient } from "./clients"
 
-import "./RequestsGrid.scss"
+import { Badge, Drawer, Table } from "antd"
+import type { TableColumnsType } from "antd"
 
-export interface AccountInfoIF {
+import { ellipsisFn } from "@polkadot-ui/utils"
+import { MemberDrawer } from "./MemberDrawer"
+import { api, papi } from "./clients"
+
+export type AccountInfoIF = {
+  key?: number
   address: string
   rank: number
   display?: string
   github?: string
   legal?: string
   riot?: string
+  email?: string
   twitter?: string
   web?: string
 }
 
 const rankings = [
-  "Candidate",
-  "Member",
-  "Proficient",
-  "Fellow",
-  "Architect",
-  "Architect Adept",
-  "Grand Architect",
-  "Free Master",
-  "Master Constant",
-  "Grand Master",
+  { rank: 0, name: "Candidate", color: "lime" },
+  { rank: 1, name: "Member", color: "blue" },
+  { rank: 2, name: "Proficient", color: "cyan" },
+  { rank: 3, name: "Fellow", color: "green" },
+  { rank: 4, name: "Architect", color: "yellow" },
+  { rank: 5, name: "Architect Adept", color: "orange" },
+  { rank: 6, name: "Grand Architect", color: "volcano" },
+  { rank: 7, name: "Free Master", color: "pink" },
+  { rank: 8, name: "Master Constant", color: "magenta" },
+  { rank: 9, name: "Grand Master", color: "gold" },
 ]
 
-const identityDataToString = (value: number | string | Binary | undefined) =>
+const dataToString = (value: number | string | Binary | undefined) =>
   typeof value === "object" ? value.asText() : value ?? ""
 
 const mapRawIdentity = (
-  // rawIdentity?: DotQueries["Identity"]["IdentityOf"]["Value"]
   rawIdentity?: DotQueries["Identity"]["IdentityOf"]["Value"]
 ) => {
   if (!rawIdentity) return rawIdentity
   const {
-    info: { additional, display },
+    info: { additional, display, email, legal, riot, twitter, web },
   } = rawIdentity[0]
 
-  const display_id = identityDataToString(display.value)
+  const display_id = dataToString(display.value)
   const additionalInfo = Object.fromEntries(
     additional.map(([key, { value }]) => [
-      identityDataToString(key.value!),
-      identityDataToString(value),
+      dataToString(key.value!),
+      dataToString(value),
     ])
   )
 
-  return { ...additionalInfo, display: display_id }
+  return {
+    ...additionalInfo,
+    display: display_id,
+    web: dataToString(web.value),
+    email: dataToString(email.value),
+    legal: dataToString(legal.value),
+    riot: dataToString(riot.value),
+    twitter: dataToString(twitter.value),
+  }
 }
 
+const fellMembers: AccountInfoIF[] = []
+
 export const RequestsGrid = () => {
+  const [loading, setLoading] = useState<boolean>(true)
   const [members, setMembers] = useState<AccountInfoIF[]>([])
+  const [columns, setColumns] = useState<TableColumnsType<AccountInfoIF>>([])
   const [fellowshipMembers, setFellowshipMembers] = useLocalStorage<any[]>(
     "fellowship-members",
     []
   )
-
+  const [openDrawer, setOpenDrawer] = useState<boolean>(false)
+  const [drawerMember, setDrawerMember] = useState<AccountInfoIF>(
+    {} as AccountInfoIF
+  )
   const isMobile = useMediaQuery("(max-width: 1000px)")
 
   useEffect(() => {
     const fetchMembers = async () => {
-      const api = collectiveClient?.getTypedApi(collectives)
-      const papi = polkadotClient?.getTypedApi(dot)
-
       const collectiveAddresses: any =
         await api?.query.FellowshipCollective.Members.getEntries().then(
           (mems: any[]) =>
@@ -101,73 +116,95 @@ export const RequestsGrid = () => {
   }, [])
 
   useEffect(() => {
+    let i = 0
+    members.forEach((m) => {
+      fellMembers.push({
+        key: i++,
+        display: m.legal || m.display || ellipsisFn(m.address, 6),
+        rank: m.rank,
+        address: m.address,
+      })
+    })
     setFellowshipMembers(members)
+    if (members.length) setLoading(false)
   }, [members])
+
+  useEffect(() => {
+    const cols: TableColumnsType<AccountInfoIF> = [
+      {
+        title: "Name",
+        dataIndex: "display",
+        key: "display",
+        render: (_, r) => (
+          <div style={{ display: "flex" }}>
+            <div style={{ padding: "0 2rem" }}>
+              <Polkicon address={r.address} size={38} />
+            </div>
+            <AccountName display={r.display} address={r.address} />
+          </div>
+        ),
+      },
+      {
+        title: "Rank",
+        dataIndex: "rank",
+        defaultSortOrder: "descend",
+        sorter: (a, b) => a.rank - b.rank,
+        key: "rank",
+        render: (_, r) => {
+          const { name, rank, color } = rankings[r.rank]
+          return (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+              }}
+            >
+              {!isMobile ? (
+                <span style={{ marginRight: "1rem" }}>{name}</span>
+              ) : null}
+              <Badge count={rank} color={color} showZero />
+            </div>
+          )
+        },
+      },
+      {
+        title: "Address",
+        dataIndex: "address",
+        key: "address",
+        render: (m) => m,
+      },
+    ]
+
+    setColumns(cols)
+  }, [])
 
   return (
     <>
-      <Grid row key={"random_key"} style={{ padding: "0rem 0", width: "100%" }}>
-        <Grid column sm={3} md={3} style={{ textAlign: "left" }}>
-          <h3>Name</h3>
-        </Grid>
-        <Grid column sm={7} md={7} style={{ textAlign: "left" }}>
-          <h3>Account Address</h3>
-        </Grid>
-        <Grid column sm={2} md={2} style={{ textAlign: "left" }}>
-          <h3>Rank</h3>
-        </Grid>
-      </Grid>
-      {members.length ? (
-        members.map((m) => (
-          <Grid row key={m.address} style={{ padding: "0.5rem 0" }}>
-            <Grid column sm={3} md={3}>
-              <AccountName display={m.display || "-"} />
-            </Grid>
-            <Grid column sm={7} md={7}>
-              <AccountCard
-                style={{
-                  background: "transparent",
-                  border: 0,
-                  boxShadow: "none",
-                }}
-                title={{
-                  address: m.address,
-                  justify: "flex-start",
-                  align: "center",
-                }}
-                ellipsis={{
-                  active: isMobile,
-                  amount: 10,
-                }}
-                icon={{
-                  address: m.address,
-                  copy: true,
-                  size: 38,
-                  gridSize: 2,
-                  justify: "space-between",
-                }}
-              />
-            </Grid>
-            <Grid column sm={1} md={2}>
-              <p style={{ textAlign: "center", width: "100%" }}>
-                {!isMobile ? rankings[m.rank] : null} ({m.rank})
-              </p>
-            </Grid>
-          </Grid>
-        ))
-      ) : (
-        <Grid column sm={12} style={{ padding: "10rem" }}>
-          <RevolvingDot
-            visible={true}
-            height="80"
-            width="80"
-            color="#E6007A"
-            ariaLabel="revolving-dot-loading"
-            wrapperStyle={{}}
-            wrapperClass=""
-          />
-        </Grid>
-      )}
+      <Table
+        style={{ cursor: "pointer" }}
+        onRow={(record) => {
+          return {
+            onClick: async () => {
+              setDrawerMember(record)
+              setOpenDrawer(true)
+            },
+          }
+        }}
+        pagination={false}
+        loading={loading}
+        columns={columns}
+        dataSource={members}
+      />
+      <Drawer
+        onClose={() => {
+          setOpenDrawer(false)
+          setDrawerMember({} as AccountInfoIF)
+        }}
+        open={openDrawer}
+        title={drawerMember?.address && ellipsisFn(drawerMember?.address, 8)}
+      >
+        <MemberDrawer member={drawerMember} />
+      </Drawer>
     </>
   )
 }

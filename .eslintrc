@@ -56,7 +56,6 @@
     "no-plusplus": "off",
     // Default imports cause naming inconsistencies to imports when component names are changed.
     "import/prefer-default-export": "off",
-
     "unused-imports/no-unused-imports": "error",
     "@typescript-eslint/consistent-type-imports": [
       "error",
@@ -68,7 +67,10 @@
     "react/jsx-filename-extension": [
       "warn",
       {
-        "extensions": [".tsx", ".mdx"]
+        "extensions": [
+          ".tsx",
+          ".mdx"
+        ]
       }
     ],
     "import/extensions": [
@@ -79,7 +81,6 @@
         "tsx": "never"
       }
     ],
-    "@typescript-eslint/no-shadow": ["error"],
     "prefer-arrow-functions/prefer-arrow-functions": [
       "warn",
       {
@@ -98,7 +99,9 @@
   },
   "overrides": [
     {
-      "files": ["*.mdx"],
+      "files": [
+        "*.mdx"
+      ],
       "rules": {
         "no-undef": "off"
       }

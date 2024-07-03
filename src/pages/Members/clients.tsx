@@ -2,6 +2,7 @@ import { createClient } from "polkadot-api"
 import { getSmProvider } from "polkadot-api/sm-provider"
 import SmWorker from "polkadot-api/smoldot/worker?worker"
 import { startFromWorker } from "polkadot-api/smoldot/from-worker"
+import { dot, collectives } from "@polkadot-api/descriptors"
 
 const smoldot = startFromWorker(
   new SmWorker() /*, {maxLogLevel: 9,
@@ -23,5 +24,8 @@ const smoldotParaChain = Promise.all([
 )
 
 export const polkadotClient = createClient(getSmProvider(dotRelayChain))
-
 export const collectiveClient = createClient(getSmProvider(smoldotParaChain))
+
+// API stuff
+export const api = collectiveClient?.getTypedApi(collectives)
+export const papi = polkadotClient?.getTypedApi(dot)

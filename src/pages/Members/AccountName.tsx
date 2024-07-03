@@ -1,16 +1,22 @@
+import { ellipsisFn } from "@polkadot-ui/utils"
 import { BsCheckCircleFill } from "react-icons/bs"
 
-export const AccountName = ({ display }: any) => {
+type AccountNameProps = {
+  display?: string
+  address?: string
+}
+
+export const AccountName = ({ display, address }: AccountNameProps) => {
   return (
     <div style={{ display: "flex" }}>
       <p>
-        {display !== "-" ? (
+        {display ? (
           <BsCheckCircleFill
             style={{ color: "green", marginRight: "0.5rem" }}
           />
         ) : null}
       </p>
-      <p>{display}</p>
+      <p>{display || (address ? ellipsisFn(address, 6) : null) || "-"}</p>
     </div>
   )
 }

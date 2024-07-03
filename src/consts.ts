@@ -1,7 +1,7 @@
 /*
  * Global Constants
  */
-const AppVersion = "0.1.0"
+const AppVersion = "0.1.1"
 const DappName = "Polkadot Fellowship Dashboard"
 const PolkadotUrl = "https://polkadot-fellows.github.io/dashboard"
 
@@ -21,18 +21,85 @@ const TipsThresholdMedium = 1200
 
 const collapsedWidth = "6rem"
 const uncollapsedWidth = "16rem"
+const type = "inline"
 
 /*
  * colors
  */
-const colorPrimary = "#E6007A"
-const colorBgContainer = "#fefefe"
-const colorFillAlter = "#eee"
-const lightBg = "#f8f7f7"
-const darkBg = "#000D18"
-const lightColor = "#f8f7f7"
-const darkColor = "#00152A"
 
+const lightTheme = {
+  primary: "#f8f7f7",
+  invert: "#2D292D",
+  invertTertiarty: "#FF2097",
+  accent: "#E6007A",
+  colorFillAlter: "#eee",
+  colorBgContainer: "#f8f7f7",
+  colorBgElevated: "#E5E5E5",
+  warning: "#FFA500",
+  success: "#32CD32",
+}
+
+const darkTheme = {
+  primary: "#2D292D",
+  invert: "#f8f7f7",
+  invertTertiarty: "#FF2097",
+  accent: "#E6007A",
+  colorFillAlter: "#242024",
+  colorBgContainer: "#2D292D",
+  colorBgElevated: "#221F22",
+  warning: "#FFFF00",
+  success: "#32CD32",
+}
+
+// AntD Tokens
+const lightTokens = {
+  components: {
+    Menu: {
+      itemColor: lightTheme.accent,
+      itemSelectedBg: lightTheme.accent,
+    },
+    Drawer: {
+      colorSplit: "rgba(0, 0, 0, 0)",
+      colorIcon: lightTheme.invert,
+    },
+  },
+  token: {
+    colorPrimary: lightTheme.invert,
+    colorFillAlter: lightTheme.colorFillAlter,
+    colorBgElevated: lightTheme.colorBgElevated,
+    colorText: lightTheme.invert,
+    colorTextTertiary: lightTheme.invertTertiarty,
+    colorBgContainer: lightTheme.colorBgContainer,
+    colorBgLayout: lightTheme.colorBgContainer,
+  },
+}
+
+const darkTokens = {
+  components: {
+    Menu: {
+      itemColor: darkTheme.accent,
+      itemSelectedBg: darkTheme.accent,
+      darkSubMenuItemBg: darkTheme.colorFillAlter,
+    },
+    Drawer: {
+      colorTextTertiary: darkTheme.invertTertiarty,
+      colorSplit: "rgba(0, 0, 0, 0)",
+      colorIcon: darkTheme.invert,
+    },
+  },
+  token: {
+    itemSelectedColor: darkTheme.primary,
+    colorPrimary: darkTheme.accent,
+    colorFillAlter: darkTheme.colorFillAlter,
+    colorBgElevated: darkTheme.colorBgElevated,
+    colorText: darkTheme.invert,
+    colorTextTertiary: lightTheme.invertTertiarty,
+    colorBgContainer: darkTheme.colorBgContainer,
+    colorBgLayout: darkTheme.colorBgContainer,
+  },
+}
+
+// Exports
 export {
   AppVersion,
   DappName,
@@ -51,9 +118,9 @@ export {
   TipsThresholdMedium,
   collapsedWidth,
   uncollapsedWidth,
-  lightBg,
-  darkBg,
-  lightColor,
-  darkColor,
+  type,
+  lightTheme,
+  darkTheme,
+  lightTokens,
+  darkTokens,
 }
-export { colorPrimary, colorBgContainer, colorFillAlter }

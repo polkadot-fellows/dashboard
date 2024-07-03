@@ -21,6 +21,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.3.7",
     "@mdx-js/react": "^3.0.1",
     "@mdx-js/rollup": "^3.0.1",
     "@polkadot-api/descriptors": "^0.0.1",
@@ -29,6 +30,7 @@
     "@polkadot-ui/utils": "0.0.1-alpha.2",
     "antd": "^5.19.0",
     "buffer": "^6.0.3",
+    "copy-to-clipboard": "^3.3.3",
     "polkadot-api": "^0.9.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

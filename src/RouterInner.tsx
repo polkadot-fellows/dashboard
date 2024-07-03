@@ -1,4 +1,12 @@
-import { ConfigProvider, Divider, Layout, Menu, Modal } from "antd"
+import {
+  ConfigProvider,
+  Divider,
+  Layout,
+  Menu,
+  Modal,
+  notification,
+  Popover,
+} from "antd"
 import type { GetProp, MenuProps } from "antd"
 import {
   HiMiniUserGroup,
@@ -8,19 +16,18 @@ import {
   HiMiniCubeTransparent,
   HiMiniInboxStack,
 } from "react-icons/hi2"
+
 import { GrResources } from "react-icons/gr"
 
 import {
   PolkadotUrl,
   collapsedWidth,
   uncollapsedWidth,
-  colorPrimary,
-  colorBgContainer,
-  colorFillAlter,
-  lightBg,
-  darkBg,
-  lightColor,
-  darkColor,
+  lightTheme,
+  darkTheme,
+  lightTokens,
+  darkTokens,
+  type,
 } from "consts"
 import { useLocalStorage } from "usehooks-ts"
 
@@ -54,6 +61,9 @@ import { Modules } from "pages/Modules"
 import { Rfc } from "pages/Rfc"
 import { Members } from "pages/Members"
 import { OpenDevMonthlyCalls } from "pages/OpenDevMonthlyCalls"
+import { collectiveClient } from "pages/Members/clients"
+import { FaCircleCheck } from "react-icons/fa6"
+import { SyncOutlined } from "@ant-design/icons"
 
 type MenuItem = GetProp<MenuProps, "items">[number]
 
@@ -123,84 +133,117 @@ const getLink = (
   </Link>
 )
 
-const mainItems: MenuItem[] = [
-  getItem(getLink("Overview", "overview"), "overview", <HiGlobeAlt />),
-  getItem(getLink("Members", "members"), "members", <HiMiniUserGroup />),
-  getItem("About", "sub0", <FaInfo />, [
-    getItem(
-      getLink("Membership", "membership"),
-      "membership",
-      <HiMiniUserPlus />
-    ),
-    getItem(
-      getLink("Governance", "governance"),
-      "governance",
-      <HiBuildingLibrary />
-    ),
-    getItem(
-      getLink("Interactions", "interactions"),
-      "interactions",
-      <HiMiniCubeTransparent />
-    ),
-    getItem(getLink("Modules", "modules"), "modules", <HiMiniInboxStack />),
-  ]),
-  getItem(getLink("Open RFCs", "rfcs"), "rfcs", <MdDocumentScanner />),
-  getItem(
-    getLink("Monthly Calls", "opendev"),
-    "opendev",
-    <HiBuildingLibrary />
-  ),
-]
-
-const secondaryItems: MenuItem[] = [
-  getItem("Element", "sub1", <SiElement />, [
-    getItem(
-      getLink(
-        "Members",
-        "https://matrix.to/#/#fellowship-members:parity.io",
-        "_blank"
+const menuItems = (
+  setOpenModal: React.Dispatch<React.SetStateAction<boolean>>
+): MenuItem[] => [
+  {
+    key: "1",
+    type: "group",
+    children: [
+      getItem(getLink("Overview", "overview"), "overview", <HiGlobeAlt />),
+      getItem(getLink("Members", "members"), "members", <HiMiniUserGroup />),
+      getItem("About", "sub0", <FaInfo />, [
+        getItem(
+          getLink("Membership", "membership"),
+          "membership",
+          <HiMiniUserPlus />
+        ),
+        getItem(
+          getLink("Governance", "governance"),
+          "governance",
+          <HiBuildingLibrary />
+        ),
+        getItem(
+          getLink("Interactions", "interactions"),
+          "interactions",
+          <HiMiniCubeTransparent />
+        ),
+        getItem(getLink("Modules", "modules"), "modules", <HiMiniInboxStack />),
+      ]),
+      getItem(getLink("Open RFCs", "rfcs"), "rfcs", <MdDocumentScanner />),
+      getItem(
+        getLink("Monthly Calls", "opendev"),
+        "opendev",
+        <HiBuildingLibrary />
       ),
-      "sub1-1",
-      <SiElement />
-    ),
-    getItem(
-      getLink(
-        "Open",
-        "https://matrix.to/#/#fellowship-open-channel:parity.io",
-        "_blank"
+    ],
+  },
+  {
+    type: "divider",
+  },
+  {
+    key: "2",
+    type: "group",
+    children: [
+      getItem("Element", "sub1", <SiElement />, [
+        getItem(
+          getLink(
+            "Members",
+            "https://matrix.to/#/#fellowship-members:parity.io",
+            "_blank"
+          ),
+          "sub1-1",
+          <SiElement />
+        ),
+        getItem(
+          getLink(
+            "Open",
+            "https://matrix.to/#/#fellowship-open-channel:parity.io",
+            "_blank"
+          ),
+          "sub1-2",
+          <IoChatbubblesOutline />
+        ),
+      ]),
+    ],
+  },
+  {
+    type: "divider",
+  },
+  {
+    key: "3",
+    type: "group",
+    children: [
+      getItem(
+        getLink(
+          "RFCs Book",
+          "https://polkadot-fellows.github.io/RFCs/",
+          "_blank"
+        ),
+        "rfcs book",
+        <IoDocumentText />
       ),
-      "sub1-2",
-      <IoChatbubblesOutline />
-    ),
-  ]),
+      getItem(
+        getLink(
+          "Manifesto",
+          "https://github.com/polkadot-fellows/manifesto/blob/0c3df46d76625980b8b48742cb86f4d8fa6dda8d/manifesto.pdf",
+          "_blank"
+        ),
+        "manifesto",
+        <IoDocumentText />
+      ),
+      getItem(
+        <a href="#" onClick={() => setOpenModal(true)}>
+          Resources
+        </a>,
+        "resources",
+        <GrResources />
+      ),
+    ],
+  },
 ]
-
-const linksItems: MenuItem[] = [
-  getItem(
-    getLink("RFCs Book", "https://polkadot-fellows.github.io/RFCs/", "_blank"),
-    "rfcs book",
-    <IoDocumentText />
-  ),
-  getItem(
-    getLink(
-      "Manifesto",
-      "https://github.com/polkadot-fellows/manifesto/blob/0c3df46d76625980b8b48742cb86f4d8fa6dda8d/manifesto.pdf",
-      "_blank"
-    ),
-    "manifesto",
-    <IoDocumentText />
-  ),
-]
-
-const type = "vertical"
 
 export const RouterInner = () => {
+  const [api, contextHolder] = notification.useNotification()
+
   const location = useLocation()
   const [collapsed, setCollapsed] = useState<boolean>(false)
+  const [openModal, setOpenModal] = useState<boolean>(false)
+
+  const [lightClientLoaded, setLightClientLoaded] = useState<boolean>(false)
+
   const [token, setToken] = useState({})
   const { mode, toggleTheme } = useTheme()
-
-  const [openModal, setOpenModal] = useState(false)
 
   const [settings, setSettings] = useLocalStorage("fellowship-settings", {
     themeMode: "light",
@@ -212,14 +255,13 @@ export const RouterInner = () => {
   }, [settings.collapsed])
 
   const size = collapsed ? "2rem" : "2.2rem"
-  const autoWidth = collapsed ? collapsedWidth : uncollapsedWidth
 
   const Svg = collapsed ? (
     <PolkadotIcon
       style={{
         maxHeight: "100%",
         width: "4rem",
-        fill: colorPrimary,
+        fill: mode === "dark" ? darkTheme.accent : lightTheme.accent,
       }}
       width={size}
       height={size}
@@ -230,7 +272,7 @@ export const RouterInner = () => {
         maxHeight: "100%",
         height: "100%",
         width: "13rem",
-        fill: colorPrimary,
+        fill: mode === "dark" ? darkTheme.accent : lightTheme.accent,
       }}
       width={size}
       height={size}
@@ -238,41 +280,44 @@ export const RouterInner = () => {
   )
 
   useEffect(() => {
-    if (mode === "light") {
-      setToken({
-        components: {
-          Menu: {
-            colorPrimary,
-            colorBgContainer,
-            colorFillAlter,
-            /* here is your component tokens */
-          },
-        },
-      })
-    } else {
-      setToken({
-        components: {
-          Menu: {
-            colorPrimary,
-            colorBgContainer: "var(--background-primary)",
-            /* here is your component tokens */
-          },
-        },
-      })
-    }
+    setToken(mode === "light" ? lightTokens : darkTokens)
   }, [mode])
+
+  useEffect(() => {
+    api.warning({
+      key: "lc_status",
+      message: "Light client: Syncing",
+      description: "Synchronizing light client. This may take some time.",
+      placement: "bottomRight",
+      duration: 15,
+    })
+
+    collectiveClient.finalizedBlock$.subscribe((finalizedBlock) => {
+      if (finalizedBlock.number && !lightClientLoaded) {
+        setLightClientLoaded(true)
+      }
+    })
+  }, [])
+
+  useEffect(() => {
+    lightClientLoaded &&
+      api.success({
+        key: "lc_status",
+        message: "Light Client: Completed",
+        description: "Sync is completed. You may go on 😄",
+        placement: "bottomRight",
+        duration: 10,
+      })
+  }, [lightClientLoaded])
 
   return (
     <ConfigProvider theme={token}>
-      <Layout style={{ width: "100vw", height: "100vh" }}>
+      {contextHolder}
+      <Layout>
         <Sider
           style={{
-            overflow: "auto",
-            height: "100vh",
-            position: "fixed",
-            left: 0,
-            top: 0,
-            bottom: 0,
+            background:
+              mode === "dark" ? darkTheme.primary : lightTheme.primary,
           }}
           theme={mode}
           width={uncollapsedWidth}
@@ -297,32 +342,14 @@ export const RouterInner = () => {
             </Link>
           </div>
           <Menu
+            style={{
+              background:
+                mode === "dark" ? darkTheme.primary : lightTheme.primary,
+            }}
             selectedKeys={[location?.pathname.replace("/", "")]}
             theme={mode}
             mode={type}
-            items={mainItems}
-          />
-          <Divider />
-          <Menu
-            selectedKeys={[location?.pathname.replace("/", "")]}
-            theme={mode}
-            mode={type}
-            items={secondaryItems}
-          />
-          <Divider />
-          <Menu
-            theme={mode}
-            mode={type}
-            items={[
-              ...linksItems,
-              getItem(
-                <a href="#" onClick={() => setOpenModal(true)}>
-                  Resources
-                </a>,
-                "resources",
-                <GrResources />
-              ),
-            ]}
+            items={menuItems(setOpenModal)}
           />
           <section
             style={{
@@ -337,7 +364,7 @@ export const RouterInner = () => {
           >
             {mode === "dark" ? (
               <button
-                style={{ color: colorPrimary }}
+                style={{ color: lightTheme.accent }}
                 type="button"
                 onClick={() => {
                   toggleTheme()
@@ -345,19 +372,20 @@ export const RouterInner = () => {
               >
                 <IoSunnyOutline
                   size={iconSize}
-                  style={{ color: colorPrimary }}
+                  style={{ color: lightTheme.accent }}
                 />
               </button>
             ) : (
               <button type="button" onClick={() => toggleTheme()}>
-                <IoMoon size={iconSize} style={{ color: colorPrimary }} />
+                <IoMoon size={iconSize} style={{ color: darkTheme.accent }} />
               </button>
             )}
             <button
-              style={{ color: colorPrimary }}
+              style={{
+                color: mode === "dark" ? darkTheme.accent : lightTheme.accent,
+              }}
               type="button"
               onClick={() => {
-                console.log(settings)
                 setSettings({
                   themeMode: settings.themeMode,
                   collapsed: !collapsed,
@@ -371,7 +399,9 @@ export const RouterInner = () => {
               )}
             </button>
             <button
-              style={{ color: colorPrimary }}
+              style={{
+                color: mode === "dark" ? darkTheme.accent : lightTheme.accent,
+              }}
               type="button"
               onClick={() =>
                 window.open("https://github.com/polkadot-fellows", "_blank")
@@ -379,6 +409,40 @@ export const RouterInner = () => {
             >
               <IoLogoGithub size={iconSize} />
             </button>
+            <Popover
+              placement="right"
+              content={`Light Client ${lightClientLoaded ? "synced" : "syncing"}`}
+            >
+              <button
+                disabled
+                style={{
+                  color: mode === "dark" ? darkTheme.accent : lightTheme.accent,
+                }}
+                type="button"
+              >
+                {!lightClientLoaded ? (
+                  <SyncOutlined
+                    spin
+                    style={{
+                      color:
+                        mode === "dark"
+                          ? darkTheme.warning
+                          : lightTheme.warning,
+                    }}
+                  />
+                ) : (
+                  <FaCircleCheck
+                    size={18}
+                    style={{
+                      color:
+                        mode === "dark"
+                          ? darkTheme.success
+                          : lightTheme.success,
+                    }}
+                  />
+                )}
+              </button>
+            </Popover>
           </section>
           {/* Copyright footer  */}
           <div
@@ -387,7 +451,7 @@ export const RouterInner = () => {
               bottom: 0,
               padding: "2rem 1rem",
               zIndex: 1,
-              color: colorPrimary,
+              color: mode === "dark" ? darkTheme.accent : lightTheme.accent,
               fontWeight: "bolder",
               display: "flex",
               justifyContent: "flex-end",
@@ -405,9 +469,7 @@ export const RouterInner = () => {
             style={{
               overflow: "auto",
               height: "100vh",
-              marginLeft: autoWidth,
-              background: mode === "light" ? lightBg : darkBg,
-              color: mode === "light" ? darkColor : lightColor,
+              color: mode === "light" ? lightTheme.invert : darkTheme.invert,
             }}
           >
             <Routes>

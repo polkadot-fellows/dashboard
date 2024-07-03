@@ -1,22 +1,19 @@
 import { useEffect, useState } from "react"
 import { Polkicon } from "@polkadot-ui/react"
-import { IoCopyOutline } from "react-icons/io5"
 import { AccountName } from "./AccountName"
 import { useLocalStorage, useMediaQuery } from "usehooks-ts"
 
 import type { DotQueries } from "@polkadot-api/descriptors"
-import { dot, collectives } from "@polkadot-api/descriptors"
 import type { Binary } from "polkadot-api"
-import { collectiveClient, polkadotClient } from "./clients"
 
-import { Badge, Table } from "antd"
-import type { TableColumnsType, TableProps } from "antd"
+import { Badge, Drawer, Table } from "antd"
+import type { TableColumnsType } from "antd"
 
-import "./RequestsGrid.scss"
+import { ellipsisFn } from "@polkadot-ui/utils"
+import { MemberDrawer } from "./MemberDrawer"
+import { api, papi } from "./clients"
 
-type OnChange = NonNullable<TableProps<AccountInfoIF>["onChange"]>
-
-export interface AccountInfoIF {
+export type AccountInfoIF = {
   key?: number
   address: string
   rank: number
@@ -24,6 +21,7 @@ export interface AccountInfoIF {
   github?: string
   legal?: string
   riot?: string
+  email?: string
   twitter?: string
   web?: string
 }
@@ -41,27 +39,34 @@ const rankings = [
   { rank: 9, name: "Grand Master", color: "gold" },
 ]
 
-const identityDataToString = (value: number | string | Binary | undefined) =>
+const dataToString = (value: number | string | Binary | undefined) =>
   typeof value === "object" ? value.asText() : value ?? ""
 
 const mapRawIdentity = (
-  // rawIdentity?: DotQueries["Identity"]["IdentityOf"]["Value"]
   rawIdentity?: DotQueries["Identity"]["IdentityOf"]["Value"]
 ) => {
   if (!rawIdentity) return rawIdentity
   const {
-    info: { additional, display },
+    info: { additional, display, email, legal, riot, twitter, web },
   } = rawIdentity[0]
 
-  const display_id = identityDataToString(display.value)
+  const display_id = dataToString(display.value)
   const additionalInfo = Object.fromEntries(
     additional.map(([key, { value }]) => [
-      identityDataToString(key.value!),
-      identityDataToString(value),
+      dataToString(key.value!),
+      dataToString(value),
     ])
   )
 
-  return { ...additionalInfo, display: display_id }
+  return {
+    ...additionalInfo,
+    display: display_id,
+    web: dataToString(web.value),
+    email: dataToString(email.value),
+    legal: dataToString(legal.value),
+    riot: dataToString(riot.value),
+    twitter: dataToString(twitter.value),
+  }
 }
 
 const fellMembers: AccountInfoIF[] = []
@@ -74,14 +79,14 @@ export const RequestsGrid = () => {
     "fellowship-members",
     []
   )
-
+  const [openDrawer, setOpenDrawer] = useState<boolean>(false)
+  const [drawerMember, setDrawerMember] = useState<AccountInfoIF>(
+    {} as AccountInfoIF
+  )
   const isMobile = useMediaQuery("(max-width: 1000px)")
 
   useEffect(() => {
     const fetchMembers = async () => {
-      const api = collectiveClient?.getTypedApi(collectives)
-      const papi = polkadotClient?.getTypedApi(dot)
-
       const collectiveAddresses: any =
         await api?.query.FellowshipCollective.Members.getEntries().then(
           (mems: any[]) =>
@@ -115,7 +120,7 @@ export const RequestsGrid = () => {
     members.forEach((m) => {
       fellMembers.push({
         key: i++,
-        display: m.legal || m.display || "-",
+        display: m.legal || m.display || ellipsisFn(m.address, 6),
         rank: m.rank,
         address: m.address,
       })
@@ -133,9 +138,9 @@ export const RequestsGrid = () => {
         render: (_, r) => (
           <div style={{ display: "flex" }}>
             <div style={{ padding: "0 2rem" }}>
-              <Polkicon address={r.address} copy size={38} />
+              <Polkicon address={r.address} size={38} />
             </div>
-            <AccountName display={r.display || "-"} />
+            <AccountName display={r.display} address={r.address} />
           </div>
         ),
       },
@@ -151,6 +156,7 @@ export const RequestsGrid = () => {
             <div
               style={{
                 display: "flex",
+                justifyContent: "space-between",
               }}
             >
               {!isMobile ? (
@@ -173,11 +179,32 @@ export const RequestsGrid = () => {
   }, [])
 
   return (
-    <Table
-      pagination={false}
-      loading={loading}
-      columns={columns}
-      dataSource={members}
-    />
+    <>
+      <Table
+        style={{ cursor: "pointer" }}
+        onRow={(record) => {
+          return {
+            onClick: async () => {
+              setDrawerMember(record)
+              setOpenDrawer(true)
+            },
+          }
+        }}
+        pagination={false}
+        loading={loading}
+        columns={columns}
+        dataSource={members}
+      />
+      <Drawer
+        onClose={() => {
+          setOpenDrawer(false)
+          setDrawerMember({} as AccountInfoIF)
+        }}
+        open={openDrawer}
+        title={drawerMember?.address && ellipsisFn(drawerMember?.address, 8)}
+      >
+        <MemberDrawer member={drawerMember} />
+      </Drawer>
+    </>
   )
 }

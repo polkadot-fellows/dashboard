@@ -1,3 +1,5 @@
+import { dot, collectives } from "@polkadot-api/descriptors"
+
 /*
  * Global Constants
  */
@@ -29,18 +31,26 @@ const type = "inline"
 
 const lightTheme = {
   primary: "#f8f7f7",
-  invert: "rgb(45 41 45)",
+  invert: "#2D292D",
+  invertTertiarty: "#FF2097",
   accent: "#E6007A",
   colorFillAlter: "#eee",
   colorBgContainer: "#f8f7f7",
+  colorBgElevated: "#E5E5E5",
+  warning: "#FFA500",
+  success: "#32CD32",
 }
 
 const darkTheme = {
-  primary: "rgb(45 41 45)",
+  primary: "#2D292D",
   invert: "#f8f7f7",
+  invertTertiarty: "#FF2097",
   accent: "#E6007A",
-  colorFillAlter: "rgb(36 32 36)",
-  colorBgContainer: "rgb(45 41 45)",
+  colorFillAlter: "#242024",
+  colorBgContainer: "#2D292D",
+  colorBgElevated: "#221F22",
+  warning: "#FFFF00",
+  success: "#32CD32",
 }
 
 // AntD Tokens
@@ -49,13 +59,18 @@ const lightTokens = {
     Menu: {
       itemColor: lightTheme.accent,
       itemSelectedBg: lightTheme.accent,
-      colorPrimary: lightTheme.invert,
-      colorBgContainer: lightTheme.colorBgContainer,
-      colorFillAlter: lightTheme.colorFillAlter,
+    },
+    Drawer: {
+      colorSplit: "rgba(0, 0, 0, 0)",
+      colorIcon: lightTheme.invert,
     },
   },
   token: {
+    colorPrimary: lightTheme.invert,
+    colorFillAlter: lightTheme.colorFillAlter,
+    colorBgElevated: lightTheme.colorBgElevated,
     colorText: lightTheme.invert,
+    colorTextTertiary: lightTheme.invertTertiarty,
     colorBgContainer: lightTheme.colorBgContainer,
     colorBgLayout: lightTheme.colorBgContainer,
   },
@@ -66,15 +81,21 @@ const darkTokens = {
     Menu: {
       itemColor: darkTheme.accent,
       itemSelectedBg: darkTheme.accent,
-      itemSelectedColor: darkTheme.primary,
-      colorPrimary: darkTheme.accent,
-      colorBgContainer: darkTheme.colorBgContainer,
-      colorFillAlter: darkTheme.colorFillAlter,
       darkSubMenuItemBg: darkTheme.colorFillAlter,
+    },
+    Drawer: {
+      colorTextTertiary: darkTheme.invertTertiarty,
+      colorSplit: "rgba(0, 0, 0, 0)",
+      colorIcon: darkTheme.invert,
     },
   },
   token: {
+    itemSelectedColor: darkTheme.primary,
+    colorPrimary: darkTheme.accent,
+    colorFillAlter: darkTheme.colorFillAlter,
+    colorBgElevated: darkTheme.colorBgElevated,
     colorText: darkTheme.invert,
+    colorTextTertiary: lightTheme.invertTertiarty,
     colorBgContainer: darkTheme.colorBgContainer,
     colorBgLayout: darkTheme.colorBgContainer,
   },

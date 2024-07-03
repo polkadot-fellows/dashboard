@@ -1,4 +1,12 @@
-import { ConfigProvider, Divider, Layout, Menu, Modal } from "antd"
+import {
+  ConfigProvider,
+  Divider,
+  Layout,
+  Menu,
+  Modal,
+  notification,
+  Popover,
+} from "antd"
 import type { GetProp, MenuProps } from "antd"
 import {
   HiMiniUserGroup,
@@ -8,6 +16,7 @@ import {
   HiMiniCubeTransparent,
   HiMiniInboxStack,
 } from "react-icons/hi2"
+
 import { GrResources } from "react-icons/gr"
 
 import {
@@ -52,6 +61,9 @@ import { Modules } from "pages/Modules"
 import { Rfc } from "pages/Rfc"
 import { Members } from "pages/Members"
 import { OpenDevMonthlyCalls } from "pages/OpenDevMonthlyCalls"
+import { collectiveClient } from "pages/Members/clients"
+import { FaCircleCheck } from "react-icons/fa6"
+import { SyncOutlined } from "@ant-design/icons"
 
 type MenuItem = GetProp<MenuProps, "items">[number]
 
@@ -222,9 +234,14 @@ const menuItems = (
 ]
 
 export const RouterInner = () => {
+  const [api, contextHolder] = notification.useNotification()
+
   const location = useLocation()
   const [collapsed, setCollapsed] = useState<boolean>(false)
   const [openModal, setOpenModal] = useState<boolean>(false)
+
+  const [lightClientLoaded, setLightClientLoaded] = useState<boolean>(false)
+
   const [token, setToken] = useState({})
   const { mode, toggleTheme } = useTheme()
 
@@ -266,8 +283,36 @@ export const RouterInner = () => {
     setToken(mode === "light" ? lightTokens : darkTokens)
   }, [mode])
 
+  useEffect(() => {
+    api.warning({
+      key: "lc_status",
+      message: "Light client: Syncing",
+      description: "Synchronizing light client. This may take some time.",
+      placement: "bottomRight",
+      duration: 15,
+    })
+
+    collectiveClient.finalizedBlock$.subscribe((finalizedBlock) => {
+      if (finalizedBlock.number && !lightClientLoaded) {
+        setLightClientLoaded(true)
+      }
+    })
+  }, [])
+
+  useEffect(() => {
+    lightClientLoaded &&
+      api.success({
+        key: "lc_status",
+        message: "Light Client: Completed",
+        description: "Sync is completed. You may go on 😄",
+        placement: "bottomRight",
+        duration: 10,
+      })
+  }, [lightClientLoaded])
+
   return (
     <ConfigProvider theme={token}>
+      {contextHolder}
       <Layout>
         <Sider
           style={{
@@ -341,7 +386,6 @@ export const RouterInner = () => {
               }}
               type="button"
               onClick={() => {
-                console.log(settings)
                 setSettings({
                   themeMode: settings.themeMode,
                   collapsed: !collapsed,
@@ -365,6 +409,40 @@ export const RouterInner = () => {
             >
               <IoLogoGithub size={iconSize} />
             </button>
+            <Popover
+              placement="right"
+              content={`Light Client ${lightClientLoaded ? "synced" : "syncing"}`}
+            >
+              <button
+                disabled
+                style={{
+                  color: mode === "dark" ? darkTheme.accent : lightTheme.accent,
+                }}
+                type="button"
+              >
+                {!lightClientLoaded ? (
+                  <SyncOutlined
+                    spin
+                    style={{
+                      color:
+                        mode === "dark"
+                          ? darkTheme.warning
+                          : lightTheme.warning,
+                    }}
+                  />
+                ) : (
+                  <FaCircleCheck
+                    size={18}
+                    style={{
+                      color:
+                        mode === "dark"
+                          ? darkTheme.success
+                          : lightTheme.success,
+                    }}
+                  />
+                )}
+              </button>
+            </Popover>
           </section>
           {/* Copyright footer  */}
           <div

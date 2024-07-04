@@ -20,7 +20,6 @@ import {
 import { GrResources } from "react-icons/gr"
 
 import {
-  PolkadotUrl,
   collapsedWidth,
   uncollapsedWidth,
   lightTheme,
@@ -29,7 +28,7 @@ import {
   darkTokens,
   type,
 } from "consts"
-import { useLocalStorage } from "usehooks-ts"
+import { useLocalStorage, useMediaQuery } from "usehooks-ts"
 
 import PolkadotIcon from "./img/polkadotIcon.svg?react"
 import FellowshipB from "./img/fellowshipLogo_b.svg?react"
@@ -236,8 +235,10 @@ const menuItems = (
 export const RouterInner = () => {
   const [api, contextHolder] = notification.useNotification()
 
+  const isMobile = useMediaQuery("(max-width: 1000px)")
+
   const location = useLocation()
-  const [collapsed, setCollapsed] = useState<boolean>(false)
+  const [collapsed, setCollapsed] = useState<boolean>(isMobile)
   const [openModal, setOpenModal] = useState<boolean>(false)
 
   const [lightClientLoaded, setLightClientLoaded] = useState<boolean>(false)

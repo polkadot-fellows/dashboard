@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This section aims to familiarise developers to the Polkadot Fellowship Dashboard [[GitHub](https://github.com/polkadot-fellows/dashboard), [Demo](https://polkadot-fellows.github.io/dashboard)] for the purpose of contributing to the project.
+This section aims to familiarise developers to the Polkadot Technical Fellowship Dashboard [[GitHub](https://github.com/polkadot-fellows/dashboard), [Demo](https://polkadot-fellows.github.io/dashboard)] for the purpose of contributing to the project.
 
 ## Major Packages Used
 
@@ -12,7 +12,7 @@ This section aims to familiarise developers to the Polkadot Fellowship Dashboard
 
 ## Environment Variables
 
-Optionally apply the following environment variables in an environment file such as `.env` or with `yarn build` to customise the build of Polkadot Fellowship dashboard:
+Optionally apply the following environment variables in an environment file such as `.env` or with `yarn build` to customise the build of Polkadot Technical Fellowship dashboard:
 
 ```
 # display an organisation label in the network bar

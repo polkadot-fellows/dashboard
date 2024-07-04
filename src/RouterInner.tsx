@@ -447,7 +447,7 @@ export const RouterInner = () => {
             style={{
               position: "fixed",
               bottom: 0,
-              padding: "2rem 1rem",
+              padding: collapsed ? "0rem 1rem 1rem" : "0rem 1rem 1rem 0",
               zIndex: 1,
               color: mode === "dark" ? darkTheme.accent : lightTheme.accent,
               fontWeight: "bolder",
@@ -455,10 +455,18 @@ export const RouterInner = () => {
               justifyContent: "flex-end",
               filter: "alpha(opacity=75)",
               opacity: "0.75",
+              width: collapsed ? "auto" : "16rem",
+              alignItems: "center",
             }}
           >
-            {!collapsed ? "Polkadot Fellowship " : ""}©
-            {new Date().getFullYear()}
+            {collapsed ? (
+              ""
+            ) : (
+              <div style={{ textAlign: "center" }}>
+                Polkadot Technical Fellowship
+              </div>
+            )}
+            <div>©{new Date().getFullYear()}</div>
           </div>
         </Sider>
         <Layout>

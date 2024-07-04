@@ -141,24 +141,22 @@ const menuItems = (
     children: [
       getItem(getLink("About", "about"), "about", <HiGlobeAlt />),
       getItem(getLink("Members", "members"), "members", <HiMiniUserGroup />),
-      getItem("About", "sub0", <FaInfo />, [
-        getItem(
-          getLink("Membership", "membership"),
-          "membership",
-          <HiMiniUserPlus />
-        ),
-        getItem(
-          getLink("Governance", "governance"),
-          "governance",
-          <HiBuildingLibrary />
-        ),
-        getItem(
-          getLink("Interactions", "interactions"),
-          "interactions",
-          <HiMiniCubeTransparent />
-        ),
-        getItem(getLink("Modules", "modules"), "modules", <HiMiniInboxStack />),
-      ]),
+      getItem(
+        getLink("Membership", "membership"),
+        "membership",
+        <HiMiniUserPlus />
+      ),
+      getItem(
+        getLink("Governance", "governance"),
+        "governance",
+        <HiBuildingLibrary />
+      ),
+      getItem(
+        getLink("Interactions", "interactions"),
+        "interactions",
+        <HiMiniCubeTransparent />
+      ),
+      getItem(getLink("Modules", "modules"), "modules", <HiMiniInboxStack />),
       getItem(getLink("Open RFCs", "rfcs"), "rfcs", <MdDocumentScanner />),
       getItem(
         getLink("Monthly Calls", "opendev"),
@@ -172,28 +170,27 @@ const menuItems = (
   },
   {
     key: "2",
+    label: "Element",
     type: "group",
     children: [
-      getItem("Element", "sub1", <SiElement />, [
-        getItem(
-          getLink(
-            "Members",
-            "https://matrix.to/#/#fellowship-members:parity.io",
-            "_blank"
-          ),
-          "sub1-1",
-          <SiElement />
+      getItem(
+        getLink(
+          "Members",
+          "https://matrix.to/#/#fellowship-members:parity.io",
+          "_blank"
         ),
-        getItem(
-          getLink(
-            "Open",
-            "https://matrix.to/#/#fellowship-open-channel:parity.io",
-            "_blank"
-          ),
-          "sub1-2",
-          <IoChatbubblesOutline />
+        "sub1-1",
+        <SiElement />
+      ),
+      getItem(
+        getLink(
+          "Open",
+          "https://matrix.to/#/#fellowship-open-channel:parity.io",
+          "_blank"
         ),
-      ]),
+        "sub1-2",
+        <IoChatbubblesOutline />
+      ),
     ],
   },
   {
@@ -357,7 +354,7 @@ export const RouterInner = () => {
               position: "absolute",
               bottom: "6rem",
               width: collapsed ? "6rem" : "16rem",
-              height: collapsed ? "7rem" : "1rem",
+              height: collapsed ? "10rem" : "1rem",
               display: "flex",
               flexDirection: collapsed ? "column" : "row",
               justifyContent: "space-around",

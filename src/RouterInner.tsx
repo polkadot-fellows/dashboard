@@ -9,13 +9,13 @@ import {
 } from "antd"
 import type { GetProp, MenuProps } from "antd"
 import {
-  HiMiniUserGroup,
   HiGlobeAlt,
   HiMiniUserPlus,
   HiBuildingLibrary,
-  HiMiniCubeTransparent,
   HiMiniInboxStack,
 } from "react-icons/hi2"
+
+import { TbPigMoney } from "react-icons/tb"
 
 import { GrResources } from "react-icons/gr"
 
@@ -52,7 +52,7 @@ import { Link, Route, Routes, useLocation } from "react-router-dom"
 
 import { About } from "pages/About"
 import { Membership } from "pages/Membership"
-import { Interactions } from "pages/Interactions"
+import { Salary } from "pages/Salary"
 import { Governance } from "pages/Governance"
 import { Modules } from "pages/Modules"
 import { Rfc } from "pages/Rfc"
@@ -81,8 +81,8 @@ const pages = [
     element: <Governance />,
   },
   {
-    path: "interactions",
-    element: <Interactions />,
+    path: "salary",
+    element: <Salary />,
   },
   {
     path: "modules",
@@ -132,9 +132,9 @@ const getLink = (
       to={link}
       target={target}
     >
-    {label}
-  </Link>
-)
+      {label}
+    </Link>
+  )
 }
 
 const menuItems = (
@@ -150,18 +150,14 @@ const menuItems = (
         "membership",
         <HiMiniUserPlus />
       ),
+      getItem(getLink("Salary", "salary"), "salary", <TbPigMoney />),
       getItem(
         getLink("Governance", "governance"),
         "governance",
         <HiBuildingLibrary />
       ),
-      getItem(
-        getLink("Interactions", "interactions"),
-        "interactions",
-        <HiMiniCubeTransparent />
-      ),
       getItem(getLink("Modules", "modules"), "modules", <HiMiniInboxStack />),
-      getItem(getLink("Open RFCs", "rfcs"), "rfcs", <MdDocumentScanner />),
+      getItem(getLink("RFCs", "rfcs"), "rfcs", <MdDocumentScanner />),
       getItem(
         getLink("Monthly Calls", "opendev"),
         "opendev",
@@ -463,50 +459,50 @@ export const RouterInner = () => {
           </Content>
         </Layout>
       </Layout>
-          <Modal
-            centered
-            open={openModal}
-            onCancel={() => setOpenModal(false)}
-            footer={[]}
-          >
+      <Modal
+        centered
+        open={openModal}
+        onCancel={() => setOpenModal(false)}
+        footer={[]}
+      >
         <h4>Fellowship Admin</h4>
-            <p>
-              {getLink(
+        <p>
+          {getLink(
             "Manifesto",
             "https://github.com/polkadot-fellows/manifesto/blob/0c3df46d76625980b8b48742cb86f4d8fa6dda8d/manifesto.pdf",
-                "_blank"
-              )}
-            </p>
-            <p>
-              {getLink(
+            "_blank"
+          )}
+        </p>
+        <p>
+          {getLink(
             "Pallets and Docs",
             "https://paritytech.github.io/polkadot-sdk/master/polkadot_sdk_docs/index.html",
-                "_blank"
-              )}
-            </p>
-            <p>
-              {getLink(
+            "_blank"
+          )}
+        </p>
+        <p>
+          {getLink(
             "Fellows repo",
             "https://github.com/polkadot-fellows",
-                "_blank"
-              )}
-            </p>
-            <Divider />
+            "_blank"
+          )}
+        </p>
+        <Divider />
         <h4>Fellowship UIs</h4>
-            <p>
-              {getLink(
-                "Polkassembly",
-                "https://collectives.polkassembly.io/",
-                "_blank"
-              )}
-            </p>
-            <p>
-              {getLink(
-                "SubSquare",
-                "https://collectives.subsquare.io/fellowship",
-                "_blank"
-              )}
-            </p>
+        <p>
+          {getLink(
+            "Polkassembly",
+            "https://collectives.polkassembly.io/",
+            "_blank"
+          )}
+        </p>
+        <p>
+          {getLink(
+            "SubSquare",
+            "https://collectives.subsquare.io/fellowship",
+            "_blank"
+          )}
+        </p>
 
         <p>
           {getLink(
@@ -545,7 +541,7 @@ export const RouterInner = () => {
             "_blank"
           )}
         </p>
-          </Modal>
+      </Modal>
     </ConfigProvider>
   )
 }

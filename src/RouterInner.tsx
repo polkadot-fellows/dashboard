@@ -337,7 +337,7 @@ export const RouterInner = () => {
               justifyContent: "center",
             }}
           >
-            <Link style={{ height: "4rem" }} to={PolkadotUrl}>
+            <Link style={{ height: "4rem" }} to={"/"}>
               {Svg}
             </Link>
           </div>

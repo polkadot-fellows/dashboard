@@ -6,7 +6,7 @@ export const Governance = () => {
       <div className="header">
         <h1>Governance</h1>
       </div>
-      <div style={{ padding: "2rem" }}>
+      <div className="pageTop">
         <MdxCode />
       </div>
     </>

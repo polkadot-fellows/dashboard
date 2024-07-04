@@ -6,7 +6,7 @@ export const Interactions = () => {
       <div className="header">
         <h1>Interactions</h1>
       </div>
-      <div style={{ padding: "2rem" }}>
+      <div className="pageTop">
         <MdxCode />
       </div>
     </>

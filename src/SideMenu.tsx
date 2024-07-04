@@ -8,15 +8,15 @@ import {
   Popover,
 } from "antd"
 import type { GetProp, MenuProps } from "antd"
+
 import {
   HiGlobeAlt,
   HiMiniUserPlus,
   HiBuildingLibrary,
   HiMiniInboxStack,
 } from "react-icons/hi2"
-
 import { TbPigMoney } from "react-icons/tb"
-
+import { IoMdContact } from "react-icons/io"
 import { GrResources } from "react-icons/gr"
 
 import {
@@ -177,12 +177,12 @@ const menuItems = (
   },
   {
     key: "3",
-    label: "Element",
-    type: "group",
+    label: "Contact",
+    icon: <IoMdContact />,
     children: [
       getItem(
         getLink(
-          "Members",
+          "Members (Element)",
           "https://matrix.to/#/#fellowship-members:parity.io",
           "_blank"
         ),
@@ -191,7 +191,7 @@ const menuItems = (
       ),
       getItem(
         getLink(
-          "Open",
+          "Open  (Element)",
           "https://matrix.to/#/#fellowship-open-channel:parity.io",
           "_blank"
         ),
@@ -202,7 +202,7 @@ const menuItems = (
   },
 ]
 
-export const RouterInner = () => {
+export const SideMenu = () => {
   const [api, contextHolder] = notification.useNotification()
 
   const isMobile = useMediaQuery("(max-width: 1000px)")
@@ -325,9 +325,9 @@ export const RouterInner = () => {
           <section
             style={{
               position: "absolute",
-              bottom: "6rem",
+              bottom: collapsed ? "3rem" : "6rem",
               width: collapsed ? "6rem" : "16rem",
-              height: collapsed ? "10rem" : "1rem",
+              height: collapsed ? "9rem" : "1rem",
               display: "flex",
               flexDirection: collapsed ? "column" : "row",
               justifyContent: "space-around",

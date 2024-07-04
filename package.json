@@ -5,7 +5,7 @@
   "contributors": [
     "Nikolaos Kontakis<wirednkod@gmail.com>"
   ],
-  "description": "A dashboard about Polkadot Fellowship and everything around it",
+  "description": "A dashboard about Polkadot Technical Fellowship and everything around it",
   "type": "module",
   "license": "GPL-3.0-only",
   "scripts": {

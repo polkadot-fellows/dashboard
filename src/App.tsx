@@ -1,9 +1,9 @@
 import { HashRouter } from "react-router-dom"
 import "./App.scss"
-import { RouterInner } from "RouterInner"
+import { SideMenu } from "SideMenu"
 
 export const App = () => (
   <HashRouter basename="/">
-    <RouterInner />
+    <SideMenu />
   </HashRouter>
 )

@@ -2,7 +2,7 @@
  * Global Constants
  */
 const AppVersion = "0.1.1"
-const DappName = "Polkadot Fellowship Dashboard"
+const DappName = "Polkadot Technical Fellowship Dashboard"
 const PolkadotUrl = "https://polkadot-fellows.github.io/dashboard"
 
 const GithubOwner = "polkadot-fellows"

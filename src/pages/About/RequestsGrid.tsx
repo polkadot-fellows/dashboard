@@ -6,12 +6,12 @@ import { useLocalStorage, useMediaQuery } from "usehooks-ts"
 import type { DotQueries } from "@polkadot-api/descriptors"
 import type { Binary } from "polkadot-api"
 
-import { Badge, Drawer, Table } from "antd"
+import { Badge, Drawer, Popover, Table } from "antd"
 import type { TableColumnsType } from "antd"
 
 import { ellipsisFn } from "@polkadot-ui/utils"
 import { MemberDrawer } from "./MemberDrawer"
-import { api, papi } from "./clients"
+import { api, papi } from "../../clients"
 
 export type AccountInfoIF = {
   key?: number
@@ -146,6 +146,7 @@ export const RequestsGrid = () => {
       },
       {
         title: "Rank",
+        width: 180,
         dataIndex: "rank",
         defaultSortOrder: "descend",
         sorter: (a, b) => a.rank - b.rank,
@@ -162,7 +163,13 @@ export const RequestsGrid = () => {
               {!isMobile ? (
                 <span style={{ marginRight: "1rem" }}>{name}</span>
               ) : null}
-              <Badge count={rank} color={color} showZero />
+              {!isMobile ? (
+                <Badge count={rank} color={color} showZero />
+              ) : (
+                <Popover placement="top" content={name}>
+                  <Badge count={rank} color={color} showZero />
+                </Popover>
+              )}
             </div>
           )
         },
@@ -181,6 +188,7 @@ export const RequestsGrid = () => {
   return (
     <>
       <Table
+        size="small"
         style={{ cursor: "pointer" }}
         onRow={(record) => {
           return {

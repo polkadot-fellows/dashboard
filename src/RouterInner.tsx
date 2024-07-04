@@ -38,7 +38,6 @@ import {
   IoMoon,
   IoLogoGithub,
   IoChatbubblesOutline,
-  IoDocumentText,
 } from "react-icons/io5"
 import {
   BsArrowsCollapseVertical,
@@ -47,7 +46,6 @@ import {
 
 import { MdDocumentScanner } from "react-icons/md"
 import { SiElement } from "react-icons/si"
-import { FaInfo } from "react-icons/fa"
 
 import { useEffect, useState } from "react"
 import { Link, Route, Routes, useLocation } from "react-router-dom"
@@ -126,11 +124,23 @@ const getLink = (
   label: string,
   link: string = "#",
   target: "_parent" | "_blank" = "_parent"
-): React.ReactNode => (
-  <Link to={link} target={target}>
+): React.ReactNode => {
+  const { mode } = useTheme()
+
+  return (
+    <Link
+      style={
+        target === "_blank"
+          ? { color: mode === "dark" ? darkTheme.invert : lightTheme.invert }
+          : {}
+      }
+      to={link}
+      target={target}
+    >
     {label}
   </Link>
 )
+}
 
 const menuItems = (
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>
@@ -163,13 +173,20 @@ const menuItems = (
         "opendev",
         <HiBuildingLibrary />
       ),
+      getItem(
+        <a href={location.toString()} onClick={() => setOpenModal(true)}>
+          Resources
+        </a>,
+        "resources",
+        <GrResources />
+      ),
     ],
   },
   {
     type: "divider",
   },
   {
-    key: "2",
+    key: "3",
     label: "Element",
     type: "group",
     children: [
@@ -190,40 +207,6 @@ const menuItems = (
         ),
         "sub1-2",
         <IoChatbubblesOutline />
-      ),
-    ],
-  },
-  {
-    type: "divider",
-  },
-  {
-    key: "3",
-    type: "group",
-    children: [
-      getItem(
-        getLink(
-          "RFCs Book",
-          "https://polkadot-fellows.github.io/RFCs/",
-          "_blank"
-        ),
-        "rfcs book",
-        <IoDocumentText />
-      ),
-      getItem(
-        getLink(
-          "Manifesto",
-          "https://github.com/polkadot-fellows/manifesto/blob/0c3df46d76625980b8b48742cb86f4d8fa6dda8d/manifesto.pdf",
-          "_blank"
-        ),
-        "manifesto",
-        <IoDocumentText />
-      ),
-      getItem(
-        <a href="#" onClick={() => setOpenModal(true)}>
-          Resources
-        </a>,
-        "resources",
-        <GrResources />
       ),
     ],
   },
@@ -484,37 +467,38 @@ export const RouterInner = () => {
               })}
             </Routes>
           </Content>
-
+        </Layout>
+      </Layout>
           <Modal
             centered
             open={openModal}
             onCancel={() => setOpenModal(false)}
             footer={[]}
           >
-            <h4>Useful Links</h4>
+        <h4>Fellowship Admin</h4>
             <p>
               {getLink(
-                "Governance v2",
-                "https://medium.com/polkadot-network/gov2-polkadots-next-generation-of-decentralised-governance-4d9ef657d11b",
+            "Manifesto",
+            "https://github.com/polkadot-fellows/manifesto/blob/0c3df46d76625980b8b48742cb86f4d8fa6dda8d/manifesto.pdf",
                 "_blank"
               )}
             </p>
             <p>
               {getLink(
-                "Democracy Pallet",
-                "https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/democracy/README.md",
+            "Pallets and Docs",
+            "https://paritytech.github.io/polkadot-sdk/master/polkadot_sdk_docs/index.html",
                 "_blank"
               )}
             </p>
             <p>
               {getLink(
-                "Polkadot Wiki - Technical Fellowship",
-                "https://wiki.polkadot.network/docs/learn-polkadot-technical-fellowship",
+            "Fellows repo",
+            "https://github.com/polkadot-fellows",
                 "_blank"
               )}
             </p>
             <Divider />
-            <h4>Alternative Fellowship UIs</h4>
+        <h4>Fellowship UIs</h4>
             <p>
               {getLink(
                 "Polkassembly",
@@ -529,9 +513,45 @@ export const RouterInner = () => {
                 "_blank"
               )}
             </p>
+
+        <p>
+          {getLink(
+            "PolkadotJS Collectives",
+            "https://dotapps-io.ipns.dweb.link/?rpc=wss%3A%2F%2Fpolkadot-collectives-rpc.polkadot.io#/explorer",
+            "_blank"
+          )}
+        </p>
+        <Divider />
+        <h4>Fellowship Onboarding</h4>
+        <p>
+          {getLink(
+            "Polkadot Blockchain Academy",
+            "https://polkadot.network/development/blockchain-academy/",
+            "_blank"
+          )}
+        </p>
+        <p>
+          {getLink(
+            "Kudos",
+            "https://www.morekudos.com/explore/open-contributions-for-polkadot-sdk",
+            "_blank"
+          )}
+        </p>
+        <p>
+          {getLink(
+            "Polkadot SDK Mentor issues",
+            "https://mentor.tasty.limo/",
+            "_blank"
+          )}
+        </p>
+        <p>
+          {getLink(
+            "Polkadot Project Ideas",
+            "https://gist.github.com/xlc/ebc2476afb7ecacdaa5ce95ae3b991c8#polkadot-project-ideas",
+            "_blank"
+          )}
+        </p>
           </Modal>
-        </Layout>
-      </Layout>
     </ConfigProvider>
   )
 }

@@ -56,9 +56,8 @@ import { Interactions } from "pages/Interactions"
 import { Governance } from "pages/Governance"
 import { Modules } from "pages/Modules"
 import { Rfc } from "pages/Rfc"
-import { Members } from "pages/Members"
 import { OpenDevMonthlyCalls } from "pages/OpenDevMonthlyCalls"
-import { collectiveClient } from "pages/Members/clients"
+import { collectiveClient } from "./clients"
 import { FaCircleCheck } from "react-icons/fa6"
 import { SyncOutlined } from "@ant-design/icons"
 
@@ -88,10 +87,6 @@ const pages = [
   {
     path: "modules",
     element: <Modules />,
-  },
-  {
-    path: "members",
-    element: <Members />,
   },
   {
     path: "rfcs",
@@ -150,7 +145,6 @@ const menuItems = (
     type: "group",
     children: [
       getItem(getLink("About", "about"), "about", <HiGlobeAlt />),
-      getItem(getLink("Members", "members"), "members", <HiMiniUserGroup />),
       getItem(
         getLink("Membership", "membership"),
         "membership",

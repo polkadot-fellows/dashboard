@@ -13,7 +13,7 @@ import { Linker } from "./Linker"
 import { SiElement } from "react-icons/si"
 
 // import { Card, Col, Row, Statistic } from "antd"
-// import { papi } from "./clients"
+// import { papi } from "../../clients"
 // import { useEffect } from "react"
 
 type MemberDrawerProps = {

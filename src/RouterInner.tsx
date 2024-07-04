@@ -52,7 +52,7 @@ import { FaInfo } from "react-icons/fa"
 import { useEffect, useState } from "react"
 import { Link, Route, Routes, useLocation } from "react-router-dom"
 
-import { Overview } from "pages/Overview"
+import { About } from "pages/About"
 import { Membership } from "pages/Membership"
 import { Interactions } from "pages/Interactions"
 import { Governance } from "pages/Governance"
@@ -69,11 +69,11 @@ type MenuItem = GetProp<MenuProps, "items">[number]
 const pages = [
   {
     path: "",
-    element: <Overview />,
+    element: <About />,
   },
   {
-    path: "overview",
-    element: <Overview />,
+    path: "about",
+    element: <About />,
   },
   {
     path: "membership",
@@ -139,7 +139,7 @@ const menuItems = (
     key: "1",
     type: "group",
     children: [
-      getItem(getLink("Overview", "overview"), "overview", <HiGlobeAlt />),
+      getItem(getLink("About", "about"), "about", <HiGlobeAlt />),
       getItem(getLink("Members", "members"), "members", <HiMiniUserGroup />),
       getItem("About", "sub0", <FaInfo />, [
         getItem(

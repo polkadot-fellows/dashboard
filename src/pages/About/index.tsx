@@ -1,10 +1,10 @@
 import MdxCode from "./index.mdx"
 
-export const Overview = () => {
+export const About = () => {
   return (
     <>
       <div className="header">
-        <h1>Overview</h1>
+        <h1>About</h1>
       </div>
       <div style={{ padding: "2rem" }}>
         <MdxCode />

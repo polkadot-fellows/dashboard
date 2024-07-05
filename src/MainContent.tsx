@@ -60,17 +60,17 @@ import { OpenDevMonthlyCalls } from "pages/OpenDevMonthlyCalls"
 import { collectiveClient } from "./clients"
 import { FaCircleCheck } from "react-icons/fa6"
 import { SyncOutlined } from "@ant-design/icons"
-
+// import { ConnectModal } from "ConnectModal"
 type MenuItem = GetProp<MenuProps, "items">[number]
 
-const pages = [
+const pages = (lcStatus: boolean) => [
   {
     path: "",
-    element: <About />,
+    element: <About lcStatus={lcStatus} />,
   },
   {
     path: "about",
-    element: <About />,
+    element: <About lcStatus={lcStatus} />,
   },
   {
     path: "membership",
@@ -202,7 +202,7 @@ const menuItems = (
   },
 ]
 
-export const SideMenu = () => {
+export const MainContent = () => {
   const [api, contextHolder] = notification.useNotification()
 
   const isMobile = useMediaQuery("(max-width: 1000px)")
@@ -210,6 +210,7 @@ export const SideMenu = () => {
   const location = useLocation()
   const [collapsed, setCollapsed] = useState<boolean>(isMobile)
   const [openModal, setOpenModal] = useState<boolean>(false)
+  // const [extModal, setExtModal] = useState<boolean>(false)
 
   const [lightClientLoaded, setLightClientLoaded] = useState<boolean>(false)
 
@@ -312,6 +313,7 @@ export const SideMenu = () => {
               {Svg}
             </Link>
           </div>
+          {/* <Button onClick={() => setExtModal(true)}>Connect</Button> */}
           <Menu
             style={{
               background:
@@ -452,7 +454,7 @@ export const SideMenu = () => {
             }}
           >
             <Routes>
-              {pages.map(({ path, element }, i) => {
+              {pages(lightClientLoaded).map(({ path, element }, i) => {
                 return <Route key={`page_${i}`} path={path} element={element} />
               })}
             </Routes>
@@ -542,6 +544,7 @@ export const SideMenu = () => {
           )}
         </p>
       </Modal>
+      {/* <ConnectModal isOpen={extModal} setOpen={setExtModal} /> */}
     </ConfigProvider>
   )
 }

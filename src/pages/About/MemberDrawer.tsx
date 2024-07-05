@@ -1,6 +1,6 @@
 import { Polkicon } from "@polkadot-ui/react"
 import { AccountName } from "./AccountName"
-import { ellipsisFn } from "@polkadot-ui/utils"
+import { ellipsisFn, transformToBaseUnit } from "@polkadot-ui/utils"
 import { darkTheme, lightTheme } from "consts"
 import { useTheme } from "../../contexts/Themes"
 import type { AccountInfoIF } from "./RequestsGrid"
@@ -12,12 +12,13 @@ import { TbWorldWww } from "react-icons/tb"
 import { Linker } from "./Linker"
 import { SiElement } from "react-icons/si"
 
-// import { Card, Col, Row, Statistic } from "antd"
-// import { papi } from "../../clients"
-// import { useEffect } from "react"
+import { Card, Col, Row, Skeleton, Statistic } from "antd"
+import { api } from "../../clients"
+import { useEffect, useState } from "react"
 
 type MemberDrawerProps = {
   member: AccountInfoIF
+  lcStatus: boolean
 }
 
 type MemberDetailsProps = {
@@ -25,6 +26,9 @@ type MemberDetailsProps = {
 }
 
 const iconSize = 24
+const block = true
+const size = "small"
+const precision = 3
 
 const MemberDetails = ({ address }: MemberDetailsProps) => (
   <>
@@ -36,21 +40,33 @@ const MemberDetails = ({ address }: MemberDetailsProps) => (
   </>
 )
 
-export const MemberDrawer = ({ member }: MemberDrawerProps) => {
+export const MemberDrawer = ({ member, lcStatus }: MemberDrawerProps) => {
   const { mode } = useTheme()
+  const themeColor = (type: "primary" | "accent") =>
+    mode === "dark" ? darkTheme[type] : lightTheme[type]
   const { address, display, web, twitter, email, riot } = member
 
-  // const [balance, setBalance] = useState()
+  const [reserved, setReserved] = useState<string>("")
+  const [transferrable, setTransferrable] = useState<string>("")
+  const [total, setTotal] = useState<string>("")
 
-  // useEffect(() => {
-  //   const getBalance = async () => {
-  //     const bal = await papi.query.System.Account.getValue(address)
-  //     console.log("balance?", bal?.data)
-  //   }
-  //   console.log("address", address)
-
-  //   getBalance()
-  // }, [address])
+  useEffect(() => {
+    const getBalance = async () => {
+      const bal = await api.query.System.Account.getValue(address)
+      if (bal?.data) {
+        const { free, reserved } = bal.data
+        setTransferrable(transformToBaseUnit(free.toString(), 10))
+        setReserved(transformToBaseUnit(reserved.toString(), 10))
+        setTotal(transformToBaseUnit((free + reserved).toString(), 10))
+      }
+    }
+    getBalance()
+    return () => {
+      setTransferrable("")
+      setReserved("")
+      setTotal("")
+    }
+  }, [address])
 
   return member && Object.keys(member)?.length ? (
     <>
@@ -58,9 +74,7 @@ export const MemberDrawer = ({ member }: MemberDrawerProps) => {
         copy
         size={72}
         address={address}
-        outerColor={
-          mode === "dark" ? darkTheme.invert : lightTheme.colorFillAlter
-        }
+        outerColor={themeColor("primary")}
       />
       <div
         style={{
@@ -124,34 +138,83 @@ export const MemberDrawer = ({ member }: MemberDrawerProps) => {
           />
         )}
       </div>
-      {/* <Row gutter={16}>
-        <Col span={12}>
-          <Card>
-            <Statistic
-              title="Active Salary"
-              value={11.28}
-              precision={2}
-              valueStyle={{
-                color: mode === "dark" ? darkTheme.accent : lightTheme.accent,
-              }}
-              suffix="DOT"
-            />
+      <Row gutter={[16, 16]}>
+        <Col span={24}>
+          <Card
+            size={size}
+            title="Total"
+            style={{
+              color: themeColor("accent"),
+            }}
+          >
+            {!total || !lcStatus ? (
+              <Skeleton.Input size="small" active block={block} />
+            ) : (
+              <Statistic
+                prefix="≃"
+                value={total}
+                precision={precision}
+                valueStyle={{
+                  textAlign: "center",
+                  fontSize: "1.6rem",
+                  color: themeColor("accent"),
+                }}
+                suffix="DOT"
+              />
+            )}
           </Card>
         </Col>
         <Col span={12}>
-          <Card>
-            <Statistic
-              title="Passive Salary"
-              value={9.3}
-              precision={2}
-              valueStyle={{
-                color: mode === "dark" ? darkTheme.accent : lightTheme.accent,
-              }}
-              suffix="DOT"
-            />
+          <Card
+            size={size}
+            title="Transferrable"
+            style={{
+              color: themeColor("accent"),
+            }}
+          >
+            {!transferrable || !lcStatus ? (
+              <Skeleton.Input size="small" active block={block} />
+            ) : (
+              <Statistic
+                prefix="≃"
+                value={transferrable}
+                precision={precision}
+                valueStyle={{
+                  textAlign: "center",
+                  fontSize: "1.4rem",
+                  color: themeColor("accent"),
+                }}
+                suffix="DOT"
+              />
+            )}
           </Card>
         </Col>
-      </Row> */}
+        <Col span={12}>
+          <Card
+            size={size}
+            title="Reserved"
+            style={{
+              color: themeColor("accent"),
+            }}
+          >
+            {!reserved || !lcStatus ? (
+              <Skeleton.Input size="small" active block={block} />
+            ) : (
+              <Statistic
+                prefix="≃"
+                value={reserved}
+                precision={precision}
+                valueStyle={{
+                  textAlign: "center",
+                  fontSize: "1.4rem",
+                  color: themeColor("accent"),
+                }}
+                suffix="DOT"
+              />
+            )}
+          </Card>
+        </Col>
+      </Row>
     </>
   ) : null
 }

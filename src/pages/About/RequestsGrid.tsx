@@ -59,7 +59,11 @@ const mapRawIdentity = (
 
 const fellMembers: AccountInfoIF[] = []
 
-export const RequestsGrid = () => {
+type Props = {
+  lcStatus: boolean
+}
+
+export const RequestsGrid = ({ lcStatus }: Props) => {
   const [loading, setLoading] = useState<boolean>(true)
   const [members, setMembers] = useState<AccountInfoIF[]>([])
   const [columns, setColumns] = useState<TableColumnsType<AccountInfoIF>>([])
@@ -199,7 +203,7 @@ export const RequestsGrid = () => {
         open={openDrawer}
         title={drawerMember?.address && ellipsisFn(drawerMember?.address, 8)}
       >
-        <MemberDrawer member={drawerMember} />
+        <MemberDrawer member={drawerMember} lcStatus={lcStatus} />
       </Drawer>
     </>
   )

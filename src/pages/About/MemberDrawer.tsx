@@ -1,12 +1,16 @@
 import { Polkicon } from "@polkadot-ui/react"
 import { AccountName } from "./AccountName"
 import { ellipsisFn, transformToBaseUnit } from "@polkadot-ui/utils"
-import { darkTheme, lightTheme } from "consts"
+import { darkTheme, lightTheme, rankInfo } from "consts"
 import { useTheme } from "../../contexts/Themes"
 import type { AccountInfoIF } from "./RequestsGrid"
 import copy from "copy-to-clipboard"
 
-import { IoCopyOutline, IoMailOutline } from "react-icons/io5"
+import {
+  IoCopyOutline,
+  IoCheckmarkCircleSharp,
+  IoMailOutline,
+} from "react-icons/io5"
 import { FaXTwitter } from "react-icons/fa6"
 import { TbWorldWww } from "react-icons/tb"
 import { Linker } from "./Linker"
@@ -28,17 +32,45 @@ type MemberDetailsProps = {
 const iconSize = 24
 const block = true
 const size = "small"
-const precision = 3
+const precision = 2
 
-const MemberDetails = ({ address }: MemberDetailsProps) => (
-  <>
-    <div>{ellipsisFn(address, 6)}</div>
-    <IoCopyOutline
-      style={{ marginLeft: "0.75rem", cursor: "pointer" }}
-      onClick={() => copy(address)}
-    />
-  </>
-)
+// TODO - fix the chain units to be loaded from the chain and not hardcoded
+const roundUp = (num: bigint): string => {
+  const n = parseFloat(transformToBaseUnit(num.toString(), 10))
+  const prec = Math.pow(10, precision)
+  return (Math.ceil(n * prec) / prec).toString()
+}
+
+const MemberDetails = ({ address }: MemberDetailsProps) => {
+  const [copyClicked, setCopyClicked] = useState<boolean>(false)
+
+  useEffect(() => {
+    if (copyClicked) {
+      setTimeout(() => {
+        setCopyClicked(false)
+      }, 2000)
+    }
+  }, [copyClicked])
+
+  const props = {
+    style: { marginLeft: "0.75rem", cursor: "pointer" },
+    onClick: () => {
+      copy(address)
+      setCopyClicked(true)
+    },
+  }
+
+  return (
+    <>
+      <div>{ellipsisFn(address, 6)}</div>
+      {copyClicked ? (
+        <IoCheckmarkCircleSharp {...props} />
+      ) : (
+        <IoCopyOutline {...props} />
+      )}
+    </>
+  )
+}
 
 export const MemberDrawer = ({ member, lcStatus }: MemberDrawerProps) => {
   const { mode } = useTheme()
@@ -55,9 +87,10 @@ export const MemberDrawer = ({ member, lcStatus }: MemberDrawerProps) => {
       const bal = await api.query.System.Account.getValue(address)
       if (bal?.data) {
         const { free, reserved } = bal.data
-        setTransferrable(transformToBaseUnit(free.toString(), 10))
-        setReserved(transformToBaseUnit(reserved.toString(), 10))
-        setTotal(transformToBaseUnit((free + reserved).toString(), 10))
+
+        setTransferrable(roundUp(free))
+        setReserved(roundUp(reserved))
+        setTotal(roundUp(free + reserved))
       }
     }
     getBalance()
@@ -83,29 +116,25 @@ export const MemberDrawer = ({ member, lcStatus }: MemberDrawerProps) => {
           alignItems: "center",
         }}
       >
-        {display ? (
+        <div
+          style={{
+            margin: "1rem 0",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          {display && <AccountName display={display} address={address} />}
           <div
             style={{
-              margin: "1rem 0",
               display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
+              flexDirection: "row",
+              justifyContent: "center",
             }}
           >
-            <AccountName display={display} address={address} />
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "center",
-              }}
-            >
-              <MemberDetails address={address} />
-            </div>
+            <MemberDetails address={address} />
           </div>
-        ) : (
-          <MemberDetails address={address} />
-        )}
+        </div>
       </div>
       <div
         style={{
@@ -212,6 +241,27 @@ export const MemberDrawer = ({ member, lcStatus }: MemberDrawerProps) => {
                 suffix="DOT"
               />
             )}
+          </Card>
+        </Col>
+        <Col span={24}>
+          <Card
+            size={size}
+            title="Salary"
+            style={{
+              color: themeColor("accent"),
+            }}
+          >
+            <Statistic
+              prefix="≃"
+              value={rankInfo[member.rank].salary / 12}
+              precision={precision}
+              valueStyle={{
+                textAlign: "center",
+                fontSize: "1.4rem",
+                color: themeColor("accent"),
+              }}
+              suffix="USDT"
+            />
           </Card>
         </Col>
       </Row>

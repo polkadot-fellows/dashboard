@@ -50,17 +50,17 @@ const rankInfo: RankInfoType[] = [
     dan: "VI",
     name: "Grand Architect",
     color: "volcano",
-    salary: 2000000,
+    salary: 200000,
   },
-  { rank: 7, dan: "VII", name: "Free Master", color: "pink", salary: 2000000 },
+  { rank: 7, dan: "VII", name: "Free Master", color: "pink", salary: 200000 },
   {
     rank: 8,
     dan: "VIII",
     name: "Master Constant",
     color: "magenta",
-    salary: 2000000,
+    salary: 200000,
   },
-  { rank: 9, dan: "IX", name: "Grand Master", color: "gold", salary: 2000000 },
+  { rank: 9, dan: "IX", name: "Grand Master", color: "gold", salary: 200000 },
 ]
 
 /*

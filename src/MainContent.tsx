@@ -314,7 +314,7 @@ export const MainContent = () => {
               {Svg}
             </Link>
           </div>
-          <Button onClick={() => setExtModal(true)}>Connect</Button>
+          {/* <Button onClick={() => setExtModal(true)}>Connect</Button> */}
           <Menu
             style={{
               background:

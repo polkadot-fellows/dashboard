@@ -61,7 +61,7 @@ import { OpenDevMonthlyCalls } from "pages/OpenDevMonthlyCalls"
 import { collectiveClient } from "./clients"
 import { FaCircleCheck } from "react-icons/fa6"
 import { SyncOutlined } from "@ant-design/icons"
-import { ConnectModal } from "ConnectModal"
+// import { ConnectModal } from "ConnectModal"
 type MenuItem = GetProp<MenuProps, "items">[number]
 
 const pages = (lcStatus: boolean) => [
@@ -211,7 +211,7 @@ export const MainContent = () => {
   const location = useLocation()
   const [collapsed, setCollapsed] = useState<boolean>(isMobile)
   const [openModal, setOpenModal] = useState<boolean>(false)
-  const [extModal, setExtModal] = useState<boolean>(false)
+  // const [extModal, setExtModal] = useState<boolean>(false)
 
   const [lightClientLoaded, setLightClientLoaded] = useState<boolean>(false)
 
@@ -545,7 +545,7 @@ export const MainContent = () => {
           )}
         </p>
       </Modal>
-      <ConnectModal isOpen={extModal} setOpen={setExtModal} />
+      {/* <ConnectModal isOpen={extModal} setOpen={setExtModal} /> */}
     </ConfigProvider>
   )
 }

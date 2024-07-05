@@ -12,6 +12,7 @@ import type { TableColumnsType } from "antd"
 import { ellipsisFn } from "@polkadot-ui/utils"
 import { MemberDrawer } from "./MemberDrawer"
 import { api, papi } from "../../clients"
+import { rankInfo } from "consts"
 
 export type AccountInfoIF = {
   key?: number
@@ -25,19 +26,6 @@ export type AccountInfoIF = {
   twitter?: string
   web?: string
 }
-
-const rankings = [
-  { rank: 0, name: "Candidate", color: "lime" },
-  { rank: 1, name: "Member", color: "blue" },
-  { rank: 2, name: "Proficient", color: "cyan" },
-  { rank: 3, name: "Fellow", color: "green" },
-  { rank: 4, name: "Architect", color: "yellow" },
-  { rank: 5, name: "Architect Adept", color: "orange" },
-  { rank: 6, name: "Grand Architect", color: "volcano" },
-  { rank: 7, name: "Free Master", color: "pink" },
-  { rank: 8, name: "Master Constant", color: "magenta" },
-  { rank: 9, name: "Grand Master", color: "gold" },
-]
 
 const dataToString = (value: number | string | Binary | undefined) =>
   typeof value === "object" ? value.asText() : value ?? ""
@@ -152,7 +140,7 @@ export const RequestsGrid = () => {
         sorter: (a, b) => a.rank - b.rank,
         key: "rank",
         render: (_, r) => {
-          const { name, rank, color } = rankings[r.rank]
+          const { name, rank, color } = rankInfo[r.rank]
           return (
             <div
               style={{

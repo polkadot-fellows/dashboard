@@ -23,6 +23,46 @@ const collapsedWidth = "6rem"
 const uncollapsedWidth = "16rem"
 const type = "inline"
 
+type RankInfoType = {
+  rank: number
+  dan: string
+  name: string
+  color: string
+  salary: number
+}
+
+// Page constants
+const rankInfo: RankInfoType[] = [
+  { rank: 0, dan: "", name: "Candidate", color: "lime", salary: 0 },
+  { rank: 1, dan: "I", name: "Member", color: "blue", salary: 10000 },
+  { rank: 2, dan: "II", name: "Proficient", color: "cyan", salary: 20000 },
+  { rank: 3, dan: "III", name: "Fellow", color: "green", salary: 80000 },
+  { rank: 4, dan: "IV", name: "Architect", color: "yellow", salary: 120000 },
+  {
+    rank: 5,
+    dan: "V",
+    name: "Architect Adept",
+    color: "orange",
+    salary: 160000,
+  },
+  {
+    rank: 6,
+    dan: "VI",
+    name: "Grand Architect",
+    color: "volcano",
+    salary: 2000000,
+  },
+  { rank: 7, dan: "VII", name: "Free Master", color: "pink", salary: 2000000 },
+  {
+    rank: 8,
+    dan: "VIII",
+    name: "Master Constant",
+    color: "magenta",
+    salary: 2000000,
+  },
+  { rank: 9, dan: "IX", name: "Grand Master", color: "gold", salary: 2000000 },
+]
+
 /*
  * colors
  */
@@ -119,6 +159,9 @@ export {
   collapsedWidth,
   uncollapsedWidth,
   type,
+  // site details
+  rankInfo,
+  // colors
   lightTheme,
   darkTheme,
   lightTokens,

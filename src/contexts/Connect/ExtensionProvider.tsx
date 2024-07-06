@@ -1,9 +1,12 @@
 import type { InjectedExtension } from "polkadot-api/pjs-signer"
 import { connectInjectedExtension } from "polkadot-api/pjs-signer"
-import type { PropsWithChildren } from "react"
+import type { Dispatch, PropsWithChildren, SetStateAction } from "react"
 import { useSyncExternalStore } from "react"
-import { extensionCtx, useAvailableExtensions } from "./extensionCtx"
+import { extensionCtx } from "./extensionCtx"
+import { getExtensionIcon } from "@polkadot-ui/assets/extensions"
+import { useAvailableExtensions } from "./hooks"
 
+const { Provider } = extensionCtx
 const getExtensionsStore = () => {
   let connectedExtensions = new Map<string, InjectedExtension>()
   const getSnapshot = () => connectedExtensions
@@ -23,11 +26,15 @@ const getExtensionsStore = () => {
   }
 
   let isRunning = false
-  const onToggleExtension = (name: string) => {
+  const onToggleExtension = (
+    name: string,
+    setSelected: Dispatch<SetStateAction<string | null>>
+  ) => {
     if (isRunning) return
 
     if (connectedExtensions.has(name)) {
       connectedExtensions.delete(name)
+      setSelected(null)
       return update()
     }
 
@@ -55,36 +62,59 @@ const getExtensionsStore = () => {
 const extensionsStore = getExtensionsStore()
 extensionsStore.subscribe(Function.prototype as any)
 
-export const ExtensionProvider: React.FC<PropsWithChildren> = ({
-  children,
-}) => {
-  const availableExtensions = useAvailableExtensions()
-  const selectedExtensions = useSyncExternalStore(
+export const ExtensionProvider: React.FC<
+  PropsWithChildren<{
+    setSelected: Dispatch<SetStateAction<string | null>>
+  }>
+> = ({ children, setSelected }) => {
+  const availXts = useAvailableExtensions()
+  const selXts = useSyncExternalStore(
     extensionsStore.subscribe,
     extensionsStore.getSnapshot
   )
 
-  if (availableExtensions.length === 0)
-    return <div>No extension provider detected</div>
+  if (availXts.length === 0) return <div>No extension detected</div>
 
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
-      {availableExtensions.map((extensionName) => (
-        <button
-          style={{
-            fontStyle: selectedExtensions.has(extensionName) ? "italic" : "",
-          }}
-          onClick={() => {
-            extensionsStore.onToggleExtension(extensionName)
-          }}
-          key={extensionName}
-        >
-          {extensionName}
-        </button>
-      ))}
-      <extensionCtx.Provider value={[...selectedExtensions.values()]}>
-        {selectedExtensions.size ? children : null}
-      </extensionCtx.Provider>
-    </div>
+    <>
+      <div>Extensions</div>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "1rem",
+        }}
+      >
+        {availXts.map((xtName) => {
+          const ExtensionIcon = getExtensionIcon(xtName)
+          return (
+            <div key={xtName} style={{ flex: "1 1 10rem" }}>
+              <button
+                style={{
+                  padding: "2rem",
+                  width: "15rem",
+                  height: "10rem",
+                  border: "0.1rem solid #8A8A8A",
+                  borderRadius: "0.5rem",
+                  background: selXts.has(xtName) ? "#CACACA" : "",
+                }}
+                onClick={() => {
+                  extensionsStore.onToggleExtension(xtName, setSelected)
+                }}
+                key={xtName}
+              >
+                {ExtensionIcon && <ExtensionIcon />}
+                {xtName === "subwallet-js"
+                  ? "Subwallet"
+                  : xtName.charAt(0).toUpperCase() + xtName.slice(1)}
+              </button>
+            </div>
+          )
+        })}
+      </div>
+      <Provider value={[...selXts.values()]}>
+        {selXts.size ? children : null}
+      </Provider>
+    </>
   )
 }

@@ -1,2 +1,2 @@
-export { useSelectedExtensions, useAvailableExtensions } from "./extensionCtx"
-export { useSelectedAccount } from "./accountCtx"
+export { AccountProvider } from "./AccountProvider"
+export { ExtensionProvider } from "./ExtensionProvider"

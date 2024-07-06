@@ -1,9 +1,9 @@
-import type { InjectedPolkadotAccount } from "polkadot-api/dist/reexports/pjs-signer"
+import type { InjectedPolkadotAccount } from "polkadot-api/pjs-signer"
 import type { PropsWithChildren } from "react"
 import { useState, useEffect } from "react"
 
 import { SelectedAccountCtx } from "./accountCtx"
-import { useSelectedExtensions } from "./extensionCtx"
+import { useSelectedExtensions } from "./hooks"
 
 export const SignerCtx: React.FC<
   PropsWithChildren<{ account: string | null }>
@@ -18,7 +18,7 @@ export const SignerCtx: React.FC<
       return
     }
 
-    const separator = account.indexOf("-")
+    const separator = account.indexOf("|")
     const address = account.slice(0, separator)
     const extensionName = account.slice(separator + 1)
 

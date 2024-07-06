@@ -6,11 +6,12 @@ import { SignerCtx } from "./signerCtx"
 
 import { ellipsisFn } from "@polkadot-ui/utils"
 import { getExtensionIcon } from "@polkadot-ui/assets/extensions"
+import type { SelectedAccountType } from "./types"
 
 const Accounts: React.FC<{
   extension: InjectedExtension
-  setSelectedAccount: React.Dispatch<React.SetStateAction<string | null>>
-  selectedAccount: string | null
+  setSelectedAccount: React.Dispatch<React.SetStateAction<SelectedAccountType>>
+  selectedAccount: SelectedAccountType
 }> = ({ extension, setSelectedAccount, selectedAccount }) => {
   const accounts = useSyncExternalStore(
     extension.subscribe,
@@ -22,12 +23,18 @@ const Accounts: React.FC<{
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       {accounts.map((account) => {
-        const concat = account.address + "|" + extension.name
-        const equalizer = concat === selectedAccount
+        const concat = account.address
+        const equalizer = concat === selectedAccount?.address
 
         return (
           <button
-            onClick={() => setSelectedAccount(concat)}
+            onClick={() =>
+              setSelectedAccount({
+                address: account.address,
+                name: account.name,
+                extension: extension.name,
+              })
+            }
             key={account.address}
             style={{
               border: "1px solid #8A8A8A",
@@ -73,15 +80,15 @@ const Accounts: React.FC<{
 
 export const AccountProvider: React.FC<
   PropsWithChildren<{
-    selected: string | null
-    setSelected: Dispatch<SetStateAction<string | null>>
+    selected: SelectedAccountType
+    setSelected: Dispatch<SetStateAction<SelectedAccountType>>
   }>
 > = ({ children, selected, setSelected }) => {
   const extensions = useSelectedExtensions()
 
   return (
     <>
-      <div style={{ paddingTop: "1rem" }}>Accounts</div>
+      <h4 style={{ paddingTop: "1rem" }}>Accounts</h4>
       {extensions.map((extension) => (
         <Accounts
           key={extension.name}

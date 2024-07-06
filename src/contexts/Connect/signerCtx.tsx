@@ -4,9 +4,10 @@ import { useState, useEffect } from "react"
 
 import { SelectedAccountCtx } from "./accountCtx"
 import { useSelectedExtensions } from "./hooks"
+import type { SelectedAccountType } from "./types"
 
 export const SignerCtx: React.FC<
-  PropsWithChildren<{ account: string | null }>
+  PropsWithChildren<{ account: SelectedAccountType }>
 > = ({ account, children }) => {
   const extensions = useSelectedExtensions()
   const [injectedPolkadotAccount, setInjectedPolkadotAccount] =
@@ -18,15 +19,14 @@ export const SignerCtx: React.FC<
       return
     }
 
-    const separator = account.indexOf("|")
-    const address = account.slice(0, separator)
-    const extensionName = account.slice(separator + 1)
+    const address = account.address
+    const extensionName = account.extension
 
     setInjectedPolkadotAccount(
       extensions
         .find((x) => x.name === extensionName)
         ?.getAccounts()
-        .find((account) => account.address === address) ?? null
+        .find((acc) => acc.address === address) ?? null
     )
   }, [extensions, account])
 

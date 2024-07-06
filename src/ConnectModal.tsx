@@ -1,12 +1,14 @@
 import { AccountProvider, ExtensionProvider } from "contexts/Connect"
 import { Modal } from "antd"
 import { useState } from "react"
+import type { SelectedAccountType } from "./contexts/Connect"
 
 export const ConnectModal: React.FC<{
   isOpen: boolean
   setOpen: React.Dispatch<React.SetStateAction<boolean>>
 }> = ({ isOpen, setOpen }) => {
-  const [selectedAccount, setSelectedAccount] = useState<string | null>(null)
+  const [selectedAccount, setSelectedAccount] =
+    useState<SelectedAccountType>(null)
 
   console.log("selectedAccount", selectedAccount)
 

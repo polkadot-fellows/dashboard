@@ -5,8 +5,10 @@ import { useSyncExternalStore } from "react"
 import { extensionCtx } from "./extensionCtx"
 import { getExtensionIcon } from "@polkadot-ui/assets/extensions"
 import { useAvailableExtensions } from "./hooks"
+import type { SelectedAccountType } from "./types"
 
 const { Provider } = extensionCtx
+
 const getExtensionsStore = () => {
   let connectedExtensions = new Map<string, InjectedExtension>()
   const getSnapshot = () => connectedExtensions
@@ -28,7 +30,7 @@ const getExtensionsStore = () => {
   let isRunning = false
   const onToggleExtension = (
     name: string,
-    setSelected: Dispatch<SetStateAction<string | null>>
+    setSelected: Dispatch<SetStateAction<SelectedAccountType>>
   ) => {
     if (isRunning) return
 
@@ -64,7 +66,7 @@ extensionsStore.subscribe(Function.prototype as any)
 
 export const ExtensionProvider: React.FC<
   PropsWithChildren<{
-    setSelected: Dispatch<SetStateAction<string | null>>
+    setSelected: Dispatch<SetStateAction<SelectedAccountType>>
   }>
 > = ({ children, setSelected }) => {
   const availXts = useAvailableExtensions()
@@ -77,7 +79,7 @@ export const ExtensionProvider: React.FC<
 
   return (
     <>
-      <div>Extensions</div>
+      <h4>Extensions</h4>
       <div
         style={{
           display: "flex",

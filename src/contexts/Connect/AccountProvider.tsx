@@ -1,14 +1,14 @@
-import type { PropsWithChildren } from "react"
-import React, { useState, useSyncExternalStore } from "react"
+import type { Dispatch, PropsWithChildren, SetStateAction } from "react"
+import React, { useSyncExternalStore } from "react"
+import type { InjectedExtension } from "polkadot-api/pjs-signer"
 import { useSelectedExtensions } from "./extensionCtx"
 import { SignerCtx } from "./signerCtx"
-import type { InjectedExtension } from "polkadot-api/dist/reexports/pjs-signer"
 
 const Accounts: React.FC<{
   extension: InjectedExtension
-  setSelectedAcount: React.Dispatch<React.SetStateAction<string | null>>
+  setSelectedAccount: React.Dispatch<React.SetStateAction<string | null>>
   selectedAccount: string | null
-}> = ({ extension, setSelectedAcount, selectedAccount }) => {
+}> = ({ extension, setSelectedAccount, selectedAccount }) => {
   const accounts = useSyncExternalStore(
     extension.subscribe,
     extension.getAccounts
@@ -20,7 +20,7 @@ const Accounts: React.FC<{
       {accounts.map((account) => (
         <button
           onClick={() =>
-            setSelectedAcount(account.address + "-" + extension.name)
+            setSelectedAccount(account.address + "-" + extension.name)
           }
           key={account.address}
           style={{
@@ -37,8 +37,12 @@ const Accounts: React.FC<{
   )
 }
 
-export const AccountProvider: React.FC<PropsWithChildren> = ({ children }) => {
-  const [selectedAccount, setSelectedAcount] = useState<string | null>(null)
+export const AccountProvider: React.FC<
+  PropsWithChildren<{
+    selected: string | null
+    setSelected: Dispatch<SetStateAction<string | null>>
+  }>
+> = ({ children, selected, setSelected }) => {
   const extensions = useSelectedExtensions()
 
   return (
@@ -47,11 +51,11 @@ export const AccountProvider: React.FC<PropsWithChildren> = ({ children }) => {
         <Accounts
           key={extension.name}
           {...{ extension }}
-          setSelectedAcount={setSelectedAcount}
-          selectedAccount={selectedAccount}
+          setSelectedAccount={setSelected}
+          selectedAccount={selected}
         />
       ))}
-      <SignerCtx account={selectedAccount}>{children}</SignerCtx>
+      <SignerCtx account={selected}>{children}</SignerCtx>
     </>
   )
 }

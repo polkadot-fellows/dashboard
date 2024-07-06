@@ -22,8 +22,6 @@ export const SignerCtx: React.FC<
     const address = account.slice(0, separator)
     const extensionName = account.slice(separator + 1)
 
-    console.log("ACCCCC", account, address, extensionName)
-
     setInjectedPolkadotAccount(
       extensions
         .find((x) => x.name === extensionName)

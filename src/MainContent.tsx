@@ -8,17 +8,8 @@ import {
   notification,
   Popover,
 } from "antd"
-import type { GetProp, MenuProps } from "antd"
-
-import {
-  HiGlobeAlt,
-  HiMiniUserPlus,
-  HiBuildingLibrary,
-  HiMiniInboxStack,
-} from "react-icons/hi2"
-import { TbPigMoney } from "react-icons/tb"
-import { IoMdContact } from "react-icons/io"
-import { GrResources } from "react-icons/gr"
+import { PiPlugsConnectedFill } from "react-icons/pi"
+import { VscDebugDisconnect } from "react-icons/vsc"
 
 import {
   collapsedWidth,
@@ -31,193 +22,42 @@ import {
 } from "consts"
 import { useLocalStorage, useMediaQuery } from "usehooks-ts"
 
-import PolkadotIcon from "./img/polkadotIcon.svg?react"
-import FellowshipB from "./img/fellowshipLogo_b.svg?react"
 import { useTheme } from "./contexts/Themes"
-import {
-  IoSunnyOutline,
-  IoMoon,
-  IoLogoGithub,
-  IoChatbubblesOutline,
-} from "react-icons/io5"
+import { IoSunnyOutline, IoMoon, IoLogoGithub } from "react-icons/io5"
 import {
   BsArrowsCollapseVertical,
   BsArrowsExpandVertical,
 } from "react-icons/bs"
 
-import { MdDocumentScanner } from "react-icons/md"
-import { SiElement } from "react-icons/si"
-
 import { useEffect, useState } from "react"
-import { Link, Route, Routes, useLocation } from "react-router-dom"
+import { Link, Route, Routes, useLocation, useNavigate } from "react-router-dom"
 
-import { About } from "pages/About"
-import { Membership } from "pages/Membership"
-import { Salary } from "pages/Salary"
-import { Governance } from "pages/Governance"
-import { Modules } from "pages/Modules"
-import { Rfc } from "pages/Rfc"
-import { OpenDevMonthlyCalls } from "pages/OpenDevMonthlyCalls"
 import { collectiveClient } from "./clients"
 import { FaCircleCheck } from "react-icons/fa6"
 import { SyncOutlined } from "@ant-design/icons"
 import { ConnectModal } from "ConnectModal"
+import { useSelAccounts } from "contexts/Account"
+import { Polkicon } from "@polkadot-ui/react"
+import type { ThemeType } from "MainContentConsts"
+import { getLink, iconSize, menuItems, pages, Svg } from "MainContentConsts"
 
-type MenuItem = GetProp<MenuProps, "items">[number]
-
-const pages = (lcStatus: boolean) => [
-  {
-    path: "",
-    element: <About lcStatus={lcStatus} />,
-  },
-  {
-    path: "about",
-    element: <About lcStatus={lcStatus} />,
-  },
-  {
-    path: "membership",
-    element: <Membership />,
-  },
-  {
-    path: "governance",
-    element: <Governance />,
-  },
-  {
-    path: "salary",
-    element: <Salary />,
-  },
-  {
-    path: "modules",
-    element: <Modules />,
-  },
-  {
-    path: "rfcs",
-    element: <Rfc />,
-  },
-  {
-    path: "opendev",
-    element: <OpenDevMonthlyCalls />,
-  },
-]
-
-const iconSize = "1.25rem"
 const { Content, Sider } = Layout
 
-const getItem = (
-  label: React.ReactNode,
-  key?: React.Key | null,
-  icon?: React.ReactNode,
-  children?: MenuItem[]
-): MenuItem => {
-  return {
-    key,
-    icon,
-    children,
-    label,
-  } as MenuItem
-}
-
-const getLink = (
-  label: string,
-  link: string = "#",
-  target: "_parent" | "_blank" = "_parent"
-): React.ReactNode => {
-  const { mode } = useTheme()
-
-  return (
-    <Link
-      style={
-        target === "_blank"
-          ? { color: mode === "dark" ? darkTheme.invert : lightTheme.invert }
-          : {}
-      }
-      to={link}
-      target={target}
-    >
-      {label}
-    </Link>
-  )
-}
-
-const menuItems = (
-  setOpenModal: React.Dispatch<React.SetStateAction<boolean>>
-): MenuItem[] => [
-  {
-    key: "1",
-    type: "group",
-    children: [
-      getItem(getLink("About", "about"), "about", <HiGlobeAlt />),
-      getItem(
-        getLink("Membership", "membership"),
-        "membership",
-        <HiMiniUserPlus />
-      ),
-      getItem(getLink("Salary", "salary"), "salary", <TbPigMoney />),
-      getItem(
-        getLink("Governance", "governance"),
-        "governance",
-        <HiBuildingLibrary />
-      ),
-      getItem(getLink("Modules", "modules"), "modules", <HiMiniInboxStack />),
-      getItem(getLink("RFCs", "rfcs"), "rfcs", <MdDocumentScanner />),
-      getItem(
-        getLink("Monthly Calls", "opendev"),
-        "opendev",
-        <HiBuildingLibrary />
-      ),
-      getItem(
-        <a href={location.toString()} onClick={() => setOpenModal(true)}>
-          Resources
-        </a>,
-        "resources",
-        <GrResources />
-      ),
-    ],
-  },
-  {
-    type: "divider",
-  },
-  {
-    key: "3",
-    label: "Contact",
-    icon: <IoMdContact />,
-    children: [
-      getItem(
-        getLink(
-          "Members (Element)",
-          "https://matrix.to/#/#fellowship-members:parity.io",
-          "_blank"
-        ),
-        "sub1-1",
-        <SiElement />
-      ),
-      getItem(
-        getLink(
-          "Open  (Element)",
-          "https://matrix.to/#/#fellowship-open-channel:parity.io",
-          "_blank"
-        ),
-        "sub1-2",
-        <IoChatbubblesOutline />
-      ),
-    ],
-  },
-]
-
 export const MainContent = () => {
-  const [api, contextHolder] = notification.useNotification()
-
   const isMobile = useMediaQuery("(max-width: 1000px)")
 
   const location = useLocation()
   const [collapsed, setCollapsed] = useState<boolean>(isMobile)
   const [openModal, setOpenModal] = useState<boolean>(false)
   const [extModal, setExtModal] = useState<boolean>(false)
-
   const [lightClientLoaded, setLightClientLoaded] = useState<boolean>(false)
-
   const [token, setToken] = useState({})
+
+  const [api, contextHolder] = notification.useNotification()
+
   const { mode, toggleTheme } = useTheme()
+  const navigate = useNavigate()
+  const { selectedAccount } = useSelAccounts()
 
   const [settings, setSettings] = useLocalStorage("fellowship-settings", {
     themeMode: "light",
@@ -225,36 +65,22 @@ export const MainContent = () => {
   })
 
   useEffect(() => {
+    if (!selectedAccount?.address) {
+      navigate("/")
+    }
+  }, [selectedAccount])
+
+  const themeColor = (type: ThemeType): string =>
+    mode === "dark" ? darkTheme[type] : lightTheme[type]
+
+  const handleClick = () => navigate("/account")
+
+  useEffect(() => {
     setCollapsed(settings.collapsed)
   }, [settings.collapsed])
 
-  const size = collapsed ? "2rem" : "2.2rem"
-
-  const Svg = collapsed ? (
-    <PolkadotIcon
-      style={{
-        maxHeight: "100%",
-        width: "4rem",
-        fill: mode === "dark" ? darkTheme.accent : lightTheme.accent,
-      }}
-      width={size}
-      height={size}
-    />
-  ) : (
-    <FellowshipB
-      style={{
-        maxHeight: "100%",
-        height: "100%",
-        width: "13rem",
-        fill: mode === "dark" ? darkTheme.accent : lightTheme.accent,
-      }}
-      width={size}
-      height={size}
-    />
-  )
-
   useEffect(() => {
-    setToken(mode === "light" ? lightTokens : darkTokens)
+    setToken(mode === "dark" ? darkTokens : lightTokens)
   }, [mode])
 
   useEffect(() => {
@@ -290,8 +116,7 @@ export const MainContent = () => {
       <Layout>
         <Sider
           style={{
-            background:
-              mode === "dark" ? darkTheme.primary : lightTheme.primary,
+            background: themeColor("primary"),
           }}
           theme={mode}
           width={uncollapsedWidth}
@@ -305,27 +130,69 @@ export const MainContent = () => {
           <div
             style={{
               height: "3rem",
-              marginBottom: "2rem",
               marginTop: collapsed ? "3rem" : "2rem",
               display: "flex",
               justifyContent: "center",
             }}
           >
             <Link style={{ height: "4rem" }} to={"/"}>
-              {Svg}
+              {Svg(collapsed, themeColor)}
             </Link>
           </div>
-          <Button onClick={() => setExtModal(true)}>Connect</Button>
+
           <Menu
             style={{
-              background:
-                mode === "dark" ? darkTheme.primary : lightTheme.primary,
+              background: themeColor("primary"),
+              height: "calc(80vh - 15rem)",
+              overflow: "auto",
             }}
             selectedKeys={[location?.pathname.replace("/", "")]}
             theme={mode}
             mode={type}
             items={menuItems(setOpenModal)}
           />
+          <section
+            style={{
+              position: "absolute",
+              bottom: collapsed ? "13rem" : "10rem",
+              width: collapsed ? "6rem" : "16rem",
+              height: collapsed ? "6rem" : "6rem",
+              display: "flex",
+              padding: "0 1rem",
+              flexDirection: "column",
+              justifyContent: "space-around",
+            }}
+          >
+            <Button
+              disabled={!selectedAccount?.address}
+              onClick={handleClick}
+              style={{
+                display: selectedAccount?.address ? "flex" : "none",
+                background:
+                  location?.pathname.replace("/", "") === "account"
+                    ? themeColor("accent")
+                    : themeColor("primary"),
+              }}
+            >
+              {selectedAccount?.address && (
+                <Polkicon size={24} address={selectedAccount.address || ""} />
+              )}
+              {!collapsed && "Fellow Page"}
+            </Button>
+            <Button onClick={() => setExtModal(true)}>
+              {selectedAccount?.address ? (
+                collapsed ? (
+                  <VscDebugDisconnect style={{ color: themeColor("accent") }} />
+                ) : (
+                  "Disconnect/Change"
+                )
+              ) : collapsed ? (
+                <PiPlugsConnectedFill style={{ color: themeColor("accent") }} />
+              ) : (
+                "Connect"
+              )}
+            </Button>
+          </section>
           <section
             style={{
               position: "absolute",
@@ -357,7 +224,7 @@ export const MainContent = () => {
             )}
             <button
               style={{
-                color: mode === "dark" ? darkTheme.accent : lightTheme.accent,
+                color: themeColor("accent"),
               }}
               type="button"
               onClick={() => {
@@ -375,7 +242,7 @@ export const MainContent = () => {
             </button>
             <button
               style={{
-                color: mode === "dark" ? darkTheme.accent : lightTheme.accent,
+                color: themeColor("accent"),
               }}
               type="button"
               onClick={() =>
@@ -391,7 +258,7 @@ export const MainContent = () => {
               <button
                 disabled
                 style={{
-                  color: mode === "dark" ? darkTheme.accent : lightTheme.accent,
+                  color: themeColor("accent"),
                 }}
                 type="button"
               >
@@ -426,7 +293,7 @@ export const MainContent = () => {
               bottom: 0,
               padding: collapsed ? "0rem 1rem 1rem" : "0rem 1rem 1rem 0",
               zIndex: 1,
-              color: mode === "dark" ? darkTheme.accent : lightTheme.accent,
+              color: themeColor("accent"),
               fontWeight: "bolder",
               display: "flex",
               justifyContent: "flex-end",
@@ -452,13 +319,17 @@ export const MainContent = () => {
             style={{
               overflow: "auto",
               height: "100vh",
-              color: mode === "light" ? lightTheme.invert : darkTheme.invert,
+              color: themeColor("invert"),
             }}
           >
             <Routes>
-              {pages(lightClientLoaded).map(({ path, element }, i) => {
-                return <Route key={`page_${i}`} path={path} element={element} />
-              })}
+              {pages(lightClientLoaded, selectedAccount).map(
+                ({ path, element }, i) => {
+                  return (
+                    <Route key={`page_${i}`} path={path} element={element} />
+                  )
+                }
+              )}
             </Routes>
           </Content>
         </Layout>

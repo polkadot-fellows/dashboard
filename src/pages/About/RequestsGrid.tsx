@@ -3,16 +3,13 @@ import { Polkicon } from "@polkadot-ui/react"
 import { AccountName } from "./AccountName"
 import { useLocalStorage, useMediaQuery } from "usehooks-ts"
 
-import type { DotQueries } from "@polkadot-api/descriptors"
-import type { Binary } from "polkadot-api"
-
 import { Badge, Drawer, Popover, Table } from "antd"
 import type { TableColumnsType } from "antd"
 
 import { ellipsisFn } from "@polkadot-ui/utils"
 import { MemberDrawer } from "./MemberDrawer"
-import { api, papi } from "../../clients"
 import { rankInfo } from "consts"
+import { getFellowshipAddresses } from "utils"
 
 export type AccountInfoIF = {
   key?: number
@@ -25,36 +22,6 @@ export type AccountInfoIF = {
   email?: string
   twitter?: string
   web?: string
-}
-
-const dataToString = (value: number | string | Binary | undefined) =>
-  typeof value === "object" ? value.asText() : value ?? ""
-
-const mapRawIdentity = (
-  rawIdentity?: DotQueries["Identity"]["IdentityOf"]["Value"]
-) => {
-  if (!rawIdentity) return rawIdentity
-  const {
-    info: { additional, display, email, legal, riot, twitter, web },
-  } = rawIdentity[0]
-
-  const display_id = dataToString(display.value)
-  const additionalInfo = Object.fromEntries(
-    additional.map(([key, { value }]) => [
-      dataToString(key.value!),
-      dataToString(value),
-    ])
-  )
-
-  return {
-    ...additionalInfo,
-    display: display_id,
-    web: dataToString(web.value),
-    email: dataToString(email.value),
-    legal: dataToString(legal.value),
-    riot: dataToString(riot.value),
-    twitter: dataToString(twitter.value),
-  }
 }
 
 const fellMembers: AccountInfoIF[] = []
@@ -79,19 +46,7 @@ export const RequestsGrid = ({ lcStatus }: Props) => {
 
   useEffect(() => {
     const fetchMembers = async () => {
-      const collectiveAddresses: any =
-        await api?.query.FellowshipCollective.Members.getEntries().then(
-          (mems: any[]) =>
-            papi.query.Identity?.IdentityOf?.getValues(
-              mems.map((m) => m.keyArgs)
-            ).then((identities: any[]) =>
-              identities.map((identity, idx) => ({
-                address: mems[idx].keyArgs[0],
-                rank: mems[idx].value,
-                ...mapRawIdentity(identity),
-              }))
-            )
-        )
+      const collectiveAddresses: any = getFellowshipAddresses()
 
       setMembers([
         ...collectiveAddresses.sort(

@@ -94,7 +94,6 @@ const columns = [
     dataIndex: "minutes",
     key: "minutes",
     render: (_: any, { minutes, key }: any) => {
-      console.log("minutes", minutes)
       if (minutes === "N/A") {
         return "N/A"
       } else {

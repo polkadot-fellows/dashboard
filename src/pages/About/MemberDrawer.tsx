@@ -74,8 +74,10 @@ const MemberDetails = ({ address }: MemberDetailsProps) => {
 
 export const MemberDrawer = ({ member, lcStatus }: MemberDrawerProps) => {
   const { mode } = useTheme()
+
   const themeColor = (type: "primary" | "accent") =>
     mode === "dark" ? darkTheme[type] : lightTheme[type]
+
   const { address, display, web, twitter, email, riot } = member
 
   const [reserved, setReserved] = useState<string>("")

@@ -15,7 +15,13 @@ export const About = ({ lcStatus }: Props) => {
         <MdxCode />
       </div>
       <h1>Members</h1>
-      <div style={{ paddingTop: "2rem" }}>
+      <div
+        style={{
+          height: "calc(100vh - 28rem)",
+          overflow: "scroll",
+          margin: "0 2rem",
+        }}
+      >
         <RequestsGrid lcStatus={lcStatus} />
       </div>
     </>

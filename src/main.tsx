@@ -7,14 +7,11 @@ import "./index.scss"
 // Network classes.
 import "./index.css"
 
-// Fonts with light and dark themes.
-import "@polkadot-ui/core/theme/default/fonts/index.css"
-import "@polkadot-ui/core/accent/polkadot-relay.css"
-
 // Core UI styles.
 import "@polkadot-ui/core/css/styles/index.css"
 
 import { createRoot } from "react-dom/client"
+import { AccountsProvider } from "./contexts/Account"
 
 const rootElement = document.getElementById("root")
 if (!rootElement) throw new Error("Failed to find the root element")
@@ -24,7 +21,9 @@ root.render(
   <MDXProvider>
     <ThemesProvider>
       <HashRouter basename="/">
-        <MainContent />
+        <AccountsProvider>
+          <MainContent />
+        </AccountsProvider>
       </HashRouter>
     </ThemesProvider>
   </MDXProvider>

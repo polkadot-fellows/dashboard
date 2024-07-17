@@ -1,16 +1,12 @@
-import { AccountProvider, ExtensionProvider } from "contexts/Connect"
 import { Modal } from "antd"
-import { useState } from "react"
-import type { SelectedAccountType } from "./contexts/Connect"
+import { ExtensionProvider, AccountProvider } from "@polkadot-ui/react"
+import { useSelAccounts } from "contexts/Account"
 
 export const ConnectModal: React.FC<{
   isOpen: boolean
   setOpen: React.Dispatch<React.SetStateAction<boolean>>
 }> = ({ isOpen, setOpen }) => {
-  const [selectedAccount, setSelectedAccount] =
-    useState<SelectedAccountType>(null)
-
-  console.log("selectedAccount", selectedAccount)
+  const { selectedAccount, setSelectedAccount } = useSelAccounts()
 
   return (
     <Modal centered open={isOpen} onCancel={() => setOpen(false)} footer={[]}>

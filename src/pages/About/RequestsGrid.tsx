@@ -28,7 +28,7 @@ export type AccountInfoIF = {
 }
 
 const dataToString = (value: number | string | Binary | undefined) =>
-  typeof value === "object" ? value.asText() : value ?? ""
+  typeof value === "object" ? value.asText() : (value ?? "")
 
 const mapRawIdentity = (
   rawIdentity?: DotQueries["Identity"]["IdentityOf"]["Value"]

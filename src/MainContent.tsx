@@ -179,7 +179,10 @@ export const MainContent = () => {
               )}
               {!collapsed && "Fellow Page"}
             </Button>
-            <Button onClick={() => setExtModal(true)}>
+            <Button
+              disabled={!lightClientLoaded}
+              onClick={() => setExtModal(true)}
+            >
               {selectedAccount?.address ? (
                 collapsed ? (
                   <VscDebugDisconnect style={{ color: themeColor("accent") }} />

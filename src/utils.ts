@@ -4,6 +4,11 @@ import { AccountId } from "polkadot-api"
 import type { Binary, SS58String } from "polkadot-api"
 import type { SelectedAccountType } from "@polkadot-ui/react"
 
+let collectiveAddresses: any = []
+const init = async () => {
+  collectiveAddresses = await getFellowshipAddresses()
+}
+
 export const dataToString = (value: number | string | Binary | undefined) =>
   typeof value === "object" ? value.asText() : value ?? ""
 
@@ -42,9 +47,9 @@ export const convertAnyToGenericSs58 = (input: string | SS58String) => {
 export const enrichAccount = async (
   account: any
 ): Promise<FellowshipAccountType> => {
-  const collectiveAddresses: any = await getFellowshipAddresses()
-
-  const new_account = collectiveAddresses.filter(
+  if (!collectiveAddresses) init()
+  console.log("collectiveAddresses", collectiveAddresses)
+  const new_account = collectiveAddresses?.filter(
     (a: any) =>
       convertAnyToGenericSs58(a.address) ===
       convertAnyToGenericSs58(account?.address)

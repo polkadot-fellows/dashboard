@@ -1,17 +1,17 @@
 import type { Dispatch, SetStateAction } from "react"
 import { createContext, useContext, useEffect, useState } from "react"
-import type { SelectedAccountType } from "@polkadot-ui/react"
+import { enrichAccount, type FellowshipAccountType } from "utils"
 
 const defaultAccountContext: AccountsContextInterface = {
   selectedAccount: null,
-  setSelectedAccount: (value: SetStateAction<SelectedAccountType>): void => {
+  setSelectedAccount: (value: SetStateAction<FellowshipAccountType>): void => {
     console.log(value)
   },
 }
 
 interface AccountsContextInterface {
-  selectedAccount: SelectedAccountType
-  setSelectedAccount: Dispatch<SetStateAction<SelectedAccountType>>
+  selectedAccount: FellowshipAccountType
+  setSelectedAccount: Dispatch<SetStateAction<FellowshipAccountType>>
 }
 
 export const AccountsProvider = ({
@@ -19,12 +19,18 @@ export const AccountsProvider = ({
 }: {
   children: React.ReactNode
 }) => {
-  const [selectedAccount, setSelectedAccount] = useState<SelectedAccountType>(
-    {} as SelectedAccountType
+  const [selectedAccount, setSelectedAccount] = useState<FellowshipAccountType>(
+    {} as FellowshipAccountType
   )
 
   useEffect(() => {
-    setSelectedAccount(selectedAccount)
+    const enrich = async () => {
+      const enriched = await enrichAccount(selectedAccount)
+      console.log("enriched", enriched)
+      // setSelectedAccount(enriched)
+    }
+    console.log(selectedAccount)
+    enrich()
   }, [selectedAccount])
 
   return (

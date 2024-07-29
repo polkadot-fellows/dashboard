@@ -71,7 +71,7 @@ export const pages = (
   selectedAccount &&
     arr.push({
       path: "account",
-      element: <Account />,
+      element: <Account lcStatus={lcStatus} />,
     })
 
   return arr

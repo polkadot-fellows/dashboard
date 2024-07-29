@@ -46,7 +46,7 @@ export const RequestsGrid = ({ lcStatus }: Props) => {
 
   useEffect(() => {
     const fetchMembers = async () => {
-      const collectiveAddresses: any = getFellowshipAddresses()
+      const collectiveAddresses: any = await getFellowshipAddresses()
 
       setMembers([
         ...collectiveAddresses.sort(

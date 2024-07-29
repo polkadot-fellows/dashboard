@@ -21,6 +21,7 @@ LICENSE
 postcss.config.js
 public/lottie/player.js
 README.md
+.papi
 vite.config.ts
 src/codegen/*
 pnpm-lock.yaml

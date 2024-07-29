@@ -1,0 +1,14 @@
+{
+  "version": 0,
+  "descriptorPath": ".papi/descriptors",
+  "entries": {
+    "dot": {
+      "chain": "polkadot",
+      "metadata": ".papi/metadata/dot.scale"
+    },
+    "collectives": {
+      "wsUrl": "wss://polkadot-collectives-rpc.polkadot.io",
+      "metadata": ".papi/metadata/collectives.scale"
+    }
+  }
+}

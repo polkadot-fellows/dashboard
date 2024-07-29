@@ -1,7 +1,7 @@
 {
   "name": "polkadot-fellows-dashboard",
   "private": "false",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "contributors": [
     "Nikolaos Kontakis<wirednkod@gmail.com>"
   ],
@@ -10,9 +10,9 @@
   "license": "GPL-3.0-only",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
+    "postinstall": "papi",
     "dev": "vite",
     "build": "tsc && vite build",
-    "postinstall": "papi",
     "build:pages": "tsc && vite build --base '/dashboard/'",
     "deploy:pages": "pnpm run build:pages && gh-pages -d build",
     "deploy": "gh-pages -d build --base '/dashboard/'",
@@ -26,7 +26,7 @@
     "@mdx-js/rollup": "^3.0.1",
     "@polkadot-api/descriptors": "file:.papi/descriptors",
     "@polkadot-ui/core": "0.0.1-alpha.2",
-    "@polkadot-ui/react": "0.0.1-alpha.13",
+    "@polkadot-ui/react": "0.0.1-alpha.15",
     "@polkadot-ui/utils": "0.0.1-alpha.5",
     "antd": "^5.19.3",
     "buffer": "^6.0.3",

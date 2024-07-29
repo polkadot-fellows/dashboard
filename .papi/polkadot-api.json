@@ -4,11 +4,11 @@
   "entries": {
     "dot": {
       "chain": "polkadot",
-      "metadata": "dot.scale"
+      "metadata": ".papi/metadata/dot.scale"
     },
     "collectives": {
       "wsUrl": "wss://polkadot-collectives-rpc.polkadot.io",
-      "metadata": "collectives.scale"
+      "metadata": ".papi/metadata/collectives.scale"
     }
   }
 }

@@ -1,5 +1,16 @@
 import { type ClassValue, clsx } from "clsx";
-import { LucideProps, Globe, Users, PiggyBank } from "lucide-react";
+import {
+  LucideProps,
+  Globe,
+  Users,
+  PiggyBank,
+  Landmark,
+  Component,
+  ScanText,
+  Speech,
+  NotebookText,
+  Atom,
+} from "lucide-react";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -21,6 +32,12 @@ export const routes: RouterType[] = [
     icon: Globe,
   },
   { link: "membership", name: "Membership", icon: Users },
-  { link: "Salary", name: "Salary", icon: PiggyBank },
-  { link: "", name: "", icon:  },
+  { link: "salary", name: "Salary", icon: PiggyBank },
+  { link: "governance", name: "Governance", icon: Landmark },
+  { link: "modules", name: "Modules", icon: Component },
+  { link: "rfcs", name: "RFCs", icon: ScanText },
+  { link: "monthlycalls", name: "Monthly Calls", icon: Speech },
+  { link: "resources", name: "Resources", icon: NotebookText },
+  { link: "element", name: "Element (Members)", icon: Atom },
+  { link: "elementopen", name: "Element (Open)", icon: Atom },
 ];

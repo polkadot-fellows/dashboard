@@ -16,15 +16,7 @@ import { Button } from "@/components/ui/button";
 import { routes } from "@/lib/utils";
 
 import Link from "next/link";
-import {
-  Home,
-  LineChart,
-  Package,
-  PanelLeft,
-  Search,
-  ShoppingCart,
-  Users2,
-} from "lucide-react";
+import { Settings2, PanelLeft, Search } from "lucide-react";
 
 import {
   Menubar,
@@ -37,7 +29,6 @@ import {
 } from "@/components/ui/menubar";
 
 export const Header = () => {
-
   return (
     <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:sticky sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
       <Sheet>
@@ -49,19 +40,21 @@ export const Header = () => {
         </SheetTrigger>
         <SheetContent side="left" className="sm:max-w-xs">
           <nav className="grid gap-6 text-lg font-medium">
-            {routes.map(r => (
-            <Link key={r.name} href={`/${r.link || ""}`}
+            {routes.map((r) => (
+              <Link
+                key={r.name}
+                href={`/${r.link || ""}`}
                 className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
               >
                 <r.icon className="h-5 w-5" />
                 {r.name}
-              </Link>)
-            )}
+              </Link>
+            ))}
             <Link
               href="#"
               className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
             >
-              <LineChart className="h-5 w-5" />
+              <Settings2 className="h-5 w-5" />
               Settings
             </Link>
           </nav>

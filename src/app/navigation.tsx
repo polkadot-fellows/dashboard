@@ -6,10 +6,10 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { routes } from "@/lib/utils";
-import { Settings } from "lucide-react";
+import { Settings2 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Image from 'next/image'
+import Image from "next/image";
 
 const linkStyle = (pathname: string, link: string) => {
   return `link ${
@@ -25,7 +25,8 @@ export const Navigation = () => {
   return (
     <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex">
       <nav className="flex flex-col items-center gap-4 px-2 sm:py-5">
-        <Image src="/img/polkadotIcon.svg"
+        <Image
+          src="/img/polkadotIcon.svg"
           width="100"
           height="100"
           style={{
@@ -55,7 +56,7 @@ export const Navigation = () => {
               href="#"
               className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
             >
-              <Settings className="h-5 w-5" />
+              <Settings2 className="h-5 w-5" />
               <span className="sr-only">Settings</span>
             </Link>
           </TooltipTrigger>

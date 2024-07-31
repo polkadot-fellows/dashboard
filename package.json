@@ -31,7 +31,7 @@
     "antd": "^5.19.4",
     "buffer": "^6.0.3",
     "copy-to-clipboard": "^3.3.3",
-    "polkadot-api": "^0.12.0",
+    "polkadot-api": "^0.12.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.2.1",

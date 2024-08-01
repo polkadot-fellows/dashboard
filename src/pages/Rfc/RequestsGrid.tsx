@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react"
-import { Grid, Card } from "@polkadot-ui/react"
-import { RevolvingDot } from "react-loader-spinner"
-import { GithubApiUrl, GithubOwner, GithubRfc } from "consts"
-import ReactMarkdown from "react-markdown"
-import MdxCode from "./index.mdx"
+import { useEffect, useState } from 'react'
+import { Grid, Card } from '@polkadot-ui/react'
+import { RevolvingDot } from 'react-loader-spinner'
+import { GithubApiUrl, GithubOwner, GithubRfc } from 'consts'
+import ReactMarkdown from 'react-markdown'
+import MdxCode from './index.mdx'
 
-import "./RequestsGrid.scss"
-import { Link } from "react-router-dom"
+import './RequestsGrid.scss'
+import { Link } from 'react-router-dom'
 
 export const RequestsGrid = () => {
   const [data, setData] = useState<Array<any> | undefined>()
@@ -30,19 +30,19 @@ export const RequestsGrid = () => {
             data!.map((d: any, i: number) => {
               return (
                 <Grid
-                  key={"index" + i}
+                  key={'index' + i}
                   column
                   lg={4}
                   md={6}
                   sm={12}
-                  style={{ padding: "1rem" }}
+                  style={{ padding: '1rem' }}
                 >
-                  <Card style={{ padding: "1rem" }}>
+                  <Card style={{ padding: '1rem' }}>
                     <Grid row alignItems="center">
                       <h2
                         style={{
-                          padding: "1rem 0",
-                          position: "relative",
+                          padding: '1rem 0',
+                          position: 'relative',
                           top: 0,
                         }}
                       >
@@ -63,14 +63,14 @@ export const RequestsGrid = () => {
                       row
                       alignItems="center"
                       style={{
-                        padding: "1rem 0",
-                        borderTop: "0.2rem solid var(--accent-color-primary)",
+                        padding: '1rem 0',
+                        borderTop: '0.2rem solid var(--accent-color-primary)',
                       }}
                     >
-                      <Grid column md={3} style={{ paddingRight: "1rem" }}>
+                      <Grid column md={3} style={{ paddingRight: '1rem' }}>
                         <img
                           width="40"
-                          style={{ borderRadius: "10rem", width: "4rem" }}
+                          style={{ borderRadius: '10rem', width: '4rem' }}
                           src={`${d.user.avatar_url}`}
                         />
                       </Grid>
@@ -94,13 +94,13 @@ export const RequestsGrid = () => {
               )
             })
           ) : (
-            "Nothing to see here"
+            'Nothing to see here'
           )
         ) : (
           <Grid
             column
             sm={12}
-            style={{ justifyItems: "cemter", display: "flex" }}
+            style={{ justifyItems: 'cemter', display: 'flex' }}
           >
             <RevolvingDot
               visible={true}

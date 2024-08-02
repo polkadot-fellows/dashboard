@@ -1,12 +1,9 @@
 import { Button } from '@/components/ui/button'
 import { RequestsGrid } from './RequestsGrid'
+import { openInNewTab } from '@/lib/utils'
 
 type Props = {
   lcStatus: boolean
-}
-
-const openInNewTab = (url: string | URL | undefined) => {
-  window.open(url, '_blank', 'noopener,noreferrer')
 }
 
 export const About = ({ lcStatus }: Props) => {
@@ -51,7 +48,7 @@ export const About = ({ lcStatus }: Props) => {
         Collective.
       </div>
       <div style={{ paddingTop: '2rem' }}>
-        <RequestsGrid />
+        <RequestsGrid lcStatus={lcStatus} />
       </div>
     </main>
   )

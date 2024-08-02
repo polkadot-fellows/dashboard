@@ -1,38 +1,54 @@
-import { Polkicon } from "@polkadot-ui/react"
-import { AccountName } from "./AccountName"
-import { ellipsisFn, transformToBaseUnit } from "@polkadot-ui/utils"
-import { darkTheme, lightTheme, rankInfo } from "consts"
-import { useTheme } from "../../contexts/Themes"
-import type { AccountInfoIF } from "./RequestsGrid"
-import copy from "copy-to-clipboard"
+import { Polkicon } from '@polkadot-ui/react'
+import { AccountName } from './AccountName'
+import { ellipsisFn, transformToBaseUnit } from '@polkadot-ui/utils'
+import { rankInfo } from '@/consts'
+
+import type { AccountInfoIF } from './RequestsGrid'
+import copy from 'copy-to-clipboard'
+
+import { Linker } from './Linker'
+
+import { api } from '@/clients'
+import { Dispatch, SetStateAction, useEffect, useState } from 'react'
+import { Check, Copy, Mail } from 'lucide-react'
+
+import { TbWorldWww } from 'react-icons/tb'
+import { SiElement } from 'react-icons/si'
+import { FaXTwitter } from 'react-icons/fa6'
 
 import {
-  IoCopyOutline,
-  IoCheckmarkCircleSharp,
-  IoMailOutline,
-} from "react-icons/io5"
-import { FaXTwitter } from "react-icons/fa6"
-import { TbWorldWww } from "react-icons/tb"
-import { Linker } from "./Linker"
-import { SiElement } from "react-icons/si"
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
+import { Skeleton } from '@/components/ui/skeleton'
 
-import { Card, Col, Row, Skeleton, Statistic } from "antd"
-import { api } from "../../clients"
-import { useEffect, useState } from "react"
+export type LcStatusType = {
+  lcStatus: boolean
+}
 
 type MemberDrawerProps = {
   member: AccountInfoIF
-  lcStatus: boolean
-}
+  open: boolean
+  onOpenChange: Dispatch<SetStateAction<boolean>>
+} & LcStatusType
 
 type MemberDetailsProps = {
   address: string
 }
 
 const iconSize = 24
-const block = true
-const size = "small"
-const precision = 2
+const precision = 3
 
 // TODO - fix the chain units to be loaded from the chain and not hardcoded
 const roundUp = (num: bigint): string => {
@@ -53,7 +69,7 @@ const MemberDetails = ({ address }: MemberDetailsProps) => {
   }, [copyClicked])
 
   const props = {
-    style: { marginLeft: "0.75rem", cursor: "pointer" },
+    style: { marginLeft: '0.75rem', cursor: 'pointer' },
     onClick: () => {
       copy(address)
       setCopyClicked(true)
@@ -63,24 +79,22 @@ const MemberDetails = ({ address }: MemberDetailsProps) => {
   return (
     <>
       <div>{ellipsisFn(address, 6)}</div>
-      {copyClicked ? (
-        <IoCheckmarkCircleSharp {...props} />
-      ) : (
-        <IoCopyOutline {...props} />
-      )}
+      {copyClicked ? <Check {...props} /> : <Copy {...props} />}
     </>
   )
 }
 
-export const MemberDrawer = ({ member, lcStatus }: MemberDrawerProps) => {
-  const { mode } = useTheme()
-  const themeColor = (type: "primary" | "accent") =>
-    mode === "dark" ? darkTheme[type] : lightTheme[type]
-  const { address, display, web, twitter, email, riot } = member
+export const MemberDrawer = ({
+  member,
+  lcStatus,
+  open,
+  onOpenChange,
+}: MemberDrawerProps) => {
+  const { address, display, web, twitter, email, matrix } = member
 
-  const [reserved, setReserved] = useState<string>("")
-  const [transferrable, setTransferrable] = useState<string>("")
-  const [total, setTotal] = useState<string>("")
+  const [reserved, setReserved] = useState<string>('')
+  const [transferrable, setTransferrable] = useState<string>('')
+  const [total, setTotal] = useState<string>('')
 
   useEffect(() => {
     const getBalance = async () => {
@@ -91,180 +105,133 @@ export const MemberDrawer = ({ member, lcStatus }: MemberDrawerProps) => {
         setTransferrable(roundUp(free))
         setReserved(roundUp(reserved))
         setTotal(roundUp(free + reserved))
+        console.log(bal.data, roundUp(free + reserved))
       }
     }
     getBalance()
     return () => {
-      setTransferrable("")
-      setReserved("")
-      setTotal("")
+      setTransferrable('')
+      setReserved('')
+      setTotal('')
     }
   }, [address])
 
   return member && Object.keys(member)?.length ? (
     <>
-      <Polkicon
-        copy
-        size={72}
-        address={address}
-        outerColor={themeColor("primary")}
-      />
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <div
-          style={{
-            margin: "1rem 0",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          {display && <AccountName display={display} address={address} />}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "center",
-            }}
-          >
-            <MemberDetails address={address} />
-          </div>
-        </div>
-      </div>
-      <div
-        style={{
-          margin: "2rem 0",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-evenly",
-        }}
-      >
-        {twitter && (
-          <Linker
-            where={`https://x.com/${twitter}`}
-            icon={FaXTwitter}
-            iconSize={iconSize}
-          />
-        )}
-        {riot && (
-          <Linker
-            where={`https://matrix.to/#/${riot}`}
-            icon={SiElement}
-            iconSize={iconSize}
-          />
-        )}
-        {<Linker where={web} icon={TbWorldWww} iconSize={iconSize} />}
-        {email && (
-          <Linker
-            where={`mailto:${email}`}
-            icon={IoMailOutline}
-            iconSize={iconSize}
-          />
-        )}
-      </div>
-      <Row gutter={[16, 16]}>
-        <Col span={24}>
-          <Card
-            size={size}
-            title="Total"
-            style={{
-              color: themeColor("accent"),
-            }}
-          >
-            {!total || !lcStatus ? (
-              <Skeleton.Input size="small" active block={block} />
-            ) : (
-              <Statistic
-                prefix="≃"
-                value={total}
-                precision={precision}
-                valueStyle={{
-                  textAlign: "center",
-                  fontSize: "1.6rem",
-                  color: themeColor("accent"),
-                }}
-                suffix="DOT"
-              />
-            )}
-          </Card>
-        </Col>
-        <Col span={12}>
-          <Card
-            size={size}
-            title="Transferrable"
-            style={{
-              color: themeColor("accent"),
-            }}
-          >
-            {!transferrable || !lcStatus ? (
-              <Skeleton.Input size="small" active block={block} />
-            ) : (
-              <Statistic
-                prefix="≃"
-                value={transferrable}
-                precision={precision}
-                valueStyle={{
-                  textAlign: "center",
-                  fontSize: "1.4rem",
-                  color: themeColor("accent"),
-                }}
-                suffix="DOT"
-              />
-            )}
-          </Card>
-        </Col>
-        <Col span={12}>
-          <Card
-            size={size}
-            title="Reserved"
-            style={{
-              color: themeColor("accent"),
-            }}
-          >
-            {!reserved || !lcStatus ? (
-              <Skeleton.Input size="small" active block={block} />
-            ) : (
-              <Statistic
-                prefix="≃"
-                value={reserved}
-                precision={precision}
-                valueStyle={{
-                  textAlign: "center",
-                  fontSize: "1.4rem",
-                  color: themeColor("accent"),
-                }}
-                suffix="DOT"
-              />
-            )}
-          </Card>
-        </Col>
-        <Col span={24}>
-          <Card
-            size={size}
-            title="Salary"
-            style={{
-              color: themeColor("accent"),
-            }}
-          >
-            <Statistic
-              prefix="≃"
-              value={rankInfo[member.rank].salary / 12}
-              precision={precision}
-              valueStyle={{
-                textAlign: "center",
-                fontSize: "1.4rem",
-                color: themeColor("accent"),
-              }}
-              suffix="USDT"
-            />
-          </Card>
-        </Col>
-      </Row>
+      <Dialog open={open} onOpenChange={onOpenChange}>
+        <DialogContent className="px-0">
+          <DialogHeader>
+            <DialogTitle>
+              <Polkicon copy size={72} address={address} />
+            </DialogTitle>
+            <DialogDescription>
+              <div className="flex, justify-center items-center">
+                <div className="my-4 flex flex-col items-center">
+                  {display && (
+                    <AccountName display={display} address={address} />
+                  )}
+                  <div className="flex flex-row justify-center">
+                    <MemberDetails address={address} />
+                  </div>
+                </div>
+              </div>
+              <div className="mt-6 flex flex-row justify-evenly">
+                {twitter && (
+                  <Linker
+                    where={`https://x.com/${twitter}`}
+                    icon={FaXTwitter}
+                    iconSize={iconSize}
+                  />
+                )}
+                {matrix && (
+                  <Linker
+                    where={`https://matrix.to/#/${matrix}`}
+                    icon={SiElement}
+                    iconSize={iconSize}
+                  />
+                )}
+                {<Linker where={web} icon={TbWorldWww} iconSize={iconSize} />}
+                {email && (
+                  <Linker
+                    where={`mailto:${email}`}
+                    icon={Mail}
+                    iconSize={iconSize}
+                  />
+                )}
+              </div>
+
+              <div className="chart-wrapper mx-auto flex max-w-6xl flex-col flex-wrap items-start justify-center gap-6 p-6 sm:flex-row sm:p-8">
+                <div className="grid w-full gap-6 sm:grid-cols-2 lg:max-w-[22rem] lg:grid-cols-1 xl:max-w-[25rem]">
+                  <Card>
+                    <CardHeader className="flex flex-row items-center gap-4 space-y-0 pb-2 [&>div]:flex-1">
+                      <div>
+                        <CardDescription className="text-left">
+                          Total
+                        </CardDescription>
+                        <CardTitle className="flex items-baseline gap-1 text-2xl tabular-nums">
+                          {lcStatus ? (
+                            `≃ ${total}`
+                          ) : (
+                            <Skeleton className="h-10 w-[120px]" />
+                          )}
+                          <span className="text-sm font-normal tracking-normal text-muted-foreground">
+                            DOT
+                          </span>
+                        </CardTitle>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="flex flex-row items-center gap-4 space-y-0 pb-2 [&>div]:flex-1 my-4">
+                      <div>
+                        <CardDescription className="text-left">
+                          Transferrable
+                        </CardDescription>
+                        <CardTitle className="flex items-baseline gap-1 text-2xl tabular-nums">
+                          {lcStatus ? (
+                            `≃ ${transferrable}`
+                          ) : (
+                            <Skeleton className="h-8 w-[80px]" />
+                          )}
+                          <span className="text-sm font-normal tracking-normal text-muted-foreground">
+                            DOT
+                          </span>
+                        </CardTitle>
+                      </div>
+                      <div>
+                        <CardDescription className="text-left">
+                          Reserved
+                        </CardDescription>
+                        <CardTitle className="flex items-baseline gap-1 text-2xl tabular-nums">
+                          {lcStatus ? (
+                            `≃ ${reserved}`
+                          ) : (
+                            <Skeleton className="h-8 w-[80px]" />
+                          )}
+                          <span className="text-sm font-normal tracking-normal text-muted-foreground">
+                            DOT
+                          </span>
+                        </CardTitle>
+                      </div>
+                    </CardContent>
+                    <CardFooter className="flex flex-row items-center gap-4 space-y-0 pb-2 [&>div]:flex-1">
+                      <div>
+                        <CardDescription className="text-left">
+                          Salary
+                        </CardDescription>
+                        <CardTitle className="flex items-baseline gap-1 text-2xl tabular-nums">
+                          ≃ {(rankInfo[member.rank].salary / 12).toFixed(3)}
+                          <span className="text-sm font-normal tracking-normal text-muted-foreground">
+                            USDT
+                          </span>
+                        </CardTitle>
+                      </div>
+                    </CardFooter>
+                  </Card>
+                </div>
+              </div>
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
     </>
   ) : null
 }

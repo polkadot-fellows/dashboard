@@ -74,7 +74,7 @@ export const Header = () => {
             </MenubarMenu>
           </Menubar>
         </div>
-        <div className="">
+        <div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
@@ -83,7 +83,6 @@ export const Header = () => {
                 className="overflow-hidden rounded-full"
               >
                 <Polkicon
-                  copy
                   size={36}
                   address={'5CoZdwD8KpAaax4oD5bKgHy23wkVKpwuaf9Gb2HTeZQaDijr'}
                 />

@@ -1,9 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-refresh/only-export-components */
-'use client'
 
-import * as React from 'react'
+import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -17,28 +16,28 @@ import {
   useReactTable,
 } from '@tanstack/react-table'
 
-import { useLocalStorage } from 'usehooks-ts'
+import { useLocalStorage, useMediaQuery } from 'usehooks-ts'
 import { ellipsisFn } from '@polkadot-ui/utils'
 import { Polkicon } from '@polkadot-ui/react'
 
-import { ArrowUpDown, ChevronDown, MoreHorizontal } from 'lucide-react'
+import copy from 'copy-to-clipboard'
+import { ArrowUpDown, MoreHorizontal } from 'lucide-react'
 
-import type { DotQueries } from '@polkadot-api/descriptors'
+import type { PeopleQueries } from '@polkadot-api/descriptors'
 import type { Binary } from 'polkadot-api'
+import { api, people_api } from '@/clients'
 
+import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { api, papi } from '@/clients'
 
 import {
   DropdownMenu,
-  DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { Input } from '@/components/ui/input'
 import {
   Table,
   TableBody,
@@ -47,19 +46,19 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import { useEffect, useState } from 'react'
-import { Badge } from '@/components/ui/badge'
+
 import { rankInfo } from '@/consts'
 import { AccountName } from './AccountName'
+import { Skeleton } from '@/components/ui/skeleton'
+import { LcStatusType, MemberDrawer } from './MemberDrawer'
 
 export type AccountInfoIF = {
-  key?: number
   address: string
   rank: number
   display?: string
   github?: string
   legal?: string
-  riot?: string
+  matrix?: string
   email?: string
   twitter?: string
   web?: string
@@ -69,48 +68,45 @@ const dataToString = (value: number | string | Binary | undefined) =>
   typeof value === 'object' ? value.asText() : (value ?? '')
 
 const mapRawIdentity = (
-  rawIdentity?: DotQueries['Identity']['IdentityOf']['Value'],
+  rawIdentity?: PeopleQueries['Identity']['IdentityOf']['Value'],
 ) => {
   if (!rawIdentity) return rawIdentity
   const {
-    info: { additional, display, email, legal, riot, twitter, web },
+    info: { display, email, legal, matrix, twitter, web },
   } = rawIdentity[0]
 
-  console.log('info', additional, display, email, legal, riot, twitter, web)
   const display_id = dataToString(display.value)
-  const additionalInfo = Object.fromEntries(
-    additional.map(([key, { value }]) => [
-      dataToString(key.value!),
-      dataToString(value),
-    ]),
-  )
 
   return {
-    ...additionalInfo,
     display: display_id,
     web: dataToString(web.value),
     email: dataToString(email.value),
     legal: dataToString(legal.value),
-    riot: dataToString(riot.value),
+    matrix: dataToString(matrix.value),
     twitter: dataToString(twitter.value),
   }
 }
 
 const fellMembers: AccountInfoIF[] = []
 
-export const columns: ColumnDef<AccountInfoIF>[] = [
-  {
-    accessorKey: 'display',
-    header: 'display',
-  },
+const columns = (
+  setDrawerOpen: Dispatch<SetStateAction<boolean>>,
+  setChosenMember: Dispatch<SetStateAction<AccountInfoIF>>,
+): ColumnDef<AccountInfoIF>[] => [
+  { accessorKey: 'matrix' },
+  { accessorKey: 'display' },
+  { accessorKey: 'github' },
+  { accessorKey: 'legal' },
+  { accessorKey: 'email' },
+  { accessorKey: 'twitter' },
+  { accessorKey: 'web' },
   {
     accessorKey: 'address',
-    header: 'Name',
+    header: 'Address',
     cell: ({ row }) => {
-      console.log('displ', row.getValue('legal'), row.getValue('display'))
       return (
-        <div style={{ display: 'flex' }}>
-          <div style={{ padding: '0 2rem' }}>
+        <div className="flex">
+          <div className="px-8">
             <Polkicon copy address={row.getValue('address')} size={32} />
           </div>
           <AccountName
@@ -146,51 +142,72 @@ export const columns: ColumnDef<AccountInfoIF>[] = [
     cell: ({ row }) => {
       const r = parseInt(row.getValue('rank'), 0)
       const { rank, color } = rankInfo[r]
-      const col = '"' + color + '"'
-      console.log(col)
-      return <Badge style={{ background: col }}>{rank}</Badge>
+      return <Badge style={{ background: color }}>{rank}</Badge>
     },
   },
-  // {
-  //   id: 'actions',
-  //   enableHiding: false,
-  //   cell: ({ row }) => {
-  //     const payment = row.original
-
-  //     return (
-  //       <DropdownMenu>
-  //         <DropdownMenuTrigger asChild>
-  //           <Button variant="ghost" className="h-8 w-8 p-0">
-  //             <span className="sr-only">Open menu</span>
-  //             <MoreHorizontal className="h-4 w-4" />
-  //           </Button>
-  //         </DropdownMenuTrigger>
-  //         <DropdownMenuContent align="end">
-  //           <DropdownMenuLabel>Actions</DropdownMenuLabel>
-  //           <DropdownMenuItem
-  //             onClick={() => navigator.clipboard.writeText(payment.id)}
-  //           >
-  //             Copy payment ID
-  //           </DropdownMenuItem>
-  //           <DropdownMenuSeparator />
-  //           <DropdownMenuItem>View customer</DropdownMenuItem>
-  //           <DropdownMenuItem>View payment details</DropdownMenuItem>
-  //         </DropdownMenuContent>
-  //       </DropdownMenu>
-  //     )
-  //   },
-  // },
+  {
+    id: 'actions',
+    enableHiding: false,
+    cell: ({ row }) => {
+      return (
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="ghost" className="h-8 w-8 p-0">
+              <span className="sr-only">Open menu</span>
+              <MoreHorizontal className="h-4 w-4" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuLabel>Actions</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem
+              onClick={() => {
+                setChosenMember({
+                  address: row.getValue('address'),
+                  rank: row.getValue('rank'),
+                  display: row.getValue('display'),
+                  github: row.getValue('github'),
+                  legal: row.getValue('legal'),
+                  matrix: row.getValue('matrix'),
+                  email: row.getValue('email'),
+                  twitter: row.getValue('twitter'),
+                  web: row.getValue('web'),
+                })
+                setDrawerOpen(true)
+              }}
+            >
+              View Member
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => copy(row.getValue('address'))}>
+              Copy Address
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      )
+    },
+  },
 ]
 
-export const RequestsGrid = () => {
-  const [sorting, setSorting] = React.useState<SortingState>([])
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-    [],
-  )
-  const [columnVisibility, setColumnVisibility] =
-    React.useState<VisibilityState>({})
+export const RequestsGrid = ({ lcStatus }: LcStatusType) => {
+  const [sorting, setSorting] = useState<SortingState>([])
+  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
+  const isMobile = useMediaQuery('(max-width: 768px)')
+
+  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({
+    display: false,
+    github: false,
+    legal: false,
+    matrix: false,
+    email: false,
+    twitter: false,
+    web: false,
+    title: !isMobile,
+    rank: !isMobile,
+  })
   const [loading, setLoading] = useState<boolean>(true)
+  const [chosenMember, setChosenMember] = useState<AccountInfoIF>({})
   const [members, setMembers] = useState<AccountInfoIF[]>([])
+  const [drawerOpen, setDrawerOpen] = useState(false)
   const [fellowshipMembers, setFellowshipMembers] = useLocalStorage<any[]>(
     'fellowship-members',
     [],
@@ -201,7 +218,7 @@ export const RequestsGrid = () => {
       const collectiveAddresses: any =
         await api?.query.FellowshipCollective.Members.getEntries().then(
           (mems: any[]) =>
-            papi.query.Identity?.IdentityOf?.getValues(
+            people_api.query.Identity.IdentityOf.getValues(
               mems.map((m) => m.keyArgs),
             ).then((identities: any[]) =>
               identities.map((identity, idx) => ({
@@ -242,7 +259,7 @@ export const RequestsGrid = () => {
 
   const table = useReactTable({
     data: fellowshipMembers,
-    columns,
+    columns: columns(setDrawerOpen, setChosenMember),
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
     getCoreRowModel: getCoreRowModel(),
@@ -260,54 +277,58 @@ export const RequestsGrid = () => {
   return (
     <div className="w-full">
       <div className="rounded-md border">
-        <Table>
-          <TableHeader>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id}>
-                {headerGroup.headers.map((header) => {
-                  return (
-                    <TableHead key={header.id}>
-                      {header.isPlaceholder
-                        ? null
-                        : flexRender(
-                            header.column.columnDef.header,
-                            header.getContext(),
-                          )}
-                    </TableHead>
-                  )
-                })}
-              </TableRow>
-            ))}
-          </TableHeader>
-          <TableBody>
-            {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => (
-                <TableRow
-                  key={row.id}
-                  data-state={row.getIsSelected() && 'selected'}
-                >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext(),
-                      )}
-                    </TableCell>
-                  ))}
+        {loading ? (
+          <Skeleton className="h-[25rem] w-[100%] rounded-xl" />
+        ) : (
+          <Table>
+            <TableHeader>
+              {table.getHeaderGroups().map((headerGroup) => (
+                <TableRow key={headerGroup.id}>
+                  {headerGroup.headers.map((header) => {
+                    return (
+                      <TableHead key={header.id}>
+                        {header.isPlaceholder
+                          ? null
+                          : flexRender(
+                              header.column.columnDef.header,
+                              header.getContext(),
+                            )}
+                      </TableHead>
+                    )
+                  })}
                 </TableRow>
-              ))
-            ) : (
-              <TableRow>
-                <TableCell
-                  colSpan={columns.length}
-                  className="h-24 text-center"
-                >
-                  No results.
-                </TableCell>
-              </TableRow>
-            )}
-          </TableBody>
-        </Table>
+              ))}
+            </TableHeader>
+            <TableBody>
+              {table.getRowModel().rows?.length ? (
+                table.getRowModel().rows.map((row) => (
+                  <TableRow
+                    key={row.id}
+                    data-state={row.getIsSelected() && 'selected'}
+                  >
+                    {row.getVisibleCells().map((cell) => (
+                      <TableCell key={cell.id}>
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext(),
+                        )}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                ))
+              ) : (
+                <TableRow>
+                  <TableCell
+                    colSpan={columns.length}
+                    className="h-24 text-center"
+                  >
+                    No results.
+                  </TableCell>
+                </TableRow>
+              )}
+            </TableBody>
+          </Table>
+        )}
       </div>
       <div className="flex items-center justify-end space-x-2 py-4">
         <div className="space-x-2">
@@ -329,6 +350,12 @@ export const RequestsGrid = () => {
           </Button>
         </div>
       </div>
+      <MemberDrawer
+        lcStatus={lcStatus}
+        member={chosenMember}
+        open={drawerOpen}
+        onOpenChange={setDrawerOpen}
+      />
     </div>
   )
 }

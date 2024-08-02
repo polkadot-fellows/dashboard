@@ -33,30 +33,30 @@ type RankInfoType = {
 
 // Page constants
 const rankInfo: RankInfoType[] = [
-  { rank: 0, dan: '', name: 'Candidate', color: '#00FF00', salary: 0 },
-  { rank: 1, dan: 'I', name: 'Member', color: '#0000FF', salary: 10000 },
-  { rank: 2, dan: 'II', name: 'Proficient', color: '#00FFFF', salary: 20000 },
+  { rank: 0, dan: '', name: 'Candidate', color: '#738DFF', salary: 0 },
+  { rank: 1, dan: 'I', name: 'Member', color: '#3535FF', salary: 10000 },
+  { rank: 2, dan: 'II', name: 'Proficient', color: '#1A0099', salary: 20000 },
   { rank: 3, dan: 'III', name: 'Fellow', color: '#008000', salary: 80000 },
-  { rank: 4, dan: 'IV', name: 'Architect', color: '#FFFF00', salary: 120000 },
+  { rank: 4, dan: 'IV', name: 'Architect', color: '#00BF63', salary: 120000 },
   {
     rank: 5,
     dan: 'V',
     name: 'Architect Adept',
-    color: '#FFA500',
+    color: '#C8D630',
     salary: 160000,
   },
   {
     rank: 6,
     dan: 'VI',
     name: 'Grand Architect',
-    color: '#784E00',
+    color: '#D30000',
     salary: 200000,
   },
   {
     rank: 7,
     dan: 'VII',
     name: 'Free Master',
-    color: '#FFC0CB',
+    color: '#E6007A',
     salary: 200000,
   },
   {

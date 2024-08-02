@@ -9,7 +9,7 @@ import { Rfc } from '@/pages/Rfc'
 import { Salary } from '@/pages/Salary'
 
 import { useEffect, useState } from 'react'
-import { collectiveClient } from './clients'
+import { collectiveClient } from '@/clients'
 import { toast } from 'sonner'
 
 const pages = (lcStatus: boolean) => [
@@ -21,10 +21,10 @@ const pages = (lcStatus: boolean) => [
     path: 'about',
     element: <About lcStatus={lcStatus} />,
   },
-  //   {
-  //     path: 'membership',
-  //     element: <Membership />,
-  //   },
+  {
+    path: 'membership',
+    element: <Membership />,
+  },
   //   {
   //     path: 'governance',
   //     element: <Governance />,

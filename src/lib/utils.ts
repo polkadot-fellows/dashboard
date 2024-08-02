@@ -9,8 +9,9 @@ import {
   ScanText,
   Speech,
   NotebookText,
-  Atom,
 } from 'lucide-react'
+import { SiElement } from 'react-icons/si'
+
 import { ForwardRefExoticComponent, RefAttributes } from 'react'
 
 import { twMerge } from 'tailwind-merge'
@@ -36,7 +37,10 @@ export const routes: RouterType[] = [
   { link: 'rfcs', name: 'RFCs', icon: ScanText },
   { link: 'monthlycalls', name: 'Monthly Calls', icon: Speech },
   { link: 'resources', name: 'Resources', icon: NotebookText },
-  { link: 'element', name: 'Element (Members)', icon: Atom },
-  { link: 'elementopen', name: 'Element (Open)', icon: Atom },
-  { link: 'explorer', name: 'TESTER', icon: Atom },
+  { link: 'element', name: 'Element (Members)', icon: SiElement },
+  { link: 'elementopen', name: 'Element (Open)', icon: SiElement },
 ]
+
+export const openInNewTab = (url: string | URL | undefined) => {
+  window.open(url, '_blank', 'noopener,noreferrer')
+}

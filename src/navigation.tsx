@@ -7,10 +7,14 @@ import {
 import { routes } from '@/lib/utils'
 import { useLocation } from 'react-router-dom'
 import PolkadotIcon from '@/assets/img/polkadotIcon.svg?react'
+import { FaCheckCircle, FaGithub } from 'react-icons/fa'
+import { TbLoaderQuarter } from 'react-icons/tb'
 
-import { Github, Moon, Settings, Sun } from 'lucide-react'
+import { Moon, Sun } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useTheme } from '@/components/theme-provider'
+import { collectiveClient } from './clients'
+import { useEffect, useState } from 'react'
 
 const linkStyle = (pathname: string, link: string) => {
   return `link ${
@@ -23,6 +27,15 @@ const linkStyle = (pathname: string, link: string) => {
 export const Navigation = () => {
   const { pathname } = useLocation()
   const { theme, setTheme } = useTheme()
+  const [lightClientLoaded, setLightClientLoaded] = useState<boolean>(false)
+
+  useEffect(() => {
+    collectiveClient.finalizedBlock$.subscribe((finalizedBlock) => {
+      if (finalizedBlock.number && !lightClientLoaded) {
+        setLightClientLoaded(true)
+      }
+    })
+  }, [lightClientLoaded])
 
   return (
     <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex">
@@ -57,7 +70,32 @@ export const Navigation = () => {
               href="#"
               className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
             >
-              <Github className="h-5 w-5" />
+              {!lightClientLoaded ? (
+                <TbLoaderQuarter className="h-5 w-5 animate-spin" />
+              ) : (
+                <FaCheckCircle className="green" />
+              )}
+              <span className="sr-only">
+                Light Client {!lightClientLoaded ? `syncing` : `synced`}
+              </span>
+            </a>
+          </TooltipTrigger>
+          <TooltipContent side="right">
+            Light Client {!lightClientLoaded ? `syncing` : `synced`}
+          </TooltipContent>
+        </Tooltip>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <a
+              href="#"
+              className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+            >
+              <FaGithub
+                className="h-5 w-5"
+                onClick={() =>
+                  window.open('https://github.com/polkadot-fellows', '_blank')
+                }
+              />
               <span className="sr-only">Github</span>
             </a>
           </TooltipTrigger>
@@ -76,18 +114,6 @@ export const Navigation = () => {
             </Button>
           </TooltipTrigger>
           <TooltipContent side="right">Toggle theme</TooltipContent>
-        </Tooltip>
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <a
-              href="#"
-              className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-            >
-              <Settings className="h-5 w-5" />
-              <span className="sr-only">Settings</span>
-            </a>
-          </TooltipTrigger>
-          <TooltipContent side="right">Settings</TooltipContent>
         </Tooltip>
       </nav>
     </aside>

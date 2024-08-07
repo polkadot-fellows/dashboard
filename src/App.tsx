@@ -4,6 +4,7 @@ import { Header } from './header'
 import { Theme, ThemeProvider } from './components/theme-provider'
 import { useLocalStorage } from 'usehooks-ts'
 import { Toaster } from '@/components/ui/sonner'
+import './App.css'
 import './index.css'
 import { Content } from './Content'
 

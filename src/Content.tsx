@@ -25,10 +25,10 @@ const pages = (lcStatus: boolean) => [
     path: 'membership',
     element: <Membership />,
   },
-  //   {
-  //     path: 'governance',
-  //     element: <Governance />,
-  //   },
+  {
+    path: 'governance',
+    element: <Governance />,
+  },
   //   {
   //     path: 'salary',
   //     element: <Salary />,

@@ -10,7 +10,7 @@ export const About = ({ lcStatus }: Props) => {
   return (
     <main className="grid flex-1 items-start gap-4 p-4 sm:mx-[5%] xl:mx-[20%] mx-0 sm:px-6 sm:py-0 md:gap-8">
       <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
-        ABOUT
+        About
       </h1>
       <div className="pageTop">
         <p>
@@ -42,7 +42,9 @@ export const About = ({ lcStatus }: Props) => {
           Read through the Fellowship Manifesto
         </Button>
       </div>
-      <h1>Members</h1>
+      <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
+        Members
+      </h1>
       <div className="pageTop">
         List of members and candidates currently inducted in the Fellowship
         Collective.

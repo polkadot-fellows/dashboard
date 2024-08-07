@@ -50,7 +50,7 @@ import {
 import { rankInfo } from '@/consts'
 import { AccountName } from './AccountName'
 import { Skeleton } from '@/components/ui/skeleton'
-import { LcStatusType, MemberDrawer } from './MemberDrawer'
+import { LcStatusType, MemberInfo } from './MemberInfo'
 
 export type AccountInfoIF = {
   address: string
@@ -90,7 +90,7 @@ const mapRawIdentity = (
 const fellMembers: AccountInfoIF[] = []
 
 const columns = (
-  setDrawerOpen: Dispatch<SetStateAction<boolean>>,
+  setInfoOpen: Dispatch<SetStateAction<boolean>>,
   setChosenMember: Dispatch<SetStateAction<AccountInfoIF>>,
 ): ColumnDef<AccountInfoIF>[] => [
   { accessorKey: 'matrix' },
@@ -173,7 +173,7 @@ const columns = (
                   twitter: row.getValue('twitter'),
                   web: row.getValue('web'),
                 })
-                setDrawerOpen(true)
+                setInfoOpen(true)
               }}
             >
               View Member
@@ -207,7 +207,7 @@ export const RequestsGrid = ({ lcStatus }: LcStatusType) => {
   const [loading, setLoading] = useState<boolean>(true)
   const [chosenMember, setChosenMember] = useState<AccountInfoIF>({})
   const [members, setMembers] = useState<AccountInfoIF[]>([])
-  const [drawerOpen, setDrawerOpen] = useState(false)
+  const [infoOpen, setInfoOpen] = useState(false)
   const [fellowshipMembers, setFellowshipMembers] = useLocalStorage<any[]>(
     'fellowship-members',
     [],
@@ -247,7 +247,6 @@ export const RequestsGrid = ({ lcStatus }: LcStatusType) => {
     let i = 0
     members.forEach((m) => {
       fellMembers.push({
-        key: i++,
         display: m.legal || m.display || ellipsisFn(m.address, 6),
         rank: m.rank,
         address: m.address,
@@ -259,7 +258,7 @@ export const RequestsGrid = ({ lcStatus }: LcStatusType) => {
 
   const table = useReactTable({
     data: fellowshipMembers,
-    columns: columns(setDrawerOpen, setChosenMember),
+    columns: columns(setInfoOpen, setChosenMember),
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
     getCoreRowModel: getCoreRowModel(),
@@ -350,11 +349,11 @@ export const RequestsGrid = ({ lcStatus }: LcStatusType) => {
           </Button>
         </div>
       </div>
-      <MemberDrawer
+      <MemberInfo
         lcStatus={lcStatus}
         member={chosenMember}
-        open={drawerOpen}
-        onOpenChange={setDrawerOpen}
+        open={infoOpen}
+        onOpenChange={setInfoOpen}
       />
     </div>
   )

@@ -73,7 +73,7 @@ export const Navigation = () => {
               {!lightClientLoaded ? (
                 <TbLoaderQuarter className="h-5 w-5 animate-spin" />
               ) : (
-                <FaCheckCircle className="green" />
+                <FaCheckCircle className="text-[#00b300]" />
               )}
               <span className="sr-only">
                 Light Client {!lightClientLoaded ? `syncing` : `synced`}

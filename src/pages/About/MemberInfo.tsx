@@ -37,7 +37,7 @@ export type LcStatusType = {
   lcStatus: boolean
 }
 
-type MemberDrawerProps = {
+type MemberInfoProps = {
   member: AccountInfoIF
   open: boolean
   onOpenChange: Dispatch<SetStateAction<boolean>>
@@ -84,12 +84,12 @@ const MemberDetails = ({ address }: MemberDetailsProps) => {
   )
 }
 
-export const MemberDrawer = ({
+export const MemberInfo = ({
   member,
   lcStatus,
   open,
   onOpenChange,
-}: MemberDrawerProps) => {
+}: MemberInfoProps) => {
   const { address, display, web, twitter, email, matrix } = member
 
   const [reserved, setReserved] = useState<string>('')

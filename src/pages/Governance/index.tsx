@@ -1,4 +1,6 @@
+import { Button } from '@/components/ui/button'
 import whitelist from './fellowship-whitelist-xcm.png'
+import { openInNewTab } from '@/lib/utils'
 
 export const Governance = () => {
   return (
@@ -36,7 +38,7 @@ export const Governance = () => {
           track.
         </p>
 
-        <h2 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-lg font-semibold tracking-tight sm:grow-0 my-2">
+        <h2 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-lg font-semibold tracking-tight sm:grow-0 my-6">
           Whitelisting
         </h2>
 
@@ -53,13 +55,15 @@ export const Governance = () => {
           the collectives system chain to the Polkadot relay chain. For
           instance,{' '}
           <a
+            className="text-[#E6007A] font-bold"
             target="_blank"
             href={'https://collectives.polkassembly.io/referenda/68'}
           >
             the Polkadot Fellowship referenda 68
           </a>{' '}
-          was used to **whitelist**{' '}
+          was used to <span className="font-bold">whitelist</span>{' '}
           <a
+            className="text-[#E6007A] font-bold"
             target="_blank"
             href={'https://polkadot.polkassembly.io/referenda/440'}
           >
@@ -68,20 +72,25 @@ export const Governance = () => {
           .
         </p>
 
-        <img className={'adj-img'} src={whitelist} alt="whitelist" />
+        <img className="my-6" src={whitelist} alt="whitelist" />
 
         <div className="note secondary">
-          <h3>Submitting Whitelisted Proposals</h3>
+          <h2 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-lg font-semibold tracking-tight sm:grow-0 my-6">
+            Submitting Whitelisted Proposals
+          </h2>
           <p>
             For more information about how to submit a whitelisted proposal see
             the{' '}
-            <a
-              target="_blank"
-              href="https://wiki.polkadot.network/docs/learn-guides-polkadot-opengov#submitting-a-referendum-on-the-whitelisted-caller-track'"
+            <Button
+              className="mt-6"
+              onClick={() =>
+                openInNewTab(
+                  'https://wiki.polkadot.network/docs/learn-guides-polkadot-opengov#submitting-a-referendum-on-the-whitelisted-caller-track',
+                )
+              }
             >
               dedicated advanced how-to guides
-            </a>
-            .
+            </Button>
           </p>
         </div>
       </div>

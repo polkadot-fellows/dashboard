@@ -3,6 +3,7 @@ import induct from './fellowship-induct-call.png'
 import preimagepromote from './fellowship-promote-member.png'
 import proposalpromote from './fellowship-promotion-proposal.png'
 import { openInNewTab } from '@/lib/utils'
+import { Link } from 'react-router-dom'
 
 export const Membership = () => {
   return (
@@ -17,21 +18,21 @@ export const Membership = () => {
 
         <p className="my-4">
           The Polkadot technical Fellowship was initally
-          <a
+          <Link
             className="text-[#E6007A] font-bold"
-            href="https://github.com/polkadot-fellows/seeding"
+            to="https://github.com/polkadot-fellows/seeding"
             target="_blank"
           >
             seeded
-          </a>{' '}
+          </Link>{' '}
           with its members and their corresponding ranks, and got{' '}
-          <a
+          <Link
             className="text-[#E6007A] font-bold"
-            href="https://polkadot.polkassembly.io/motion/403"
+            to="https://polkadot.polkassembly.io/motion/403"
             target="_blank"
           >
             added on to Polkadot's Collectives
-          </a>{' '}
+          </Link>{' '}
           system chain. All new membership requests will go through the
           fellowship governance and the procedure is outlined in the section
           below.
@@ -61,23 +62,22 @@ export const Membership = () => {
 
         <div className="note">
           <p className="my-4">
-            For new fellowship inductions, Polkassembly has created an interface
-            (still in beta) to
-            <a
+            For new fellowship inductions, Polkassembly has created an interface{' '}
+            <Link
               className="text-[#E6007A] font-bold"
-              href="https://collectives.polkassembly.io/join-fellowship?network=collectives"
+              to="https://collectives.polkassembly.io/join-fellowship?network=collectives"
               target="_blank"
             >
               apply for the Polkadot Fellowship
-            </a>
-            . This initiative is funded by Polkadot treasury through
-            <a
+            </Link>
+            . This initiative is funded by Polkadot treasury through{' '}
+            <Link
               className="text-[#E6007A] font-bold"
-              href="https://polkadot.polkassembly.io/treasury/574"
+              to="https://polkadot.polkassembly.io/treasury/574"
               target="_blank"
             >
               OpenGov referendum 373
-            </a>
+            </Link>
             .
           </p>
         </div>
@@ -89,13 +89,13 @@ export const Membership = () => {
           the Polkadot Fellowship, a pre-existing member with rank greater than
           or equal to 1 can initiate the process. The fellowship membership
           management is administered through the{' '}
-          <a
+          <Link
             className="text-[#E6007A] font-bold"
-            href="https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/core-fellowship/src/lib.rs"
+            to="https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/core-fellowship/src/lib.rs"
             target="_blank"
           >
             core fellowship
-          </a>
+          </Link>{' '}
           pallet.
         </p>
 
@@ -105,17 +105,17 @@ export const Membership = () => {
           recommended that the candidate account has a verified identity. Upon
           successfuly execution of the extrinsic, the candidate's account will
           be displayed on the{' '}
-          <a
+          <Link
             className="text-[#E6007A] font-bold"
-            href="https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fpolkadot-collectives-rpc.polkadot.io#/fellowship"
+            to="https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fpolkadot-collectives-rpc.polkadot.io#/fellowship"
             target="_blank"
           >
             Fellowship Overview
-          </a>
+          </Link>{' '}
           tab on Polkadot-JS UI.
         </p>
 
-        <img className={'adj-img'} src={induct} alt="induct" />
+        <img className="my-6" src={induct} alt="induct" />
 
         <h2 className="py-2 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-lg font-semibold tracking-tight sm:grow-0">
           Rank Updates
@@ -129,13 +129,13 @@ export const Membership = () => {
 
         <p className="my-4">
           Read more in the{' '}
-          <a
+          <Link
             className="text-[#E6007A] font-bold"
-            href="https://github.com/polkadot-fellows/Evidences"
+            to="https://github.com/polkadot-fellows/Evidences"
             target="_blank"
           >
             Evidences repo
-          </a>
+          </Link>
           .
         </p>
 
@@ -147,13 +147,13 @@ export const Membership = () => {
           Any fellowship member upto rank 4 can be promoted to the next rank
           through a fellowship referenda that can be voted by the members who
           are 2 ranks higher. For instance, the fellowship{' '}
-          <a
+          <Link
             className="text-[#E6007A] font-bold"
-            href="https://collectives.subsquare.io/fellowship/referenda/64"
+            to="https://collectives.subsquare.io/fellowship/referenda/64"
             target="_blank"
           >
             referenda 64
-          </a>{' '}
+          </Link>{' '}
           which promotes a member from rank 1 to rank 2 can only be voted by
           members whose ranks are greater than or equal to 3. Promotion of the
           Polkadot Fellowship members from rank 5 needs to be done through an
@@ -164,7 +164,7 @@ export const Membership = () => {
           to a specific rank, as shown below. This preimage can be added by any
           account on the collectives system chain.
         </p>
-        <img className={'adj-img'} src={preimagepromote} alt="preimage" />
+        <img className="my-6" src={preimagepromote} alt="preimage" />
 
         <p className="my-4">
           In the snapshot below, the submission track is chosen as `21/Promote
@@ -173,7 +173,7 @@ export const Membership = () => {
           with rank 0 to a member with rank 1.
         </p>
 
-        <img className={'adj-img'} src={proposalpromote} alt="proposal" />
+        <img className="my-6" src={proposalpromote} alt="proposal" />
 
         <p className="my-4">
           For promoting a member from Rank 1 to Rank 2, the submission track can

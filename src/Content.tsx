@@ -5,7 +5,7 @@ import { Governance } from '@/pages/Governance'
 import { Membership } from '@/pages/Membership'
 import { Modules } from '@/pages/Modules'
 import { OpenDevMonthlyCalls } from '@/pages/OpenDevMonthlyCalls'
-import { Rfc } from '@/pages/Rfc'
+// import { Rfc } from '@/pages/Rfc'
 import { Salary } from '@/pages/Salary'
 
 import { useEffect, useState } from 'react'
@@ -29,22 +29,18 @@ const pages = (lcStatus: boolean) => [
     path: 'governance',
     element: <Governance />,
   },
-  //   {
-  //     path: 'salary',
-  //     element: <Salary />,
-  //   },
-  //   {
-  //     path: 'modules',
-  //     element: <Modules />,
-  //   },
-  //   {
-  //     path: 'rfcs',
-  //     element: <Rfc />,
-  //   },
-  //   {
-  //     path: 'opendev',
-  //     element: <OpenDevMonthlyCalls />,
-  //   },
+  {
+    path: 'salary',
+    element: <Salary />,
+  },
+  {
+    path: 'modules',
+    element: <Modules />,
+  },
+  {
+    path: 'monthlycalls',
+    element: <OpenDevMonthlyCalls />,
+  },
 ]
 
 export const Content = () => {

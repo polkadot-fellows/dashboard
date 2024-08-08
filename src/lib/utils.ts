@@ -6,9 +6,7 @@ import {
   PiggyBank,
   Landmark,
   Component,
-  ScanText,
   Speech,
-  NotebookText,
 } from 'lucide-react'
 import { SiElement } from 'react-icons/si'
 
@@ -34,9 +32,8 @@ export const routes: RouterType[] = [
   { link: 'salary', name: 'Salary', icon: PiggyBank },
   { link: 'governance', name: 'Governance', icon: Landmark },
   { link: 'modules', name: 'Modules', icon: Component },
-  { link: 'rfcs', name: 'RFCs', icon: ScanText },
+  // { link: 'rfcs', name: 'RFCs', icon: ScanText },
   { link: 'monthlycalls', name: 'Monthly Calls', icon: Speech },
-  { link: 'resources', name: 'Resources', icon: NotebookText },
   { link: 'element', name: 'Element (Members)', icon: SiElement },
   { link: 'elementopen', name: 'Element (Open)', icon: SiElement },
 ]

@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable react-refresh/only-export-components */
 
 import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import {
@@ -244,7 +243,6 @@ export const RequestsGrid = ({ lcStatus }: LcStatusType) => {
   }, [])
 
   useEffect(() => {
-    let i = 0
     members.forEach((m) => {
       fellMembers.push({
         display: m.legal || m.display || ellipsisFn(m.address, 6),

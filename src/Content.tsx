@@ -5,7 +5,7 @@ import { Governance } from '@/pages/Governance'
 import { Membership } from '@/pages/Membership'
 import { Modules } from '@/pages/Modules'
 import { OpenDevMonthlyCalls } from '@/pages/OpenDevMonthlyCalls'
-// import { Rfc } from '@/pages/Rfc'
+import { Rfc } from '@/pages/Rfc'
 import { Salary } from '@/pages/Salary'
 
 import { useEffect, useState } from 'react'
@@ -36,6 +36,10 @@ const pages = (lcStatus: boolean) => [
   {
     path: 'modules',
     element: <Modules />,
+  },
+  {
+    path: 'rfcs',
+    element: <Rfc />,
   },
   {
     path: 'monthlycalls',

@@ -4,7 +4,7 @@ import { openInNewTab } from '@/lib/utils'
 
 export const Governance = () => {
   return (
-    <main className="grid flex-1 items-start gap-4 p-4 sm:mx-[5%] xl:mx-[20%] mx-0 sm:px-6 sm:py-0 md:gap-8">
+    <main className="grid flex-1 items-start gap-4 p-4 sm:mx-[5%] xl:mx-[15%] mx-0 sm:px-6 sm:py-0 md:gap-8">
       <div className="header">
         <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
           Governance
@@ -55,7 +55,7 @@ export const Governance = () => {
           the collectives system chain to the Polkadot relay chain. For
           instance,{' '}
           <a
-            className="text-[#E6007A] font-bold"
+            className="text-primary font-bold"
             target="_blank"
             href={'https://collectives.polkassembly.io/referenda/68'}
           >
@@ -63,7 +63,7 @@ export const Governance = () => {
           </a>{' '}
           was used to <span className="font-bold">whitelist</span>{' '}
           <a
-            className="text-[#E6007A] font-bold"
+            className="text-primary font-bold"
             target="_blank"
             href={'https://polkadot.polkassembly.io/referenda/440'}
           >

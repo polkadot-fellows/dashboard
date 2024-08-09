@@ -1,8 +1,9 @@
+import { IconType } from 'react-icons/lib'
 import { Link } from 'react-router-dom'
 
 type LinkerProps = {
   where?: string
-  icon: any
+  icon: IconType
   iconSize: number
 }
 

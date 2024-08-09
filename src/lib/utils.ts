@@ -7,8 +7,8 @@ import {
   Landmark,
   Component,
   Speech,
+  ScanText,
 } from 'lucide-react'
-import { SiElement } from 'react-icons/si'
 
 import { ForwardRefExoticComponent, RefAttributes } from 'react'
 
@@ -31,9 +31,9 @@ export const routes: RouterType[] = [
   { link: 'membership', name: 'Membership', icon: Users },
   { link: 'salary', name: 'Salary', icon: PiggyBank },
   { link: 'governance', name: 'Governance', icon: Landmark },
-  { link: 'modules', name: 'Modules', icon: Component },
-  // { link: 'rfcs', name: 'RFCs', icon: ScanText },
   { link: 'monthlycalls', name: 'Monthly Calls', icon: Speech },
+  { link: 'modules', name: 'Modules', icon: Component },
+  { link: 'rfcs', name: 'RFCs', icon: ScanText },
 ]
 
 export type ResourcesType = {

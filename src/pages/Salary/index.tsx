@@ -102,7 +102,7 @@ export const Salary = () => {
   })
 
   return (
-    <main className="grid flex-1 items-start gap-4 p-4 sm:mx-[5%] xl:mx-[20%] mx-0 sm:px-6 sm:py-0 md:gap-8">
+    <main className="grid flex-1 items-start gap-4 p-4 sm:mx-[5%] xl:mx-[15%] mx-0 sm:px-6 sm:py-0 md:gap-8">
       <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
         Salary
       </h1>
@@ -113,7 +113,7 @@ export const Salary = () => {
       <p>
         The Fellowship{' '}
         <Link
-          className="text-[#E6007A] font-bold"
+          className="text-primary font-bold"
           to={'https://github.com/polkadot-fellows/manifesto'}
           target="_blank"
         >
@@ -126,7 +126,7 @@ export const Salary = () => {
         Fellowship Manifesto states that members should receive a monthly
         allowance on par with gross income in OECD countries. A{' '}
         <Link
-          className="text-[#E6007A] font-bold"
+          className="text-primary font-bold"
           to={'https://github.com/polkadot-fellows/RFCs/pull/50'}
           target="_blank"
         >
@@ -207,7 +207,7 @@ export const Salary = () => {
 
       <p>
         Please refer to the{' '}
-        <Link className="text-[#E6007A] font-bold" to="/about">
+        <Link className="text-primary font-bold" to="/about">
           About page
         </Link>
         .
@@ -220,7 +220,7 @@ export const Salary = () => {
       <p>
         The salary pallet has been{' '}
         <Link
-          className="text-[#E6007A] font-bold"
+          className="text-primary font-bold"
           to="https://collectives.statescan.io/#/extrinsics/2983655-2"
         >
           initiated
@@ -248,7 +248,7 @@ export const Salary = () => {
         before their respective demotion periods elapses, as configured in the
         runtime{' '}
         <Link
-          className="text-[#E6007A] font-bold"
+          className="text-primary font-bold"
           to="https://github.com/polkadot-fellows/runtimes/issues/111#issuecomment-1872941849"
         >
           here

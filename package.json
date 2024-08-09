@@ -16,6 +16,7 @@
     "@polkadot-api/descriptors": "file:.papi/descriptors",
     "@polkadot-ui/react": "0.0.1-alpha.15",
     "@polkadot-ui/utils": "0.0.1-alpha.5",
+    "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-dropdown-menu": "^2.1.1",
     "@radix-ui/react-label": "^2.1.0",

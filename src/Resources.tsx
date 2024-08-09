@@ -5,11 +5,6 @@ import {
   DialogTitle,
   DialogDescription,
 } from '@/components/ui/dialog'
-import {
-  Tooltip,
-  TooltipTrigger,
-  TooltipContent,
-} from '@radix-ui/react-tooltip'
 import { NotebookText } from 'lucide-react'
 import { DialogHeader } from './components/ui/dialog'
 import { Link } from 'react-router-dom'
@@ -40,19 +35,17 @@ export const getLinks = (title: string, arrays: GetLinksType[]) => (
 
 export const Resources = () => {
   return (
-    <div className="pt-8">
+    <div className="pt-8 flex">
       <Dialog>
-        <Tooltip key={'1'}>
-          <TooltipTrigger asChild>
-            <DialogTrigger asChild>
-              <a href="#">
-                <NotebookText className="h-5 w-5" />
-                <span className="sr-only">Resources</span>
-              </a>
-            </DialogTrigger>
-          </TooltipTrigger>
-          <TooltipContent side="right">Resources</TooltipContent>
-        </Tooltip>
+        <DialogTrigger asChild>
+          <a
+            href="#"
+            className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground transition-colors py-2"
+          >
+            <NotebookText className="h-5 w-5" />
+            <span className="left">Resources</span>
+          </a>
+        </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle className="text-primary font-bold">

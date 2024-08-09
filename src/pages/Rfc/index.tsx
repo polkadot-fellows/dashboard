@@ -50,7 +50,7 @@ export const Rfc = () => {
                         <ReactMarkdown>{d.body}</ReactMarkdown>
                       </div>
                     </div>
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between bg-gray-300 p-2 rounded-lg relative bottom-2">
                       <div>
                         <img
                           width="40"

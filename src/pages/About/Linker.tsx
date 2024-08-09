@@ -11,7 +11,7 @@ export const Linker = ({ where, icon, iconSize = 36 }: LinkerProps) => {
   const Icon = icon
   return where ? (
     <Link to={where} target={'_blank'}>
-      <Icon size={iconSize} style={{ cursor: 'pointer' }} />
+      <Icon size={iconSize} className="pointer" />
     </Link>
   ) : null
 }

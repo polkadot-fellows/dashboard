@@ -18,6 +18,13 @@ import {
   DialogTrigger,
 } from './components/ui/dialog'
 import PolkadotIcon from '@/assets/img/polkadotIcon.svg?react'
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from '@radix-ui/react-accordion'
+import { SiElement } from 'react-icons/si'
 
 // import { Polkicon } from '@polkadot-ui/react'
 // import {
@@ -63,14 +70,14 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
           </Button>
         </SheetTrigger>
         <SheetContent side="left" className="sm:max-w-xs">
-          <PolkadotIcon
-            style={{
-              maxHeight: '100%',
-              width: '2.4rem',
-            }}
-            width={'2.2rem'}
-            height={'2.2rem'}
-          />
+          <div className="flex text-primary font-extrabold text-2xl">
+            <PolkadotIcon
+              className="max-h-[100%] w-[3.2rem] pr-3 pl-2.4"
+              width={'2rem'}
+              height={'2rem'}
+            />
+            <span>Fellowship</span>
+          </div>
           <nav className="grid gap-4 pt-4 text-lg font-medium">
             {routes.map((r) => (
               <a
@@ -106,8 +113,34 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
                 </div>
               </DialogContent>
             </Dialog>
+            <Accordion type="single" collapsible>
+              <AccordionItem value="item-1">
+                <AccordionTrigger className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground transition-colors py-2 justify-start">
+                  <SiElement className="h-5 w-5" />
+                  <span>Element</span>
+                </AccordionTrigger>
+                <AccordionContent className="p-0">
+                  <a
+                    className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground transition-colors py-2 justify-start"
+                    href="https://matrix.to/#/#fellowship-members:parity.io"
+                    target="_blank"
+                  >
+                    Fellowship Members
+                  </a>
+                </AccordionContent>
+                <AccordionContent className="p-0">
+                  <a
+                    className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground transition-colors py-2 justify-start"
+                    href="https://matrix.to/#/#fellowship-open-channel:parity.io"
+                    target="_blank"
+                  >
+                    Open Channel
+                  </a>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </nav>
-          <nav className="fixed bottom-6 flex flex-col gap-4 px-2 sm:py-5">
+          <nav className="fixed bottom-16 flex flex-col gap-4">
             <a
               href="#"
               className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
@@ -141,6 +174,11 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
               Toggle theme
             </a>
           </nav>
+
+          <div className="fixed flex bottom-2 align-middle text-center text-sm text-primary font-bold flex-col">
+            <span>©2024</span>
+            <span>Polkadot Technical Fellowship</span>
+          </div>
         </SheetContent>
       </Sheet>
       {/* <div className="flex justify-between w-full">

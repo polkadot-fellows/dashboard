@@ -9,7 +9,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "build:pages": "tsc && vite build --base '/dashboard/'",
-    "deploy:pages": "pnpm run build:pages && gh-pages -d build",
+    "deploy:pages": "pnpm run build:pages && gh-pages -d dist",
     "deploy": "gh-pages -d build --base '/dashboard/'",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",

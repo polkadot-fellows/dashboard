@@ -27,13 +27,13 @@ export type RouterType = {
 }
 
 export const routes: RouterType[] = [
-  { link: 'about', name: 'About', icon: Globe },
-  { link: 'membership', name: 'Membership', icon: Users },
-  { link: 'salary', name: 'Salary', icon: PiggyBank },
-  { link: 'governance', name: 'Governance', icon: Landmark },
-  { link: 'monthlycalls', name: 'Monthly Calls', icon: Speech },
-  { link: 'modules', name: 'Modules', icon: Component },
-  { link: 'rfcs', name: 'RFCs', icon: ScanText },
+  { link: 'dashboard/#/about', name: 'About', icon: Globe },
+  { link: 'dashboard/#/membership', name: 'Membership', icon: Users },
+  { link: 'dashboard/#/salary', name: 'Salary', icon: PiggyBank },
+  { link: 'dashboard/#/governance', name: 'Governance', icon: Landmark },
+  { link: 'dashboard/#/monthlycalls', name: 'Monthly Calls', icon: Speech },
+  { link: 'dashboard/#/modules', name: 'Modules', icon: Component },
+  { link: 'dashboard/#/rfcs', name: 'RFCs', icon: ScanText },
 ]
 
 export type ResourcesType = {

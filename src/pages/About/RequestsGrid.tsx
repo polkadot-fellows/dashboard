@@ -34,8 +34,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import {
@@ -158,9 +156,8 @@ const columns = (
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuSeparator />
             <DropdownMenuItem
+              className="cursor-pointer"
               onClick={() => {
                 setChosenMember({
                   address: row.getValue('address'),
@@ -178,7 +175,10 @@ const columns = (
             >
               View Member
             </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => copy(row.getValue('address'))}>
+            <DropdownMenuItem
+              className="cursor-pointer"
+              onClick={() => copy(row.getValue('address'))}
+            >
               Copy Address
             </DropdownMenuItem>
           </DropdownMenuContent>

@@ -36,7 +36,11 @@ export const Modules = () => {
           80th-90th percentile of gross income in the OECD group of countries,
           which is equivalent to $80,000 at present for fellows (i.e. Dan III).
           The salary allocations for ranked members are intricately calibrated
-          by <Link to="/membership">rank</Link>.
+          by{' '}
+          <Link className="text-primary font-bold" to="/membership">
+            rank
+          </Link>
+          .
         </li>
         <li>
           Passive: A claimable allowance set at 50% of the active salary for

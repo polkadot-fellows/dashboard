@@ -15,12 +15,14 @@ import {
   useReactTable,
 } from '@tanstack/react-table'
 
+import { toast } from 'sonner'
+
 import { useLocalStorage, useMediaQuery } from 'usehooks-ts'
 import { ellipsisFn } from '@polkadot-ui/utils'
 import { Polkicon } from '@polkadot-ui/react'
 
 import copy from 'copy-to-clipboard'
-import { ArrowUpDown, MoreHorizontal } from 'lucide-react'
+import { ArrowUpDown, Copy, ScanEye } from 'lucide-react'
 
 import type { PeopleQueries } from '@polkadot-api/descriptors'
 import type { Binary } from 'polkadot-api'
@@ -29,12 +31,6 @@ import { api, people_api } from '@/clients'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
 import {
   Table,
   TableBody,
@@ -144,44 +140,36 @@ const columns = (
   },
   {
     id: 'actions',
+    header: 'Actions',
     enableHiding: false,
     cell: ({ row }) => {
       return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="h-8 w-8 p-0">
-              <span className="sr-only">Open menu</span>
-              <MoreHorizontal className="h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuItem
-              className="cursor-pointer"
-              onClick={() => {
-                setChosenMember({
-                  address: row.getValue('address'),
-                  rank: row.getValue('rank'),
-                  display: row.getValue('display'),
-                  github: row.getValue('github'),
-                  legal: row.getValue('legal'),
-                  matrix: row.getValue('matrix'),
-                  email: row.getValue('email'),
-                  twitter: row.getValue('twitter'),
-                  web: row.getValue('web'),
-                })
-                setInfoOpen(true)
-              }}
-            >
-              View Member
-            </DropdownMenuItem>
-            <DropdownMenuItem
-              className="cursor-pointer"
-              onClick={() => copy(row.getValue('address'))}
-            >
-              Copy Address
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <div className="flex justify-evenly">
+          <Copy
+            className={`cursor-pointer text-primary`}
+            onClick={() => {
+              toast.success('Address copied.')
+              copy(row.getValue('address'))
+            }}
+          />
+          <ScanEye
+            className={`cursor-pointer text-primary`}
+            onClick={() => {
+              setChosenMember({
+                address: row.getValue('address'),
+                rank: row.getValue('rank'),
+                display: row.getValue('display'),
+                github: row.getValue('github'),
+                legal: row.getValue('legal'),
+                matrix: row.getValue('matrix'),
+                email: row.getValue('email'),
+                twitter: row.getValue('twitter'),
+                web: row.getValue('web'),
+              })
+              setInfoOpen(true)
+            }}
+          />
+        </div>
       )
     },
   },
@@ -204,7 +192,9 @@ export const RequestsGrid = ({ lcStatus }: LcStatusType) => {
     rank: !isMobile,
   })
   const [loading, setLoading] = useState<boolean>(true)
-  const [chosenMember, setChosenMember] = useState<AccountInfoIF>({})
+  const [chosenMember, setChosenMember] = useState<AccountInfoIF>(
+    {} as AccountInfoIF,
+  )
   const [members, setMembers] = useState<AccountInfoIF[]>([])
   const [infoOpen, setInfoOpen] = useState(false)
   const [fellowshipMembers, setFellowshipMembers] = useLocalStorage<any[]>(

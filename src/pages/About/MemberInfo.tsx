@@ -79,7 +79,11 @@ const MemberDetails = ({ address }: MemberDetailsProps) => {
   return (
     <>
       <div>{ellipsisFn(address, 6)}</div>
-      {copyClicked ? <Check {...props} /> : <Copy {...props} />}
+      {copyClicked ? (
+        <Check className="text-[green]" {...props} />
+      ) : (
+        <Copy className="text-primary" {...props} />
+      )}
     </>
   )
 }
@@ -135,7 +139,7 @@ export const MemberInfo = ({
                   </div>
                 </div>
               </div>
-              <div className="mt-6 flex flex-row justify-evenly">
+              <div className="mt-6 flex flex-row justify-evenly text-primary">
                 {twitter && (
                   <Linker
                     where={`https://x.com/${twitter}`}

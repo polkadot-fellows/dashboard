@@ -6,8 +6,6 @@ import { rankInfo } from '@/consts'
 import type { AccountInfoIF } from './RequestsGrid'
 import copy from 'copy-to-clipboard'
 
-import { Linker } from './Linker'
-
 import { api } from '@/clients'
 import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { Check, Copy, Mail } from 'lucide-react'
@@ -32,6 +30,7 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
+import { Link } from 'react-router-dom'
 
 export type LcStatusType = {
   lcStatus: boolean
@@ -141,26 +140,24 @@ export const MemberInfo = ({
               </div>
               <div className="mt-6 flex flex-row justify-evenly text-primary">
                 {twitter && (
-                  <Linker
-                    where={`https://x.com/${twitter}`}
-                    icon={FaXTwitter}
-                    iconSize={iconSize}
-                  />
+                  <Link to={`https://x.com/${twitter}`} target={'_blank'}>
+                    <FaXTwitter size={iconSize} className="pointer" />
+                  </Link>
                 )}
                 {matrix && (
-                  <Linker
-                    where={`https://matrix.to/#/${matrix}`}
-                    icon={SiElement}
-                    iconSize={iconSize}
-                  />
+                  <Link to={`https://matrix.to/#/${matrix}`} target={'_blank'}>
+                    <SiElement size={iconSize} className="pointer" />
+                  </Link>
                 )}
-                {<Linker where={web} icon={TbWorldWww} iconSize={iconSize} />}
+                {web && (
+                  <Link to={web} target={'_blank'}>
+                    <TbWorldWww size={iconSize} className="pointer" />
+                  </Link>
+                )}
                 {email && (
-                  <Linker
-                    where={`mailto:${email}`}
-                    icon={Mail}
-                    iconSize={iconSize}
-                  />
+                  <Link to={`mailto:${email}`} target={'_blank'}>
+                    <Mail size={iconSize} className="pointer" />
+                  </Link>
                 )}
               </div>
 

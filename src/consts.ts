@@ -1,13 +1,15 @@
 /*
  * Global Constants
  */
-const AppVersion = '0.1.1'
+const AppVersion = '0.2.0'
 const DappName = 'Polkadot Technical Fellowship Dashboard'
 const PolkadotUrl = 'https://polkadot-fellows.github.io/dashboard'
 
 const GithubOwner = 'polkadot-fellows'
 const GithubRfc = 'RFCs'
 const GithubApiUrl = `https://api.github.com/repos/${GithubOwner}/${GithubRfc}`
+
+const nextMonthlyCall = '20th of August, 2024'
 
 const SideMenuMaximisedWidth = 185
 const SideMenuMinimisedWidth = 75
@@ -75,82 +77,6 @@ const rankInfo: RankInfoType[] = [
   },
 ]
 
-/*
- * colors
- */
-
-const lightTheme = {
-  primary: '#f8f7f7',
-  invert: '#2D292D',
-  invertTertiarty: '#FF2097',
-  accent: '#E6007A',
-  colorFillAlter: '#eee',
-  colorBgContainer: '#f8f7f7',
-  colorBgElevated: '#E5E5E5',
-  warning: '#FFA500',
-  success: '#32CD32',
-}
-
-const darkTheme = {
-  primary: '#2D292D',
-  invert: '#f8f7f7',
-  invertTertiarty: '#FF2097',
-  accent: '#E6007A',
-  colorFillAlter: '#242024',
-  colorBgContainer: '#2D292D',
-  colorBgElevated: '#221F22',
-  warning: '#FFFF00',
-  success: '#32CD32',
-}
-
-// AntD Tokens
-const lightTokens = {
-  components: {
-    Menu: {
-      itemColor: lightTheme.accent,
-      itemSelectedBg: lightTheme.accent,
-    },
-    Drawer: {
-      colorSplit: 'rgba(0, 0, 0, 0)',
-      colorIcon: lightTheme.invert,
-    },
-  },
-  token: {
-    colorPrimary: lightTheme.invert,
-    colorFillAlter: lightTheme.colorFillAlter,
-    colorBgElevated: lightTheme.colorBgElevated,
-    colorText: lightTheme.invert,
-    colorTextTertiary: lightTheme.invertTertiarty,
-    colorBgContainer: lightTheme.colorBgContainer,
-    colorBgLayout: lightTheme.colorBgContainer,
-  },
-}
-
-const darkTokens = {
-  components: {
-    Menu: {
-      itemColor: darkTheme.accent,
-      itemSelectedBg: darkTheme.accent,
-      darkSubMenuItemBg: darkTheme.colorFillAlter,
-    },
-    Drawer: {
-      colorTextTertiary: darkTheme.invertTertiarty,
-      colorSplit: 'rgba(0, 0, 0, 0)',
-      colorIcon: darkTheme.invert,
-    },
-  },
-  token: {
-    itemSelectedColor: darkTheme.primary,
-    colorPrimary: darkTheme.accent,
-    colorFillAlter: darkTheme.colorFillAlter,
-    colorBgElevated: darkTheme.colorBgElevated,
-    colorText: darkTheme.invert,
-    colorTextTertiary: lightTheme.invertTertiarty,
-    colorBgContainer: darkTheme.colorBgContainer,
-    colorBgLayout: darkTheme.colorBgContainer,
-  },
-}
-
 // Exports
 export {
   AppVersion,
@@ -173,9 +99,5 @@ export {
   type,
   // site details
   rankInfo,
-  // colors
-  lightTheme,
-  darkTheme,
-  lightTokens,
-  darkTokens,
+  nextMonthlyCall,
 }

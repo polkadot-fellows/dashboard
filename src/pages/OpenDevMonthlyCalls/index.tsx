@@ -6,6 +6,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
+import { nextMonthlyCall } from '@/consts'
 import {
   VisibilityState,
   flexRender,
@@ -151,7 +152,10 @@ export const OpenDevMonthlyCalls = () => {
           Upcoming call
         </h2>
         <div className="my-4 font-unbounded flex-1 shrink-0 whitespace-nowrap text-md font-semibold tracking-tight sm:grow-0">
-          The next monthly call is scheduled for:{' '}
+          The next monthly call is scheduled for the{' '}
+          <span className="font-extrabold text-primary text-xl">
+            {nextMonthlyCall}
+          </span>
         </div>
         <h2 className="my-4 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-lg font-semibold tracking-tight sm:grow-0">
           Past calls

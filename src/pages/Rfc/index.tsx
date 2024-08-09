@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { Grid, Card } from '@polkadot-ui/react'
 import { GithubApiUrl, GithubOwner, GithubRfc } from '@/consts'
 import { RFCText } from './RFCText'
 import ReactMarkdown from 'react-markdown'

@@ -58,7 +58,7 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
         setLightClientLoaded(true)
       }
     })
-  }, [lightClientLoaded])
+  }, [lightClientLoaded, setLightClientLoaded])
   const { theme, setTheme } = useTheme()
   return (
     <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:sticky sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">

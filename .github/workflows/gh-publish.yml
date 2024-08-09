@@ -18,9 +18,9 @@ jobs:
           registry-url: https://registry.npmjs.org
       - run: pnpm install
       - name: Build
-        working-directory: "."
+        working-directory: '.'
         run: pnpm run build:pages
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: build
+          folder: dist

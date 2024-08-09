@@ -9,6 +9,10 @@
     "collectives": {
       "wsUrl": "wss://polkadot-collectives-rpc.polkadot.io",
       "metadata": ".papi/metadata/collectives.scale"
+    },
+    "people": {
+      "wsUrl": "wss://polkadot-people-rpc.polkadot.io",
+      "metadata": ".papi/metadata/people.scale"
     }
   }
 }

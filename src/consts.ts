@@ -1,13 +1,15 @@
 /*
  * Global Constants
  */
-const AppVersion = "0.1.1"
-const DappName = "Polkadot Technical Fellowship Dashboard"
-const PolkadotUrl = "https://polkadot-fellows.github.io/dashboard"
+const AppVersion = '0.2.0'
+const DappName = 'Polkadot Technical Fellowship Dashboard'
+const PolkadotUrl = 'https://polkadot-fellows.github.io/dashboard'
 
-const GithubOwner = "polkadot-fellows"
-const GithubRfc = "RFCs"
+const GithubOwner = 'polkadot-fellows'
+const GithubRfc = 'RFCs'
 const GithubApiUrl = `https://api.github.com/repos/${GithubOwner}/${GithubRfc}`
+
+const nextMonthlyCall = '20th of August, 2024'
 
 const SideMenuMaximisedWidth = 185
 const SideMenuMinimisedWidth = 75
@@ -19,9 +21,9 @@ const SmallFontSizeMaxWidth = 600
 const TipsThresholdSmall = 750
 const TipsThresholdMedium = 1200
 
-const collapsedWidth = "6rem"
-const uncollapsedWidth = "16rem"
-const type = "inline"
+const collapsedWidth = '6rem'
+const uncollapsedWidth = '16rem'
+const type = 'inline'
 
 type RankInfoType = {
   rank: number
@@ -33,111 +35,47 @@ type RankInfoType = {
 
 // Page constants
 const rankInfo: RankInfoType[] = [
-  { rank: 0, dan: "", name: "Candidate", color: "lime", salary: 0 },
-  { rank: 1, dan: "I", name: "Member", color: "blue", salary: 10000 },
-  { rank: 2, dan: "II", name: "Proficient", color: "cyan", salary: 20000 },
-  { rank: 3, dan: "III", name: "Fellow", color: "green", salary: 80000 },
-  { rank: 4, dan: "IV", name: "Architect", color: "yellow", salary: 120000 },
+  { rank: 0, dan: '', name: 'Candidate', color: '#738DFF', salary: 0 },
+  { rank: 1, dan: 'I', name: 'Member', color: '#3535FF', salary: 10000 },
+  { rank: 2, dan: 'II', name: 'Proficient', color: '#1A0099', salary: 20000 },
+  { rank: 3, dan: 'III', name: 'Fellow', color: '#008000', salary: 80000 },
+  { rank: 4, dan: 'IV', name: 'Architect', color: '#00BF63', salary: 120000 },
   {
     rank: 5,
-    dan: "V",
-    name: "Architect Adept",
-    color: "orange",
+    dan: 'V',
+    name: 'Architect Adept',
+    color: '#C8D630',
     salary: 160000,
   },
   {
     rank: 6,
-    dan: "VI",
-    name: "Grand Architect",
-    color: "volcano",
+    dan: 'VI',
+    name: 'Grand Architect',
+    color: '#D30000',
     salary: 200000,
   },
-  { rank: 7, dan: "VII", name: "Free Master", color: "pink", salary: 200000 },
+  {
+    rank: 7,
+    dan: 'VII',
+    name: 'Free Master',
+    color: '#E6007A',
+    salary: 200000,
+  },
   {
     rank: 8,
-    dan: "VIII",
-    name: "Master Constant",
-    color: "magenta",
+    dan: 'VIII',
+    name: 'Master Constant',
+    color: '#FF00FF',
     salary: 200000,
   },
-  { rank: 9, dan: "IX", name: "Grand Master", color: "gold", salary: 200000 },
+  {
+    rank: 9,
+    dan: 'IX',
+    name: 'Grand Master',
+    color: '#FFD700',
+    salary: 200000,
+  },
 ]
-
-/*
- * colors
- */
-
-const lightTheme = {
-  primary: "#f8f7f7",
-  invert: "#2D292D",
-  invertTertiarty: "#FF2097",
-  accent: "#E6007A",
-  colorFillAlter: "#eee",
-  colorBgContainer: "#f8f7f7",
-  colorBgElevated: "#E5E5E5",
-  warning: "#FFA500",
-  success: "#32CD32",
-}
-
-const darkTheme = {
-  primary: "#2D292D",
-  invert: "#f8f7f7",
-  invertTertiarty: "#FF2097",
-  accent: "#E6007A",
-  colorFillAlter: "#242024",
-  colorBgContainer: "#2D292D",
-  colorBgElevated: "#221F22",
-  warning: "#FFFF00",
-  success: "#32CD32",
-}
-
-// AntD Tokens
-const lightTokens = {
-  components: {
-    Menu: {
-      itemColor: lightTheme.accent,
-      itemSelectedBg: lightTheme.accent,
-    },
-    Drawer: {
-      colorSplit: "rgba(0, 0, 0, 0)",
-      colorIcon: lightTheme.invert,
-    },
-  },
-  token: {
-    colorPrimary: lightTheme.invert,
-    colorFillAlter: lightTheme.colorFillAlter,
-    colorBgElevated: lightTheme.colorBgElevated,
-    colorText: lightTheme.invert,
-    colorTextTertiary: lightTheme.invertTertiarty,
-    colorBgContainer: lightTheme.colorBgContainer,
-    colorBgLayout: lightTheme.colorBgContainer,
-  },
-}
-
-const darkTokens = {
-  components: {
-    Menu: {
-      itemColor: darkTheme.accent,
-      itemSelectedBg: darkTheme.accent,
-      darkSubMenuItemBg: darkTheme.colorFillAlter,
-    },
-    Drawer: {
-      colorTextTertiary: darkTheme.invertTertiarty,
-      colorSplit: "rgba(0, 0, 0, 0)",
-      colorIcon: darkTheme.invert,
-    },
-  },
-  token: {
-    itemSelectedColor: darkTheme.primary,
-    colorPrimary: darkTheme.accent,
-    colorFillAlter: darkTheme.colorFillAlter,
-    colorBgElevated: darkTheme.colorBgElevated,
-    colorText: darkTheme.invert,
-    colorTextTertiary: lightTheme.invertTertiarty,
-    colorBgContainer: darkTheme.colorBgContainer,
-    colorBgLayout: darkTheme.colorBgContainer,
-  },
-}
 
 // Exports
 export {
@@ -161,9 +99,5 @@ export {
   type,
   // site details
   rankInfo,
-  // colors
-  lightTheme,
-  darkTheme,
-  lightTokens,
-  darkTokens,
+  nextMonthlyCall,
 }

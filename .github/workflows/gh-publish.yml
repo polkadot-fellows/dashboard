@@ -19,7 +19,7 @@ jobs:
       - run: pnpm install
       - name: Build
         working-directory: '.'
-        run: pnpm run build:pages
+        run: pnpm run build
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:

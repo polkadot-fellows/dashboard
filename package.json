@@ -8,8 +8,6 @@
     "postinstall": "papi",
     "dev": "vite",
     "build": "tsc && vite build",
-    "build:pages": "tsc && vite build --base '/dashboard/'",
-    "deploy:pages": "pnpm run build:pages && gh-pages -d build",
     "deploy": "gh-pages -d build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",

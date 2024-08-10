@@ -11,7 +11,7 @@ const root = createRoot(rootElement)
 
 root.render(
   <StrictMode>
-    <HashRouter>
+    <HashRouter basename="/dashboard">
       <App />
     </HashRouter>
   </StrictMode>,

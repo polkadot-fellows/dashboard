@@ -7,6 +7,9 @@ import svgr from 'vite-plugin-svgr'
 export default defineConfig({
   base: '/dashboard',
   plugins: [react(), svgr()],
+  build: {
+    outDir: 'build',
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

@@ -3,15 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://polkadot-fellows.github.io/dashboard/",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "postinstall": "papi",
     "dev": "vite",
     "build": "tsc && vite build",
-    "build:pages": "tsc && vite build --base '/dashboard/'",
+    "build:pages": "tsc && vite build --base '/'",
     "deploy:pages": "pnpm run build:pages && gh-pages -d build",
-    "deploy": "gh-pages -d build --base '/dashboard/'",
+    "deploy": "gh-pages -d build --base '/'",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css}\""

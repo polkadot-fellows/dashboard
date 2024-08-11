@@ -34,7 +34,7 @@ const pages = (lcStatus: boolean) => [
     element: <Salary />,
   },
   {
-    path: '/modules',
+    path: 'modules',
     element: <Modules />,
   },
   {

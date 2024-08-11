@@ -22,15 +22,15 @@ const pages = (lcStatus: boolean) => [
     element: <About lcStatus={lcStatus} />,
   },
   {
-    path: '/membership',
+    path: 'membership',
     element: <Membership />,
   },
   {
-    path: '/governance',
+    path: 'governance',
     element: <Governance />,
   },
   {
-    path: '/salary',
+    path: 'salary',
     element: <Salary />,
   },
   {
@@ -38,11 +38,11 @@ const pages = (lcStatus: boolean) => [
     element: <Modules />,
   },
   {
-    path: '/rfcs',
+    path: 'rfcs',
     element: <Rfc />,
   },
   {
-    path: '/monthlycalls',
+    path: 'monthlycalls',
     element: <OpenDevMonthlyCalls />,
   },
 ]

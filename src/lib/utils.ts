@@ -19,7 +19,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export type RouterType = {
-  link?: string
+  link: string
   name: string
   icon: ForwardRefExoticComponent<
     Omit<LucideProps, 'ref'> & RefAttributes<SVGSVGElement>

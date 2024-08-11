@@ -5,7 +5,7 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip'
 import { routes } from '@/lib/utils'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import PolkadotIcon from '@/assets/img/polkadotIcon.svg?react'
 import { FaCheckCircle, FaGithub } from 'react-icons/fa'
 import { TbLoaderQuarter } from 'react-icons/tb'
@@ -65,16 +65,16 @@ export const Navigation = ({
           <span>Fellowship</span>
         </div>
         {routes.map((r) => (
-          <a
+          <Link
             className={
               linkStyle(pathname, '/' + (r.link || '')) +
               ' flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground transition-colors py-2 '
             }
-            href={`/#/${r.link || ''}`}
+            to={r.link}
           >
             <r.icon className="h-5 w-5" />
             <div className="left">{r.name}</div>
-          </a>
+          </Link>
         ))}
         <Resources />
         <Accordion type="single" collapsible>

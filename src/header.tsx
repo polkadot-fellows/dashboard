@@ -26,6 +26,7 @@ import {
   AccordionContent,
 } from '@radix-ui/react-accordion'
 import { SiElement } from 'react-icons/si'
+import { Link } from 'react-router-dom'
 
 // import { Polkicon } from '@polkadot-ui/react'
 // import {
@@ -81,14 +82,13 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
           </div>
           <nav className="grid gap-4 pt-4 text-lg font-medium">
             {routes.map((r) => (
-              <a
-                key={r.name}
-                href={`/#/${r.link || ''}`}
+              <Link
+                to={r.link}
                 className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
               >
                 <r.icon className="h-5 w-5" />
                 {r.name}
-              </a>
+              </Link>
             ))}
             <Dialog>
               <DialogTrigger asChild>

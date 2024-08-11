@@ -14,11 +14,11 @@ import { toast } from 'sonner'
 
 const pages = (lcStatus: boolean) => [
   {
-    path: '/',
+    path: '',
     element: <About lcStatus={lcStatus} />,
   },
   {
-    path: '/about',
+    path: 'about',
     element: <About lcStatus={lcStatus} />,
   },
   {

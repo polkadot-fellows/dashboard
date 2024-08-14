@@ -6,7 +6,6 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import { nextMonthlyCall } from '@/consts'
 import {
   VisibilityState,
   flexRender,
@@ -16,52 +15,16 @@ import {
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-const dataSource2024 = [
-  {
-    key: '9',
-    sessions: '25th June 2024',
-    videos: ' https://www.youtube.com/watch?v=MU7tCyhBU7g',
-    minutes:
-      'https://forum.polkadot.network/t/2024-06-25-technical-fellowship-opendev-call/8890',
-  },
-  {
-    key: '8',
-    sessions: '21st May 2024',
-    videos: 'https://www.youtube.com/watch?v=War1weBu7yU',
-    minutes:
-      'https://forum.polkadot.network/t/2024-05-21-technical-fellowship-opendev-call/8264',
-  },
-  {
-    key: '7',
-    sessions: '23rd April 2024',
-    videos: 'https://www.youtube.com/watch?v=n6U-UbX546E',
-    minutes:
-      'https://forum.polkadot.network/t/2024-04-23-technical-fellowship-opendev-call/7592',
-  },
-  {
-    key: '6',
-    sessions: '19th March 2024',
-    videos:
-      'https://www.youtube.com/watch?v=zSKiAE7fBPI&list=PLtyd7v_I7PGlDJCCCLGLjJ0yv33JAEE_-&index=1&pp=iAQB',
-    minutes:
-      'https://forum.polkadot.network/t/2024-03-19-technical-fellowship-opendev-call/6901',
-  },
-  {
-    key: '5',
-    sessions: '20th February 2024',
-    videos:
-      'https://www.youtube.com/watch?v=bqLujRSs6iY&list=PLtyd7v_I7PGlDJCCCLGLjJ0yv33JAEE_-&index=2&pp=iAQB',
-    minutes:
-      'https://forum.polkadot.network/t/technical-fellowship-opendev-call-2024-02-20/6355',
-  },
-  {
-    key: '4',
-    sessions: '16th January 2024',
-    videos:
-      'https://www.youtube.com/watch?v=itUw-ndb-Tc&list=PLtyd7v_I7PGlDJCCCLGLjJ0yv33JAEE_-&index=3&pp=iAQB',
-    minutes: 'N/A',
-  },
-]
+import { monthlyCalls2024, nextMonthlyCall } from '@/monthlyCalls'
+
+const dataSource2024 = Object.entries(monthlyCalls2024)
+  .map((v) => ({
+    key: v[0],
+    sessions: v[1][0],
+    videos: v[1][1],
+    minutes: v[1][2],
+  }))
+  .sort((a, b) => parseInt(b.key) - parseInt(a.key))
 
 const dataSource2023 = [
   {
@@ -157,12 +120,12 @@ export const OpenDevMonthlyCalls = () => {
             {nextMonthlyCall}
           </span>
         </div>
-        <h2 className="my-4 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-lg font-semibold tracking-tight sm:grow-0">
-          Past calls
-        </h2>
       </div>
       <div style={{ padding: '0 2rem' }}>
-        <h2 className="py-2 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
+        <h2 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-lg font-semibold tracking-tight sm:grow-0">
+          Past calls
+        </h2>
+        <h2 className="pt-4 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
           2024
         </h2>
         <Table>

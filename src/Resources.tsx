@@ -53,7 +53,7 @@ export const Resources = () => {
               Resources
             </DialogTitle>
             <DialogDescription>
-              Some resources of Felloship specific information.
+              Useful resources on the Polkadot Technical Fellowship
             </DialogDescription>
           </DialogHeader>
           <div className="columns-1">

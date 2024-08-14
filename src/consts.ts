@@ -9,8 +9,6 @@ const GithubOwner = 'polkadot-fellows'
 const GithubRfc = 'RFCs'
 const GithubApiUrl = `https://api.github.com/repos/${GithubOwner}/${GithubRfc}`
 
-const nextMonthlyCall = '20th of August, 2024'
-
 const SideMenuMaximisedWidth = 185
 const SideMenuMinimisedWidth = 75
 const SideMenuStickyThreshold = 1150

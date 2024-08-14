@@ -1,4 +1,12 @@
+// Add the date of the nextMonthlyCall
 export const nextMonthlyCall = '20th of August, 2024'
+
+// This object should always be: 
+// +1 rank number: [
+//    '<DATE OF MONTHLY CALL>',
+//    '<Youtube link or N/A>',
+//    '<forum meeting minutes link or N/A>',
+// ]
 export const monthlyCalls2024 = {
   9: [
     '25th June 2024',

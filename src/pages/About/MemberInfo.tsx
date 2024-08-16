@@ -108,7 +108,6 @@ export const MemberInfo = ({
         setTransferrable(roundUp(free))
         setReserved(roundUp(reserved))
         setTotal(roundUp(free + reserved))
-        console.log(bal.data, roundUp(free + reserved))
       }
     }
     getBalance()

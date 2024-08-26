@@ -10,10 +10,10 @@ importers:
     dependencies:
       '@polkadot-api/descriptors':
         specifier: file:.papi/descriptors
-        version: file:.papi/descriptors(polkadot-api@1.0.1(jiti@1.21.6)(postcss@8.4.41)(rxjs@7.8.1)(smoldot@2.0.30)(yaml@2.5.0))
+        version: file:.papi/descriptors(polkadot-api@1.0.2(jiti@1.21.6)(postcss@8.4.41)(rxjs@7.8.1)(smoldot@2.0.30)(yaml@2.5.0))
       '@polkadot-ui/react':
         specifier: 0.0.1-alpha.15
-        version: 0.0.1-alpha.15(@noble/hashes@1.4.0)(@polkadot-api/substrate-bindings@0.6.3)(@polkadot-ui/assets@0.0.1-alpha.2)(@polkadot-ui/core@0.0.1-alpha.2)(@polkadot-ui/utils@0.0.1-alpha.5(@polkadot/keyring@12.6.2(@polkadot/util-crypto@12.6.2(@polkadot/util@12.6.2))(@polkadot/util@12.6.2))(@polkadot/util@12.6.2))(polkadot-api@1.0.1(jiti@1.21.6)(postcss@8.4.41)(rxjs@7.8.1)(smoldot@2.0.30)(yaml@2.5.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 0.0.1-alpha.15(@noble/hashes@1.4.0)(@polkadot-api/substrate-bindings@0.6.3)(@polkadot-ui/assets@0.0.1-alpha.2)(@polkadot-ui/core@0.0.1-alpha.2)(@polkadot-ui/utils@0.0.1-alpha.5(@polkadot/keyring@12.6.2(@polkadot/util-crypto@12.6.2(@polkadot/util@12.6.2))(@polkadot/util@12.6.2))(@polkadot/util@12.6.2))(polkadot-api@1.0.2(jiti@1.21.6)(postcss@8.4.41)(rxjs@7.8.1)(smoldot@2.0.30)(yaml@2.5.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@polkadot-ui/utils':
         specifier: 0.0.1-alpha.5
         version: 0.0.1-alpha.5(@polkadot/keyring@12.6.2(@polkadot/util-crypto@12.6.2(@polkadot/util@12.6.2))(@polkadot/util@12.6.2))(@polkadot/util@12.6.2)
@@ -72,8 +72,8 @@ importers:
         specifier: ^0.3.0
         version: 0.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       polkadot-api:
-        specifier: ^1.0.1
-        version: 1.0.1(jiti@1.21.6)(postcss@8.4.41)(rxjs@7.8.1)(smoldot@2.0.30)(yaml@2.5.0)
+        specifier: ^1.0.2
+        version: 1.0.2(jiti@1.21.6)(postcss@8.4.41)(rxjs@7.8.1)(smoldot@2.0.30)(yaml@2.5.0)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -641,8 +641,8 @@ packages:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
 
-  '@polkadot-api/cli@0.7.5':
-    resolution: {integrity: sha512-RhYGiROyMz18SdehjDyIX+V1kERS6f9pEpihkxfbQT8V6Sp/uKSGd6fmTWTb0FQkuLQLza7Su9SyRrxThSzjaA==}
+  '@polkadot-api/cli@0.7.6':
+    resolution: {integrity: sha512-EIjL/Zmc/z1pr+SVorqUVtDdD+rQSR0QP7DXSLE3IwwSro9WgELnr+/4o8Q0LchLQOlP+EMhxHcEq0Vs6hrcWg==}
     hasBin: true
 
   '@polkadot-api/codegen@0.8.0':
@@ -662,11 +662,11 @@ packages:
   '@polkadot-api/json-rpc-provider@0.0.3':
     resolution: {integrity: sha512-493nHN9RnLxNPMxQ3oekEFnRomAqWWh3j88FhANoPu5iINBG73l4ccB9QBPVs3JWXq4SwfLVmb6L15ryM69g/g==}
 
-  '@polkadot-api/known-chains@0.4.0':
-    resolution: {integrity: sha512-TW3pwl+MmdIjCb3xIdAbp9YhVY0ygDWkxAKxF/r5szDWqB3zNXoQpgQUc5NqChv9CDbLD3yCeWNV7fmSCjtzVA==}
+  '@polkadot-api/known-chains@0.4.1':
+    resolution: {integrity: sha512-5WqdGXGZPavmm0c+i2d3h6K6iz8hZXax/TwdCIG6UjWMOwfYkEpUtdGcp3DH3J8PmBZmZfdJ0xpeSKfzrXp0+w==}
 
-  '@polkadot-api/logs-provider@0.0.3':
-    resolution: {integrity: sha512-va++/efBvcC0LuYrq1HZvtAwoyxyMsvA+ecLqwxo/lMymJFOQXV+bIgbMd7z+nNbUtGplCJVDFR5EK0EhxfKxQ==}
+  '@polkadot-api/logs-provider@0.0.4':
+    resolution: {integrity: sha512-9MGjXJmujtFA9HsgS4TejTDSD3unyOgMBSbYmz9iWcddCmw+0M5png+F2VW90Ua76kLzWnJ3V1mqFkTapgIipg==}
 
   '@polkadot-api/metadata-builders@0.5.0':
     resolution: {integrity: sha512-hHAEYziHsaf7GFOyrrSrToBtBekEMYSCc0GTU3iZ7vnGHdT8wv0vdo90iHU2lL4Di1sUZJz6Vc+ZUJACf2aeVg==}
@@ -1247,19 +1247,9 @@ packages:
       rollup:
         optional: true
 
-  '@rollup/rollup-android-arm-eabi@4.19.1':
-    resolution: {integrity: sha512-XzqSg714++M+FXhHfXpS1tDnNZNpgxxuGZWlRG/jSj+VEPmZ0yg6jV4E0AL3uyBKxO8mO3xtOsP5mQ+XLfrlww==}
-    cpu: [arm]
-    os: [android]
-
   '@rollup/rollup-android-arm-eabi@4.21.0':
     resolution: {integrity: sha512-WTWD8PfoSAJ+qL87lE7votj3syLavxunWhzCnx3XFxFiI/BA/r3X7MUM8dVrH8rb2r4AiO8jJsr3ZjdaftmnfA==}
     cpu: [arm]
-    os: [android]
-
-  '@rollup/rollup-android-arm64@4.19.1':
-    resolution: {integrity: sha512-thFUbkHteM20BGShD6P08aungq4irbIZKUNbG70LN8RkO7YztcGPiKTTGZS7Kw+x5h8hOXs0i4OaHwFxlpQN6A==}
-    cpu: [arm64]
     os: [android]
 
   '@rollup/rollup-android-arm64@4.21.0':
@@ -1267,19 +1257,9 @@ packages:
     cpu: [arm64]
     os: [android]
 
-  '@rollup/rollup-darwin-arm64@4.19.1':
-    resolution: {integrity: sha512-8o6eqeFZzVLia2hKPUZk4jdE3zW7LCcZr+MD18tXkgBBid3lssGVAYuox8x6YHoEPDdDa9ixTaStcmx88lio5Q==}
-    cpu: [arm64]
-    os: [darwin]
-
   '@rollup/rollup-darwin-arm64@4.21.0':
     resolution: {integrity: sha512-zOnKWLgDld/svhKO5PD9ozmL6roy5OQ5T4ThvdYZLpiOhEGY+dp2NwUmxK0Ld91LrbjrvtNAE0ERBwjqhZTRAA==}
     cpu: [arm64]
-    os: [darwin]
-
-  '@rollup/rollup-darwin-x64@4.19.1':
-    resolution: {integrity: sha512-4T42heKsnbjkn7ovYiAdDVRRWZLU9Kmhdt6HafZxFcUdpjlBlxj4wDrt1yFWLk7G4+E+8p2C9tcmSu0KA6auGA==}
-    cpu: [x64]
     os: [darwin]
 
   '@rollup/rollup-darwin-x64@4.21.0':
@@ -1287,18 +1267,8 @@ packages:
     cpu: [x64]
     os: [darwin]
 
-  '@rollup/rollup-linux-arm-gnueabihf@4.19.1':
-    resolution: {integrity: sha512-MXg1xp+e5GhZ3Vit1gGEyoC+dyQUBy2JgVQ+3hUrD9wZMkUw/ywgkpK7oZgnB6kPpGrxJ41clkPPnsknuD6M2Q==}
-    cpu: [arm]
-    os: [linux]
-
   '@rollup/rollup-linux-arm-gnueabihf@4.21.0':
     resolution: {integrity: sha512-pWJsfQjNWNGsoCq53KjMtwdJDmh/6NubwQcz52aEwLEuvx08bzcy6tOUuawAOncPnxz/3siRtd8hiQ32G1y8VA==}
-    cpu: [arm]
-    os: [linux]
-
-  '@rollup/rollup-linux-arm-musleabihf@4.19.1':
-    resolution: {integrity: sha512-DZNLwIY4ftPSRVkJEaxYkq7u2zel7aah57HESuNkUnz+3bZHxwkCUkrfS2IWC1sxK6F2QNIR0Qr/YXw7nkF3Pw==}
     cpu: [arm]
     os: [linux]
 
@@ -1307,18 +1277,8 @@ packages:
     cpu: [arm]
     os: [linux]
 
-  '@rollup/rollup-linux-arm64-gnu@4.19.1':
-    resolution: {integrity: sha512-C7evongnjyxdngSDRRSQv5GvyfISizgtk9RM+z2biV5kY6S/NF/wta7K+DanmktC5DkuaJQgoKGf7KUDmA7RUw==}
-    cpu: [arm64]
-    os: [linux]
-
   '@rollup/rollup-linux-arm64-gnu@4.21.0':
     resolution: {integrity: sha512-ZrPhydkTVhyeGTW94WJ8pnl1uroqVHM3j3hjdquwAcWnmivjAwOYjTEAuEDeJvGX7xv3Z9GAvrBkEzCgHq9U1w==}
-    cpu: [arm64]
-    os: [linux]
-
-  '@rollup/rollup-linux-arm64-musl@4.19.1':
-    resolution: {integrity: sha512-89tFWqxfxLLHkAthAcrTs9etAoBFRduNfWdl2xUs/yLV+7XDrJ5yuXMHptNqf1Zw0UCA3cAutkAiAokYCkaPtw==}
     cpu: [arm64]
     os: [linux]
 
@@ -1327,19 +1287,9 @@ packages:
     cpu: [arm64]
     os: [linux]
 
-  '@rollup/rollup-linux-powerpc64le-gnu@4.19.1':
-    resolution: {integrity: sha512-PromGeV50sq+YfaisG8W3fd+Cl6mnOOiNv2qKKqKCpiiEke2KiKVyDqG/Mb9GWKbYMHj5a01fq/qlUR28PFhCQ==}
-    cpu: [ppc64]
-    os: [linux]
-
   '@rollup/rollup-linux-powerpc64le-gnu@4.21.0':
     resolution: {integrity: sha512-ZKPan1/RvAhrUylwBXC9t7B2hXdpb/ufeu22pG2psV7RN8roOfGurEghw1ySmX/CmDDHNTDDjY3lo9hRlgtaHg==}
     cpu: [ppc64]
-    os: [linux]
-
-  '@rollup/rollup-linux-riscv64-gnu@4.19.1':
-    resolution: {integrity: sha512-/1BmHYh+iz0cNCP0oHCuF8CSiNj0JOGf0jRlSo3L/FAyZyG2rGBuKpkZVH9YF+x58r1jgWxvm1aRg3DHrLDt6A==}
-    cpu: [riscv64]
     os: [linux]
 
   '@rollup/rollup-linux-riscv64-gnu@4.21.0':
@@ -1347,28 +1297,13 @@ packages:
     cpu: [riscv64]
     os: [linux]
 
-  '@rollup/rollup-linux-s390x-gnu@4.19.1':
-    resolution: {integrity: sha512-0cYP5rGkQWRZKy9/HtsWVStLXzCF3cCBTRI+qRL8Z+wkYlqN7zrSYm6FuY5Kd5ysS5aH0q5lVgb/WbG4jqXN1Q==}
-    cpu: [s390x]
-    os: [linux]
-
   '@rollup/rollup-linux-s390x-gnu@4.21.0':
     resolution: {integrity: sha512-zJ4hA+3b5tu8u7L58CCSI0A9N1vkfwPhWd/puGXwtZlsB5bTkwDNW/+JCU84+3QYmKpLi+XvHdmrlwUwDA6kqw==}
     cpu: [s390x]
     os: [linux]
 
-  '@rollup/rollup-linux-x64-gnu@4.19.1':
-    resolution: {integrity: sha512-XUXeI9eM8rMP8aGvii/aOOiMvTs7xlCosq9xCjcqI9+5hBxtjDpD+7Abm1ZhVIFE1J2h2VIg0t2DX/gjespC2Q==}
-    cpu: [x64]
-    os: [linux]
-
   '@rollup/rollup-linux-x64-gnu@4.21.0':
     resolution: {integrity: sha512-e2hrvElFIh6kW/UNBQK/kzqMNY5mO+67YtEh9OA65RM5IJXYTWiXjX6fjIiPaqOkBthYF1EqgiZ6OXKcQsM0hg==}
-    cpu: [x64]
-    os: [linux]
-
-  '@rollup/rollup-linux-x64-musl@4.19.1':
-    resolution: {integrity: sha512-V7cBw/cKXMfEVhpSvVZhC+iGifD6U1zJ4tbibjjN+Xi3blSXaj/rJynAkCFFQfoG6VZrAiP7uGVzL440Q6Me2Q==}
     cpu: [x64]
     os: [linux]
 
@@ -1377,29 +1312,14 @@ packages:
     cpu: [x64]
     os: [linux]
 
-  '@rollup/rollup-win32-arm64-msvc@4.19.1':
-    resolution: {integrity: sha512-88brja2vldW/76jWATlBqHEoGjJLRnP0WOEKAUbMcXaAZnemNhlAHSyj4jIwMoP2T750LE9lblvD4e2jXleZsA==}
-    cpu: [arm64]
-    os: [win32]
-
   '@rollup/rollup-win32-arm64-msvc@4.21.0':
     resolution: {integrity: sha512-s5oFkZ/hFcrlAyBTONFY1TWndfyre1wOMwU+6KCpm/iatybvrRgmZVM+vCFwxmC5ZhdlgfE0N4XorsDpi7/4XQ==}
     cpu: [arm64]
     os: [win32]
 
-  '@rollup/rollup-win32-ia32-msvc@4.19.1':
-    resolution: {integrity: sha512-LdxxcqRVSXi6k6JUrTah1rHuaupoeuiv38du8Mt4r4IPer3kwlTo+RuvfE8KzZ/tL6BhaPlzJ3835i6CxrFIRQ==}
-    cpu: [ia32]
-    os: [win32]
-
   '@rollup/rollup-win32-ia32-msvc@4.21.0':
     resolution: {integrity: sha512-G9+TEqRnAA6nbpqyUqgTiopmnfgnMkR3kMukFBDsiyy23LZvUCpiUwjTRx6ezYCjJODXrh52rBR9oXvm+Fp5wg==}
     cpu: [ia32]
-    os: [win32]
-
-  '@rollup/rollup-win32-x64-msvc@4.19.1':
-    resolution: {integrity: sha512-2bIrL28PcK3YCqD9anGxDxamxdiJAxA+l7fWIwM5o8UqNy1t3d1NdAweO2XhA0KTDJ5aH1FsuiT5+7VhtHliXg==}
-    cpu: [x64]
     os: [win32]
 
   '@rollup/rollup-win32-x64-msvc@4.21.0':
@@ -2715,8 +2635,8 @@ packages:
     resolution: {integrity: sha512-HRDzbaKjC+AOWVXxAU/x54COGeIv9eb+6CkDSQoNTt4XyWoIJvuPsXizxu/Fr23EiekbtZwmh1IcIG/l/a10GQ==}
     engines: {node: '>=8'}
 
-  polkadot-api@1.0.1:
-    resolution: {integrity: sha512-XmH3CCUChaAlZLhnQhaf9ZB7uW0ZwkU/GqQVLFIklZy8Kx/f3Q3PDtTPNM7uAMWTr8xuCN1gIja3UalWgPHyMg==}
+  polkadot-api@1.0.2:
+    resolution: {integrity: sha512-rBjPIUfQe60dwOC9d3otvCh+MufPOhzf8Gar+0p2DjR9I/Ea0YW/Xk7W//PK+EH885vLx6LKeD+Tzg/MVTyALQ==}
     hasBin: true
     peerDependencies:
       rxjs: '>=7.8.0'
@@ -2910,11 +2830,6 @@ packages:
   rimraf@3.0.2:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
     deprecated: Rimraf versions prior to v4 are no longer supported
-    hasBin: true
-
-  rollup@4.19.1:
-    resolution: {integrity: sha512-K5vziVlg7hTpYfFBI+91zHBEMo6jafYXpkMlqZjg7/zhIG9iHqazBf4xz9AVdjS9BruRn280ROqLI7G3OFRIlw==}
-    engines: {node: '>=18.0.0', npm: '>=8.0.0'}
     hasBin: true
 
   rollup@4.21.0:
@@ -3739,13 +3654,13 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
-  '@polkadot-api/cli@0.7.5(jiti@1.21.6)(postcss@8.4.41)(smoldot@2.0.30)(yaml@2.5.0)':
+  '@polkadot-api/cli@0.7.6(jiti@1.21.6)(postcss@8.4.41)(smoldot@2.0.30)(yaml@2.5.0)':
     dependencies:
       '@commander-js/extra-typings': 12.1.0(commander@12.1.0)
       '@polkadot-api/codegen': 0.8.0
       '@polkadot-api/json-rpc-provider': 0.0.3
       '@polkadot-api/json-rpc-provider-proxy': 0.2.0
-      '@polkadot-api/known-chains': 0.4.0
+      '@polkadot-api/known-chains': 0.4.1
       '@polkadot-api/metadata-builders': 0.5.0
       '@polkadot-api/metadata-compatibility': 0.1.2
       '@polkadot-api/observable-client': 0.5.1(@polkadot-api/substrate-client@0.2.1)(rxjs@7.8.1)
@@ -3789,9 +3704,9 @@ snapshots:
       '@polkadot-api/substrate-bindings': 0.6.3
       '@polkadot-api/utils': 0.1.1
 
-  '@polkadot-api/descriptors@file:.papi/descriptors(polkadot-api@1.0.1(jiti@1.21.6)(postcss@8.4.41)(rxjs@7.8.1)(smoldot@2.0.30)(yaml@2.5.0))':
+  '@polkadot-api/descriptors@file:.papi/descriptors(polkadot-api@1.0.2(jiti@1.21.6)(postcss@8.4.41)(rxjs@7.8.1)(smoldot@2.0.30)(yaml@2.5.0))':
     dependencies:
-      polkadot-api: 1.0.1(jiti@1.21.6)(postcss@8.4.41)(rxjs@7.8.1)(smoldot@2.0.30)(yaml@2.5.0)
+      polkadot-api: 1.0.2(jiti@1.21.6)(postcss@8.4.41)(rxjs@7.8.1)(smoldot@2.0.30)(yaml@2.5.0)
 
   '@polkadot-api/json-rpc-provider-proxy@0.2.0': {}
 
@@ -3799,11 +3714,11 @@ snapshots:
 
   '@polkadot-api/json-rpc-provider@0.0.3': {}
 
-  '@polkadot-api/known-chains@0.4.0': {}
+  '@polkadot-api/known-chains@0.4.1': {}
 
-  '@polkadot-api/logs-provider@0.0.3':
+  '@polkadot-api/logs-provider@0.0.4':
     dependencies:
-      '@polkadot-api/json-rpc-provider': 0.0.2
+      '@polkadot-api/json-rpc-provider': 0.0.3
 
   '@polkadot-api/metadata-builders@0.5.0':
     dependencies:
@@ -3891,14 +3806,14 @@ snapshots:
 
   '@polkadot-ui/core@0.0.1-alpha.2': {}
 
-  '@polkadot-ui/react@0.0.1-alpha.15(@noble/hashes@1.4.0)(@polkadot-api/substrate-bindings@0.6.3)(@polkadot-ui/assets@0.0.1-alpha.2)(@polkadot-ui/core@0.0.1-alpha.2)(@polkadot-ui/utils@0.0.1-alpha.5(@polkadot/keyring@12.6.2(@polkadot/util-crypto@12.6.2(@polkadot/util@12.6.2))(@polkadot/util@12.6.2))(@polkadot/util@12.6.2))(polkadot-api@1.0.1(jiti@1.21.6)(postcss@8.4.41)(rxjs@7.8.1)(smoldot@2.0.30)(yaml@2.5.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@polkadot-ui/react@0.0.1-alpha.15(@noble/hashes@1.4.0)(@polkadot-api/substrate-bindings@0.6.3)(@polkadot-ui/assets@0.0.1-alpha.2)(@polkadot-ui/core@0.0.1-alpha.2)(@polkadot-ui/utils@0.0.1-alpha.5(@polkadot/keyring@12.6.2(@polkadot/util-crypto@12.6.2(@polkadot/util@12.6.2))(@polkadot/util@12.6.2))(@polkadot/util@12.6.2))(polkadot-api@1.0.2(jiti@1.21.6)(postcss@8.4.41)(rxjs@7.8.1)(smoldot@2.0.30)(yaml@2.5.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@noble/hashes': 1.4.0
       '@polkadot-api/substrate-bindings': 0.6.3
       '@polkadot-ui/assets': 0.0.1-alpha.2
       '@polkadot-ui/core': 0.0.1-alpha.2
       '@polkadot-ui/utils': 0.0.1-alpha.5(@polkadot/keyring@12.6.2(@polkadot/util-crypto@12.6.2(@polkadot/util@12.6.2))(@polkadot/util@12.6.2))(@polkadot/util@12.6.2)
-      polkadot-api: 1.0.1(jiti@1.21.6)(postcss@8.4.41)(rxjs@7.8.1)(smoldot@2.0.30)(yaml@2.5.0)
+      polkadot-api: 1.0.2(jiti@1.21.6)(postcss@8.4.41)(rxjs@7.8.1)(smoldot@2.0.30)(yaml@2.5.0)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
@@ -4451,97 +4366,49 @@ snapshots:
     optionalDependencies:
       rollup: 4.21.0
 
-  '@rollup/rollup-android-arm-eabi@4.19.1':
-    optional: true
-
   '@rollup/rollup-android-arm-eabi@4.21.0':
-    optional: true
-
-  '@rollup/rollup-android-arm64@4.19.1':
     optional: true
 
   '@rollup/rollup-android-arm64@4.21.0':
     optional: true
 
-  '@rollup/rollup-darwin-arm64@4.19.1':
-    optional: true
-
   '@rollup/rollup-darwin-arm64@4.21.0':
-    optional: true
-
-  '@rollup/rollup-darwin-x64@4.19.1':
     optional: true
 
   '@rollup/rollup-darwin-x64@4.21.0':
     optional: true
 
-  '@rollup/rollup-linux-arm-gnueabihf@4.19.1':
-    optional: true
-
   '@rollup/rollup-linux-arm-gnueabihf@4.21.0':
-    optional: true
-
-  '@rollup/rollup-linux-arm-musleabihf@4.19.1':
     optional: true
 
   '@rollup/rollup-linux-arm-musleabihf@4.21.0':
     optional: true
 
-  '@rollup/rollup-linux-arm64-gnu@4.19.1':
-    optional: true
-
   '@rollup/rollup-linux-arm64-gnu@4.21.0':
-    optional: true
-
-  '@rollup/rollup-linux-arm64-musl@4.19.1':
     optional: true
 
   '@rollup/rollup-linux-arm64-musl@4.21.0':
     optional: true
 
-  '@rollup/rollup-linux-powerpc64le-gnu@4.19.1':
-    optional: true
-
   '@rollup/rollup-linux-powerpc64le-gnu@4.21.0':
-    optional: true
-
-  '@rollup/rollup-linux-riscv64-gnu@4.19.1':
     optional: true
 
   '@rollup/rollup-linux-riscv64-gnu@4.21.0':
     optional: true
 
-  '@rollup/rollup-linux-s390x-gnu@4.19.1':
-    optional: true
-
   '@rollup/rollup-linux-s390x-gnu@4.21.0':
-    optional: true
-
-  '@rollup/rollup-linux-x64-gnu@4.19.1':
     optional: true
 
   '@rollup/rollup-linux-x64-gnu@4.21.0':
     optional: true
 
-  '@rollup/rollup-linux-x64-musl@4.19.1':
-    optional: true
-
   '@rollup/rollup-linux-x64-musl@4.21.0':
-    optional: true
-
-  '@rollup/rollup-win32-arm64-msvc@4.19.1':
     optional: true
 
   '@rollup/rollup-win32-arm64-msvc@4.21.0':
     optional: true
 
-  '@rollup/rollup-win32-ia32-msvc@4.19.1':
-    optional: true
-
   '@rollup/rollup-win32-ia32-msvc@4.21.0':
-    optional: true
-
-  '@rollup/rollup-win32-x64-msvc@4.19.1':
     optional: true
 
   '@rollup/rollup-win32-x64-msvc@4.21.0':
@@ -6028,12 +5895,12 @@ snapshots:
     dependencies:
       find-up: 4.1.0
 
-  polkadot-api@1.0.1(jiti@1.21.6)(postcss@8.4.41)(rxjs@7.8.1)(smoldot@2.0.30)(yaml@2.5.0):
+  polkadot-api@1.0.2(jiti@1.21.6)(postcss@8.4.41)(rxjs@7.8.1)(smoldot@2.0.30)(yaml@2.5.0):
     dependencies:
-      '@polkadot-api/cli': 0.7.5(jiti@1.21.6)(postcss@8.4.41)(smoldot@2.0.30)(yaml@2.5.0)
+      '@polkadot-api/cli': 0.7.6(jiti@1.21.6)(postcss@8.4.41)(smoldot@2.0.30)(yaml@2.5.0)
       '@polkadot-api/json-rpc-provider': 0.0.3
-      '@polkadot-api/known-chains': 0.4.0
-      '@polkadot-api/logs-provider': 0.0.3
+      '@polkadot-api/known-chains': 0.4.1
+      '@polkadot-api/logs-provider': 0.0.4
       '@polkadot-api/metadata-builders': 0.5.0
       '@polkadot-api/metadata-compatibility': 0.1.2
       '@polkadot-api/observable-client': 0.5.1(@polkadot-api/substrate-client@0.2.1)(rxjs@7.8.1)
@@ -6245,28 +6112,6 @@ snapshots:
   rimraf@3.0.2:
     dependencies:
       glob: 7.2.3
-
-  rollup@4.19.1:
-    dependencies:
-      '@types/estree': 1.0.5
-    optionalDependencies:
-      '@rollup/rollup-android-arm-eabi': 4.19.1
-      '@rollup/rollup-android-arm64': 4.19.1
-      '@rollup/rollup-darwin-arm64': 4.19.1
-      '@rollup/rollup-darwin-x64': 4.19.1
-      '@rollup/rollup-linux-arm-gnueabihf': 4.19.1
-      '@rollup/rollup-linux-arm-musleabihf': 4.19.1
-      '@rollup/rollup-linux-arm64-gnu': 4.19.1
-      '@rollup/rollup-linux-arm64-musl': 4.19.1
-      '@rollup/rollup-linux-powerpc64le-gnu': 4.19.1
-      '@rollup/rollup-linux-riscv64-gnu': 4.19.1
-      '@rollup/rollup-linux-s390x-gnu': 4.19.1
-      '@rollup/rollup-linux-x64-gnu': 4.19.1
-      '@rollup/rollup-linux-x64-musl': 4.19.1
-      '@rollup/rollup-win32-arm64-msvc': 4.19.1
-      '@rollup/rollup-win32-ia32-msvc': 4.19.1
-      '@rollup/rollup-win32-x64-msvc': 4.19.1
-      fsevents: 2.3.3
 
   rollup@4.21.0:
     dependencies:
@@ -6523,7 +6368,7 @@ snapshots:
       picocolors: 1.0.1
       postcss-load-config: 6.0.1(jiti@1.21.6)(postcss@8.4.41)(yaml@2.5.0)
       resolve-from: 5.0.0
-      rollup: 4.19.1
+      rollup: 4.21.0
       source-map: 0.8.0-beta.0
       sucrase: 3.35.0
       tree-kill: 1.2.2

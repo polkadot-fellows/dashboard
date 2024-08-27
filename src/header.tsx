@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import {
-  AccountProvider,
-  ExtensionProvider,
+  // AccountProvider,
+  // ExtensionProvider,
   SelectedAccountType,
 } from '@polkadot-ui/react'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
@@ -33,14 +33,14 @@ import {
 import { SiElement } from 'react-icons/si'
 import { Link } from 'react-router-dom'
 
-import { Polkicon } from '@polkadot-ui/react'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
+// import { Polkicon } from '@polkadot-ui/react'
+// import {
+//   DropdownMenu,
+//   DropdownMenuContent,
+//   DropdownMenuItem,
+//   DropdownMenuSeparator,
+//   DropdownMenuTrigger,
+// } from '@/components/ui/dropdown-menu'
 
 import { useAccount } from './contexts/AccountContextProvider'
 
@@ -50,11 +50,12 @@ interface Props {
 }
 
 export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
-  const { enchancedAccount, setSelectedAccount } = useAccount()
+  const { setSelectedAccount } = useAccount()
 
-  const [selAccount, setSelAccount] = useState<SelectedAccountType>(
-    {} as SelectedAccountType,
-  )
+  const [
+    selAccount,
+    //  setSelAccount
+  ] = useState<SelectedAccountType>({} as SelectedAccountType)
 
   useEffect(() => {
     collectiveClient.finalizedBlock$.subscribe((finalizedBlock) => {

@@ -40,3 +40,23 @@ export const peopleClient = createClient(getSmProvider(peopleParaChain))
 export const api = collectiveClient?.getTypedApi(collectives)
 export const papi = polkadotClient?.getTypedApi(dot)
 export const people_api = peopleClient?.getTypedApi(people)
+
+/// WSS Stuff
+// import { dot, collectives, people } from '@polkadot-api/descriptors'
+// import { createClient } from 'polkadot-api'
+// import { getWsProvider } from 'polkadot-api/ws-provider/web'
+
+// export const polkadotClient = createClient(
+//   getWsProvider('wss://polkadot.api.onfinality.io/public-ws'),
+// )
+// export const collectiveClient = createClient(
+//   getWsProvider('wss://polkadot-collectives-rpc.polkadot.io'),
+// )
+
+// export const peopleClient = createClient(
+//   getWsProvider('wss://polkadot-people-rpc.polkadot.io'),
+// )
+
+// export const api = collectiveClient?.getTypedApi(collectives)
+// export const papi = polkadotClient?.getTypedApi(dot)
+// export const people_api = peopleClient?.getTypedApi(people)

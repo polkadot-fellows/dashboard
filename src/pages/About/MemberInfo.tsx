@@ -79,9 +79,9 @@ const MemberDetails = ({ address }: MemberDetailsProps) => {
     <>
       <div>{ellipsisFn(address, 6)}</div>
       {copyClicked ? (
-        <Check className="text-[green]" {...props} />
+        <Check className="w-4 text-[green]" {...props} />
       ) : (
-        <Copy className="text-primary" {...props} />
+        <Copy className="w-4 text-primary" {...props} />
       )}
     </>
   )
@@ -98,10 +98,18 @@ export const MemberInfo = ({
   const [reserved, setReserved] = useState<string>('')
   const [transferrable, setTransferrable] = useState<string>('')
   const [total, setTotal] = useState<string>('')
+  const [rank, setRank] = useState<number>()
 
   useEffect(() => {
     const getBalance = async () => {
-      const bal = await api.query.System.Account.getValue(address)
+      const promisesRes = await Promise.all([
+        api.query.System.Account.getValue(address),
+        api.query.FellowshipCollective.Members.getValue(address),
+      ])
+
+      const bal = promisesRes[0]
+      setRank(promisesRes[1])
+
       if (bal?.data) {
         const { free, reserved } = bal.data
 
@@ -132,6 +140,9 @@ export const MemberInfo = ({
                   {display && (
                     <AccountName display={display} address={address} />
                   )}
+                  <div className={`px-4 py-2 text-primary`}>
+                    Rank {rank} - {rankInfo[member.rank].name}
+                  </div>
                   <div className="flex flex-row justify-center">
                     <MemberDetails address={address} />
                   </div>

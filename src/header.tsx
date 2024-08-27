@@ -8,7 +8,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Button } from '@/components/ui/button'
 import { resources, routes } from '@/lib/utils'
 
-import { PanelLeft, Moon, Sun, NotebookText } from 'lucide-react'
+import { PanelLeft, Moon, Sun, NotebookText, BookOpenText } from 'lucide-react'
 import { getLinks } from './Resources'
 import { FaCheckCircle, FaGithub } from 'react-icons/fa'
 import { TbLoaderQuarter } from 'react-icons/tb'
@@ -98,6 +98,14 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
                 {r.name}
               </Link>
             ))}
+            <Link
+              target="_blank"
+              to="https://polkadot-fellows.github.io/RFCs/"
+              className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+            >
+              <BookOpenText className="h-5 w-5" />
+              RFCs Book
+            </Link>
             <Dialog>
               <DialogTrigger asChild>
                 <a

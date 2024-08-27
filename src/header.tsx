@@ -1,14 +1,19 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import {
+  // AccountProvider,
+  // ExtensionProvider,
+  SelectedAccountType,
+} from '@polkadot-ui/react'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Button } from '@/components/ui/button'
 import { resources, routes } from '@/lib/utils'
 
-import { PanelLeft, Moon, Sun, NotebookText } from 'lucide-react'
+import { PanelLeft, Moon, Sun, NotebookText, BookOpenText } from 'lucide-react'
 import { getLinks } from './Resources'
 import { FaCheckCircle, FaGithub } from 'react-icons/fa'
 import { TbLoaderQuarter } from 'react-icons/tb'
 import { useTheme } from './components/theme-provider'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { collectiveClient } from './clients'
 import {
   Dialog,
@@ -33,20 +38,11 @@ import { Link } from 'react-router-dom'
 //   DropdownMenu,
 //   DropdownMenuContent,
 //   DropdownMenuItem,
-//   DropdownMenuLabel,
 //   DropdownMenuSeparator,
 //   DropdownMenuTrigger,
 // } from '@/components/ui/dropdown-menu'
 
-// import {
-//   Menubar,
-//   MenubarContent,
-//   MenubarItem,
-//   MenubarMenu,
-//   MenubarSeparator,
-//   MenubarShortcut,
-//   MenubarTrigger,
-// } from '@/components/ui/menubar'
+import { useAccount } from './contexts/AccountContextProvider'
 
 interface Props {
   lightClientLoaded: boolean
@@ -54,6 +50,13 @@ interface Props {
 }
 
 export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
+  const { setSelectedAccount } = useAccount()
+
+  const [
+    selAccount,
+    //  setSelAccount
+  ] = useState<SelectedAccountType>({} as SelectedAccountType)
+
   useEffect(() => {
     collectiveClient.finalizedBlock$.subscribe((finalizedBlock) => {
       if (finalizedBlock.number && !lightClientLoaded) {
@@ -62,8 +65,14 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
     })
   }, [lightClientLoaded, setLightClientLoaded])
   const { theme, setTheme } = useTheme()
+
+  // TODO Correctly map the account
+  useEffect(() => {
+    selAccount?.address && setSelectedAccount(selAccount)
+  }, [selAccount])
+
   return (
-    <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:sticky sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
+    <header className="sticky top-5 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:sticky sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
       <Sheet>
         <SheetTrigger asChild>
           <Button size="icon" variant="outline" className="sm:hidden">
@@ -90,6 +99,14 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
                 {r.name}
               </Link>
             ))}
+            <Link
+              target="_blank"
+              to="https://polkadot-fellows.github.io/RFCs/"
+              className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+            >
+              <BookOpenText className="h-5 w-5" />
+              RFCs Book
+            </Link>
             <Dialog>
               <DialogTrigger asChild>
                 <a
@@ -106,7 +123,7 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
                     Resources
                   </DialogTitle>
                   <DialogDescription>
-                    Some resources of Felloship specific information.
+                    Useful resources on the Polkadot Technical Fellowship
                   </DialogDescription>
                 </DialogHeader>
                 <div className="columns-1">
@@ -182,9 +199,9 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
           </div>
         </SheetContent>
       </Sheet>
-      {/* <div className="flex justify-between w-full">
+      <div className="flex justify-between w-full">
         <div>
-          <Menubar>
+          {/* <Menubar>
             <MenubarMenu>
               <MenubarTrigger>File</MenubarTrigger>
               <MenubarContent>
@@ -198,33 +215,73 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
                 <MenubarItem>Print</MenubarItem>
               </MenubarContent>
             </MenubarMenu>
-          </Menubar>
+          </Menubar> */}
         </div>
+        {/* TODO - ACTIVATE THIS FOR CONNECT BUTTON
         <div>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button
-                variant="outline"
-                size="icon"
-                className="overflow-hidden rounded-full"
-              >
-                <Polkicon
-                  size={36}
-                  address={'5CoZdwD8KpAaax4oD5bKgHy23wkVKpwuaf9Gb2HTeZQaDijr'}
-                />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>My Account</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Settings</DropdownMenuItem>
-              <DropdownMenuItem>Support</DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Logout</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
-      </div> */}
+          {!enchancedAccount?.address ? (
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button>Connect</Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[425px]">
+                <DialogHeader>
+                  <DialogTitle className="text-primary font-bold">
+                    Connect Wallet
+                  </DialogTitle>
+                </DialogHeader>
+                <ExtensionProvider setSelected={setSelAccount}>
+                  <AccountProvider
+                    selected={selAccount}
+                    setSelected={setSelAccount}
+                  />
+                </ExtensionProvider>
+              </DialogContent>
+            </Dialog>
+          ) : (
+            <Dialog>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="overflow-hidden rounded-full"
+                  >
+                    <Polkicon size={36} address={enchancedAccount?.address} />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DialogTrigger asChild>
+                    <DropdownMenuItem className="cursor-pointer">
+                      Switch Account
+                    </DropdownMenuItem>
+                  </DialogTrigger>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem
+                    className="cursor-pointer"
+                    onClick={() => setSelectedAccount(undefined)}
+                  >
+                    Logout
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+              <DialogContent className="sm:max-w-[425px]">
+                <DialogHeader>
+                  <DialogTitle className="text-primary font-bold">
+                    Connect Wallet
+                  </DialogTitle>
+                </DialogHeader>
+                <ExtensionProvider setSelected={setSelAccount}>
+                  <AccountProvider
+                    selected={selAccount}
+                    setSelected={setSelAccount}
+                  />
+                </ExtensionProvider>
+              </DialogContent>
+            </Dialog>
+          )}
+        </div> */}
+      </div>
     </header>
   )
 }

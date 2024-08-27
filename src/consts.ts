@@ -97,5 +97,4 @@ export {
   type,
   // site details
   rankInfo,
-  nextMonthlyCall,
 }

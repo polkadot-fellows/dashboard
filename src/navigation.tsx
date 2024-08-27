@@ -10,7 +10,7 @@ import PolkadotIcon from '@/assets/img/polkadotIcon.svg?react'
 import { FaCheckCircle, FaGithub } from 'react-icons/fa'
 import { TbLoaderQuarter } from 'react-icons/tb'
 
-import { Moon, Sun } from 'lucide-react'
+import { BookOpenText, Moon, Sun } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useTheme } from '@/components/theme-provider'
 import { collectiveClient } from './clients'
@@ -76,6 +76,15 @@ export const Navigation = ({
             <div className="left">{r.name}</div>
           </Link>
         ))}
+
+        <Link
+          target="_blank"
+          to="https://polkadot-fellows.github.io/RFCs/"
+          className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+        >
+          <BookOpenText className="h-5 w-5" />
+          RFCs Book
+        </Link>
         <Resources />
         <Accordion type="single" collapsible>
           <AccordionItem value="item-1">

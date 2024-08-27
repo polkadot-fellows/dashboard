@@ -7,6 +7,7 @@ import { Modules } from '@/pages/Modules'
 import { OpenDevMonthlyCalls } from '@/pages/OpenDevMonthlyCalls'
 import { Rfc } from '@/pages/Rfc'
 import { Salary } from '@/pages/Salary'
+import { Member } from '@/pages/Member'
 
 import { useEffect, useState } from 'react'
 import { collectiveClient } from '@/clients'
@@ -44,6 +45,10 @@ const pages = (lcStatus: boolean) => [
   {
     path: 'monthlycalls',
     element: <OpenDevMonthlyCalls />,
+  },
+  {
+    path: 'member',
+    element: <Member />,
   },
 ]
 

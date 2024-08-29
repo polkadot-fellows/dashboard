@@ -1,7 +1,5 @@
 import { ThemedLink } from '@/components/ThemedComponents'
 import ReleaseProcess from './release-process.png'
-import { Button } from '@/components/ui/button'
-import { openInNewTab } from '@/lib/utils'
 
 export const Runtimes = () => {
   return (
@@ -64,16 +62,12 @@ export const Runtimes = () => {
         Explorers, DEXes, CEXes and Custodians, Parachains, Live networks, and
         various builders.
       </p>
-      <Button
-        className="w-96"
-        onClick={() =>
-          openInNewTab(
-            'https://docs.google.com/spreadsheets/d/1OnUzvKGM6Byy5lStVBbK7DXT93YYrkLmFElHMh8obt0/edit?usp=sharing',
-          )
-        }
+      <ThemedLink
+        to="https://docs.google.com/spreadsheets/d/1OnUzvKGM6Byy5lStVBbK7DXT93YYrkLmFElHMh8obt0/edit?usp=sharing"
+        target="_blank"
       >
         Check out the working list of Ecosystem teams
-      </Button>
+      </ThemedLink>
     </main>
   )
 }

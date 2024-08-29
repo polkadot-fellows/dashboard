@@ -16,6 +16,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { monthlyCalls2024, nextMonthlyCall } from '@/monthlyCalls'
+import { useMediaQuery } from 'usehooks-ts'
 
 const dataSource2024 = Object.entries(monthlyCalls2024)
   .map((v) => ({
@@ -71,6 +72,7 @@ const columns = [
 ]
 
 export const OpenDevMonthlyCalls = () => {
+  const isMobile = useMediaQuery('(max-width: 768px)')
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({
     key: false,
   })
@@ -92,174 +94,176 @@ export const OpenDevMonthlyCalls = () => {
   })
   return (
     <main className="grid flex-1 items-start gap-4 p-4 sm:mx-[5%] xl:mx-[15%] mx-0 sm:px-6 sm:py-0 md:gap-8">
-      <div className="header">
-        <h1 className="py-2 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
-          Monthly calls
-        </h1>
-      </div>
-      <div style={{ padding: '0 2rem' }}>
-        <p>
-          The Polkadot Fellowship runs a call (“OpenDev”) on a monthly basis to
-          share current and future developments of the Polkadot roadmap.
-        </p>
-        <h2 className="my-4 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-lg font-semibold tracking-tight sm:grow-0">
-          Agenda
-        </h2>
-        <p>
-          All new and existing members are invited to join this live call to
-          introduce themselves, present their contributions to the codebase,
-          participate in discussions about RFCs, propose ideas for the growth of
-          the Fellowship, and answer questions from the general public.
-        </p>
-        <h2 className="my-4 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-lg font-semibold tracking-tight sm:grow-0">
-          Upcoming call
-        </h2>
-        <div className="my-4 font-unbounded flex-1 shrink-0 whitespace-nowrap text-md font-semibold tracking-tight sm:grow-0">
-          The next monthly call is scheduled for the{' '}
+      <h1 className="py-2 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
+        Monthly calls
+      </h1>
+      <p>
+        The Polkadot Fellowship runs a call (“OpenDev”) on a monthly basis to
+        share current and future developments of the Polkadot roadmap.
+      </p>
+      <h2 className="my-4 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-lg font-semibold tracking-tight sm:grow-0">
+        Agenda
+      </h2>
+      <p>
+        All new and existing members are invited to join this live call to
+        introduce themselves, present their contributions to the codebase,
+        participate in discussions about RFCs, propose ideas for the growth of
+        the Fellowship, and answer questions from the general public.
+      </p>
+      <h2 className="my-4 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-lg font-semibold tracking-tight sm:grow-0">
+        Upcoming call
+      </h2>
+      <div className="my-4 font-unbounded flex-1 shrink-0 whitespace-nowrap text-md font-semibold tracking-tight sm:grow-0">
+        The next monthly call is scheduled for the{' '}
+        {isMobile ? (
+          <div className="font-extrabold text-primary text-xl">
+            {nextMonthlyCall}
+          </div>
+        ) : (
           <span className="font-extrabold text-primary text-xl">
             {nextMonthlyCall}
           </span>
-        </div>
+        )}
       </div>
-      <div style={{ padding: '0 2rem' }}>
-        <h2 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-lg font-semibold tracking-tight sm:grow-0">
-          Past calls
-        </h2>
-        <h2 className="pt-4 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
-          2024
-        </h2>
-        <Table>
-          <TableHeader>
-            {table_2024.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id}>
-                {headerGroup.headers.map((header) => {
+      <h2 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-lg font-semibold tracking-tight sm:grow-0">
+        Past calls
+      </h2>
+      <h2 className="pt-4 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
+        2024
+      </h2>
+      <Table className={isMobile ? 'w-[60vw]' : ''}>
+        <TableHeader>
+          {table_2024.getHeaderGroups().map((headerGroup) => (
+            <TableRow key={headerGroup.id}>
+              {headerGroup.headers.map((header) => {
+                return (
+                  <TableHead key={header.id} className="text-bolder text-lg">
+                    {flexRender(
+                      header.column.columnDef.header,
+                      header.getContext(),
+                    )}
+                  </TableHead>
+                )
+              })}
+            </TableRow>
+          ))}
+        </TableHeader>
+        <TableBody>
+          {table_2024.getRowModel().rows.map((row) => (
+            <TableRow
+              key={row.id}
+              data-state={row.getIsSelected() && 'selected'}
+            >
+              {row.getVisibleCells().map((cell) => {
+                if (cell.column.id === 'sessions') {
                   return (
-                    <TableHead key={header.id} className="text-bolder text-lg">
-                      {flexRender(
-                        header.column.columnDef.header,
-                        header.getContext(),
-                      )}
-                    </TableHead>
+                    <TableCell key={cell.id}>
+                      {row.getValue('sessions')}
+                    </TableCell>
                   )
-                })}
-              </TableRow>
-            ))}
-          </TableHeader>
-          <TableBody>
-            {table_2024.getRowModel().rows.map((row) => (
-              <TableRow
-                key={row.id}
-                data-state={row.getIsSelected() && 'selected'}
-              >
-                {row.getVisibleCells().map((cell) => {
-                  if (cell.column.id === 'sessions') {
-                    return (
-                      <TableCell key={cell.id}>
-                        {row.getValue('sessions')}
-                      </TableCell>
-                    )
-                  } else if (cell.column.id === 'minutes') {
-                    return (
-                      <TableCell key={cell.id}>
-                        {row.getValue('minutes') === 'N/A' ? (
-                          '-'
-                        ) : (
-                          <Link
-                            to={row.getValue('minutes')}
-                            className="text-[blue]"
-                            target="_blank"
-                          >
-                            Meeting Minutes #{row.getValue('key')}
-                          </Link>
-                        )}
-                      </TableCell>
-                    )
-                  } else {
-                    return (
-                      <TableCell key={cell.id}>
+                } else if (cell.column.id === 'minutes') {
+                  return (
+                    <TableCell key={cell.id}>
+                      {row.getValue('minutes') === 'N/A' ? (
+                        '-'
+                      ) : (
                         <Link
-                          to={row.getValue('videos')}
+                          to={row.getValue('minutes')}
                           className="text-[blue]"
                           target="_blank"
                         >
-                          OpenDev #{row.getValue('key')}
+                          {!isMobile && 'Meeting Minutes '}#
+                          {row.getValue('key')}
                         </Link>
-                      </TableCell>
-                    )
-                  }
-                })}
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-        <h2 className="py-2 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
-          2023
-        </h2>
-        <Table>
-          <TableHeader>
-            {table_2024.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id}>
-                {headerGroup.headers.map((header) => {
-                  return (
-                    <TableHead key={header.id} className="text-bolder text-lg">
-                      {flexRender(
-                        header.column.columnDef.header,
-                        header.getContext(),
                       )}
-                    </TableHead>
+                    </TableCell>
                   )
-                })}
-              </TableRow>
-            ))}
-          </TableHeader>
-          <TableBody>
-            {table_2023.getRowModel().rows.map((row) => (
-              <TableRow
-                key={row.id}
-                data-state={row.getIsSelected() && 'selected'}
-              >
-                {row.getVisibleCells().map((cell) => {
-                  if (cell.column.id === 'sessions') {
-                    return (
-                      <TableCell key={cell.id}>
-                        {row.getValue('sessions')}
-                      </TableCell>
-                    )
-                  } else if (cell.column.id === 'minutes') {
-                    return (
-                      <TableCell key={cell.id}>
-                        {row.getValue('minutes') === 'N/A' ? (
-                          '-'
-                        ) : (
-                          <Link
-                            to={row.getValue('minutes')}
-                            className="text-[blue]"
-                            target="_blank"
-                          >
-                            Meeting Minutes #{row.getValue('key')}
-                          </Link>
-                        )}
-                      </TableCell>
-                    )
-                  } else {
-                    return (
-                      <TableCell key={cell.id}>
+                } else {
+                  return (
+                    <TableCell key={cell.id}>
+                      <Link
+                        to={row.getValue('videos')}
+                        className="text-[blue]"
+                        target="_blank"
+                      >
+                        {!isMobile && 'OpenDev '}#{row.getValue('key')}
+                      </Link>
+                    </TableCell>
+                  )
+                }
+              })}
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+      <h2 className="py-2 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
+        2023
+      </h2>
+      <Table className={isMobile ? 'w-[60vw]' : ''}>
+        <TableHeader>
+          {table_2024.getHeaderGroups().map((headerGroup) => (
+            <TableRow key={headerGroup.id}>
+              {headerGroup.headers.map((header) => {
+                return (
+                  <TableHead key={header.id} className="text-bolder text-lg">
+                    {flexRender(
+                      header.column.columnDef.header,
+                      header.getContext(),
+                    )}
+                  </TableHead>
+                )
+              })}
+            </TableRow>
+          ))}
+        </TableHeader>
+        <TableBody>
+          {table_2023.getRowModel().rows.map((row) => (
+            <TableRow
+              key={row.id}
+              data-state={row.getIsSelected() && 'selected'}
+            >
+              {row.getVisibleCells().map((cell) => {
+                if (cell.column.id === 'sessions') {
+                  return (
+                    <TableCell key={cell.id}>
+                      {row.getValue('sessions')}
+                    </TableCell>
+                  )
+                } else if (cell.column.id === 'minutes') {
+                  return (
+                    <TableCell key={cell.id}>
+                      {row.getValue('minutes') === 'N/A' ? (
+                        '-'
+                      ) : (
                         <Link
-                          to={row.getValue('videos')}
+                          to={row.getValue('minutes')}
                           className="text-[blue]"
                           target="_blank"
                         >
-                          OpenDev #{row.getValue('key')}
+                          {!isMobile && 'Meeting Minutes '}#
+                          {row.getValue('key')}
                         </Link>
-                      </TableCell>
-                    )
-                  }
-                })}
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </div>
+                      )}
+                    </TableCell>
+                  )
+                } else {
+                  return (
+                    <TableCell key={cell.id}>
+                      <Link
+                        to={row.getValue('videos')}
+                        className="text-[blue]"
+                        target="_blank"
+                      >
+                        {!isMobile && 'OpenDev '}#{row.getValue('key')}
+                      </Link>
+                    </TableCell>
+                  )
+                }
+              })}
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
     </main>
   )
 }

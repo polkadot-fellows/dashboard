@@ -4,6 +4,7 @@ import { About } from '@/pages/About'
 import { Governance } from '@/pages/Governance'
 import { Membership } from '@/pages/Membership'
 import { Modules } from '@/pages/Modules'
+import { Runtimes } from '@/pages/Runtimes'
 import { OpenDevMonthlyCalls } from '@/pages/OpenDevMonthlyCalls'
 import { Rfc } from '@/pages/Rfc'
 import { Salary } from '@/pages/Salary'
@@ -37,6 +38,10 @@ const pages = (lcStatus: boolean) => [
   {
     path: 'modules',
     element: <Modules />,
+  },
+  {
+    path: 'runtimes',
+    element: <Runtimes />,
   },
   {
     path: 'rfcs',

@@ -18,8 +18,6 @@ import {
   useReactTable,
 } from '@tanstack/react-table'
 import { ThemedLink } from '@/components/ThemedComponents'
-import { Button } from '@/components/ui/button'
-import { openInNewTab } from '@/lib/utils'
 
 const source = [
   {
@@ -105,29 +103,29 @@ export const Salary = () => {
       <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
         Salary
       </h1>
-      <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0 my-3">
-        Salary and Ranking
-      </h1>
-      <p>
-        The Polkadot Technical{' '}
-        <ThemedLink
-          to={'https://github.com/polkadot-fellows/manifesto'}
-          target="_blank"
-        >
-          manifesto
-        </ThemedLink>{' '}
-        states that members should receive a monthly allowance on par with gross
-        income in OECD countries. An{' '}
-        <ThemedLink
-          to={'https://github.com/polkadot-fellows/RFCs/pull/50'}
-          target="_blank"
-        >
-          RFC
-        </ThemedLink>{' '}
-        proposed concrete compensation figures for each rank.
-      </p>
-      <div style={{ width: '30rem' }}>
-        <Table>
+      <div className="pageTop">
+        <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0 my-3">
+          Salary and Ranking
+        </h1>
+        <p>
+          The Polkadot Technical{' '}
+          <ThemedLink
+            to={'https://github.com/polkadot-fellows/manifesto'}
+            target="_blank"
+          >
+            manifesto
+          </ThemedLink>{' '}
+          states that members should receive a monthly allowance on par with
+          gross income in OECD countries. An{' '}
+          <ThemedLink
+            to={'https://github.com/polkadot-fellows/RFCs/pull/50'}
+            target="_blank"
+          >
+            RFC
+          </ThemedLink>{' '}
+          proposed concrete compensation figures for each rank.
+        </p>
+        <Table className="max-w-[80vw]">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
@@ -175,68 +173,75 @@ export const Salary = () => {
             )}
           </TableBody>
         </Table>
+        <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0 my-6">
+          Induction
+        </h1>
+        <p>
+          Members can induct themselves into the Salary cycle (i.e. 30-day
+          period) through the salary pallet, as shown below (Salary UI).
+        </p>
+        <img className="my-6" src={ImportMe} alt="import me in salary" />
+        <p>
+          After the current Salary cycle has elapsed, members can submit the
+          signed `bump` call to move to the next Salary cycle, as shown below
+          (Polkadot-JS UI). This is required before registration and payouts can
+          be processed.
+        </p>
+        <img className="my-6" src={SalaryInduct} alt="salary induct" />
       </div>
-      <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0 my-6">
-        Induction
-      </h1>
-      <p>
-        Members can induct themselves into the Salary cycle (i.e. 30-day period)
-        through the salary pallet, as shown below (Salary UI).
-      </p>
-      <img className="my-6" src={ImportMe} alt="import me in salary" />
-      <p>
-        After the current Salary cycle has elapsed, members can submit the
-        signed `bump` call to move to the next Salary cycle, as shown below
-        (Polkadot-JS UI). This is required before registration and payouts can
-        be processed.
-      </p>
-      <img className="my-6" src={SalaryInduct} alt="salary induct" />
-      <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0 my-6">
-        Registration
-      </h1>
-      <p>
-        To become eligible for a payout during a given salary cycle, members
-        need to register their account within the Registration period of 15
-        days, as shown below (Salary UI).
-      </p>
-      <img className="my-6" src={SubsquareRegister} alt="Subsquare register" />
-      <p>
-        Once registered into the current cycle, their names will be displayed in
-        the list of claimants.
-      </p>
-      <Button
-        onClick={() =>
-          openInNewTab(
-            'https://collectives.subsquare.io/fellowship/salary/feeds',
-          )
-        }
-      >
-        Check out the feed for the current Salary cycle on Subsquare
-      </Button>
-      <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0 my-6">
-        Payouts
-      </h1>
-      <p>
-        Members can start claiming salary payouts as soon as the Payout period
-        has begun. They will have 15 days to submit their claim on-chain, as
-        shown below (Salary UI).
-      </p>
-      <img className="my-6" src={SubsquarePayout} alt="Subsquare payout" />
-      <p>
-        Members also have the option to claim a payout and send it into any
-        account on the Collectives system chain by submitting the signed
-        `payout_other` call, as shown below (Polkadot-JS UI).
-      </p>
-      <img className="my-6" src={SalaryPayoutOther} alt="Salary Payout Other" />
-      <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0 my-6">
-        Failed payments
-      </h1>
-      <p>
-        If a payment fails, members can submit the signed `check_payment` call
-        to reset the payout status, and then attempt to claim the payout again
-        within the same Salary cycle, as shown below (Polkadot-JS UI).
-      </p>
-      <img className="my-6" src={SalaryCheckPayment} alt="check Payment" />
+      <div className="">
+        <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0 my-6">
+          Registration
+        </h1>
+        <p>
+          To become eligible for a payout during a given salary cycle, members
+          need to register their account within the Registration period of 15
+          days, as shown below (Salary UI).
+        </p>
+        <img
+          className="my-6"
+          src={SubsquareRegister}
+          alt="Subsquare register"
+        />
+        <p>
+          Once registered into the current cycle, their names will be displayed
+          in the list of claimants.
+        </p>
+        <ThemedLink
+          to={'https://collectives.subsquare.io/fellowship/salary/feeds'}
+          target="_blank"
+        >
+          Check out the feed for the current Salary cycle on Subsquare
+        </ThemedLink>
+        <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0 my-6">
+          Payouts
+        </h1>
+        <p>
+          Members can start claiming salary payouts as soon as the Payout period
+          has begun. They will have 15 days to submit their claim on-chain, as
+          shown below (Salary UI).
+        </p>
+        <img className="my-6" src={SubsquarePayout} alt="Subsquare payout" />
+        <p>
+          Members also have the option to claim a payout and send it into any
+          account on the Collectives system chain by submitting the signed
+          `payout_other` call, as shown below (Polkadot-JS UI).
+        </p>
+        <img
+          className="my-6"
+          src={SalaryPayoutOther}
+          alt="Salary Payout Other"
+        />
+        <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0 my-6">
+          Failed payments
+        </h1>
+        <p>
+          If a payment fails, members can submit the signed `check_payment` call
+          to reset the payout status, and then attempt to claim the payout again
+          within the same Salary cycle, as shown below (Polkadot-JS UI).
+        </p>
+        <img className="my-6" src={SalaryCheckPayment} alt="check Payment" />
+      </div>
     </main>
   )
 }

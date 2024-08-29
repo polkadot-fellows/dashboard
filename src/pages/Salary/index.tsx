@@ -1,13 +1,9 @@
-import { Link } from 'react-router-dom'
-import CoreSubmitEvidence from './fellowshipCore.submitEvidence.png'
-import PreimageCoreApprove from './preimage.fellowshipCore.approve.png'
-import ProposalApprove from './proposal.fellowshipCore.approve.png'
 import SalaryInduct from './fellowshipSalary.induct.png'
-import SalaryBump from './fellowshipSalary.bump.png'
-import CoreRegister from './fellowshipSalary.register.png'
-import SalaryPayout from './fellowshipSalary.payout.png'
+import SubsquareRegister from './fellowshipSalary.register.subsquare.png'
+import SubsquarePayout from './fellowshipSalary.payout.subsquare.png'
 import SalaryPayoutOther from './fellowshipSalary.payoutOther.png'
 import SalaryCheckPayment from './fellowshipSalary.checkPayment.png'
+import ImportMe from './import_me.png'
 import {
   Table,
   TableBody,
@@ -21,6 +17,9 @@ import {
   getCoreRowModel,
   useReactTable,
 } from '@tanstack/react-table'
+import { ThemedLink } from '@/components/ThemedComponents'
+import { Button } from '@/components/ui/button'
+import { openInNewTab } from '@/lib/utils'
 
 const source = [
   {
@@ -106,33 +105,26 @@ export const Salary = () => {
       <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
         Salary
       </h1>
-      <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0 my-6">
+      <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0 my-3">
         Salary and Ranking
       </h1>
-
       <p>
-        The Fellowship{' '}
-        <Link
-          className="text-primary font-bold"
+        The Polkadot Technical{' '}
+        <ThemedLink
           to={'https://github.com/polkadot-fellows/manifesto'}
           target="_blank"
         >
           manifesto
-        </Link>{' '}
-        outlines the requirements and expectations for individuals to attain and
-        retain any given rank, ranging between 0 to 9. By default, an active
-        account on the collectives system chain has no assigned rank and can be
-        inducted into the Polkadot Fellowship starting with rank 0. The
-        Fellowship Manifesto states that members should receive a monthly
-        allowance on par with gross income in OECD countries. A{' '}
-        <Link
-          className="text-primary font-bold"
+        </ThemedLink>{' '}
+        states that members should receive a monthly allowance on par with gross
+        income in OECD countries. An{' '}
+        <ThemedLink
           to={'https://github.com/polkadot-fellows/RFCs/pull/50'}
           target="_blank"
         >
-          fellowship RFC
-        </Link>{' '}
-        was proposed with concrete amounts for each ranked members.
+          RFC
+        </ThemedLink>{' '}
+        proposed concrete compensation figures for each rank.
       </p>
       <div style={{ width: '30rem' }}>
         <Table>
@@ -183,144 +175,68 @@ export const Salary = () => {
             )}
           </TableBody>
         </Table>
-        {/* <Table
-            dataSource={source}
-            columns={columns}
-            pagination={false}
-            size="small"
-          /> */}
       </div>
-
       <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0 my-6">
-        Process Flow
+        Induction
       </h1>
-
       <p>
-        Below is a comprehensive depiction, following a member's journey from
-        induction, showcasing the various stages they undergo within the
-        fellowship.
+        Members can induct themselves into the Salary cycle (i.e. 30-day period)
+        through the salary pallet, as shown below (Salary UI).
       </p>
-
+      <img className="my-6" src={ImportMe} alt="import me in salary" />
+      <p>
+        After the current Salary cycle has elapsed, members can submit the
+        signed `bump` call to move to the next Salary cycle, as shown below
+        (Polkadot-JS UI). This is required before registration and payouts can
+        be processed.
+      </p>
+      <img className="my-6" src={SalaryInduct} alt="salary induct" />
       <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0 my-6">
-        Becoming a Polkadot Fellowship Member
+        Registration
       </h1>
-
       <p>
-        Please refer to the{' '}
-        <Link className="text-primary font-bold" to="/about">
-          About page
-        </Link>
-        .
+        To become eligible for a payout during a given salary cycle, members
+        need to register their account within the Registration period of 15
+        days, as shown below (Salary UI).
       </p>
-
+      <img className="my-6" src={SubsquareRegister} alt="Subsquare register" />
+      <p>
+        Once registered into the current cycle, their names will be displayed in
+        the list of claimants.
+      </p>
+      <Button
+        onClick={() =>
+          openInNewTab(
+            'https://collectives.subsquare.io/fellowship/salary/feeds',
+          )
+        }
+      >
+        Check out the feed for the current Salary cycle on Subsquare
+      </Button>
       <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0 my-6">
-        Salary Cycle Initialization, Induction & Continuance
+        Payouts
       </h1>
-
       <p>
-        The salary pallet has been{' '}
-        <Link
-          className="text-primary font-bold"
-          to="https://collectives.statescan.io/#/extrinsics/2983655-2"
-        >
-          initiated
-        </Link>
-        , members can now `induct` themselves into the payroll cycle(i.e. 30DAY
-        periods).
+        Members can start claiming salary payouts as soon as the Payout period
+        has begun. They will have 15 days to submit their claim on-chain, as
+        shown below (Salary UI).
       </p>
-
-      <img className="my-6" src={SalaryInduct} alt="preimage" />
-
+      <img className="my-6" src={SubsquarePayout} alt="Subsquare payout" />
       <p>
-        After an elapsed cycle, any account may call `bump` to move to the next
-        cycle, this is required before calls to `register` for payment of the
-        elasped cycle and subsequently calls to claim `payout` is possible.
+        Members also have the option to claim a payout and send it into any
+        account on the Collectives system chain by submitting the signed
+        `payout_other` call, as shown below (Polkadot-JS UI).
       </p>
-
-      <img className="my-6" src={SalaryBump} alt="preimage" />
-
+      <img className="my-6" src={SalaryPayoutOther} alt="Salary Payout Other" />
       <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0 my-6">
-        Approval
+        Failed payments
       </h1>
-
       <p>
-        Members of ranks I through VI are required to re-approve their ranks
-        before their respective demotion periods elapses, as configured in the
-        runtime{' '}
-        <Link
-          className="text-primary font-bold"
-          to="https://github.com/polkadot-fellows/runtimes/issues/111#issuecomment-1872941849"
-        >
-          here
-        </Link>
-        .
+        If a payment fails, members can submit the signed `check_payment` call
+        to reset the payout status, and then attempt to claim the payout again
+        within the same Salary cycle, as shown below (Polkadot-JS UI).
       </p>
-
-      <p>
-        An evidence detailing a members involvement in the fellowship is
-        submitted at a time before calling `approve`, subsequently the evidence
-        should be sumbitted in the referandum description.
-      </p>
-
-      <img className="my-6" src={CoreSubmitEvidence} alt="preimage" />
-
-      <p>
-        Any account on the collectives system chain can submit a preimage of the
-        call `approve` for ranked members of the fellowship in the appropriate
-        track.
-      </p>
-
-      <img className="my-6" src={PreimageCoreApprove} alt="preimage" />
-
-      <p>
-        The preimage needs to be submitted to the 11 / Retain At I Dan for
-        approval of the member's rank retention. This process will update the
-        last_proof with the block number at which the call is executed.
-      </p>
-
-      <img className="my-6" src={ProposalApprove} alt="preimage" />
-
-      <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0 my-6">
-        Payment Registration
-      </h1>
-
-      <p>
-        After every payroll cycle(i.e. 30DAYS) and within the
-        `RegistrationPeriod`(i.e. 15DAYS after the current payroll cycle),
-        members should make a call to `register` for salary payout.
-      </p>
-
-      <img className="my-6" src={CoreRegister} alt="preimage" />
-
-      <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0 my-6">
-        Claim Salary
-      </h1>
-
-      <p>
-        After a combination of the payroll cycle and `RegistrationPeriod` have
-        elapsed(i.e. 30DAYS + 15DAYS) members can begin claiming salary within
-        the `PayoutPeriod`(i.e. within 15DAYS), with a call to `payout`.
-      </p>
-
-      <img className="my-6" src={SalaryPayout} alt="preimage" />
-
-      <p>
-        Alternatively members can claim payout to any account on the collectives
-        system chain(i.e. `payout_other`).
-      </p>
-
-      <img className="my-6" src={SalaryPayoutOther} alt="preimage" />
-
-      <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0 my-6">
-        Retriying Failed Payments
-      </h1>
-
-      <p>
-        In the event of failed payments members can call `check_payment` to
-        retry within the same cycle.
-      </p>
-
-      <img className="my-6" src={SalaryCheckPayment} alt="preimage" />
+      <img className="my-6" src={SalaryCheckPayment} alt="check Payment" />
     </main>
   )
 }

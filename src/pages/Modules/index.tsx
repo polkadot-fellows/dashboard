@@ -1,111 +1,89 @@
-import { ThemedLink } from '@/components/ThemedComponents'
-
 export const Modules = () => {
   return (
     <main className="grid flex-1 items-start gap-4 p-4 sm:mx-[5%] xl:mx-[15%] mx-0 sm:px-6 sm:py-0 md:gap-8">
-      <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
+      <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-2xl font-semibold tracking-tight sm:grow-0">
         Modules
       </h1>
-      <h1 className="mb-8 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
-        On-chain Modules
+      <p>
+        The Polkadot Technical Fellowship is split across several on-chain
+        modules (pallets).
+      </p>
+      <h1 className="my-4 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-2xl font-semibold tracking-tight sm:grow-0">
+        `pallet_ranked_collective`
       </h1>
       <p>
-        The Polkadot Fellowship is split across several on-chain modules
-        (pallets):
+        This manages the members and candidates of the Fellowship body together
+        with their rank. A changeable set of values/settings determine the
+        temporal parameters:{' '}
       </p>
-      <h1 className="my-4 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
-        Core Fellowship
+      <p>
+        <span className="text-primary font-bold">1. Demotion Period:</span> The
+        elapsed amount of blocks from `last_proof, which a member ought to have
+        defended their rank prior to this time or risk automatic demotion
+        through the ranks. For Dan I & II the demotion period is set at 657,450
+        blocks (3 months), while for Dan III through VI, it extends to 1,314,900
+        blocks (6 months). Ranks higher than VI are excluded from automatic
+        demotion.
+      </p>
+      <p>
+        <span className="text-primary font-bold">2. Min Promotion Period:</span>{' '}
+        The minimum period which a member can submit a desire to move up the
+        ranks, this is set to 2,629,800 (1 year) for ranks between II and VII,
+        13,149,000 (5 years) for Dan VIII and 21,038,400 (8 years) for Dan IX.
+      </p>
+      <p>
+        <span className="text-primary font-bold">3. Offboard Timeout:</span> The
+        alloted time for candidates to become a member, which is 1 year(i.e.
+        2,629,800 blocks) from the moment the candidate was inducted into this
+        pallet.
+      </p>
+      <h1 className="my-4 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-2xl font-semibold tracking-tight sm:grow-0">
+        `pallet_referenda`
       </h1>
       <p>
-        This pallet(i.e. `palet_core_fellowship`) enforces cordination of a
-        ranked membership collective(i.e The Polkadot Fellowship), sets salary
-        amount, registers activity / passivity, handles promotion and demotion
-        e.t.c.
+        This gives an on-chain "voice" (specifically, several Frame Origins) to
+        the Fellowship body through proposals and voting by members, with
+        eligibility and weighting of those votes according to a member's rank.
+        Voting on induction of candidates, and promotion and retention of
+        members are conducted by this module.
       </p>
-      <h1 className="my-4 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
-        Parameters
+      <h1 className="my-4 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-2xl font-semibold tracking-tight sm:grow-0">
+        `pallet_core_fellowship`
       </h1>
       <p>
-        A changable set of values / settings which determine the salary amounts
-        and Temporal parameters for the pallet instance.
+        This controls the overall process of induction, promotion and demotion
+        according to the Fellowship rules and timelines, and handles the
+        retention of "evidence" which members and candidates submit for these
+        processes.
       </p>
-      <div className="text-bold">Salary</div>
-      <ul>
-        <li>
-          Active: Otherwise known as standard allowance, is kept between the
-          80th-90th percentile of gross income in the OECD group of countries,
-          which is equivalent to $80,000 at present for fellows (i.e. Dan III).
-          The salary allocations for ranked members are intricately calibrated
-          by <ThemedLink to="/membership">rank</ThemedLink>.
-        </li>
-        <li>
-          Passive: A claimable allowance set at 50% of the active salary for
-          members that believe they are unlikely to contribute substantially
-          within any given month. Activity / passivity is toggled with a call to
-          the `is_active` extrinsic. However, passivity does not exclude a
-          member from challenge or grading periods.
-        </li>
-      </ul>
-      <div className="text-bold">Temporal Parameters</div>
-      <ul>
-        <li>
-          Demotion Period: The elapsed amount of blocks from `last_proof`, which
-          a member ought to have defended their rank prior to this time or risk
-          automatic demotion through the ranks. For Dan I & II the demotion
-          period is set at 657,450 blocks (3 months), while for Dan III through
-          VI, it extends to 1,314,900 blocks (6 months). Ranks higher than VI
-          are excluded from automatic demotion.{' '}
-        </li>
-        <li>
-          Min Promotion Period: The minimum period which a member can submit a
-          desire to move up the ranks, this is set to 2,629,800 (1 year) for
-          ranks between II and VII, 13,149,000 (5 years) for Dan VIII and
-          21,038,400 (8 years) for Dan IX. 3.{' '}
-        </li>
-        <li>
-          Offboard Timeout: The alloted time for candidates to become a member,
-          which is 1 year(i.e. 2,629,800 blocks) from the moment the candidate
-          was inducted into this pallet.
-        </li>
-      </ul>
-      <div className="note">
-        <h3>Extrinsics, Origins and Process Flow</h3>
-        <p>
-          Please visit the [salary
-          page](https://polkadot-fellows.github.io/dashboard/salary) to learn
-          more about the dispatchable calls, allowed origins and the technical
-          fellowship's current usage of `pallet_core_fellowship`.
-        </p>
-      </div>
-      <h1 className="my-4 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
-        Salary
+      <h1 className="my-4 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-2xl font-semibold tracking-tight sm:grow-0">
+        `pallet_salary`
       </h1>
       <p>
-        This pallet(i.e. `pallet_salary`) handles the disbursment of allowances,
-        claimable by ranked members of the collective within cycles.
+        This controls the payments which eligible members are afforded. A
+        changeable set of values/settings determine the salary amounts:{' '}
       </p>
-      <h1 className="my-4 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
-        Cycle
+      <p>
+        <span className="text-primary font-bold">1. Active:</span> Otherwise
+        known as standard allowance.
+      </p>
+      <p>
+        <span className="text-primary font-bold">2. Passive:</span> A claimable
+        allowance set at 50% of the active salary for members that believe they
+        are unlikely to contribute substantially within any given month.
+      </p>
+      <p>
+        Activity/passivity is toggled with a call to the `is_active extrinsic`.
+        However, passivity does not exclude a member from challenges or grading
+        periods.
+      </p>
+      <h1 className="my-4 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-2xl font-semibold tracking-tight sm:grow-0">
+        `pallet_treasury`
       </h1>
       <p>
-        Succictly known as a "payroll cycle", is the amount of blocks (i.e. the
-        equivalent of 30 calender days) that must pass before a ranked member
-        becomes eligible to register a claim for a payout. Following this
-        `RegistrationPeriod` (i.e. the equivalent of 15 calender days), the
-        member can then claim the payout during the designated `PayoutPeriod`
-        (i.e. equivalent of 15 calender days) else wait until the next cycle.
+        This is the Treasury-management logic allowing people to request funding
+        directly from the Fellowship.
       </p>
-      <div className="note">
-        <h1 className="my-4 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
-          Extrinsics, Origins and Process Flow
-        </h1>
-        <p>
-          Please visit the [salary
-          page](https://polkadot-fellows.github.io/dashboard/salary) to learn
-          more about the dispatchable calls, allowed origins and the technical
-          fellowship's current usage of `pallet_salary`.
-        </p>
-      </div>
     </main>
   )
 }

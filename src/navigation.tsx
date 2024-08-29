@@ -4,7 +4,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from '@/components/ui/tooltip'
-import { routes } from '@/lib/utils'
+import { RouterType, routes } from '@/lib/utils'
 import { Link, useLocation } from 'react-router-dom'
 import PolkadotIcon from '@/assets/img/polkadotIcon.svg?react'
 import { FaCheckCircle, FaGithub } from 'react-icons/fa'
@@ -64,18 +64,47 @@ export const Navigation = ({
           />
           <span>Fellowship</span>
         </div>
-        {routes.map((r) => (
-          <Link
-            className={
-              linkStyle(pathname, '/' + (r.link || '')) +
-              ' flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground transition-colors py-2 '
-            }
-            to={r.link}
-          >
-            <r.icon className="h-5 w-5" />
-            <div className="left">{r.name}</div>
-          </Link>
-        ))}
+        {routes.map((r) => {
+          if (r.childs?.length) {
+            return (
+              <Accordion type="single" collapsible>
+                <AccordionItem value="item-1">
+                  <AccordionTrigger className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground transition-colors py-2 justify-start">
+                    <r.icon className="h-5 w-5" />
+                    <span>{r.name}</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="pl-4">
+                    {r.childs.map((c: RouterType) => (
+                      <Link
+                        className={
+                          linkStyle(pathname, '/' + (c.link || '')) +
+                          ' flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground transition-colors py-2 '
+                        }
+                        to={c.link}
+                      >
+                        <c.icon className="h-5 w-5" />
+                        <div className="left">{c.name}</div>
+                      </Link>
+                    ))}
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            )
+          } else {
+            return (
+              <Link
+                className={
+                  linkStyle(pathname, '/' + (r.link || '')) +
+                  ' flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground transition-colors py-2 '
+                }
+                to={r.link}
+              >
+                <r.icon className="h-5 w-5" />
+                <div className="left">{r.name}</div>
+              </Link>
+            )
+          }
+        })}
 
         <Link
           target="_blank"
@@ -92,23 +121,21 @@ export const Navigation = ({
               <SiElement className="h-5 w-5" />
               <span>Element</span>
             </AccordionTrigger>
-            <AccordionContent className="p-0">
-              <a
+            <AccordionContent className="pl-4">
+              <Link
                 className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground transition-colors py-2 justify-start"
-                href="https://matrix.to/#/#fellowship-members:parity.io"
+                to="https://matrix.to/#/#fellowship-members:parity.io"
                 target="_blank"
               >
                 Fellowship Members
-              </a>
-            </AccordionContent>
-            <AccordionContent className="p-0">
-              <a
+              </Link>
+              <Link
                 className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground transition-colors py-2 justify-start"
-                href="https://matrix.to/#/#fellowship-open-channel:parity.io"
+                to="https://matrix.to/#/#fellowship-open-channel:parity.io"
                 target="_blank"
               >
                 Open Channel
-              </a>
+              </Link>
             </AccordionContent>
           </AccordionItem>
         </Accordion>

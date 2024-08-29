@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { ThemedLink } from '@/components/ThemedComponents'
 
 export const Modules = () => {
   return (
@@ -36,11 +36,7 @@ export const Modules = () => {
           80th-90th percentile of gross income in the OECD group of countries,
           which is equivalent to $80,000 at present for fellows (i.e. Dan III).
           The salary allocations for ranked members are intricately calibrated
-          by{' '}
-          <Link className="text-primary font-bold" to="/membership">
-            rank
-          </Link>
-          .
+          by <ThemedLink to="/membership">rank</ThemedLink>.
         </li>
         <li>
           Passive: A claimable allowance set at 50% of the active salary for

@@ -1,11 +1,15 @@
-import { Link } from 'react-router-dom'
+import { ThemedLink } from '@/components/ThemedComponents'
 
 export const RFCText = () => {
   return (
     <>
-      <Link target="_blank" to="https://github.com/polkadot-fellows/RFCs/">
+      <ThemedLink
+        target="_blank"
+        className="text-primary font-bold"
+        to="https://github.com/polkadot-fellows/RFCs/"
+      >
         RFCs repository
-      </Link>{' '}
+      </ThemedLink>{' '}
       contains a number of Requests for Comment (RFCs) detailing proposed
       changes to the technical implementation of the Polkadot network. These
       RFCs are for the discussion and design of features which have been
@@ -17,12 +21,12 @@ export const RFCText = () => {
       </h1>
       <p>
         According to the{' '}
-        <Link
+        <ThemedLink
           target="_blank"
           to="https://github.com/polkadot-fellows/manifesto/blob/0c3df46d76625980b8b48742cb86f4d8fa6dda8d/manifesto.pdf"
         >
           Fellowship Manifesto
-        </Link>
+        </ThemedLink>
         , members of the Polkadot Fellowship are responsible for expertise in
         the strict description(s) and/or implementation(s) of these areas of
         contribution:
@@ -149,12 +153,12 @@ export const RFCText = () => {
       <p>
         Problems, requirements, and descriptions in RFC text should be stated
         using the following definitions of terms, roughly as laid out in{' '}
-        <Link
+        <ThemedLink
           target="_blank"
           to="https://datatracker.ietf.org/doc/html/rfc2119IETF"
         >
           RFC 2119
-        </Link>
+        </ThemedLink>
         :
       </p>
       <ul>
@@ -178,9 +182,12 @@ export const RFCText = () => {
       <h1 className="my-4 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
         Bots
       </h1>
-      <Link target="_blank" to="https://github.com/polkadot-fellows/RFCs/">
+      <ThemedLink
+        target="_blank"
+        to="https://github.com/polkadot-fellows/RFCs/"
+      >
         RFCs repository
-      </Link>{' '}
+      </ThemedLink>{' '}
       provides a bot for:
       <ul>
         <li>

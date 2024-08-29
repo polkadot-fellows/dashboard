@@ -6,7 +6,7 @@ import {
 } from '@polkadot-ui/react'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Button } from '@/components/ui/button'
-import { resources, routes } from '@/lib/utils'
+import { openInNewTab, resources, routes } from '@/lib/utils'
 
 import { PanelLeft, Moon, Sun, NotebookText, BookOpenText } from 'lucide-react'
 import { getLinks } from './Resources'
@@ -177,7 +177,7 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
               <FaGithub
                 className="h-5 w-5"
                 onClick={() =>
-                  window.open('https://github.com/polkadot-fellows', '_blank')
+                  openInNewTab('https://github.com/polkadot-fellows')
                 }
               />
               Github

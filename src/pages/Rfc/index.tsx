@@ -4,7 +4,6 @@ import { RFCText } from './RFCText'
 import './index.css'
 import { Link } from 'react-router-dom'
 import { TbLoaderQuarter } from 'react-icons/tb'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
 export const Rfc = () => {
   const [data, setData] = useState<Array<any> | undefined>()

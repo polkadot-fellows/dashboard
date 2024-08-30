@@ -22,35 +22,35 @@ export const Rfc = () => {
         <h1 className={reusableH1 + ' my-4'}>RFCs</h1>
       </div>
       <div className="w-full">
-        <div className="grid md:gap-4 grid-cols-1 gap-4">
+        <div className="grid grid-cols-1 gap-4 md:gap-4">
           <RFCText />
           <h1 className={reusableH1 + ' my-4'}>RFCs List</h1>
           {data ? (
             data.length ? (
               data!.map((d: any) => {
                 return (
-                  <div className="w-full flex justify-between">
-                    <div className="w-[65%] border-2 p-2 rounded-tl-lg rounded-bl-lg">
+                  <div className="flex w-full justify-between">
+                    <div className="w-[65%] rounded-bl-lg rounded-tl-lg border-2 p-2">
                       <Link
                         to={`https://www.github.com/${GithubOwner}/${GithubRfc}/pull/${d.number}`}
                         target="_blank"
                         rel="noreferrer"
-                        className="text-primary font-semibold mb-2 h-10 my-10 word-break"
+                        className="word-break my-10 mb-2 h-10 font-semibold text-primary"
                       >
                         #{d.number} - {d.title}
                       </Link>
                     </div>
-                    <div className="w-[35%] flex items-center justify-between bg-gray-100 dark:bg-gray-800 p-2 border-2 border-l-0 rounded-tr-lg rounded-br-lg">
+                    <div className="flex w-[35%] items-center justify-between rounded-br-lg rounded-tr-lg border-2 border-l-0 bg-gray-100 p-2 dark:bg-gray-800">
                       <div className="w-[70%]">
                         <Link
                           to={d.user.html_url}
                           target="_blank"
                           rel="noreferrer"
-                          className="font-bold text-sm"
+                          className="text-sm font-bold"
                         >
                           {d.user.login}
                         </Link>
-                        <p className="text-primary font-bold text-xs">
+                        <p className="text-xs font-bold text-primary">
                           {new Date(d.created_at).toDateString()}
                         </p>
                       </div>
@@ -59,7 +59,7 @@ export const Rfc = () => {
                           to={d.user.html_url}
                           target="_blank"
                           rel="noreferrer"
-                          className="font-bold text-sm"
+                          className="text-sm font-bold"
                         >
                           <img
                             style={{ borderRadius: '10rem', width: '4rem' }}

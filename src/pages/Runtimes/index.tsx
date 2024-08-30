@@ -4,7 +4,7 @@ import ReleaseProcess from './release-process.png'
 export const Runtimes = () => {
   return (
     <>
-      <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-2xl font-semibold tracking-tight sm:grow-0">
+      <h1 className="flex-1 shrink-0 whitespace-nowrap font-unbounded text-2xl font-semibold tracking-tight text-primary sm:grow-0">
         Runtimes
       </h1>
       <p>
@@ -26,13 +26,13 @@ export const Runtimes = () => {
         This requires that Fellowship members add their GitHub handle to their
         on-chain identity.
       </p>
-      <h1 className="my-4 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-2xl font-semibold tracking-tight sm:grow-0">
+      <h1 className="my-4 flex-1 shrink-0 whitespace-nowrap font-unbounded text-2xl font-semibold tracking-tight text-primary sm:grow-0">
         Runtime release process
       </h1>
       <p>
         The release process builds all runtimes and then puts them into a
         release in this github repository.{' '}
-        <span className="text-primary font-bold">
+        <span className="font-bold text-primary">
           All PRs submitted for the runtime release require a CHANGELOG entry.
         </span>
       </p>
@@ -46,7 +46,7 @@ export const Runtimes = () => {
         src={ReleaseProcess}
         alt="Runtime release process"
       />
-      <h1 className="my-4 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-2xl font-semibold tracking-tight sm:grow-0">
+      <h1 className="my-4 flex-1 shrink-0 whitespace-nowrap font-unbounded text-2xl font-semibold tracking-tight text-primary sm:grow-0">
         Ecosystem-wide collaboration
       </h1>
       <p>

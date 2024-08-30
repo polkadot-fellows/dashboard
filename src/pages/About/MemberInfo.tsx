@@ -135,7 +135,7 @@ export const MemberInfo = ({
               <Polkicon copy size={72} address={address} />
             </DialogTitle>
             <DialogDescription>
-              <div className="flex, justify-center items-center">
+              <div className="flex, items-center justify-center">
                 <div className="my-4 flex flex-col items-center">
                   {display && (
                     <AccountName display={display} address={address} />
@@ -191,7 +191,7 @@ export const MemberInfo = ({
                         </CardTitle>
                       </div>
                     </CardHeader>
-                    <CardContent className="flex flex-row items-center gap-4 space-y-0 pb-2 [&>div]:flex-1 my-4">
+                    <CardContent className="my-4 flex flex-row items-center gap-4 space-y-0 pb-2 [&>div]:flex-1">
                       <div>
                         <CardDescription className="text-left">
                           Transferrable

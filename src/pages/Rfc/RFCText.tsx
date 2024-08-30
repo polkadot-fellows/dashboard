@@ -6,7 +6,7 @@ export const RFCText = () => {
     <>
       <ThemedLink
         target="_blank"
-        className="text-primary font-bold"
+        className="font-bold text-primary"
         to="https://github.com/polkadot-fellows/RFCs"
       >
         RFCs repository

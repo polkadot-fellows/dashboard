@@ -15,7 +15,7 @@ export const Governance = () => {
   return (
     <>
       <div className="header">
-        <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-2xl font-semibold tracking-tight sm:grow-0">
+        <h1 className="flex-1 shrink-0 whitespace-nowrap font-unbounded text-2xl font-semibold tracking-tight text-primary sm:grow-0">
           Governance
         </h1>
       </div>
@@ -36,7 +36,7 @@ export const Governance = () => {
           alt="Fellowship referenda"
         />
         <div className="my-4">
-          <h2 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-lg font-semibold tracking-tight sm:grow-0">
+          <h2 className="flex-1 shrink-0 whitespace-nowrap font-unbounded text-lg font-semibold tracking-tight text-primary sm:grow-0">
             Whitelisting proposals
           </h2>
           <p>
@@ -79,7 +79,7 @@ export const Governance = () => {
           As per Section 8, 9, and 10 of the Manifesto, the Fellowship
           sub-treasury is primarily used for:
         </p>
-        <ul className="list-disc m-5">
+        <ul className="m-5 list-disc">
           <li>Allowances (i.e members’ salaries)</li>
           <li>Prizes (i.e honourable prizes from Masters)</li>
           <li>
@@ -88,14 +88,14 @@ export const Governance = () => {
           </li>
         </ul>
         <p>However, the Fellowship sub-treasury may also be used to:</p>
-        <ul className="list-disc m-5">
+        <ul className="m-5 list-disc">
           <li>Incentivise development-focused initiatives through RFPs</li>
           <li>
             Reward contributors for resolving small technical issues through
             bounties
           </li>
         </ul>
-        <h2 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-lg font-semibold tracking-tight sm:grow-0">
+        <h2 className="flex-1 shrink-0 whitespace-nowrap font-unbounded text-lg font-semibold tracking-tight text-primary sm:grow-0">
           Overview
         </h2>
         <p>
@@ -154,7 +154,7 @@ export const Governance = () => {
           </ThemedLink>
           .
         </p>
-        <h2 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-lg font-semibold tracking-tight sm:grow-0">
+        <h2 className="flex-1 shrink-0 whitespace-nowrap font-unbounded text-lg font-semibold tracking-tight text-primary sm:grow-0">
           Walkthrough
         </h2>
         <p>
@@ -167,7 +167,7 @@ export const Governance = () => {
         </p>
         <p>
           Preimages can be{' '}
-          <span className="text-primary font-bold">created</span> using the{' '}
+          <span className="font-bold text-primary">created</span> using the{' '}
           <ThemedLink to="https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fcollectives.api.onfinality.io%2Fpublic-ws#/preimages">
             Polkadot-JS UI
           </ThemedLink>
@@ -181,7 +181,7 @@ export const Governance = () => {
         />
         <p>
           Proposals can only be{' '}
-          <span className="text-primary font-bold">
+          <span className="font-bold text-primary">
             submitted by Fellows or Architects
           </span>
           . There is no submission deposit, but there is a decision deposit of 5
@@ -198,7 +198,7 @@ export const Governance = () => {
           Sub-treasury spending in action: Proposal 186
         </Button>
 
-        <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-2xl font-semibold tracking-tight sm:grow-0 my-6">
+        <h1 className="my-6 flex-1 shrink-0 whitespace-nowrap font-unbounded text-2xl font-semibold tracking-tight text-primary sm:grow-0">
           RFC proposals
         </h1>
         <p>
@@ -211,7 +211,7 @@ export const Governance = () => {
           via an on-chain remark as shown below (Polkadot-JS UI).
         </p>
         <img className="my-6" src={rfc} alt="RFC" />
-        <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-2xl font-semibold tracking-tight sm:grow-0 my-6">
+        <h1 className="my-6 flex-1 shrink-0 whitespace-nowrap font-unbounded text-2xl font-semibold tracking-tight text-primary sm:grow-0">
           RFP proposals
         </h1>
         <p>

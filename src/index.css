@@ -78,4 +78,12 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  h1 {
+    @apply font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0;
+  }
+
+  a {
+    @apply text-primary hover:underline hover:text-primary/80;
+  }
 }

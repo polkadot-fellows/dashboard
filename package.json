@@ -17,6 +17,7 @@
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css}\""
   },
   "dependencies": {
+    "@mdx-js/rollup": "^3.0.1",
     "@polkadot-api/descriptors": "file:.papi/descriptors",
     "@polkadot-ui/react": "0.0.1-alpha.15",
     "@polkadot-ui/utils": "0.0.1-alpha.5",
@@ -56,6 +57,7 @@
   "devDependencies": {
     "@tanstack/eslint-plugin-query": "^5.53.0",
     "@tanstack/react-query-devtools": "^5.53.1",
+    "@types/mdx": "^2.0.13",
     "@types/node": "^22.5.1",
     "@types/react": "^18.3.4",
     "@types/react-dom": "^18.3.0",

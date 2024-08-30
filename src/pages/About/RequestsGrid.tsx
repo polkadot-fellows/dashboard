@@ -1,6 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-
-import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -13,19 +10,15 @@ import {
   getSortedRowModel,
   useReactTable,
 } from '@tanstack/react-table'
+import { Dispatch, SetStateAction, useState } from 'react'
 
 import { toast } from 'sonner'
 
-import { useLocalStorage, useMediaQuery } from 'usehooks-ts'
-import { ellipsisFn } from '@polkadot-ui/utils'
 import { Polkicon } from '@polkadot-ui/react'
+import { useMediaQuery } from 'usehooks-ts'
 
 import copy from 'copy-to-clipboard'
 import { ArrowUpDown, Copy, ScanEye } from 'lucide-react'
-
-import type { PeopleQueries } from '@polkadot-api/descriptors'
-import type { Binary } from 'polkadot-api'
-import { api, people_api } from '@/clients'
 
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -39,52 +32,19 @@ import {
   TableRow,
 } from '@/components/ui/table'
 
-import { rankInfo } from '@/consts'
-import { AccountName } from './AccountName'
 import { Skeleton } from '@/components/ui/skeleton'
+import { rankInfo } from '@/consts'
+import {
+  FellowshipMember,
+  useFellowshipMembers,
+} from '@/queries/useFellowshipMembers'
+import { AccountName } from './AccountName'
 import { LcStatusType, MemberInfo } from './MemberInfo'
-
-export type AccountInfoIF = {
-  address: string
-  rank: number
-  display?: string
-  github?: string
-  legal?: string
-  matrix?: string
-  email?: string
-  twitter?: string
-  web?: string
-}
-
-const dataToString = (value: number | string | Binary | undefined) =>
-  typeof value === 'object' ? value.asText() : (value ?? '')
-
-const mapRawIdentity = (
-  rawIdentity?: PeopleQueries['Identity']['IdentityOf']['Value'],
-) => {
-  if (!rawIdentity) return rawIdentity
-  const {
-    info: { display, email, legal, matrix, twitter, web },
-  } = rawIdentity[0]
-
-  const display_id = dataToString(display.value)
-
-  return {
-    display: display_id,
-    web: dataToString(web.value),
-    email: dataToString(email.value),
-    legal: dataToString(legal.value),
-    matrix: dataToString(matrix.value),
-    twitter: dataToString(twitter.value),
-  }
-}
-
-const fellMembers: AccountInfoIF[] = []
 
 const columns = (
   setInfoOpen: Dispatch<SetStateAction<boolean>>,
-  setChosenMember: Dispatch<SetStateAction<AccountInfoIF>>,
-): ColumnDef<AccountInfoIF>[] => [
+  setChosenMember: Dispatch<SetStateAction<FellowshipMember>>,
+): ColumnDef<FellowshipMember>[] => [
   { accessorKey: 'matrix' },
   { accessorKey: 'display' },
   { accessorKey: 'github' },
@@ -190,61 +150,17 @@ export const RequestsGrid = ({ lcStatus }: LcStatusType) => {
     title: !isMobile,
     rank: !isMobile,
   })
-  const [loading, setLoading] = useState<boolean>(true)
-  const [chosenMember, setChosenMember] = useState<AccountInfoIF>(
-    {} as AccountInfoIF,
+
+  const [chosenMember, setChosenMember] = useState<FellowshipMember>(
+    {} as FellowshipMember,
   )
-  const [members, setMembers] = useState<AccountInfoIF[]>([])
+
+  const { data: fellowshipMembers, isLoading: isLoading } =
+    useFellowshipMembers(lcStatus)
   const [infoOpen, setInfoOpen] = useState(false)
-  const [fellowshipMembers, setFellowshipMembers] = useLocalStorage<any[]>(
-    'fellowship-members',
-    [],
-  )
-
-  useEffect(() => {
-    const fetchMembers = async () => {
-      const collectiveAddresses: any =
-        await api?.query.FellowshipCollective.Members.getEntries().then(
-          (mems: any[]) =>
-            people_api.query.Identity.IdentityOf.getValues(
-              mems.map((m) => m.keyArgs),
-            ).then((identities: any[]) =>
-              identities.map((identity, idx) => ({
-                address: mems[idx].keyArgs[0],
-                rank: mems[idx].value,
-                ...mapRawIdentity(identity),
-              })),
-            ),
-        )
-
-      setMembers([
-        ...collectiveAddresses.sort(
-          (a: { rank: number }, b: { rank: number }) =>
-            a.rank > b.rank ? -1 : 1,
-        ),
-      ])
-    }
-
-    if (fellowshipMembers.length) {
-      setMembers(fellowshipMembers)
-    }
-    fetchMembers()
-  }, [])
-
-  useEffect(() => {
-    members.forEach((m) => {
-      fellMembers.push({
-        display: m.legal || m.display || ellipsisFn(m.address, 6),
-        rank: m.rank,
-        address: m.address,
-      })
-    })
-    setFellowshipMembers(members)
-    if (members.length) setLoading(false)
-  }, [members])
 
   const table = useReactTable({
-    data: fellowshipMembers,
+    data: fellowshipMembers || [],
     columns: columns(setInfoOpen, setChosenMember),
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
@@ -263,7 +179,7 @@ export const RequestsGrid = ({ lcStatus }: LcStatusType) => {
   return (
     <div className="w-full">
       <div className="rounded-md border">
-        {loading ? (
+        {isLoading ? (
           <Skeleton className="h-[25rem] w-[100%] rounded-xl" />
         ) : (
           <Table>

@@ -1,55 +1,25 @@
-import { Button } from '@/components/ui/button'
+import { useFellowshipMembers } from '@/queries/useFellowshipMembers'
 import { RequestsGrid } from './RequestsGrid'
-import { openInNewTab } from '@/lib/utils'
+import Content from './Content.mdx'
 
 type Props = {
   lcStatus: boolean
 }
 
 export const About = ({ lcStatus }: Props) => {
+  const { data: members } = useFellowshipMembers(lcStatus)
+
   return (
     <main>
-      <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
-        About
-      </h1>
-      <div className="pageTop">
-        <p>
-          The Polkadot Technical Fellowship is a self-governing body of experts
-          and developers of Polkadot and Kusama networks. It operates on-chain
-          through the Polkadot
-          <a
-            target="_blank"
-            href={
-              'https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fpolkadot-collectives-rpc.polkadot.io#/fellowship/referenda'
-            }
-          >
-            Collectives
-          </a>
-          system chain and off-chain through the{' '}
-          <a target="_blank" href={'https://github.com/polkadot-fellows'}>
-            Polkadot Fellows
-          </a>{' '}
-          repository.
-        </p>
-        <Button
-          className="mt-6"
-          onClick={() =>
-            openInNewTab(
-              'https://github.com/polkadot-fellows/manifesto/blob/0c3df46d76625980b8b48742cb86f4d8fa6dda8d/manifesto.pdf',
-            )
-          }
-        >
-          Read through the Fellowship Manifesto
-        </Button>
-      </div>
-      <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
-        Members
-      </h1>
-      <div className="pageTop">
+      <Content />
+      <h1>{`${members?.length || ''} Members`}</h1>
+
+      <p>
         List of members and candidates currently inducted in the Fellowship
         Collective.
-      </div>
-      <div style={{ paddingTop: '2rem' }}>
+      </p>
+      
+      <div>
         <RequestsGrid lcStatus={lcStatus} />
       </div>
     </main>

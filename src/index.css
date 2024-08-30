@@ -79,7 +79,16 @@
     @apply bg-background text-foreground;
   }
 
+
   main {
     @apply grid flex-1 items-start gap-4 p-4 sm:mx-[5%] xl:mx-[15%] mx-0 sm:px-6 sm:py-0 md:gap-8;
+  }
+
+  h1 {
+    @apply font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0;
+  }
+
+  a {
+    @apply text-primary hover:underline hover:text-primary/80;
   }
 }

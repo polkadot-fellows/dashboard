@@ -32,6 +32,7 @@
     "@radix-ui/react-toggle": "^1.1.0",
     "@radix-ui/react-toggle-group": "^1.1.0",
     "@radix-ui/react-tooltip": "^1.1.2",
+    "@tanstack/react-query": "^5.52.3",
     "@tanstack/react-table": "^8.20.5",
     "buffer": "^6.0.3",
     "class-variance-authority": "^0.7.0",
@@ -51,6 +52,7 @@
     "vaul": "^0.9.1"
   },
   "devDependencies": {
+    "@tanstack/eslint-plugin-query": "^5.53.0",
     "@types/node": "^22.5.1",
     "@types/react": "^18.3.4",
     "@types/react-dom": "^18.3.0",

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { GithubApiUrl, GithubOwner, GithubRfc } from '@/consts'
+import { GithubApiUrl, GithubOwner, GithubRfc, reusableH1 } from '@/consts'
 import { RFCText } from './RFCText'
 import './index.css'
 import { Link } from 'react-router-dom'
@@ -17,18 +17,14 @@ export const Rfc = () => {
   }, [])
 
   return (
-    <main className="grid flex-1 items-start gap-4 p-4 sm:mx-[5%] xl:mx-[15%] mx-0 sm:px-6 sm:py-0 md:gap-8">
+    <>
       <div className="header">
-        <h1 className="my-4 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
-          RFCs
-        </h1>
+        <h1 className={reusableH1 + ' my-4'}>RFCs</h1>
       </div>
       <div className="w-full">
         <div className="grid md:gap-4 grid-cols-1 gap-4">
           <RFCText />
-          <h1 className="my-4 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
-            RFCs List
-          </h1>
+          <h1 className={reusableH1 + ' my-4'}>RFCs List</h1>
           {data ? (
             data.length ? (
               data!.map((d: any) => {
@@ -83,6 +79,6 @@ export const Rfc = () => {
           )}
         </div>
       </div>
-    </main>
+    </>
   )
 }

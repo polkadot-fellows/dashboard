@@ -9,10 +9,11 @@ import rfc from './RFC.png'
 
 import { openInNewTab } from '@/lib/utils'
 import { ThemedLink } from '@/components/ThemedComponents'
+import { reusableH1 } from '@/consts'
 
 export const Governance = () => {
   return (
-    <main className="grid flex-1 items-start gap-4 p-4 sm:mx-[5%] xl:mx-[15%] mx-0 sm:px-6 sm:py-0 md:gap-8">
+    <>
       <div className="header">
         <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-2xl font-semibold tracking-tight sm:grow-0">
           Governance
@@ -65,9 +66,7 @@ export const Governance = () => {
             Whitelisting in action: Proposal 166
           </Button>
         </div>
-        <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
-          Sub-Treasury spending proposals
-        </h1>
+        <h1 className={reusableH1}>Sub-Treasury spending proposals</h1>
         <p>
           The Fellowship operates a{' '}
           <ThemedLink to={'https://polkadot.polkassembly.io/referenda/832'}>
@@ -226,6 +225,6 @@ export const Governance = () => {
         </p>
         <img className="my-6" src={rfp} alt="RFP" />
       </div>
-    </main>
+    </>
   )
 }

@@ -1,13 +1,14 @@
 {
-  "name": "dashboard",
+  "name": "fellowship-dashboard",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "packageManager": "pnpm@9.8.0",
   "type": "module",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "postinstall": "papi",
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc -b && vite build",
     "deploy": "gh-pages -d build",
     "build:pages": "tsc && vite build --base '/dashboard/'",
     "deploy:pages": "pnpm run build:pages && gh-pages -d build",

@@ -169,7 +169,7 @@ export const Membership = () => {
                   variant="default"
                   onClick={() =>
                     openInNewTab(
-                      'https://docs.google.com/spreadsheets/d/1LTA-yAnOn8dJAkRXMnORFU4X1tp-yA13uZQpHEzdwic/edit?usp=sharing',
+                      'https://spiced-longship-f1a.notion.site/e16a241b7b924addaf6d761932a44584?v=c33adcf51bc5424ab6afb29d1f101048&pvs=4',
                     )
                   }
                 >

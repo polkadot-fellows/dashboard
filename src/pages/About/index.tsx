@@ -16,7 +16,7 @@ export const About = ({ lcStatus }: Props) => {
         <p>
           The Polkadot Technical Fellowship is a self-governing body of experts
           and developers of Polkadot and Kusama networks. It operates on-chain
-          through the Polkadot
+          through the Polkadot{' '}
           <a
             target="_blank"
             href={
@@ -24,7 +24,7 @@ export const About = ({ lcStatus }: Props) => {
             }
           >
             Collectives
-          </a>
+          </a>{' '}
           system chain and off-chain through the{' '}
           <a target="_blank" href={'https://github.com/polkadot-fellows'}>
             Polkadot Fellows

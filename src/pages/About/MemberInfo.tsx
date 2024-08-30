@@ -3,7 +3,6 @@ import { AccountName } from './AccountName'
 import { ellipsisFn, transformToBaseUnit } from '@polkadot-ui/utils'
 import { rankInfo } from '@/consts'
 
-import type { AccountInfoIF } from './RequestsGrid'
 import copy from 'copy-to-clipboard'
 
 import { api } from '@/clients'
@@ -31,13 +30,14 @@ import {
 } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Link } from 'react-router-dom'
+import type { FellowshipMember } from '@/queries/useFellowshipMembers'
 
 export type LcStatusType = {
   lcStatus: boolean
 }
 
 type MemberInfoProps = {
-  member: AccountInfoIF
+  member: FellowshipMember
   open: boolean
   onOpenChange: Dispatch<SetStateAction<boolean>>
 } & LcStatusType

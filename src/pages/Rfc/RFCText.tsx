@@ -1,4 +1,5 @@
 import { ThemedLink } from '@/components/ThemedComponents'
+import { reusableH1 } from '@/consts'
 
 export const RFCText = () => {
   return (
@@ -20,9 +21,7 @@ export const RFCText = () => {
         capabilities are bounded by relay-chain governance, which is the
         ultimate decider of what code is adopted for block processing.
       </p>
-      <h1 className="my-4 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
-        RFC lifecycle
-      </h1>
+      <h1 className={reusableH1 + ' my-4'}>RFC lifecycle</h1>
       <p>
         The RFC process is open to all contributors. Anyone may open an RFC or
         provide comments on open RFCs.

@@ -17,6 +17,7 @@ import { Link } from 'react-router-dom'
 
 import { monthlyCalls2024, nextMonthlyCall } from '@/monthlyCalls'
 import { useMediaQuery } from 'usehooks-ts'
+import { reusableH1 } from '@/consts'
 
 const dataSource2024 = Object.entries(monthlyCalls2024)
   .map((v) => ({
@@ -93,10 +94,8 @@ export const OpenDevMonthlyCalls = () => {
     state: { columnVisibility },
   })
   return (
-    <main className="grid flex-1 items-start gap-4 p-4 sm:mx-[5%] xl:mx-[15%] mx-0 sm:px-6 sm:py-0 md:gap-8">
-      <h1 className="py-2 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
-        Monthly calls
-      </h1>
+    <>
+      <h1 className={reusableH1 + ' py-2'}>Monthly calls</h1>
       <p>
         The Polkadot Fellowship runs a call (“OpenDev”) on a monthly basis to
         share current and future developments of the Polkadot roadmap.
@@ -128,9 +127,7 @@ export const OpenDevMonthlyCalls = () => {
       <h2 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-lg font-semibold tracking-tight sm:grow-0">
         Past calls
       </h2>
-      <h2 className="pt-4 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
-        2024
-      </h2>
+      <h2 className={reusableH1 + ' pt-4'}>2024</h2>
       <Table className={isMobile ? 'w-[60vw]' : ''}>
         <TableHeader>
           {table_2024.getHeaderGroups().map((headerGroup) => (
@@ -196,9 +193,7 @@ export const OpenDevMonthlyCalls = () => {
           ))}
         </TableBody>
       </Table>
-      <h2 className="py-2 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
-        2023
-      </h2>
+      <h2 className={reusableH1 + ' py-2'}>2023</h2>
       <Table className={isMobile ? 'w-[60vw]' : ''}>
         <TableHeader>
           {table_2024.getHeaderGroups().map((headerGroup) => (
@@ -264,6 +259,6 @@ export const OpenDevMonthlyCalls = () => {
           ))}
         </TableBody>
       </Table>
-    </main>
+    </>
   )
 }

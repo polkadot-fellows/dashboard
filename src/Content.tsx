@@ -13,6 +13,7 @@ import { Member } from '@/pages/Member'
 import { useEffect, useState } from 'react'
 import { collectiveClient } from '@/clients'
 import { toast } from 'sonner'
+import { MainLayout } from './components/MainLayout'
 
 const pages = (lcStatus: boolean) => [
   {
@@ -73,12 +74,12 @@ export const Content = () => {
   }, [lightClientLoaded])
 
   return (
-    <>
+    <MainLayout>
       <Routes>
         {pages(lightClientLoaded).map(({ path, element }, i) => {
           return <Route key={`page_${i}`} path={path} element={element} />
         })}
       </Routes>
-    </>
+    </MainLayout>
   )
 }

@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { RequestsGrid } from './RequestsGrid'
 import { openInNewTab } from '@/lib/utils'
+import { reusableH1 } from '@/consts'
 
 type Props = {
   lcStatus: boolean
@@ -8,10 +9,8 @@ type Props = {
 
 export const About = ({ lcStatus }: Props) => {
   return (
-    <main className="grid flex-1 items-start gap-4 p-4 sm:mx-[5%] xl:mx-[15%] mx-0 sm:px-6 sm:py-0 md:gap-8">
-      <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
-        About
-      </h1>
+    <>
+      <h1 className={reusableH1}>About</h1>
       <div className="pageTop">
         <p>
           The Polkadot Technical Fellowship is a self-governing body of experts
@@ -42,9 +41,7 @@ export const About = ({ lcStatus }: Props) => {
           Read through the Fellowship Manifesto
         </Button>
       </div>
-      <h1 className="font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
-        Members
-      </h1>
+      <h1 className={reusableH1}>Members</h1>
       <div className="pageTop">
         List of members and candidates currently inducted in the Fellowship
         Collective.
@@ -52,6 +49,6 @@ export const About = ({ lcStatus }: Props) => {
       <div style={{ paddingTop: '2rem' }}>
         <RequestsGrid lcStatus={lcStatus} />
       </div>
-    </main>
+    </>
   )
 }

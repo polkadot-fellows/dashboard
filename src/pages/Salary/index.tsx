@@ -170,7 +170,7 @@ export const Salary = () => {
             )}
           </TableBody>
         </Table>
-        <h1 className={reusableH1 + '  my-6'}>Induction</h1>
+        <h1 className={reusableH1 + ' my-6'}>Induction</h1>
         <p>
           Members can induct themselves into the Salary cycle (i.e. 30-day
           period) through the salary pallet, as shown below (Salary UI).
@@ -185,7 +185,7 @@ export const Salary = () => {
         <img className="my-6" src={SalaryInduct} alt="salary induct" />
       </div>
       <div className="">
-        <h1 className={reusableH1 + '  my-6'}>Registration</h1>
+        <h1 className={reusableH1 + ' my-6'}>Registration</h1>
         <p>
           To become eligible for a payout during a given salary cycle, members
           need to register their account within the Registration period of 15
@@ -206,7 +206,7 @@ export const Salary = () => {
         >
           Check out the feed for the current Salary cycle on Subsquare
         </ThemedLink>
-        <h1 className={reusableH1 + '  my-6'}>Payouts</h1>
+        <h1 className={reusableH1 + ' my-6'}>Payouts</h1>
         <p>
           Members can start claiming salary payouts as soon as the Payout period
           has begun. They will have 15 days to submit their claim on-chain, as
@@ -223,7 +223,7 @@ export const Salary = () => {
           src={SalaryPayoutOther}
           alt="Salary Payout Other"
         />
-        <h1 className={reusableH1 + '  my-6'}>Failed payments</h1>
+        <h1 className={reusableH1 + ' my-6'}>Failed payments</h1>
         <p>
           If a payment fails, members can submit the signed `check_payment` call
           to reset the payout status, and then attempt to claim the payout again

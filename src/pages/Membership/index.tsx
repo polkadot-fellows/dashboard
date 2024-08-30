@@ -28,7 +28,7 @@ export const Membership = () => {
         >
           <AccordionItem value="item-1">
             <AccordionTrigger>
-              <h2 className="py-2 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-lg font-semibold tracking-tight sm:grow-0">
+              <h2 className="flex-1 shrink-0 whitespace-nowrap py-2 font-unbounded text-lg font-semibold tracking-tight text-primary sm:grow-0">
                 Management
               </h2>
             </AccordionTrigger>
@@ -58,7 +58,7 @@ export const Membership = () => {
               <p>
                 Members of the Polkadot Fellowship are expected to faithfully
                 uphold the following tenets:
-                <ol className="list-decimal ml-4">
+                <ol className="ml-4 list-decimal">
                   <li>
                     Sincerely uphold the interests of Polkadot and avoid actions
                     which clearly work against it.
@@ -91,7 +91,7 @@ export const Membership = () => {
           </AccordionItem>
           <AccordionItem value="item-2">
             <AccordionTrigger>
-              <h1 className="py-2 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-lg font-semibold tracking-tight sm:grow-0">
+              <h1 className="flex-1 shrink-0 whitespace-nowrap py-2 font-unbounded text-lg font-semibold tracking-tight text-primary sm:grow-0">
                 Application
               </h1>
             </AccordionTrigger>
@@ -108,12 +108,12 @@ export const Membership = () => {
                 below (Polkassembly UI).
               </p>
 
-              <img className="py-10 w-[45rem]" src={PolkassemblyInduction} />
+              <img className="w-[45rem] py-10" src={PolkassemblyInduction} />
 
               <p className="my-4">
                 As a minimum, applicants need to provide the following
                 information in their application:
-                <ul className="list-disc ml-4">
+                <ul className="ml-4 list-disc">
                   <li>Background information of the applicant</li>
                   <li>
                     Motivation(s) for applying to the Polkadot Technical
@@ -133,7 +133,7 @@ export const Membership = () => {
           </AccordionItem>
           <AccordionItem value="item-3">
             <AccordionTrigger>
-              <h1 className="py-2 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-lg font-semibold tracking-tight sm:grow-0">
+              <h1 className="flex-1 shrink-0 whitespace-nowrap py-2 font-unbounded text-lg font-semibold tracking-tight text-primary sm:grow-0">
                 Induction
               </h1>
             </AccordionTrigger>
@@ -149,7 +149,7 @@ export const Membership = () => {
                   as shown below (Core Fellowship UI).
                 </p>
 
-                <img className="py-10 w-[45rem]" src={SubsquareInduction} />
+                <img className="w-[45rem] py-10" src={SubsquareInduction} />
 
                 <p>
                   Upon successful execution of the extrinsic, the candidate's
@@ -179,7 +179,7 @@ export const Membership = () => {
           </AccordionItem>
           <AccordionItem value="item-4">
             <AccordionTrigger>
-              <h1 className="py-2 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-lg font-semibold tracking-tight sm:grow-0">
+              <h1 className="flex-1 shrink-0 whitespace-nowrap py-2 font-unbounded text-lg font-semibold tracking-tight text-primary sm:grow-0">
                 Retention
               </h1>
             </AccordionTrigger>
@@ -196,7 +196,7 @@ export const Membership = () => {
                   >
                     evidence report:
                   </ThemedLink>
-                  <ul className="list-disc ml-4">
+                  <ul className="ml-4 list-disc">
                     <li>General membership details</li>
                     <li>
                       Motivation(s) for applying to the Polkadot Technical
@@ -227,8 +227,8 @@ export const Membership = () => {
                   </ThemedLink>
                   , as shown below (Core Fellowship UI)
                 </p>
-                <img className="pt-10 w-[45rem]" src={Evidence1} />
-                <img className="pb-10 w-[45rem]" src={Evidence2} />
+                <img className="w-[45rem] pt-10" src={Evidence1} />
+                <img className="w-[45rem] pb-10" src={Evidence2} />
                 <p>
                   Upon successful execution of the extrinsic, the retention
                   evidence will be displayed on the{' '}
@@ -246,7 +246,7 @@ export const Membership = () => {
           </AccordionItem>
           <AccordionItem value="item-5">
             <AccordionTrigger>
-              <h1 className="py-2 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-lg font-semibold tracking-tight sm:grow-0">
+              <h1 className="flex-1 shrink-0 whitespace-nowrap py-2 font-unbounded text-lg font-semibold tracking-tight text-primary sm:grow-0">
                 Promotion
               </h1>
             </AccordionTrigger>
@@ -284,13 +284,13 @@ export const Membership = () => {
                   Gavin Wood.
                 </p>
 
-                <img className="py-10 w-[45rem]" src={Rank} />
+                <img className="w-[45rem] py-10" src={Rank} />
               </div>
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-6">
             <AccordionTrigger>
-              <h1 className="py-2 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-lg font-semibold tracking-tight sm:grow-0">
+              <h1 className="flex-1 shrink-0 whitespace-nowrap py-2 font-unbounded text-lg font-semibold tracking-tight text-primary sm:grow-0">
                 Demotion
               </h1>
             </AccordionTrigger>
@@ -302,7 +302,7 @@ export const Membership = () => {
                   Polkadot account can initiate this process by submitting the
                   signed `bump` call.
                 </p>
-                <p className="font-bold p-4 border-2 my-4 rounded-lg">
+                <p className="my-4 rounded-lg border-2 p-4 font-bold">
                   Monitor your membership status directly from your Google
                   account with:{' '}
                   <span className="text-primary">
@@ -314,7 +314,7 @@ export const Membership = () => {
           </AccordionItem>
           <AccordionItem value="item-7">
             <AccordionTrigger>
-              <h1 className="py-2 font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-lg font-semibold tracking-tight sm:grow-0">
+              <h1 className="flex-1 shrink-0 whitespace-nowrap py-2 font-unbounded text-lg font-semibold tracking-tight text-primary sm:grow-0">
                 Suspension
               </h1>
             </AccordionTrigger>

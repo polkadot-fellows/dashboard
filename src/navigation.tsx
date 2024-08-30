@@ -55,8 +55,8 @@ export const Navigation = ({
 
   return (
     <aside className="fixed inset-y-0 left-0 z-10 hidden w-[14rem] flex-col border-r bg-background sm:flex">
-      <nav className="flex flex-col items-left gap-4 px-4 sm:py-5">
-        <div className="flex text-primary font-extrabold text-2xl">
+      <nav className="items-left flex flex-col gap-4 px-4 sm:py-5">
+        <div className="flex text-2xl font-extrabold text-primary">
           <PolkadotIcon
             className="max-h-[100%] w-12"
             width={'2.2rem'}
@@ -69,7 +69,7 @@ export const Navigation = ({
             return (
               <Accordion type="single" collapsible>
                 <AccordionItem value="item-1">
-                  <AccordionTrigger className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground transition-colors py-2 justify-start">
+                  <AccordionTrigger className="flex items-center justify-start gap-4 px-2.5 py-2 text-muted-foreground transition-colors hover:text-foreground">
                     <r.icon className="h-5 w-5" />
                     <span>{r.name}</span>
                   </AccordionTrigger>
@@ -78,7 +78,7 @@ export const Navigation = ({
                       <Link
                         className={
                           linkStyle(pathname, '/' + (c.link || '')) +
-                          ' flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground transition-colors py-2 '
+                          ' flex items-center gap-4 px-2.5 py-2 text-muted-foreground transition-colors hover:text-foreground'
                         }
                         to={c.link}
                       >
@@ -95,7 +95,7 @@ export const Navigation = ({
               <Link
                 className={
                   linkStyle(pathname, '/' + (r.link || '')) +
-                  ' flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground transition-colors py-2 '
+                  ' flex items-center gap-4 px-2.5 py-2 text-muted-foreground transition-colors hover:text-foreground'
                 }
                 to={r.link}
               >
@@ -117,20 +117,20 @@ export const Navigation = ({
         <Resources />
         <Accordion type="single" collapsible>
           <AccordionItem value="item-1">
-            <AccordionTrigger className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground transition-colors py-2 justify-start">
+            <AccordionTrigger className="flex items-center justify-start gap-4 px-2.5 py-2 text-muted-foreground transition-colors hover:text-foreground">
               <SiElement className="h-5 w-5" />
               <span>Element</span>
             </AccordionTrigger>
             <AccordionContent className="pl-4">
               <Link
-                className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground transition-colors py-2 justify-start"
+                className="flex items-center justify-start gap-4 px-2.5 py-2 text-muted-foreground transition-colors hover:text-foreground"
                 to="https://matrix.to/#/#fellowship-members:parity.io"
                 target="_blank"
               >
                 Fellowship Members
               </Link>
               <Link
-                className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground transition-colors py-2 justify-start"
+                className="flex items-center justify-start gap-4 px-2.5 py-2 text-muted-foreground transition-colors hover:text-foreground"
                 to="https://matrix.to/#/#fellowship-open-channel:parity.io"
                 target="_blank"
               >
@@ -140,7 +140,7 @@ export const Navigation = ({
           </AccordionItem>
         </Accordion>
       </nav>
-      <nav className="mt-auto flex flex-row justify-center items-center gap-8 px-2 sm:py-5">
+      <nav className="mt-auto flex flex-row items-center justify-center gap-8 px-2 sm:py-5">
         <Tooltip>
           <TooltipTrigger asChild>
             <a
@@ -193,7 +193,7 @@ export const Navigation = ({
           </TooltipContent>
         </Tooltip>
       </nav>
-      <div className="text-primary flex flex-col text-sm font-bold items-center px-2 pb-5">
+      <div className="flex flex-col items-center px-2 pb-5 text-sm font-bold text-primary">
         <span>Polkadot Technical Fellowship</span>
         <span>©2024</span>
       </div>

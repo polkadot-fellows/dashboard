@@ -81,9 +81,9 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
           </Button>
         </SheetTrigger>
         <SheetContent side="left" className="sm:max-w-xs">
-          <div className="flex text-primary font-extrabold text-2xl">
+          <div className="flex text-2xl font-extrabold text-primary">
             <PolkadotIcon
-              className="max-h-[100%] w-[3.2rem] pr-3 pl-2.4"
+              className="pl-2.4 max-h-[100%] w-[3.2rem] pr-3"
               width={'2rem'}
               height={'2rem'}
             />
@@ -95,7 +95,7 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
                 return (
                   <Accordion type="single" collapsible>
                     <AccordionItem value="item-1">
-                      <AccordionTrigger className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground transition-colors py-2 justify-start">
+                      <AccordionTrigger className="flex items-center justify-start gap-4 px-2.5 py-2 text-muted-foreground transition-colors hover:text-foreground">
                         <r.icon className="h-5 w-5" />
                         <span>{r.name}</span>
                       </AccordionTrigger>
@@ -145,7 +145,7 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
               </DialogTrigger>
               <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
-                  <DialogTitle className="text-primary font-bold">
+                  <DialogTitle className="font-bold text-primary">
                     Resources
                   </DialogTitle>
                   <DialogDescription>
@@ -159,13 +159,13 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
             </Dialog>
             <Accordion type="single" collapsible>
               <AccordionItem value="item-1">
-                <AccordionTrigger className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground transition-colors py-2 justify-start">
+                <AccordionTrigger className="flex items-center justify-start gap-4 px-2.5 py-2 text-muted-foreground transition-colors hover:text-foreground">
                   <SiElement className="h-5 w-5" />
                   <span>Element</span>
                 </AccordionTrigger>
                 <AccordionContent className="p-0">
                   <a
-                    className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground transition-colors py-2 justify-start"
+                    className="flex items-center justify-start gap-4 px-2.5 py-2 text-muted-foreground transition-colors hover:text-foreground"
                     href="https://matrix.to/#/#fellowship-members:parity.io"
                     target="_blank"
                   >
@@ -174,7 +174,7 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
                 </AccordionContent>
                 <AccordionContent className="p-0">
                   <a
-                    className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground transition-colors py-2 justify-start"
+                    className="flex items-center justify-start gap-4 px-2.5 py-2 text-muted-foreground transition-colors hover:text-foreground"
                     href="https://matrix.to/#/#fellowship-open-channel:parity.io"
                     target="_blank"
                   >
@@ -219,13 +219,13 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
             </a>
           </nav>
 
-          <div className="fixed flex bottom-2 align-middle text-center text-sm text-primary font-bold flex-col">
+          <div className="fixed bottom-2 flex flex-col text-center align-middle text-sm font-bold text-primary">
             <span>©2024</span>
             <span>Polkadot Technical Fellowship</span>
           </div>
         </SheetContent>
       </Sheet>
-      <div className="flex justify-between w-full">
+      <div className="flex w-full justify-between">
         <div>
           {/* <Menubar>
             <MenubarMenu>

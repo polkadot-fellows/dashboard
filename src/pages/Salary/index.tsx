@@ -1,4 +1,4 @@
-import SalaryInduct from './fellowshipSalary.induct.png'
+import SalaryBump from './fellowshipSalary.bump.png'
 import SubsquareRegister from './fellowshipSalary.register.subsquare.png'
 import SubsquarePayout from './fellowshipSalary.payout.subsquare.png'
 import SalaryPayoutOther from './fellowshipSalary.payoutOther.png'
@@ -182,7 +182,7 @@ export const Salary = () => {
           (Polkadot-JS UI). This is required before registration and payouts can
           be processed.
         </p>
-        <img className="my-6" src={SalaryInduct} alt="salary induct" />
+        <img className="my-6" src={SalaryBump} alt="salary bump" />
       </div>
       <div className="">
         <h1 className={reusableH1 + ' my-6'}>Registration</h1>

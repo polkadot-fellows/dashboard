@@ -12,8 +12,8 @@ importers:
         specifier: file:.papi/descriptors
         version: file:.papi/descriptors(polkadot-api@1.2.0(jiti@1.21.6)(postcss@8.4.45)(rxjs@7.8.1)(smoldot@2.0.30)(yaml@2.5.0))
       '@polkadot-ui/react':
-        specifier: 0.0.1-alpha.23
-        version: 0.0.1-alpha.23(@noble/hashes@1.4.0)(@polkadot-api/substrate-bindings@0.7.0)(@polkadot-ui/assets@0.0.1-alpha.2)(@polkadot-ui/core@0.0.1-alpha.2)(@polkadot-ui/utils@0.0.1-alpha.5(@polkadot/keyring@12.6.2(@polkadot/util-crypto@12.6.2(@polkadot/util@12.6.2))(@polkadot/util@12.6.2))(@polkadot/util@12.6.2))(polkadot-api@1.2.0(jiti@1.21.6)(postcss@8.4.45)(rxjs@7.8.1)(smoldot@2.0.30)(yaml@2.5.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 0.0.1-alpha.27
+        version: 0.0.1-alpha.27(@noble/hashes@1.4.0)(@polkadot-api/substrate-bindings@0.7.0)(@polkadot-ui/assets@0.0.1-alpha.2)(@polkadot-ui/core@0.0.1-alpha.2)(@polkadot-ui/utils@0.0.1-alpha.5(@polkadot/keyring@12.6.2(@polkadot/util-crypto@12.6.2(@polkadot/util@12.6.2))(@polkadot/util@12.6.2))(@polkadot/util@12.6.2))(polkadot-api@1.2.0(jiti@1.21.6)(postcss@8.4.45)(rxjs@7.8.1)(smoldot@2.0.30)(yaml@2.5.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@polkadot-ui/utils':
         specifier: 0.0.1-alpha.5
         version: 0.0.1-alpha.5(@polkadot/keyring@12.6.2(@polkadot/util-crypto@12.6.2(@polkadot/util@12.6.2))(@polkadot/util@12.6.2))(@polkadot/util@12.6.2)
@@ -727,8 +727,8 @@ packages:
   '@polkadot-ui/core@0.0.1-alpha.2':
     resolution: {integrity: sha512-gXEgPwN/fD+pSJVmgvFUE6PJWcp2I+v3Kp2kbRn78bLUwYIuc0pfURcuINK1rE/URyTjvKSmMqyfsERNAdp1iQ==}
 
-  '@polkadot-ui/react@0.0.1-alpha.23':
-    resolution: {integrity: sha512-W2gnaJKbUHrF4/TB3pXgSnkWs52z1T4hBjzsBEpf2VygEJond8QrKaMqCvtaRIUN6/FqYw6P+8gqpkszQmc8uw==}
+  '@polkadot-ui/react@0.0.1-alpha.27':
+    resolution: {integrity: sha512-5uetfJqo+ahee7P/JJzJEoYMXC+n0QIa3yA+Ztxwwptana2IPvW3qxh5wYels+rzd33stPE3wFKdupzLG1VxsQ==}
     peerDependencies:
       '@noble/hashes': ^1.4.0
       '@polkadot-api/substrate-bindings': ^0.6.0
@@ -3642,7 +3642,7 @@ snapshots:
 
   '@polkadot-ui/core@0.0.1-alpha.2': {}
 
-  '@polkadot-ui/react@0.0.1-alpha.23(@noble/hashes@1.4.0)(@polkadot-api/substrate-bindings@0.7.0)(@polkadot-ui/assets@0.0.1-alpha.2)(@polkadot-ui/core@0.0.1-alpha.2)(@polkadot-ui/utils@0.0.1-alpha.5(@polkadot/keyring@12.6.2(@polkadot/util-crypto@12.6.2(@polkadot/util@12.6.2))(@polkadot/util@12.6.2))(@polkadot/util@12.6.2))(polkadot-api@1.2.0(jiti@1.21.6)(postcss@8.4.45)(rxjs@7.8.1)(smoldot@2.0.30)(yaml@2.5.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@polkadot-ui/react@0.0.1-alpha.27(@noble/hashes@1.4.0)(@polkadot-api/substrate-bindings@0.7.0)(@polkadot-ui/assets@0.0.1-alpha.2)(@polkadot-ui/core@0.0.1-alpha.2)(@polkadot-ui/utils@0.0.1-alpha.5(@polkadot/keyring@12.6.2(@polkadot/util-crypto@12.6.2(@polkadot/util@12.6.2))(@polkadot/util@12.6.2))(@polkadot/util@12.6.2))(polkadot-api@1.2.0(jiti@1.21.6)(postcss@8.4.45)(rxjs@7.8.1)(smoldot@2.0.30)(yaml@2.5.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@noble/hashes': 1.4.0
       '@polkadot-api/substrate-bindings': 0.7.0

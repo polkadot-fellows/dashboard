@@ -1,57 +1,226 @@
-import { useEffect, useState } from "react"
-import { Polkicon } from "@polkadot-ui/react"
-import { AccountName } from "./AccountName"
-import { useLocalStorage, useMediaQuery } from "usehooks-ts"
+/* eslint-disable react-hooks/exhaustive-deps */
 
-import { Badge, Drawer, Popover, Table } from "antd"
-import type { TableColumnsType } from "antd"
+import { Dispatch, SetStateAction, useEffect, useState } from 'react'
+import {
+  ColumnDef,
+  ColumnFiltersState,
+  SortingState,
+  VisibilityState,
+  flexRender,
+  getCoreRowModel,
+  getFilteredRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
+  useReactTable,
+} from '@tanstack/react-table'
 
-import { ellipsisFn } from "@polkadot-ui/utils"
-import { MemberDrawer } from "./MemberDrawer"
-import { rankInfo } from "consts"
-import { getFellowshipAddresses } from "utils"
+import { toast } from 'sonner'
+
+import { useLocalStorage, useMediaQuery } from 'usehooks-ts'
+import { ellipsisFn } from '@polkadot-ui/utils'
+import { Polkicon } from '@polkadot-ui/react'
+
+import copy from 'copy-to-clipboard'
+import { ArrowUpDown, Copy, ScanEye } from 'lucide-react'
+
+import type { PeopleQueries } from '@polkadot-api/descriptors'
+import type { Binary } from 'polkadot-api'
+import { api, people_api } from '@/clients'
+
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table'
+
+import { rankInfo } from '@/consts'
+import { AccountName } from './AccountName'
+import { Skeleton } from '@/components/ui/skeleton'
+import { LcStatusType, MemberInfo } from './MemberInfo'
 
 export type AccountInfoIF = {
-  key?: number
   address: string
   rank: number
   display?: string
   github?: string
   legal?: string
-  riot?: string
+  matrix?: string
   email?: string
   twitter?: string
   web?: string
 }
 
-const fellMembers: AccountInfoIF[] = []
+const dataToString = (value: number | string | Binary | undefined) =>
+  typeof value === 'object' ? value.asText() : (value ?? '')
 
-type Props = {
-  lcStatus: boolean
+const mapRawIdentity = (
+  rawIdentity?: PeopleQueries['Identity']['IdentityOf']['Value'],
+) => {
+  if (!rawIdentity) return rawIdentity
+  const {
+    info: { display, email, legal, matrix, twitter, web },
+  } = rawIdentity[0]
+
+  const display_id = dataToString(display.value)
+
+  return {
+    display: display_id,
+    web: dataToString(web.value),
+    email: dataToString(email.value),
+    legal: dataToString(legal.value),
+    matrix: dataToString(matrix.value),
+    twitter: dataToString(twitter.value),
+  }
 }
 
-export const RequestsGrid = ({ lcStatus }: Props) => {
+const fellMembers: AccountInfoIF[] = []
+
+const columns = (
+  setInfoOpen: Dispatch<SetStateAction<boolean>>,
+  setChosenMember: Dispatch<SetStateAction<AccountInfoIF>>,
+): ColumnDef<AccountInfoIF>[] => [
+  { accessorKey: 'matrix' },
+  { accessorKey: 'display' },
+  { accessorKey: 'github' },
+  { accessorKey: 'legal' },
+  { accessorKey: 'email' },
+  { accessorKey: 'twitter' },
+  { accessorKey: 'web' },
+  {
+    accessorKey: 'address',
+    header: 'Address',
+    cell: ({ row }) => {
+      return (
+        <div className="flex">
+          <div className="px-8">
+            <Polkicon copy address={row.getValue('address')} size={32} />
+          </div>
+          <AccountName
+            display={row.getValue('display')}
+            address={row.getValue('address')}
+          />
+        </div>
+      )
+    },
+  },
+  {
+    accessorKey: 'title',
+    header: 'Title',
+    cell: ({ row }) => {
+      const r = parseInt(row.getValue('rank'), 0)
+      const { name } = rankInfo[r]
+      return <div>{name}</div>
+    },
+  },
+  {
+    accessorKey: 'rank',
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+        >
+          Rank
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      )
+    },
+    cell: ({ row }) => {
+      const r = parseInt(row.getValue('rank'), 0)
+      const { rank, color } = rankInfo[r]
+      return <Badge style={{ background: color }}>{rank}</Badge>
+    },
+  },
+  {
+    id: 'actions',
+    header: 'Actions',
+    enableHiding: false,
+    cell: ({ row }) => {
+      return (
+        <div className="flex justify-evenly">
+          <Copy
+            className={`cursor-pointer text-primary`}
+            onClick={() => {
+              toast.success('Address copied.')
+              copy(row.getValue('address'))
+            }}
+          />
+          <ScanEye
+            className={`cursor-pointer text-primary`}
+            onClick={() => {
+              setChosenMember({
+                address: row.getValue('address'),
+                rank: row.getValue('rank'),
+                display: row.getValue('display'),
+                github: row.getValue('github'),
+                legal: row.getValue('legal'),
+                matrix: row.getValue('matrix'),
+                email: row.getValue('email'),
+                twitter: row.getValue('twitter'),
+                web: row.getValue('web'),
+              })
+              setInfoOpen(true)
+            }}
+          />
+        </div>
+      )
+    },
+  },
+]
+
+export const RequestsGrid = ({ lcStatus }: LcStatusType) => {
+  const [sorting, setSorting] = useState<SortingState>([])
+  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
+  const isMobile = useMediaQuery('(max-width: 768px)')
+
+  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({
+    display: false,
+    github: false,
+    legal: false,
+    matrix: false,
+    email: false,
+    twitter: false,
+    web: false,
+    title: !isMobile,
+    rank: !isMobile,
+  })
   const [loading, setLoading] = useState<boolean>(true)
+  const [chosenMember, setChosenMember] = useState<AccountInfoIF>(
+    {} as AccountInfoIF,
+  )
   const [members, setMembers] = useState<AccountInfoIF[]>([])
-  const [columns, setColumns] = useState<TableColumnsType<AccountInfoIF>>([])
+  const [infoOpen, setInfoOpen] = useState(false)
   const [fellowshipMembers, setFellowshipMembers] = useLocalStorage<any[]>(
-    "fellowship-members",
-    []
+    'fellowship-members',
+    [],
   )
-  const [openDrawer, setOpenDrawer] = useState<boolean>(false)
-  const [drawerMember, setDrawerMember] = useState<AccountInfoIF>(
-    {} as AccountInfoIF
-  )
-  const isMobile = useMediaQuery("(max-width: 1000px)")
 
   useEffect(() => {
     const fetchMembers = async () => {
-      const collectiveAddresses: any = await getFellowshipAddresses()
+      const collectiveAddresses: any =
+        await api?.query.FellowshipCollective.Members.getEntries().then(
+          (mems: any[]) =>
+            people_api.query.Identity.IdentityOf.getValues(
+              mems.map((m) => m.keyArgs),
+            ).then((identities: any[]) =>
+              identities.map((identity, idx) => ({
+                address: mems[idx].keyArgs[0],
+                rank: mems[idx].value,
+                ...mapRawIdentity(identity),
+              })),
+            ),
+        )
 
       setMembers([
         ...collectiveAddresses.sort(
           (a: { rank: number }, b: { rank: number }) =>
-            a.rank > b.rank ? -1 : 1
+            a.rank > b.rank ? -1 : 1,
         ),
       ])
     }
@@ -63,10 +232,8 @@ export const RequestsGrid = ({ lcStatus }: Props) => {
   }, [])
 
   useEffect(() => {
-    let i = 0
     members.forEach((m) => {
       fellMembers.push({
-        key: i++,
         display: m.legal || m.display || ellipsisFn(m.address, 6),
         rank: m.rank,
         address: m.address,
@@ -76,90 +243,105 @@ export const RequestsGrid = ({ lcStatus }: Props) => {
     if (members.length) setLoading(false)
   }, [members])
 
-  useEffect(() => {
-    const cols: TableColumnsType<AccountInfoIF> = [
-      {
-        title: "Name",
-        dataIndex: "display",
-        key: "display",
-        render: (_, r) => (
-          <div style={{ display: "flex" }}>
-            <div style={{ padding: "0 2rem" }}>
-              <Polkicon address={r.address} size={38} />
-            </div>
-            <AccountName display={r.display} address={r.address} />
-          </div>
-        ),
-      },
-      {
-        title: "Rank",
-        width: 180,
-        dataIndex: "rank",
-        defaultSortOrder: "descend",
-        sorter: (a, b) => a.rank - b.rank,
-        key: "rank",
-        render: (_, r) => {
-          const { name, rank, color } = rankInfo[r.rank]
-          return (
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-              }}
-            >
-              {!isMobile ? (
-                <span style={{ marginRight: "1rem" }}>{name}</span>
-              ) : null}
-              {!isMobile ? (
-                <Badge count={rank} color={color} showZero />
-              ) : (
-                <Popover placement="top" content={name}>
-                  <Badge count={rank} color={color} showZero />
-                </Popover>
-              )}
-            </div>
-          )
-        },
-      },
-      {
-        title: "Address",
-        dataIndex: "address",
-        key: "address",
-        render: (m) => m,
-      },
-    ]
-
-    setColumns(cols)
-  }, [])
+  const table = useReactTable({
+    data: fellowshipMembers,
+    columns: columns(setInfoOpen, setChosenMember),
+    onSortingChange: setSorting,
+    onColumnFiltersChange: setColumnFilters,
+    getCoreRowModel: getCoreRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
+    onColumnVisibilityChange: setColumnVisibility,
+    state: {
+      sorting,
+      columnFilters,
+      columnVisibility,
+    },
+  })
 
   return (
-    <>
-      <Table
-        size="small"
-        style={{ cursor: "pointer" }}
-        onRow={(record) => {
-          return {
-            onClick: async () => {
-              setDrawerMember(record)
-              setOpenDrawer(true)
-            },
-          }
-        }}
-        pagination={false}
-        loading={loading}
-        columns={columns}
-        dataSource={members}
+    <div className="w-full">
+      <div className="rounded-md border">
+        {loading ? (
+          <Skeleton className="h-[25rem] w-[100%] rounded-xl" />
+        ) : (
+          <Table>
+            <TableHeader>
+              {table.getHeaderGroups().map((headerGroup) => (
+                <TableRow key={headerGroup.id}>
+                  {headerGroup.headers.map((header) => {
+                    return (
+                      <TableHead key={header.id}>
+                        {header.isPlaceholder
+                          ? null
+                          : flexRender(
+                              header.column.columnDef.header,
+                              header.getContext(),
+                            )}
+                      </TableHead>
+                    )
+                  })}
+                </TableRow>
+              ))}
+            </TableHeader>
+            <TableBody>
+              {table.getRowModel().rows?.length ? (
+                table.getRowModel().rows.map((row) => (
+                  <TableRow
+                    key={row.id}
+                    data-state={row.getIsSelected() && 'selected'}
+                  >
+                    {row.getVisibleCells().map((cell) => (
+                      <TableCell key={cell.id}>
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext(),
+                        )}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                ))
+              ) : (
+                <TableRow>
+                  <TableCell
+                    colSpan={columns.length}
+                    className="h-24 text-center"
+                  >
+                    No results.
+                  </TableCell>
+                </TableRow>
+              )}
+            </TableBody>
+          </Table>
+        )}
+      </div>
+      <div className="flex items-center justify-end space-x-2 py-4">
+        <div className="space-x-2">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => table.previousPage()}
+            disabled={!table.getCanPreviousPage()}
+          >
+            Previous
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => table.nextPage()}
+            disabled={!table.getCanNextPage()}
+          >
+            Next
+          </Button>
+        </div>
+      </div>
+      <MemberInfo
+        lcStatus={lcStatus}
+        member={chosenMember}
+        open={infoOpen}
+        onOpenChange={setInfoOpen}
       />
-      <Drawer
-        onClose={() => {
-          setOpenDrawer(false)
-          setDrawerMember({} as AccountInfoIF)
-        }}
-        open={openDrawer}
-        title={drawerMember?.address && ellipsisFn(drawerMember?.address, 8)}
-      >
-        <MemberDrawer member={drawerMember} lcStatus={lcStatus} />
-      </Drawer>
-    </>
+    </div>
   )
 }

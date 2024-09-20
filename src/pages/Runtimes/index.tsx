@@ -1,5 +1,4 @@
 import { ThemedLink } from '@/components/ThemedComponents'
-import ReleaseProcess from './release-process.png'
 
 export const Runtimes = () => {
   return (
@@ -37,15 +36,9 @@ export const Runtimes = () => {
         </span>
       </p>
       <p>
-        There are guidelines for both Major and Minor releases which include
-        recommended steps for managing and communicating breaking changes and
-        disruptions.
+        There are guidelines which include recommended steps for managing and
+        communicating breaking changes and disruptions.
       </p>
-      <img
-        className="my-6 max-w-[50rem]"
-        src={ReleaseProcess}
-        alt="Runtime release process"
-      />
       <h1 className="my-4 flex-1 shrink-0 whitespace-nowrap font-unbounded text-2xl font-semibold tracking-tight text-primary sm:grow-0">
         Ecosystem-wide collaboration
       </h1>

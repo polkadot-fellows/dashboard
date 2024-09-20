@@ -308,6 +308,14 @@ export const Membership = () => {
                   <span className="text-primary">
                     webcal://fellowship-calendar.kchr.de/?account=YOUR_ACCOUNT_ID.
                   </span>
+                  . The code for this widget can be found{' '}
+                  <ThemedLink
+                    target="_blank"
+                    to="https://github.com/bkchr/fellowship-ical"
+                  >
+                    here
+                  </ThemedLink>
+                  .
                 </p>
               </div>
             </AccordionContent>

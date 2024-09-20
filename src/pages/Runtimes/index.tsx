@@ -1,5 +1,4 @@
 import { ThemedLink } from '@/components/ThemedComponents'
-import ReleaseProcess from './release-process.png'
 
 export const Runtimes = () => {
   return (

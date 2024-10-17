@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@polkadot-api/descriptors": "file:.papi/descriptors",
-    "@polkadot-ui/react": "0.0.1-alpha.27",
+    "@polkadot-ui/react": "0.0.1-alpha.35",
     "@polkadot-ui/utils": "0.0.1-alpha.5",
     "@radix-ui/react-accordion": "^1.2.1",
     "@radix-ui/react-dialog": "^1.1.2",

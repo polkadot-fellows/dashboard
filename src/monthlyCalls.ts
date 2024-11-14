@@ -8,6 +8,11 @@ export const nextMonthlyCall = 'Tuesday, 15th of October, 2024 - 2pm UTC'
 //    '<forum meeting minutes link or N/A>',
 // ]
 export const monthlyCalls2024 = {
+  12: [
+    '15th October 2024',
+    'https://www.youtube.com/watch?v=F2wYK-N321Q',
+    'https://forum.polkadot.network/t/2024-10-15-technical-fellowship-opendev-call/10812',
+  ],
   11: [
     '17th September 2024',
     'https://www.youtube.com/watch?v=oWppBMrgU7M',

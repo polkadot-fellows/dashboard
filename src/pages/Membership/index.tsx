@@ -168,7 +168,7 @@ export const Membership = () => {
                   variant="default"
                   onClick={() =>
                     openInNewTab(
-                      'https://spiced-longship-f1a.notion.site/e16a241b7b924addaf6d761932a44584?v=c33adcf51bc5424ab6afb29d1f101048&pvs=4',
+                      'https://polkadottechnicalfellowship.notion.site/13d96f88d0a780748a8ec307db640fee?v=13d96f88d0a78134816b000c673faeaf',
                     )
                   }
                 >

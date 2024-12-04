@@ -44,7 +44,7 @@ export const RFCText = () => {
       <p>
         A list of all RFCs with their latest status can be found in the{' '}
         <ThemedLink
-          to="https://spiced-longship-f1a.notion.site/abbeb769972f4aa0afbfe41cac4544f1?v=0e62d5198aa443d0a816165387b6ede9"
+          to="https://polkadottechnicalfellowship.notion.site/13d96f88d0a780748a8ec307db640fee?v=13d96f88d0a78134816b000c673faeaf"
           target="_blank"
         >
           RFC Dashboard

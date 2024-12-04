@@ -28,32 +28,12 @@ export const Rfc = () => {
           {data ? (
             data.length ? (
               data!.map((d: any) => {
+                if (d.number === 130) {
+                  console.log('d', d)
+                }
                 return (
                   <div className="flex w-full justify-between">
-                    <div className="w-[65%] rounded-bl-lg rounded-tl-lg border-2 p-2">
-                      <Link
-                        to={`https://www.github.com/${GithubOwner}/${GithubRfc}/pull/${d.number}`}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="word-break my-10 mb-2 h-10 font-semibold text-primary"
-                      >
-                        #{d.number} - {d.title}
-                      </Link>
-                    </div>
-                    <div className="flex w-[35%] items-center justify-between rounded-br-lg rounded-tr-lg border-2 border-l-0 bg-gray-100 p-2 dark:bg-gray-800">
-                      <div className="w-[70%]">
-                        <Link
-                          to={d.user.html_url}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="text-sm font-bold"
-                        >
-                          {d.user.login}
-                        </Link>
-                        <p className="text-xs font-bold text-primary">
-                          {new Date(d.created_at).toDateString()}
-                        </p>
-                      </div>
+                    <div className="flex w-[35%] items-center justify-between rounded-bl-lg rounded-tl-lg border-2 bg-gray-100 p-2 dark:bg-gray-800">
                       <div className="w-[30%]">
                         <Link
                           to={d.user.html_url}
@@ -67,6 +47,34 @@ export const Rfc = () => {
                           />
                         </Link>
                       </div>
+                      <div className="w-[70%]">
+                        <Link
+                          to={d.user.html_url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-sm font-bold"
+                        >
+                          {d.user.login}
+                        </Link>
+                        <p className="text-xs font-bold text-primary">
+                          {new Date(d.created_at).toDateString()}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex w-[10%] items-center border-2 border-l-0 border-r-0 p-2">
+                      <p className="text-xs">
+                        {(d?.labels && d?.labels[0]?.name) || '-'}
+                      </p>
+                    </div>
+                    <div className="w-[55%] rounded-br-lg rounded-tr-lg border-2 p-2">
+                      <Link
+                        to={`https://www.github.com/${GithubOwner}/${GithubRfc}/pull/${d.number}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="word-break my-10 mb-2 h-10 font-semibold text-primary"
+                      >
+                        #{d.number} - {d.title}
+                      </Link>
                     </div>
                   </div>
                 )

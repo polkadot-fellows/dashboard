@@ -2,7 +2,7 @@
   "name": "fellowship-dashboard",
   "private": true,
   "version": "0.0.1",
-  "packageManager": "pnpm@9.8.0",
+  "packageManager": "pnpm@9.9.0",
   "type": "module",
   "scripts": {
     "preinstall": "npx only-allow pnpm",

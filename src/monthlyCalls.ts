@@ -1,5 +1,5 @@
 // Add the date of the nextMonthlyCall
-export const nextMonthlyCall = 'Tuesday, 15th of October, 2024 - 2pm UTC'
+export const nextMonthlyCall = 'Tuesday, 18th of February, 2025'
 
 // This object should always be:
 // +1 rank number: [
@@ -8,6 +8,16 @@ export const nextMonthlyCall = 'Tuesday, 15th of October, 2024 - 2pm UTC'
 //    '<forum meeting minutes link or N/A>',
 // ]
 export const monthlyCalls2024 = {
+  15: [
+    '21st January 2025',
+    'https://www.youtube.com/watch?v=xyHeXI_5SX8',
+    'https://forum.polkadot.network/t/2025-01-21-technical-fellowship-opendev-call/11653'
+  ],
+  14: [
+    '17th December 2024',
+    'https://www.youtube.com/watch?v=9MVEPhvMV1Y',
+    'https://forum.polkadot.network/t/2024-12-17-technical-fellowship-opendev-call/11649'
+  ],
   13: [
     '18th November 2024',
     'https://www.youtube.com/watch?v=YldX4hfcW04',

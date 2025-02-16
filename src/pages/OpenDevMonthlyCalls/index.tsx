@@ -1,19 +1,9 @@
 import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table'
-import {
   VisibilityState,
-  flexRender,
   getCoreRowModel,
   useReactTable,
 } from '@tanstack/react-table'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 
 import { monthlyCalls2024, nextMonthlyCall } from '@/monthlyCalls'
 import { useMediaQuery } from 'usehooks-ts'
@@ -110,155 +100,14 @@ export const OpenDevMonthlyCalls = () => {
         the Fellowship, and answer questions from the general public.
       </p>
       <h2 className="my-4 flex-1 shrink-0 whitespace-nowrap font-unbounded text-lg font-semibold tracking-tight text-primary sm:grow-0">
-        Upcoming call
+        Upcoming calls
       </h2>
-      <div className="text-md my-4 flex-1 shrink-0 whitespace-nowrap font-unbounded font-semibold tracking-tight sm:grow-0">
-        The next monthly call is scheduled for the{' '}
-        {isMobile ? (
-          <div className="text-xl font-extrabold text-primary">
-            {nextMonthlyCall}
-          </div>
-        ) : (
-          <span className="text-xl font-extrabold text-primary">
-            {nextMonthlyCall}
-          </span>
-        )}
-      </div>
-      <h2 className="flex-1 shrink-0 whitespace-nowrap font-unbounded text-lg font-semibold tracking-tight text-primary sm:grow-0">
-        Past calls
-      </h2>
-      <h2 className={reusableH1 + ' pt-4'}>2024</h2>
-      <Table className={isMobile ? 'w-[60vw]' : ''}>
-        <TableHeader>
-          {table_2024.getHeaderGroups().map((headerGroup) => (
-            <TableRow key={headerGroup.id}>
-              {headerGroup.headers.map((header) => {
-                return (
-                  <TableHead key={header.id} className="text-bolder text-lg">
-                    {flexRender(
-                      header.column.columnDef.header,
-                      header.getContext(),
-                    )}
-                  </TableHead>
-                )
-              })}
-            </TableRow>
-          ))}
-        </TableHeader>
-        <TableBody>
-          {table_2024.getRowModel().rows.map((row) => (
-            <TableRow
-              key={row.id}
-              data-state={row.getIsSelected() && 'selected'}
-            >
-              {row.getVisibleCells().map((cell) => {
-                if (cell.column.id === 'sessions') {
-                  return (
-                    <TableCell key={cell.id}>
-                      {row.getValue('sessions')}
-                    </TableCell>
-                  )
-                } else if (cell.column.id === 'minutes') {
-                  return (
-                    <TableCell key={cell.id}>
-                      {row.getValue('minutes') === 'N/A' ? (
-                        '-'
-                      ) : (
-                        <Link
-                          to={row.getValue('minutes')}
-                          className="text-[blue]"
-                          target="_blank"
-                        >
-                          {!isMobile && 'Meeting Minutes '}#
-                          {row.getValue('key')}
-                        </Link>
-                      )}
-                    </TableCell>
-                  )
-                } else {
-                  return (
-                    <TableCell key={cell.id}>
-                      <Link
-                        to={row.getValue('videos')}
-                        className="text-[blue]"
-                        target="_blank"
-                      >
-                        {!isMobile && 'OpenDev '}#{row.getValue('key')}
-                      </Link>
-                    </TableCell>
-                  )
-                }
-              })}
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-      <h2 className={reusableH1 + ' py-2'}>2023</h2>
-      <Table className={isMobile ? 'w-[60vw]' : ''}>
-        <TableHeader>
-          {table_2024.getHeaderGroups().map((headerGroup) => (
-            <TableRow key={headerGroup.id}>
-              {headerGroup.headers.map((header) => {
-                return (
-                  <TableHead key={header.id} className="text-bolder text-lg">
-                    {flexRender(
-                      header.column.columnDef.header,
-                      header.getContext(),
-                    )}
-                  </TableHead>
-                )
-              })}
-            </TableRow>
-          ))}
-        </TableHeader>
-        <TableBody>
-          {table_2023.getRowModel().rows.map((row) => (
-            <TableRow
-              key={row.id}
-              data-state={row.getIsSelected() && 'selected'}
-            >
-              {row.getVisibleCells().map((cell) => {
-                if (cell.column.id === 'sessions') {
-                  return (
-                    <TableCell key={cell.id}>
-                      {row.getValue('sessions')}
-                    </TableCell>
-                  )
-                } else if (cell.column.id === 'minutes') {
-                  return (
-                    <TableCell key={cell.id}>
-                      {row.getValue('minutes') === 'N/A' ? (
-                        '-'
-                      ) : (
-                        <Link
-                          to={row.getValue('minutes')}
-                          className="text-[blue]"
-                          target="_blank"
-                        >
-                          {!isMobile && 'Meeting Minutes '}#
-                          {row.getValue('key')}
-                        </Link>
-                      )}
-                    </TableCell>
-                  )
-                } else {
-                  return (
-                    <TableCell key={cell.id}>
-                      <Link
-                        to={row.getValue('videos')}
-                        className="text-[blue]"
-                        target="_blank"
-                      >
-                        {!isMobile && 'OpenDev '}#{row.getValue('key')}
-                      </Link>
-                    </TableCell>
-                  )
-                }
-              })}
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+
+      <iframe width="800"
+              height="600"
+              src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=UTC&showPrint=0&src=N2FiNDZiY2RhNmQyM2U3YjQxMzA2MjUxZDQ1M2UzMTQ3MWE5YTNjYmVkYWIzNWRhNjliZWU3MzBkNmU2MGE5M0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23E67C73"
+              title="Fellowship live calendar" >
+      </iframe>
     </>
   )
 }

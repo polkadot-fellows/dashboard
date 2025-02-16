@@ -1,5 +1,5 @@
 // Add the date of the nextMonthlyCall
-export const nextMonthlyCall = 'Tuesday, 15th of October, 2024 - 2pm UTC'
+export const nextMonthlyCall = 'Tuesday, 18th of February, 2025'
 
 // This object should always be:
 // +1 rank number: [

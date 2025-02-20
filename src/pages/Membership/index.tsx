@@ -124,7 +124,14 @@ export const Membership = () => {
                   </li>
                   <li>Contribution(s) to Polkadot SDK (if any)</li>
                   <li>Link to the GitHub profile of the applicant</li>
-                  <li>Polkadot address with a verified on-chain identity</li>
+                  <li>
+                    <ThemedLink
+                      to="https://wiki.polkadot.network/docs/learn-identity"
+                      target="_blank"
+                    >
+                      Polkadot address with a verified on-chain identity
+                    </ThemedLink>
+                  </li>
                 </ul>
                 Once an application is pre-approved, the applicant becomes
                 eligible for induction to the Fellowship as a candidate.

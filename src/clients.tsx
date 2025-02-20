@@ -1,4 +1,4 @@
-import { createClient } from 'polkadot-api'
+import { TypedApi, createClient } from 'polkadot-api'
 import { getSmProvider } from 'polkadot-api/sm-provider'
 import SmWorker from 'polkadot-api/smoldot/worker?worker'
 import { startFromWorker } from 'polkadot-api/smoldot/from-worker'
@@ -37,9 +37,11 @@ export const collectiveClient = createClient(
 export const peopleClient = createClient(getSmProvider(peopleParaChain))
 
 // API stuff
-export const api = collectiveClient?.getTypedApi(collectives)
-export const papi = polkadotClient?.getTypedApi(dot)
-export const people_api = peopleClient?.getTypedApi(people)
+export const api: TypedApi<typeof collectives> =
+  collectiveClient?.getTypedApi(collectives)
+export const papi: TypedApi<typeof dot> = polkadotClient?.getTypedApi(dot)
+export const people_api: TypedApi<typeof people> =
+  peopleClient?.getTypedApi(people)
 
 /// WSS Stuff
 // import { dot, collectives, people } from '@polkadot-api/descriptors'

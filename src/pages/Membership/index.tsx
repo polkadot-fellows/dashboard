@@ -105,7 +105,7 @@ export const Membership = () => {
                   join the Polkadot Technical Fellowship
                 </ThemedLink>{' '}
                 by submitting their application on a public forum, as shown
-                below (Polkassembly UI).
+                below (Subsquare UI).
               </p>
 
               <img className="w-[45rem] py-10" src={SubsquareApplication} />
@@ -272,7 +272,7 @@ export const Membership = () => {
                   approval voting of members who are 2 ranks higher. For
                   instance, a proposal to promote a member from rank 1 to rank 2
                   can only be approved by members of ranks greater than or equal
-                  to 4, as shown below (Polkassembly UI).
+                  to 4, as shown below.
                 </p>
 
                 <p>

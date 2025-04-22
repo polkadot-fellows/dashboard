@@ -1,6 +1,5 @@
 import { Button } from '@/components/ui/button'
 import { openInNewTab } from '@/lib/utils'
-import PolkassemblyInduction from './polkassembly-inductions.png'
 import SubsquareApplication from './subsquare-application.png'
 import SubsquareInduction from './subsquareInduction.png'
 import Evidence1 from './evidence1.png'

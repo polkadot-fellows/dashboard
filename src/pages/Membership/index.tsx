@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { openInNewTab } from '@/lib/utils'
 import PolkassemblyInduction from './polkassembly-inductions.png'
+import SubsquareApplication from './subsquare-application.png'
 import SubsquareInduction from './subsquareInduction.png'
 import Evidence1 from './evidence1.png'
 import Evidence2 from './evidence2.png'
@@ -73,7 +74,7 @@ export const Membership = () => {
               </p>
               <p className="my-4">
                 Members of the Polkadot Fellowship are expected to provide
-                periodic evidence to retain their current rank or get promoted
+                periodic arguments to retain their current rank or get promoted
                 to a higher rank.
               </p>
               <Button
@@ -85,7 +86,7 @@ export const Membership = () => {
                   )
                 }
               >
-                Find out more in the Evidences repo
+                Find out more in the Evaluations repo
               </Button>
             </AccordionContent>
           </AccordionItem>
@@ -99,7 +100,7 @@ export const Membership = () => {
               <p>
                 Prospective candidates can{' '}
                 <ThemedLink
-                  to="https://collectives.polkassembly.io/join-fellowship?network=collectives"
+                  to="https://collectives.subsquare.io/fellowship/applications"
                   target="_blank"
                 >
                   join the Polkadot Technical Fellowship
@@ -108,7 +109,7 @@ export const Membership = () => {
                 below (Polkassembly UI).
               </p>
 
-              <img className="w-[45rem] py-10" src={PolkassemblyInduction} />
+              <img className="w-[45rem] py-10" src={SubsquareApplication} />
 
               <p className="my-4">
                 As a minimum, applicants need to provide the following
@@ -194,14 +195,14 @@ export const Membership = () => {
               <div>
                 <p className="my-4">
                   To retain their current rank, members of the Polkadot
-                  Technical Fellowship must submit evidence of the work they
+                  Technical Fellowship must submit proofs of the work they
                   have undertaken in recent months. As a minimum, members need
                   to provide the following information in their{' '}
                   <ThemedLink
                     to="https://github.com/polkadot-fellows/Evidences?tab=readme-ov-file#process"
                     target="_blank"
                   >
-                    evidence report:
+                    argument report:
                   </ThemedLink>
                   <ul className="ml-4 list-disc">
                     <li>General membership details</li>
@@ -225,7 +226,7 @@ export const Membership = () => {
                   </ul>
                 </p>
                 <p className="mt-4">
-                  Evidences need to be submitted on-chain{' '}
+                  Arguments need to be submitted on-chain{' '}
                   <ThemedLink
                     to="https://github.com/polkadot-fellows/Evidences?tab=readme-ov-file#timelines"
                     target="_blank"
@@ -265,7 +266,7 @@ export const Membership = () => {
                     to="https://github.com/polkadot-fellows/Evidences"
                     target="_blank"
                   >
-                    evidence
+                    proofs
                   </ThemedLink>{' '}
                   to sustain their request, any member of the Polkadot Technical
                   Fellowship of Rank 1-4 can be promoted to the next rank by

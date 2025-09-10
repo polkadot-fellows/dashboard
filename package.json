@@ -22,7 +22,7 @@
     "@polkadot-ui/utils": "0.0.1-alpha.5",
     "@radix-ui/react-accordion": "^1.2.10",
     "@radix-ui/react-dialog": "^1.1.15",
-    "@radix-ui/react-dropdown-menu": "^2.1.6",
+    "@radix-ui/react-dropdown-menu": "^2.1.16",
     "@radix-ui/react-label": "^2.1.2",
     "@radix-ui/react-menubar": "^1.1.12",
     "@radix-ui/react-popover": "^1.1.11",

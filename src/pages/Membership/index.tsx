@@ -153,10 +153,16 @@ export const Membership = () => {
                   Collectives runtime yet. To be added as a candidate, a
                   pre-existing member with rank greater than or equal to 1 can
                   initiate this process by submitting the signed `induct` call,
-                  as shown below (Core Fellowship UI).
+                  as shown below in the{' '}
+                  <ThemedLink
+                    to="https://collectives.subsquare.io/fellowship/core"
+                    target="_blank"
+                  >
+                    Core Fellowship page UI.
+                  </ThemedLink>.
                 </p>
 
-                <img className="w-[45rem] py-10" src={SubsquareInduction} />
+                <a href="https://collectives.subsquare.io/fellowship/members"><img className="w-[45rem] py-10" src={SubsquareInduction} /></a>
 
                 <p>
                   Upon successful execution of the extrinsic, the candidate's

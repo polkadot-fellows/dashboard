@@ -106,8 +106,8 @@ importers:
         version: 1.1.2(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
       '@types/node':
-        specifier: ^22.15.12
-        version: 22.15.30
+        specifier: ^24.6.0
+        version: 24.6.0
       '@types/react':
         specifier: ^18.3.18
         version: 18.3.18
@@ -125,7 +125,7 @@ importers:
         version: 7.18.0(eslint@8.57.1)(typescript@5.9.2)
       '@vitejs/plugin-react':
         specifier: ^4.4.1
-        version: 4.5.1(vite@6.3.6(@types/node@22.15.30)(jiti@1.21.6)(yaml@2.5.0))
+        version: 4.5.1(vite@6.3.6(@types/node@24.6.0)(jiti@1.21.6)(yaml@2.5.0))
       autoprefixer:
         specifier: ^10.4.21
         version: 10.4.21(postcss@8.5.6)
@@ -164,10 +164,10 @@ importers:
         version: 5.9.2
       vite:
         specifier: ^6.3.6
-        version: 6.3.6(@types/node@22.15.30)(jiti@1.21.6)(yaml@2.5.0)
+        version: 6.3.6(@types/node@24.6.0)(jiti@1.21.6)(yaml@2.5.0)
       vite-plugin-svgr:
         specifier: ^4.5.0
-        version: 4.5.0(rollup@4.52.3)(typescript@5.9.2)(vite@6.3.6(@types/node@22.15.30)(jiti@1.21.6)(yaml@2.5.0))
+        version: 4.5.0(rollup@4.52.3)(typescript@5.9.2)(vite@6.3.6(@types/node@24.6.0)(jiti@1.21.6)(yaml@2.5.0))
 
 packages:
 
@@ -1711,14 +1711,8 @@ packages:
   '@types/history@4.7.11':
     resolution: {integrity: sha512-qjDJRrmvBMiTx+jyLxvLfJU7UznFuokDv4f3WRuriHKERccVpFU+8XMQUAbDzoiJCsmexxRExQeMwwCdamSKDA==}
 
-  '@types/node@22.15.30':
-    resolution: {integrity: sha512-6Q7lr06bEHdlfplU6YRbgG1SFBdlsfNC4/lX+SkhiTs0cpJkOElmWls8PxDFv4yY/xKb8Y6SO0OmSX4wgqTZbA==}
-
-  '@types/node@22.18.6':
-    resolution: {integrity: sha512-r8uszLPpeIWbNKtvWRt/DbVi5zbqZyj1PTmhRMqBMvDnaz1QpmSKujUtJLrqGZeoM8v72MfYggDceY4K1itzWQ==}
-
-  '@types/node@24.5.2':
-    resolution: {integrity: sha512-FYxk1I7wPv3K2XBaoyH2cTnocQEu8AOZ60hPbsyukMPLv5/5qr7V1i8PLHdl6Zf87I+xZXFvPCXYjiTFq+YSDQ==}
+  '@types/node@24.6.0':
+    resolution: {integrity: sha512-F1CBxgqwOMc4GKJ7eY22hWhBVQuMYTtqI8L0FcszYcpYX0fzfDGpez22Xau8Mgm7O9fI+zA/TYIdq3tGWfweBA==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -3241,11 +3235,8 @@ packages:
   ufo@1.6.1:
     resolution: {integrity: sha512-9a4/uxlTWJ4+a5i0ooc1rU7C7YOw3wT+UGqdeNNHWnOF9qcMBgLRS+4IYUqbczewFx4mLEig6gawh7X6mFlEkA==}
 
-  undici-types@6.21.0:
-    resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
-
-  undici-types@7.12.0:
-    resolution: {integrity: sha512-goOacqME2GYyOZZfb5Lgtu+1IDmAlAEu5xnD3+xTzS10hT0vzpf0SPjkXwAw9Jm+4n/mQGDP3LO8CPbYROeBfQ==}
+  undici-types@7.13.0:
+    resolution: {integrity: sha512-Ov2Rr9Sx+fRgagJ5AX0qvItZG/JKKoBRAVITs1zk7IqZGTJUwgUr7qoYBpWwakpWilTZFM98rG/AFRocu10iIQ==}
 
   unicorn-magic@0.1.0:
     resolution: {integrity: sha512-lRfVq8fE8gz6QMBuDM6a+LO3IAzTi05H6gCVaUpir2E1Rwpo4ZUog45KpNXKC/Mn3Yb9UDuHumeFTo9iV/D9FQ==}
@@ -3910,7 +3901,7 @@ snapshots:
       '@polkadot-api/utils': 0.2.0
       '@polkadot-api/wasm-executor': 0.2.1
       '@polkadot-api/ws-provider': 0.6.1
-      '@types/node': 24.5.2
+      '@types/node': 24.6.0
       commander: 14.0.1
       execa: 9.6.0
       fs.promises.exists: 1.1.4
@@ -4034,7 +4025,7 @@ snapshots:
 
   '@polkadot-api/smoldot@0.3.14':
     dependencies:
-      '@types/node': 24.5.2
+      '@types/node': 24.6.0
       smoldot: 2.0.39
     transitivePeerDependencies:
       - bufferutil
@@ -4899,23 +4890,15 @@ snapshots:
 
   '@types/bn.js@5.2.0':
     dependencies:
-      '@types/node': 22.18.6
+      '@types/node': 24.6.0
 
   '@types/estree@1.0.8': {}
 
   '@types/history@4.7.11': {}
 
-  '@types/node@22.15.30':
+  '@types/node@24.6.0':
     dependencies:
-      undici-types: 6.21.0
-
-  '@types/node@22.18.6':
-    dependencies:
-      undici-types: 6.21.0
-
-  '@types/node@24.5.2':
-    dependencies:
-      undici-types: 7.12.0
+      undici-types: 7.13.0
 
   '@types/normalize-package-data@2.4.4': {}
 
@@ -4943,7 +4926,7 @@ snapshots:
 
   '@types/ws@8.18.1':
     dependencies:
-      '@types/node': 22.18.6
+      '@types/node': 24.6.0
 
   '@typescript-eslint/eslint-plugin@7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.9.2))(eslint@8.57.1)(typescript@5.9.2)':
     dependencies:
@@ -5028,7 +5011,7 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@vitejs/plugin-react@4.5.1(vite@6.3.6(@types/node@22.15.30)(jiti@1.21.6)(yaml@2.5.0))':
+  '@vitejs/plugin-react@4.5.1(vite@6.3.6(@types/node@24.6.0)(jiti@1.21.6)(yaml@2.5.0))':
     dependencies:
       '@babel/core': 7.27.4
       '@babel/plugin-transform-react-jsx-self': 7.25.9(@babel/core@7.27.4)
@@ -5036,7 +5019,7 @@ snapshots:
       '@rolldown/pluginutils': 1.0.0-beta.9
       '@types/babel__core': 7.20.5
       react-refresh: 0.17.0
-      vite: 6.3.6(@types/node@22.15.30)(jiti@1.21.6)(yaml@2.5.0)
+      vite: 6.3.6(@types/node@24.6.0)(jiti@1.21.6)(yaml@2.5.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -6440,9 +6423,7 @@ snapshots:
 
   ufo@1.6.1: {}
 
-  undici-types@6.21.0: {}
-
-  undici-types@7.12.0: {}
+  undici-types@7.13.0: {}
 
   unicorn-magic@0.1.0: {}
 
@@ -6496,18 +6477,18 @@ snapshots:
       - '@types/react'
       - '@types/react-dom'
 
-  vite-plugin-svgr@4.5.0(rollup@4.52.3)(typescript@5.9.2)(vite@6.3.6(@types/node@22.15.30)(jiti@1.21.6)(yaml@2.5.0)):
+  vite-plugin-svgr@4.5.0(rollup@4.52.3)(typescript@5.9.2)(vite@6.3.6(@types/node@24.6.0)(jiti@1.21.6)(yaml@2.5.0)):
     dependencies:
       '@rollup/pluginutils': 5.3.0(rollup@4.52.3)
       '@svgr/core': 8.1.0(typescript@5.9.2)
       '@svgr/plugin-jsx': 8.1.0(@svgr/core@8.1.0(typescript@5.9.2))
-      vite: 6.3.6(@types/node@22.15.30)(jiti@1.21.6)(yaml@2.5.0)
+      vite: 6.3.6(@types/node@24.6.0)(jiti@1.21.6)(yaml@2.5.0)
     transitivePeerDependencies:
       - rollup
       - supports-color
       - typescript
 
-  vite@6.3.6(@types/node@22.15.30)(jiti@1.21.6)(yaml@2.5.0):
+  vite@6.3.6(@types/node@24.6.0)(jiti@1.21.6)(yaml@2.5.0):
     dependencies:
       esbuild: 0.25.9
       fdir: 6.5.0(picomatch@4.0.3)
@@ -6516,7 +6497,7 @@ snapshots:
       rollup: 4.50.1
       tinyglobby: 0.2.15
     optionalDependencies:
-      '@types/node': 22.15.30
+      '@types/node': 24.6.0
       fsevents: 2.3.3
       jiti: 1.21.6
       yaml: 2.5.0

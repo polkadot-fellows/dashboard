@@ -63,19 +63,23 @@ const mapRawIdentity = (
   rawIdentity?: PeopleQueries['Identity']['IdentityOf']['Value'],
 ) => {
   if (!rawIdentity) return rawIdentity
-  const {
-    info: { display, email, legal, matrix, twitter, web },
-  } = rawIdentity[0]
+  if (rawIdentity[0]?.info) {
+    const {
+      info: { display, email, legal, matrix, twitter, web },
+    } = rawIdentity[0]
 
-  const display_id = dataToString(display.value)
+    const display_id = dataToString(display.value)
 
-  return {
-    display: display_id,
-    web: dataToString(web.value),
-    email: dataToString(email.value),
-    legal: dataToString(legal.value),
-    matrix: dataToString(matrix.value),
-    twitter: dataToString(twitter.value),
+    return {
+      display: display_id,
+      web: dataToString(web.value),
+      email: dataToString(email.value),
+      legal: dataToString(legal.value),
+      matrix: dataToString(matrix.value),
+      twitter: dataToString(twitter.value),
+    }
+  } else {
+    return
   }
 }
 

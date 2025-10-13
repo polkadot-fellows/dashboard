@@ -220,7 +220,7 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
           </nav>
 
           <div className="fixed bottom-2 flex flex-col text-center align-middle text-sm font-bold text-primary">
-            <span>©2024</span>
+            <span>© {new Date().getFullYear()}</span>
             <span>Polkadot Technical Fellowship</span>
           </div>
         </SheetContent>

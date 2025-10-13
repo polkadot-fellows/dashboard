@@ -195,7 +195,7 @@ export const Navigation = ({
       </nav>
       <div className="flex flex-col items-center px-2 pb-5 text-sm font-bold text-primary">
         <span>Polkadot Technical Fellowship</span>
-        <span>©2024</span>
+        <span>©{new Date().getFullYear()}</span>
       </div>
     </aside>
   )

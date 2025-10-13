@@ -10,8 +10,11 @@ import { RouterType, openInNewTab, resources, routes } from '@/lib/utils'
 
 import { PanelLeft, Moon, Sun, NotebookText, BookOpenText } from 'lucide-react'
 import { getLinks } from './Resources'
-import { FaCheckCircle, FaGithub } from 'react-icons/fa'
-import { TbLoaderQuarter } from 'react-icons/tb'
+import {
+  // FaCheckCircle,
+  FaGithub,
+} from 'react-icons/fa'
+// import { TbLoaderQuarter } from 'react-icons/tb'
 import { useTheme } from './components/theme-provider'
 import { useEffect, useState } from 'react'
 import { collectiveClient } from './clients'

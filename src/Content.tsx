@@ -10,9 +10,9 @@ import { Rfc } from '@/pages/Rfc'
 import { Salary } from '@/pages/Salary'
 import { Member } from '@/pages/Member'
 
-import { useEffect, useState } from 'react'
-import { collectiveClient } from '@/clients'
-import { toast } from 'sonner'
+import { useState } from 'react'
+// import { collectiveClient } from '@/clients'
+// import { toast } from 'sonner'
 import { MainLayout } from './components/MainLayout'
 
 const pages = (lcStatus: boolean) => [
@@ -59,19 +59,22 @@ const pages = (lcStatus: boolean) => [
 ]
 
 export const Content = () => {
-  const [lightClientLoaded, setLightClientLoaded] = useState<boolean>(false)
+  const [
+    lightClientLoaded,
+    //setLightClientLoaded
+  ] = useState<boolean>(false)
 
-  useEffect(() => {
-    collectiveClient.finalizedBlock$.subscribe((finalizedBlock) => {
-      if (finalizedBlock.number && !lightClientLoaded) {
-        setLightClientLoaded(true)
-      }
-    })
-  }, [lightClientLoaded])
+  // useEffect(() => {
+  //   collectiveClient.finalizedBlock$.subscribe((finalizedBlock) => {
+  //     if (finalizedBlock.number && !lightClientLoaded) {
+  //       setLightClientLoaded(true)
+  //     }
+  //   })
+  // }, [lightClientLoaded])
 
-  useEffect(() => {
-    lightClientLoaded && toast.success('Light client: Synced')
-  }, [lightClientLoaded])
+  // useEffect(() => {
+  //   lightClientLoaded && toast.success('Light client: Synced')
+  // }, [lightClientLoaded])
 
   return (
     <MainLayout>

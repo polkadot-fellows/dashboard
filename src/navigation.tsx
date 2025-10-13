@@ -7,8 +7,11 @@ import {
 import { RouterType, routes } from '@/lib/utils'
 import { Link, useLocation } from 'react-router-dom'
 import PolkadotIcon from '@/assets/img/polkadotIcon.svg?react'
-import { FaCheckCircle, FaGithub } from 'react-icons/fa'
-import { TbLoaderQuarter } from 'react-icons/tb'
+import {
+  // FaCheckCircle,
+  FaGithub,
+} from 'react-icons/fa'
+// import { TbLoaderQuarter } from 'react-icons/tb'
 
 import { BookOpenText, Moon, Sun } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -172,7 +175,7 @@ export const Navigation = ({
           </TooltipTrigger>
           <TooltipContent side="top">Toggle theme</TooltipContent>
         </Tooltip>
-        <Tooltip>
+        {/* <Tooltip>
           <TooltipTrigger asChild>
             <a
               href="#"
@@ -191,7 +194,7 @@ export const Navigation = ({
           <TooltipContent side="top">
             Light Client {!lightClientLoaded ? `syncing` : `synced`}
           </TooltipContent>
-        </Tooltip>
+        </Tooltip> */}
       </nav>
       <div className="flex flex-col items-center px-2 pb-5 text-sm font-bold text-primary">
         <span>Polkadot Technical Fellowship</span>

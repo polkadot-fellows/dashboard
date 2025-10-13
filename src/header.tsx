@@ -10,8 +10,11 @@ import { RouterType, openInNewTab, resources, routes } from '@/lib/utils'
 
 import { PanelLeft, Moon, Sun, NotebookText, BookOpenText } from 'lucide-react'
 import { getLinks } from './Resources'
-import { FaCheckCircle, FaGithub } from 'react-icons/fa'
-import { TbLoaderQuarter } from 'react-icons/tb'
+import {
+  // FaCheckCircle,
+  FaGithub,
+} from 'react-icons/fa'
+// import { TbLoaderQuarter } from 'react-icons/tb'
 import { useTheme } from './components/theme-provider'
 import { useEffect, useState } from 'react'
 import { collectiveClient } from './clients'
@@ -185,7 +188,7 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
             </Accordion>
           </nav>
           <nav className="fixed bottom-16 flex flex-col gap-4">
-            <a
+            {/* <a
               href="#"
               className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
             >
@@ -195,7 +198,7 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
                 <FaCheckCircle className="text-[#00b300]" />
               )}
               Light Client {!lightClientLoaded ? `syncing` : `synced`}
-            </a>
+            </a> */}
             <a
               href="#"
               className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"

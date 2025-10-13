@@ -63,10 +63,10 @@ const mapRawIdentity = (
   rawIdentity?: PeopleQueries['Identity']['IdentityOf']['Value'],
 ) => {
   if (!rawIdentity) return rawIdentity
-  if (rawIdentity[0]?.info) {
+  if (rawIdentity?.info) {
     const {
       info: { display, email, legal, matrix, twitter, web },
-    } = rawIdentity[0]
+    } = rawIdentity
 
     const display_id = dataToString(display.value)
 
@@ -178,6 +178,15 @@ const columns = (
   },
 ]
 
+const renderSafe = (out: unknown): React.ReactNode => {
+  if (out == null) return null
+  if (typeof out === 'bigint') return out.toString()
+  if (typeof out === 'object' && (out as any).nodeType === 1) {
+    return (out as Element).textContent ?? ''
+  }
+  return out as React.ReactNode
+}
+
 export const RequestsGrid = ({ lcStatus }: LcStatusType) => {
   const [sorting, setSorting] = useState<SortingState>([])
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
@@ -279,9 +288,11 @@ export const RequestsGrid = ({ lcStatus }: LcStatusType) => {
                       <TableHead key={header.id}>
                         {header.isPlaceholder
                           ? null
-                          : flexRender(
-                              header.column.columnDef.header,
-                              header.getContext(),
+                          : renderSafe(
+                              flexRender(
+                                header.column.columnDef.header,
+                                header.getContext(),
+                              ),
                             )}
                       </TableHead>
                     )
@@ -296,14 +307,18 @@ export const RequestsGrid = ({ lcStatus }: LcStatusType) => {
                     key={row.id}
                     data-state={row.getIsSelected() && 'selected'}
                   >
-                    {row.getVisibleCells().map((cell) => (
-                      <TableCell key={cell.id}>
-                        {flexRender(
-                          cell.column.columnDef.cell,
-                          cell.getContext(),
-                        )}
-                      </TableCell>
-                    ))}
+                    {row.getVisibleCells().map((cell) => {
+                      return (
+                        <TableCell key={cell.id}>
+                          {renderSafe(
+                            flexRender(
+                              cell.column.columnDef.cell,
+                              cell.getContext(),
+                            ),
+                          )}
+                        </TableCell>
+                      )
+                    })}
                   </TableRow>
                 ))
               ) : (

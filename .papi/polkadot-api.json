@@ -5,17 +5,20 @@
     "dot": {
       "chain": "polkadot",
       "metadata": ".papi/metadata/dot.scale",
-      "genesis": "0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3"
+      "genesis": "0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3",
+      "codeHash": "0xa4d527cb0db4146686eeffb216b562fe68440185d5067e6177d1681ff7bb3043"
     },
     "collectives": {
       "wsUrl": "wss://polkadot-collectives-rpc.polkadot.io",
       "metadata": ".papi/metadata/collectives.scale",
-      "genesis": "0x46ee89aa2eedd13e988962630ec9fb7565964cf5023bb351f2b6b25c1b68b0b2"
+      "genesis": "0x46ee89aa2eedd13e988962630ec9fb7565964cf5023bb351f2b6b25c1b68b0b2",
+      "codeHash": "0xd19a8751b1bb4eb453d2c84a146fe34e149f3ff8cd0d961728c89115862ceec1"
     },
     "people": {
       "wsUrl": "wss://polkadot-people-rpc.polkadot.io",
       "metadata": ".papi/metadata/people.scale",
-      "genesis": "0x67fa177a097bfa18f77ea95ab56e9bcdfeb0e5b8a40e46298bb93e16b6fc5008"
+      "genesis": "0x67fa177a097bfa18f77ea95ab56e9bcdfeb0e5b8a40e46298bb93e16b6fc5008",
+      "codeHash": "0x1477b7eaf80f56a1bfe4b6d6dae7cdc68a4353854b58a14700f3646c06783594"
     }
   }
 }

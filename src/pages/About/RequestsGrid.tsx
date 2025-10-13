@@ -63,19 +63,23 @@ const mapRawIdentity = (
   rawIdentity?: PeopleQueries['Identity']['IdentityOf']['Value'],
 ) => {
   if (!rawIdentity) return rawIdentity
-  const {
-    info: { display, email, legal, matrix, twitter, web },
-  } = rawIdentity[0]
+  if (rawIdentity?.info) {
+    const {
+      info: { display, email, legal, matrix, twitter, web },
+    } = rawIdentity
 
-  const display_id = dataToString(display.value)
+    const display_id = dataToString(display.value)
 
-  return {
-    display: display_id,
-    web: dataToString(web.value),
-    email: dataToString(email.value),
-    legal: dataToString(legal.value),
-    matrix: dataToString(matrix.value),
-    twitter: dataToString(twitter.value),
+    return {
+      display: display_id,
+      web: dataToString(web.value),
+      email: dataToString(email.value),
+      legal: dataToString(legal.value),
+      matrix: dataToString(matrix.value),
+      twitter: dataToString(twitter.value),
+    }
+  } else {
+    return
   }
 }
 
@@ -173,6 +177,15 @@ const columns = (
     },
   },
 ]
+
+const renderSafe = (out: unknown): React.ReactNode => {
+  if (out == null) return null
+  if (typeof out === 'bigint') return out.toString()
+  if (typeof out === 'object' && (out as any).nodeType === 1) {
+    return (out as Element).textContent ?? ''
+  }
+  return out as React.ReactNode
+}
 
 export const RequestsGrid = ({ lcStatus }: LcStatusType) => {
   const [sorting, setSorting] = useState<SortingState>([])
@@ -275,9 +288,11 @@ export const RequestsGrid = ({ lcStatus }: LcStatusType) => {
                       <TableHead key={header.id}>
                         {header.isPlaceholder
                           ? null
-                          : flexRender(
-                              header.column.columnDef.header,
-                              header.getContext(),
+                          : renderSafe(
+                              flexRender(
+                                header.column.columnDef.header,
+                                header.getContext(),
+                              ),
                             )}
                       </TableHead>
                     )
@@ -292,14 +307,18 @@ export const RequestsGrid = ({ lcStatus }: LcStatusType) => {
                     key={row.id}
                     data-state={row.getIsSelected() && 'selected'}
                   >
-                    {row.getVisibleCells().map((cell) => (
-                      <TableCell key={cell.id}>
-                        {flexRender(
-                          cell.column.columnDef.cell,
-                          cell.getContext(),
-                        )}
-                      </TableCell>
-                    ))}
+                    {row.getVisibleCells().map((cell) => {
+                      return (
+                        <TableCell key={cell.id}>
+                          {renderSafe(
+                            flexRender(
+                              cell.column.columnDef.cell,
+                              cell.getContext(),
+                            ),
+                          )}
+                        </TableCell>
+                      )
+                    })}
                   </TableRow>
                 ))
               ) : (

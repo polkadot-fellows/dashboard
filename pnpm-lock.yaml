@@ -125,7 +125,7 @@ importers:
         version: 7.18.0(eslint@8.57.1)(typescript@5.9.3)
       '@vitejs/plugin-react':
         specifier: ^5.0.4
-        version: 5.0.4(vite@7.1.9(@types/node@24.7.2)(jiti@1.21.7)(yaml@2.5.0))
+        version: 5.0.4(vite@7.1.10(@types/node@24.7.2)(jiti@1.21.7)(yaml@2.5.0))
       autoprefixer:
         specifier: ^10.4.21
         version: 10.4.21(postcss@8.5.6)
@@ -163,11 +163,11 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
       vite:
-        specifier: ^7.1.9
-        version: 7.1.9(@types/node@24.7.2)(jiti@1.21.7)(yaml@2.5.0)
+        specifier: ^7.1.10
+        version: 7.1.10(@types/node@24.7.2)(jiti@1.21.7)(yaml@2.5.0)
       vite-plugin-svgr:
         specifier: ^4.5.0
-        version: 4.5.0(rollup@4.52.4)(typescript@5.9.3)(vite@7.1.9(@types/node@24.7.2)(jiti@1.21.7)(yaml@2.5.0))
+        version: 4.5.0(rollup@4.52.4)(typescript@5.9.3)(vite@7.1.10(@types/node@24.7.2)(jiti@1.21.7)(yaml@2.5.0))
 
 packages:
 
@@ -2937,8 +2937,8 @@ packages:
     peerDependencies:
       vite: '>=2.6.0'
 
-  vite@7.1.9:
-    resolution: {integrity: sha512-4nVGliEpxmhCL8DslSAUdxlB6+SMrhB0a1v5ijlh1xB1nEPuy1mxaHxysVucLHuWryAxLWg6a5ei+U4TLn/rFg==}
+  vite@7.1.10:
+    resolution: {integrity: sha512-CmuvUBzVJ/e3HGxhg6cYk88NGgTnBoOo7ogtfJJ0fefUWAxN/WDSUa50o+oVBxuIhO8FoEZW0j2eW7sfjs5EtA==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
     peerDependencies:
@@ -4440,7 +4440,7 @@ snapshots:
 
   '@ungap/structured-clone@1.3.0': {}
 
-  '@vitejs/plugin-react@5.0.4(vite@7.1.9(@types/node@24.7.2)(jiti@1.21.7)(yaml@2.5.0))':
+  '@vitejs/plugin-react@5.0.4(vite@7.1.10(@types/node@24.7.2)(jiti@1.21.7)(yaml@2.5.0))':
     dependencies:
       '@babel/core': 7.28.4
       '@babel/plugin-transform-react-jsx-self': 7.27.1(@babel/core@7.28.4)
@@ -4448,7 +4448,7 @@ snapshots:
       '@rolldown/pluginutils': 1.0.0-beta.38
       '@types/babel__core': 7.20.5
       react-refresh: 0.17.0
-      vite: 7.1.9(@types/node@24.7.2)(jiti@1.21.7)(yaml@2.5.0)
+      vite: 7.1.10(@types/node@24.7.2)(jiti@1.21.7)(yaml@2.5.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -5814,18 +5814,18 @@ snapshots:
       - '@types/react'
       - '@types/react-dom'
 
-  vite-plugin-svgr@4.5.0(rollup@4.52.4)(typescript@5.9.3)(vite@7.1.9(@types/node@24.7.2)(jiti@1.21.7)(yaml@2.5.0)):
+  vite-plugin-svgr@4.5.0(rollup@4.52.4)(typescript@5.9.3)(vite@7.1.10(@types/node@24.7.2)(jiti@1.21.7)(yaml@2.5.0)):
     dependencies:
       '@rollup/pluginutils': 5.3.0(rollup@4.52.4)
       '@svgr/core': 8.1.0(typescript@5.9.3)
       '@svgr/plugin-jsx': 8.1.0(@svgr/core@8.1.0(typescript@5.9.3))
-      vite: 7.1.9(@types/node@24.7.2)(jiti@1.21.7)(yaml@2.5.0)
+      vite: 7.1.10(@types/node@24.7.2)(jiti@1.21.7)(yaml@2.5.0)
     transitivePeerDependencies:
       - rollup
       - supports-color
       - typescript
 
-  vite@7.1.9(@types/node@24.7.2)(jiti@1.21.7)(yaml@2.5.0):
+  vite@7.1.10(@types/node@24.7.2)(jiti@1.21.7)(yaml@2.5.0):
     dependencies:
       esbuild: 0.25.10
       fdir: 6.5.0(picomatch@4.0.3)

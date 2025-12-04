@@ -2,7 +2,7 @@
   "name": "fellowship-dashboard",
   "private": true,
   "version": "0.0.2",
-  "packageManager": "pnpm@10.18.2+sha512.9fb969fa749b3ade6035e0f109f0b8a60b5d08a1a87fdf72e337da90dcc93336e2280ca4e44f2358a649b83c17959e9993e777c2080879f3801e6f0d999ad3dd",
+  "packageManager": "pnpm@10.24.0",
   "type": "module",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
@@ -41,7 +41,7 @@
     "next-themes": "^0.4.6",
     "polkadot-api": "^1.22.0",
     "react": "^19.2.1",
-    "react-dom": "^19.2.0",
+    "react-dom": "^19.2.1",
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.10.1",
     "sonner": "^2.0.7",

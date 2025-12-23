@@ -66,7 +66,7 @@ export const Header = () => {
 
   return (
     <header className="bg-background/80 supports-backdrop-filter:bg-background/60 fixed inset-x-0 top-0 z-30 border-b backdrop-blur">
-      <div className="mx-auto flex w-full max-w-7xl items-center gap-4 px-4 py-4">
+      <div className="mx-auto flex w-full max-w-7xl items-center py-4">
         <div className="flex items-center gap-3 md:flex-1">
           <Sheet>
             <SheetTrigger asChild>
@@ -135,7 +135,7 @@ export const Header = () => {
                   className="text-muted-foreground hover:text-foreground flex items-center gap-4 px-2.5"
                 >
                   <BookOpenText className="h-5 w-5" />
-                  RFCs Book
+                  RFCs
                 </Link>
                 <Dialog>
                   <DialogTrigger asChild>
@@ -212,7 +212,7 @@ export const Header = () => {
             <span className="hidden sm:inline">Fellowship</span>
           </Link>
         </div>
-        <div className="hidden flex-1 items-center justify-center gap-2 md:flex">
+        <div className="hidden flex-1 items-center justify-center gap-2 font-sans! md:flex">
           {routes.map((route) => {
             if (route.childs?.length) {
               const childActive = route.childs.some((child) =>
@@ -223,7 +223,7 @@ export const Header = () => {
                   <DropdownMenuTrigger
                     className={cn(
                       navLinkClasses(childActive),
-                      'flex items-center gap-1 outline-none',
+                      'flex cursor-pointer items-center gap-1 outline-none',
                     )}
                   >
                     {route.name}
@@ -234,7 +234,7 @@ export const Header = () => {
                       <DropdownMenuItem asChild key={child.link}>
                         <Link
                           to={child.link}
-                          className="flex items-center gap-2"
+                          className="flex cursor-pointer items-center gap-2 font-sans"
                         >
                           <child.icon className="h-4 w-4" />
                           {child.name}
@@ -262,7 +262,7 @@ export const Header = () => {
             rel="noreferrer"
             className={navLinkClasses()}
           >
-            RFCs Book
+            RFCs
           </a>
           <Dialog>
             <DialogTrigger asChild>

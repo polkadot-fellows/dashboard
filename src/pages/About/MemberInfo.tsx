@@ -29,7 +29,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { Skeleton } from '@/components/ui/skeleton'
 import { Link } from 'react-router-dom'
 
 export type LcStatusType = {
@@ -81,18 +80,13 @@ const MemberDetails = ({ address }: MemberDetailsProps) => {
       {copyClicked ? (
         <Check className="w-4 text-[green]" {...props} />
       ) : (
-        <Copy className="w-4 text-primary" {...props} />
+        <Copy className="text-primary w-4" {...props} />
       )}
     </>
   )
 }
 
-export const MemberInfo = ({
-  member,
-  lcStatus,
-  open,
-  onOpenChange,
-}: MemberInfoProps) => {
+export const MemberInfo = ({ member, open, onOpenChange }: MemberInfoProps) => {
   const { address, display, web, twitter, email, matrix } = member
 
   const [reserved, setReserved] = useState<string>('')
@@ -140,7 +134,7 @@ export const MemberInfo = ({
                   {display && (
                     <AccountName display={display} address={address} />
                   )}
-                  <div className={`px-4 py-2 text-primary`}>
+                  <div className={`text-primary px-4 py-2`}>
                     Rank {rank} - {rankInfo[member.rank].name}
                   </div>
                   <div className="flex flex-row justify-center">
@@ -148,7 +142,7 @@ export const MemberInfo = ({
                   </div>
                 </div>
               </div>
-              <div className="mt-6 flex flex-row justify-evenly text-primary">
+              <div className="text-primary mt-6 flex flex-row justify-evenly">
                 {twitter && (
                   <Link to={`https://x.com/${twitter}`} target={'_blank'}>
                     <FaXTwitter size={iconSize} className="pointer" />
@@ -180,12 +174,8 @@ export const MemberInfo = ({
                           Total
                         </CardDescription>
                         <CardTitle className="flex items-baseline gap-1 text-2xl tabular-nums">
-                          {lcStatus ? (
-                            `≃ ${total}`
-                          ) : (
-                            <Skeleton className="h-10 w-[120px]" />
-                          )}
-                          <span className="text-sm font-normal tracking-normal text-muted-foreground">
+                          ≃ ${total}
+                          <span className="text-muted-foreground text-sm font-normal tracking-normal">
                             DOT
                           </span>
                         </CardTitle>
@@ -197,12 +187,8 @@ export const MemberInfo = ({
                           Transferrable
                         </CardDescription>
                         <CardTitle className="flex items-baseline gap-1 text-2xl tabular-nums">
-                          {lcStatus ? (
-                            `≃ ${transferrable}`
-                          ) : (
-                            <Skeleton className="h-8 w-[80px]" />
-                          )}
-                          <span className="text-sm font-normal tracking-normal text-muted-foreground">
+                          ≃ ${transferrable}
+                          <span className="text-muted-foreground text-sm font-normal tracking-normal">
                             DOT
                           </span>
                         </CardTitle>
@@ -212,12 +198,8 @@ export const MemberInfo = ({
                           Reserved
                         </CardDescription>
                         <CardTitle className="flex items-baseline gap-1 text-2xl tabular-nums">
-                          {lcStatus ? (
-                            `≃ ${reserved}`
-                          ) : (
-                            <Skeleton className="h-8 w-[80px]" />
-                          )}
-                          <span className="text-sm font-normal tracking-normal text-muted-foreground">
+                          ≃ ${reserved}
+                          <span className="text-muted-foreground text-sm font-normal tracking-normal">
                             DOT
                           </span>
                         </CardTitle>
@@ -230,7 +212,7 @@ export const MemberInfo = ({
                         </CardDescription>
                         <CardTitle className="flex items-baseline gap-1 text-2xl tabular-nums">
                           ≃ {(rankInfo[member.rank].salary / 12).toFixed(3)}
-                          <span className="text-sm font-normal tracking-normal text-muted-foreground">
+                          <span className="text-muted-foreground text-sm font-normal tracking-normal">
                             USDT
                           </span>
                         </CardTitle>

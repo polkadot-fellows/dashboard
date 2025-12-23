@@ -1,26 +1,18 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Button } from '@/components/ui/button'
-import { RouterType, openInNewTab, resources, routes, cn } from '@/lib/utils'
+import { RouterType, resources, routes, cn } from '@/lib/utils'
 
 import {
   PanelLeft,
-  Moon,
-  Sun,
   NotebookText,
   BookOpenText,
   Wallet,
   Check,
 } from 'lucide-react'
 import { getLinks } from './Resources'
-import {
-  // FaCheckCircle,
-  FaGithub,
-} from 'react-icons/fa'
 // import { TbLoaderQuarter } from 'react-icons/tb'
-import { useTheme } from './components/theme-provider'
 import { useEffect, useState } from 'react'
-import { collectiveClient, polkadotClient } from './clients'
+import { polkadotClient } from './clients'
 import {
   Dialog,
   DialogContent,
@@ -29,7 +21,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from './components/ui/dialog'
-import PolkadotIcon from '@/assets/img/polkadotIcon.svg?react'
+import PolkadotNewLogo from '@/assets/img/newLogo.svg?react'
+import PolkadotNewLogoBlack from '@/assets/img/newLogoBlack.svg?react'
+
 import {
   Accordion,
   AccordionItem,
@@ -51,26 +45,16 @@ import { Badge } from '@/components/ui/badge'
 
 import { ConnectionButton } from 'dot-connect/react.js'
 import { useAccount } from './contexts/AccountContextProvider'
+import { useTheme } from './components/theme-provider'
 
-interface Props {
-  lightClientLoaded: boolean
-  setLightClientLoaded: React.Dispatch<React.SetStateAction<boolean>>
-}
-
-export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
+export const Header = () => {
   const { accounts, selectedAccount, setSelectedAccount } = useAccount()
   const [accountDialogOpen, setAccountDialogOpen] = useState(false)
   const [latestBlockNumber, setLatestBlockNumber] = useState<number | null>(
     null,
   )
 
-  useEffect(() => {
-    collectiveClient.finalizedBlock$.subscribe((finalizedBlock) => {
-      if (finalizedBlock.number && !lightClientLoaded) {
-        setLightClientLoaded(true)
-      }
-    })
-  }, [lightClientLoaded, setLightClientLoaded])
+  const { theme } = useTheme()
 
   useEffect(() => {
     const subscription = polkadotClient.finalizedBlock$.subscribe(
@@ -83,7 +67,6 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
 
     return () => subscription.unsubscribe()
   }, [])
-  const { theme, setTheme } = useTheme()
 
   return (
     <header className="bg-background sticky top-5 z-30 flex h-14 items-center gap-4 border-b px-4 sm:sticky sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
@@ -96,11 +79,19 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
         </SheetTrigger>
         <SheetContent side="left" className="sm:max-w-xs">
           <div className="text-primary flex text-2xl font-extrabold">
-            <PolkadotIcon
-              className="pl-2.4 max-h-full w-[3.2rem] pr-3"
-              width={'2rem'}
-              height={'2rem'}
-            />
+            {theme === 'dark' ? (
+              <PolkadotNewLogo
+                className="pl-2.4 max-h-full w-[3.2rem] pr-3"
+                width={'2rem'}
+                height={'2rem'}
+              />
+            ) : (
+              <PolkadotNewLogoBlack
+                className="pl-2.4 max-h-full w-[3.2rem] pr-3"
+                width={'2rem'}
+                height={'2rem'}
+              />
+            )}
             <span>Fellowship</span>
           </div>
           <nav className="grid gap-4 pt-4 text-lg font-medium">
@@ -198,45 +189,6 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
               </AccordionItem>
             </Accordion>
           </nav>
-          <nav className="fixed bottom-16 flex flex-col gap-4">
-            {/* <a
-              href="#"
-              className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
-            >
-              {!lightClientLoaded ? (
-                <TbLoaderQuarter className="h-5 w-5 animate-spin" />
-              ) : (
-                <FaCheckCircle className="text-[#00b300]" />
-              )}
-              Light Client {!lightClientLoaded ? `syncing` : `synced`}
-            </a> */}
-            <a
-              href="#"
-              className="text-muted-foreground hover:text-foreground flex items-center gap-4 px-2.5"
-            >
-              <FaGithub
-                className="h-5 w-5"
-                onClick={() =>
-                  openInNewTab('https://github.com/polkadot-fellows')
-                }
-              />
-              Github
-            </a>
-            <a
-              href="#"
-              className="text-muted-foreground hover:text-foreground flex items-center gap-4 px-2.5"
-              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-            >
-              <Sun className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
-              <Moon className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
-              Toggle theme
-            </a>
-          </nav>
-
-          <div className="text-primary fixed bottom-2 flex flex-col text-center align-middle text-sm font-bold">
-            <span>© {new Date().getFullYear()}</span>
-            <span>Polkadot Technical Fellowship</span>
-          </div>
         </SheetContent>
       </Sheet>
       <div className="flex w-full items-center justify-between">

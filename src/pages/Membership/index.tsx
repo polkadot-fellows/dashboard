@@ -28,7 +28,7 @@ export const Membership = () => {
         >
           <AccordionItem value="item-1">
             <AccordionTrigger>
-              <h2 className="font-unbounded text-primary flex-1 shrink-0 py-2 text-lg font-semibold tracking-tight whitespace-nowrap sm:grow-0">
+              <h2 className="font-dm-serif text-primary flex-1 shrink-0 py-2 text-lg font-semibold tracking-tight whitespace-nowrap sm:grow-0">
                 Management
               </h2>
             </AccordionTrigger>
@@ -91,7 +91,7 @@ export const Membership = () => {
           </AccordionItem>
           <AccordionItem value="item-2">
             <AccordionTrigger>
-              <h1 className="font-unbounded text-primary flex-1 shrink-0 py-2 text-lg font-semibold tracking-tight whitespace-nowrap sm:grow-0">
+              <h1 className="font-dm-serif text-primary flex-1 shrink-0 py-2 text-lg font-semibold tracking-tight whitespace-nowrap sm:grow-0">
                 Application
               </h1>
             </AccordionTrigger>
@@ -140,7 +140,7 @@ export const Membership = () => {
           </AccordionItem>
           <AccordionItem value="item-3">
             <AccordionTrigger>
-              <h1 className="font-unbounded text-primary flex-1 shrink-0 py-2 text-lg font-semibold tracking-tight whitespace-nowrap sm:grow-0">
+              <h1 className="font-dm-serif text-primary flex-1 shrink-0 py-2 text-lg font-semibold tracking-tight whitespace-nowrap sm:grow-0">
                 Induction
               </h1>
             </AccordionTrigger>
@@ -195,7 +195,7 @@ export const Membership = () => {
           </AccordionItem>
           <AccordionItem value="item-4">
             <AccordionTrigger>
-              <h1 className="font-unbounded text-primary flex-1 shrink-0 py-2 text-lg font-semibold tracking-tight whitespace-nowrap sm:grow-0">
+              <h1 className="font-dm-serif text-primary flex-1 shrink-0 py-2 text-lg font-semibold tracking-tight whitespace-nowrap sm:grow-0">
                 Retention
               </h1>
             </AccordionTrigger>
@@ -262,7 +262,7 @@ export const Membership = () => {
           </AccordionItem>
           <AccordionItem value="item-5">
             <AccordionTrigger>
-              <h1 className="font-unbounded text-primary flex-1 shrink-0 py-2 text-lg font-semibold tracking-tight whitespace-nowrap sm:grow-0">
+              <h1 className="font-dm-serif text-primary flex-1 shrink-0 py-2 text-lg font-semibold tracking-tight whitespace-nowrap sm:grow-0">
                 Promotion
               </h1>
             </AccordionTrigger>
@@ -306,7 +306,7 @@ export const Membership = () => {
           </AccordionItem>
           <AccordionItem value="item-6">
             <AccordionTrigger>
-              <h1 className="font-unbounded text-primary flex-1 shrink-0 py-2 text-lg font-semibold tracking-tight whitespace-nowrap sm:grow-0">
+              <h1 className="font-dm-serif text-primary flex-1 shrink-0 py-2 text-lg font-semibold tracking-tight whitespace-nowrap sm:grow-0">
                 Demotion
               </h1>
             </AccordionTrigger>
@@ -338,7 +338,7 @@ export const Membership = () => {
           </AccordionItem>
           <AccordionItem value="item-7">
             <AccordionTrigger>
-              <h1 className="font-unbounded text-primary flex-1 shrink-0 py-2 text-lg font-semibold tracking-tight whitespace-nowrap sm:grow-0">
+              <h1 className="font-dm-serif text-primary flex-1 shrink-0 py-2 text-lg font-semibold tracking-tight whitespace-nowrap sm:grow-0">
                 Suspension
               </h1>
             </AccordionTrigger>

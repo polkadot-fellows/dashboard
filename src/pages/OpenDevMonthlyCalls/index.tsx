@@ -8,7 +8,7 @@ export const OpenDevMonthlyCalls = () => {
         The Polkadot Fellowship runs a call (“OpenDev”) on a monthly basis to
         share current and future developments of the Polkadot roadmap.
       </p>
-      <h2 className="font-unbounded text-primary my-4 flex-1 shrink-0 text-lg font-semibold tracking-tight whitespace-nowrap sm:grow-0">
+      <h2 className="font-dm-serif text-primary my-4 flex-1 shrink-0 text-lg font-semibold tracking-tight whitespace-nowrap sm:grow-0">
         Agenda
       </h2>
       <p>
@@ -17,7 +17,7 @@ export const OpenDevMonthlyCalls = () => {
         participate in discussions about RFCs, propose ideas for the growth of
         the Fellowship, and answer questions from the general public.
       </p>
-      <h2 className="font-unbounded text-primary my-4 flex-1 shrink-0 text-lg font-semibold tracking-tight whitespace-nowrap sm:grow-0">
+      <h2 className="font-dm-serif text-primary my-4 flex-1 shrink-0 text-lg font-semibold tracking-tight whitespace-nowrap sm:grow-0">
         Upcoming calls
       </h2>
 

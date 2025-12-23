@@ -57,9 +57,9 @@ export const Navigation = ({
   }, [lightClientLoaded])
 
   return (
-    <aside className="fixed inset-y-0 left-0 z-10 hidden w-56 flex-col border-r bg-background sm:flex">
+    <aside className="bg-background fixed inset-y-0 left-0 z-10 hidden w-56 flex-col border-r sm:flex">
       <nav className="items-left flex flex-col gap-4 px-4 sm:py-5">
-        <div className="flex text-2xl font-extrabold text-primary">
+        <div className="text-primary flex text-2xl font-extrabold">
           <PolkadotIcon
             className="max-h-full w-12"
             width={'2.2rem'}
@@ -72,7 +72,7 @@ export const Navigation = ({
             return (
               <Accordion type="single" collapsible>
                 <AccordionItem value="item-1">
-                  <AccordionTrigger className="flex items-center justify-start gap-4 px-2.5 py-2 text-muted-foreground transition-colors hover:text-foreground">
+                  <AccordionTrigger className="text-muted-foreground hover:text-foreground flex items-center justify-start gap-4 px-2.5 py-2 transition-colors">
                     <r.icon className="h-5 w-5" />
                     <span>{r.name}</span>
                   </AccordionTrigger>
@@ -81,7 +81,7 @@ export const Navigation = ({
                       <Link
                         className={
                           linkStyle(pathname, '/' + (c.link || '')) +
-                          ' flex items-center gap-4 px-2.5 py-2 text-muted-foreground transition-colors hover:text-foreground'
+                          ' text-muted-foreground hover:text-foreground flex items-center gap-4 px-2.5 py-2 transition-colors'
                         }
                         to={c.link}
                       >
@@ -98,7 +98,7 @@ export const Navigation = ({
               <Link
                 className={
                   linkStyle(pathname, '/' + (r.link || '')) +
-                  ' flex items-center gap-4 px-2.5 py-2 text-muted-foreground transition-colors hover:text-foreground'
+                  ' text-muted-foreground hover:text-foreground flex items-center gap-4 px-2.5 py-2 transition-colors'
                 }
                 to={r.link}
               >
@@ -112,7 +112,7 @@ export const Navigation = ({
         <Link
           target="_blank"
           to="https://polkadot-fellows.github.io/RFCs/"
-          className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+          className="text-muted-foreground hover:text-foreground flex items-center gap-4 px-2.5"
         >
           <BookOpenText className="h-5 w-5" />
           RFCs Book
@@ -120,20 +120,20 @@ export const Navigation = ({
         <Resources />
         <Accordion type="single" collapsible>
           <AccordionItem value="item-1">
-            <AccordionTrigger className="flex items-center justify-start gap-4 px-2.5 py-2 text-muted-foreground transition-colors hover:text-foreground">
+            <AccordionTrigger className="text-muted-foreground hover:text-foreground flex items-center justify-start gap-4 px-2.5 py-2 transition-colors">
               <SiElement className="h-5 w-5" />
               <span>Element</span>
             </AccordionTrigger>
             <AccordionContent className="pl-4">
               <Link
-                className="flex items-center justify-start gap-4 px-2.5 py-2 text-muted-foreground transition-colors hover:text-foreground"
+                className="text-muted-foreground hover:text-foreground flex items-center justify-start gap-4 px-2.5 py-2 transition-colors"
                 to="https://matrix.to/#/#fellowship-members:parity.io"
                 target="_blank"
               >
                 Fellowship Members
               </Link>
               <Link
-                className="flex items-center justify-start gap-4 px-2.5 py-2 text-muted-foreground transition-colors hover:text-foreground"
+                className="text-muted-foreground hover:text-foreground flex items-center justify-start gap-4 px-2.5 py-2 transition-colors"
                 to="https://matrix.to/#/#fellowship-open-channel:parity.io"
                 target="_blank"
               >
@@ -148,7 +148,7 @@ export const Navigation = ({
           <TooltipTrigger asChild>
             <a
               href="#"
-              className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+              className="text-muted-foreground hover:text-foreground flex h-9 w-9 items-center justify-center rounded-lg transition-colors md:h-8 md:w-8"
             >
               <FaGithub
                 className="h-5 w-5"
@@ -168,8 +168,8 @@ export const Navigation = ({
               size="icon"
               onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
             >
-              <Sun className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-              <Moon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+              <Sun className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
+              <Moon className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
               <span className="sr-only">Toggle theme</span>
             </Button>
           </TooltipTrigger>
@@ -196,7 +196,7 @@ export const Navigation = ({
           </TooltipContent>
         </Tooltip> */}
       </nav>
-      <div className="flex flex-col items-center px-2 pb-5 text-sm font-bold text-primary">
+      <div className="text-primary flex flex-col items-center px-2 pb-5 text-sm font-bold">
         <span>Polkadot Technical Fellowship</span>
         <span>©{new Date().getFullYear()}</span>
       </div>

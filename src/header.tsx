@@ -86,7 +86,7 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
   const { theme, setTheme } = useTheme()
 
   return (
-    <header className="sticky top-5 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:sticky sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
+    <header className="bg-background sticky top-5 z-30 flex h-14 items-center gap-4 border-b px-4 sm:sticky sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
       <Sheet>
         <SheetTrigger asChild>
           <Button size="icon" variant="outline" className="sm:hidden">
@@ -95,7 +95,7 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
           </Button>
         </SheetTrigger>
         <SheetContent side="left" className="sm:max-w-xs">
-          <div className="flex text-2xl font-extrabold text-primary">
+          <div className="text-primary flex text-2xl font-extrabold">
             <PolkadotIcon
               className="pl-2.4 max-h-full w-[3.2rem] pr-3"
               width={'2rem'}
@@ -109,14 +109,14 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
                 return (
                   <Accordion type="single" collapsible>
                     <AccordionItem value="item-1">
-                      <AccordionTrigger className="flex items-center justify-start gap-4 px-2.5 py-2 text-muted-foreground transition-colors hover:text-foreground">
+                      <AccordionTrigger className="text-muted-foreground hover:text-foreground flex items-center justify-start gap-4 px-2.5 py-2 transition-colors">
                         <r.icon className="h-5 w-5" />
                         <span>{r.name}</span>
                       </AccordionTrigger>
                       <AccordionContent className="pl-4">
                         {r.childs.map((c: RouterType) => (
                           <Link
-                            className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+                            className="text-muted-foreground hover:text-foreground flex items-center gap-4 px-2.5"
                             to={c.link}
                           >
                             <c.icon className="h-5 w-5" />
@@ -130,7 +130,7 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
               } else {
                 return (
                   <Link
-                    className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+                    className="text-muted-foreground hover:text-foreground flex items-center gap-4 px-2.5"
                     to={r.link}
                   >
                     <r.icon className="h-5 w-5" />
@@ -142,7 +142,7 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
             <Link
               target="_blank"
               to="https://polkadot-fellows.github.io/RFCs/"
-              className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+              className="text-muted-foreground hover:text-foreground flex items-center gap-4 px-2.5"
             >
               <BookOpenText className="h-5 w-5" />
               RFCs Book
@@ -151,7 +151,7 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
               <DialogTrigger asChild>
                 <a
                   href="#"
-                  className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+                  className="text-muted-foreground hover:text-foreground flex items-center gap-4 px-2.5"
                 >
                   <NotebookText className="h-5 w-5" />
                   Resources
@@ -159,7 +159,7 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
               </DialogTrigger>
               <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
-                  <DialogTitle className="font-bold text-primary">
+                  <DialogTitle className="text-primary font-bold">
                     Resources
                   </DialogTitle>
                   <DialogDescription>
@@ -173,13 +173,13 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
             </Dialog>
             <Accordion type="single" collapsible>
               <AccordionItem value="item-1">
-                <AccordionTrigger className="flex items-center justify-start gap-4 px-2.5 py-2 text-muted-foreground transition-colors hover:text-foreground">
+                <AccordionTrigger className="text-muted-foreground hover:text-foreground flex items-center justify-start gap-4 px-2.5 py-2 transition-colors">
                   <SiElement className="h-5 w-5" />
                   <span>Element</span>
                 </AccordionTrigger>
                 <AccordionContent className="p-0">
                   <a
-                    className="flex items-center justify-start gap-4 px-2.5 py-2 text-muted-foreground transition-colors hover:text-foreground"
+                    className="text-muted-foreground hover:text-foreground flex items-center justify-start gap-4 px-2.5 py-2 transition-colors"
                     href="https://matrix.to/#/#fellowship-members:parity.io"
                     target="_blank"
                   >
@@ -188,7 +188,7 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
                 </AccordionContent>
                 <AccordionContent className="p-0">
                   <a
-                    className="flex items-center justify-start gap-4 px-2.5 py-2 text-muted-foreground transition-colors hover:text-foreground"
+                    className="text-muted-foreground hover:text-foreground flex items-center justify-start gap-4 px-2.5 py-2 transition-colors"
                     href="https://matrix.to/#/#fellowship-open-channel:parity.io"
                     target="_blank"
                   >
@@ -212,7 +212,7 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
             </a> */}
             <a
               href="#"
-              className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+              className="text-muted-foreground hover:text-foreground flex items-center gap-4 px-2.5"
             >
               <FaGithub
                 className="h-5 w-5"
@@ -224,16 +224,16 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
             </a>
             <a
               href="#"
-              className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+              className="text-muted-foreground hover:text-foreground flex items-center gap-4 px-2.5"
               onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
             >
-              <Sun className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-              <Moon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+              <Sun className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
+              <Moon className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
               Toggle theme
             </a>
           </nav>
 
-          <div className="fixed bottom-2 flex flex-col text-center align-middle text-sm font-bold text-primary">
+          <div className="text-primary fixed bottom-2 flex flex-col text-center align-middle text-sm font-bold">
             <span>© {new Date().getFullYear()}</span>
             <span>Polkadot Technical Fellowship</span>
           </div>
@@ -266,7 +266,7 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
             </DialogTrigger>
             <DialogContent className="sm:max-w-[420px]">
               <DialogHeader>
-                <DialogTitle className="font-bold text-primary">
+                <DialogTitle className="text-primary font-bold">
                   Connected accounts
                 </DialogTitle>
                 <DialogDescription>
@@ -292,7 +292,7 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
                           setAccountDialogOpen(false)
                         }}
                         className={cn(
-                          'flex w-full items-center justify-between rounded-md border p-3 text-left transition-colors hover:bg-muted',
+                          'hover:bg-muted flex w-full items-center justify-between rounded-md border p-3 text-left transition-colors',
                           isSelected
                             ? 'border-primary bg-primary/5'
                             : 'border-border bg-background',
@@ -302,28 +302,28 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
                           <span className="text-sm font-medium">
                             {account.name || 'Wallet account'}
                           </span>
-                          <span className="text-xs text-muted-foreground">
+                          <span className="text-muted-foreground text-xs">
                             {shortAddress}
                           </span>
                         </div>
                         {isSelected ? (
-                          <Check className="h-4 w-4 text-primary" />
+                          <Check className="text-primary h-4 w-4" />
                         ) : (
-                          <Wallet className="h-4 w-4 text-muted-foreground" />
+                          <Wallet className="text-muted-foreground h-4 w-4" />
                         )}
                       </button>
                     )
                   })}
                 </div>
               ) : (
-                <p className="text-sm text-muted-foreground">
+                <p className="text-muted-foreground text-sm">
                   Connect a wallet to view available accounts.
                 </p>
               )}
             </DialogContent>
           </Dialog>
           <ConnectionButton />
-          <Badge variant="secondary" className="text-nowrap p-3">
+          <Badge variant="secondary" className="p-3 text-nowrap">
             {latestBlockNumber
               ? `#${latestBlockNumber.toLocaleString()}`
               : 'Syncing block...'}

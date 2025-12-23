@@ -33,7 +33,7 @@ export const Rfc = () => {
                 }
                 return (
                   <div className="flex w-full justify-between">
-                    <div className="flex w-[35%] items-center justify-between rounded-bl-lg rounded-tl-lg border-2 bg-gray-100 p-2 dark:bg-gray-800">
+                    <div className="flex w-[35%] items-center justify-between rounded-tl-lg rounded-bl-lg border-2 bg-gray-100 p-2 dark:bg-gray-800">
                       <div className="w-[30%]">
                         <Link
                           to={d.user.html_url}
@@ -56,22 +56,22 @@ export const Rfc = () => {
                         >
                           {d.user.login}
                         </Link>
-                        <p className="text-xs font-bold text-primary">
+                        <p className="text-primary text-xs font-bold">
                           {new Date(d.created_at).toDateString()}
                         </p>
                       </div>
                     </div>
-                    <div className="flex w-[10%] items-center border-2 border-l-0 border-r-0 p-2">
+                    <div className="flex w-[10%] items-center border-2 border-r-0 border-l-0 p-2">
                       <p className="text-xs">
                         {(d?.labels && d?.labels[0]?.name) || '-'}
                       </p>
                     </div>
-                    <div className="w-[55%] rounded-br-lg rounded-tr-lg border-2 p-2">
+                    <div className="w-[55%] rounded-tr-lg rounded-br-lg border-2 p-2">
                       <Link
                         to={`https://www.github.com/${GithubOwner}/${GithubRfc}/pull/${d.number}`}
                         target="_blank"
                         rel="noreferrer"
-                        className="word-break my-10 mb-2 h-10 font-semibold text-primary"
+                        className="word-break text-primary my-10 mb-2 h-10 font-semibold"
                       >
                         #{d.number} - {d.title}
                       </Link>
@@ -83,7 +83,7 @@ export const Rfc = () => {
               'Nothing to see here'
             )
           ) : (
-            <TbLoaderQuarter className="h-20 w-20 animate-spin text-primary" />
+            <TbLoaderQuarter className="text-primary h-20 w-20 animate-spin" />
           )}
         </div>
       </div>

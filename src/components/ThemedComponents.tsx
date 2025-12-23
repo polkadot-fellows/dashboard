@@ -8,7 +8,7 @@ export const ThemedLink: React.FC<{
   className?: string
 }> = ({ children, to, target = '_parent', className }) => (
   <Link
-    className={`font-bold text-primary ${className}`}
+    className={`text-primary font-bold ${className}`}
     to={to}
     target={target}
   >

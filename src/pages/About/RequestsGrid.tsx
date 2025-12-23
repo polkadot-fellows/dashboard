@@ -149,14 +149,14 @@ const columns = (
       return (
         <div className="flex justify-evenly">
           <Copy
-            className={`cursor-pointer text-primary`}
+            className={`text-primary cursor-pointer`}
             onClick={() => {
               toast.success('Address copied.')
               copy(row.getValue('address'))
             }}
           />
           <ScanEye
-            className={`cursor-pointer text-primary`}
+            className={`text-primary cursor-pointer`}
             onClick={() => {
               setChosenMember({
                 address: row.getValue('address'),

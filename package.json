@@ -12,9 +12,11 @@
     "deploy": "gh-pages -d build",
     "build:pages": "tsc && vite build --base '/dashboard/'",
     "deploy:pages": "pnpm run build:pages && gh-pages -d build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css}\""
+    "lint": "pnpm run lint:prettier && pnpm run lint:eslint",
+    "lint:eslint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:prettier": "prettier --check \"src/**/*.{ts,tsx,js,jsx,json,css}\"",
+    "lint:fix": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css}\"",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@polkadot-api/descriptors": "file:.papi/descriptors",

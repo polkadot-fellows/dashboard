@@ -15,7 +15,7 @@ export const Governance = () => {
   return (
     <>
       <div className="header">
-        <h1 className="flex-1 shrink-0 whitespace-nowrap font-unbounded text-2xl font-semibold tracking-tight text-primary sm:grow-0">
+        <h1 className="font-unbounded text-primary flex-1 shrink-0 text-2xl font-semibold tracking-tight whitespace-nowrap sm:grow-0">
           Governance
         </h1>
       </div>
@@ -36,7 +36,7 @@ export const Governance = () => {
           alt="Fellowship referenda"
         />
         <div className="my-4">
-          <h2 className="flex-1 shrink-0 whitespace-nowrap font-unbounded text-lg font-semibold tracking-tight text-primary sm:grow-0">
+          <h2 className="font-unbounded text-primary flex-1 shrink-0 text-lg font-semibold tracking-tight whitespace-nowrap sm:grow-0">
             Whitelisting proposals
           </h2>
           <p>
@@ -95,7 +95,7 @@ export const Governance = () => {
             bounties
           </li>
         </ul>
-        <h2 className="flex-1 shrink-0 whitespace-nowrap font-unbounded text-lg font-semibold tracking-tight text-primary sm:grow-0">
+        <h2 className="font-unbounded text-primary flex-1 shrink-0 text-lg font-semibold tracking-tight whitespace-nowrap sm:grow-0">
           Overview
         </h2>
         <p>
@@ -154,7 +154,7 @@ export const Governance = () => {
           </ThemedLink>
           .
         </p>
-        <h2 className="flex-1 shrink-0 whitespace-nowrap font-unbounded text-lg font-semibold tracking-tight text-primary sm:grow-0">
+        <h2 className="font-unbounded text-primary flex-1 shrink-0 text-lg font-semibold tracking-tight whitespace-nowrap sm:grow-0">
           Walkthrough
         </h2>
         <p>
@@ -167,7 +167,7 @@ export const Governance = () => {
         </p>
         <p>
           Preimages can be{' '}
-          <span className="font-bold text-primary">created</span> using the{' '}
+          <span className="text-primary font-bold">created</span> using the{' '}
           <ThemedLink to="https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fcollectives.api.onfinality.io%2Fpublic-ws#/preimages">
             Polkadot-JS UI
           </ThemedLink>
@@ -181,7 +181,7 @@ export const Governance = () => {
         />
         <p>
           Proposals can only be{' '}
-          <span className="font-bold text-primary">
+          <span className="text-primary font-bold">
             submitted by Fellows or Architects
           </span>
           . There is no submission deposit, but there is a decision deposit of 5
@@ -198,7 +198,7 @@ export const Governance = () => {
           Sub-treasury spending in action: Proposal 186
         </Button>
 
-        <h1 className="my-6 flex-1 shrink-0 whitespace-nowrap font-unbounded text-2xl font-semibold tracking-tight text-primary sm:grow-0">
+        <h1 className="font-unbounded text-primary my-6 flex-1 shrink-0 text-2xl font-semibold tracking-tight whitespace-nowrap sm:grow-0">
           RFC proposals
         </h1>
         <p>
@@ -211,7 +211,7 @@ export const Governance = () => {
           via an on-chain remark as shown below (Polkadot-JS UI).
         </p>
         <img className="my-6" src={rfc} alt="RFC" />
-        <h1 className="my-6 flex-1 shrink-0 whitespace-nowrap font-unbounded text-2xl font-semibold tracking-tight text-primary sm:grow-0">
+        <h1 className="font-unbounded text-primary my-6 flex-1 shrink-0 text-2xl font-semibold tracking-tight whitespace-nowrap sm:grow-0">
           RFP proposals
         </h1>
         <p>

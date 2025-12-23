@@ -22,7 +22,7 @@ const App = () => {
       <ThemeProvider defaultTheme={settings?.themeMode as Theme}>
         <AccountContextProvider>
           <TooltipProvider>
-            <div className="flex min-h-screen w-full flex-col bg-muted/40">
+            <div className="bg-muted/40 flex min-h-screen w-full flex-col">
               <Navigation
                 lightClientLoaded={lightClientLoaded}
                 setLightClientLoaded={setLightClientLoaded}

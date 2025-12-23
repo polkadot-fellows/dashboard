@@ -1,0 +1,1 @@
+import{Y as p}from"./index-Dq-l34Q-.js";const m=(t,o={})=>{const r=new Promise(a=>{t.onmessage=n=>a(n.data)}),{port1:e,port2:s}=new MessageChannel;return t.postMessage(e,[e]),p({bytecode:r,portToWorker:s,...o})};export{m as startFromWorker};

@@ -22,12 +22,12 @@ const App = () => {
       <ThemeProvider defaultTheme={settings?.themeMode as Theme}>
         <AccountContextProvider>
           <TooltipProvider>
-            <div className="flex min-h-screen w-full flex-col bg-muted/40">
+            <div className="bg-muted/40 flex min-h-screen w-full flex-col">
               <Navigation
                 lightClientLoaded={lightClientLoaded}
                 setLightClientLoaded={setLightClientLoaded}
               />
-              <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-[14rem]">
+              <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-56">
                 <Header
                   lightClientLoaded={lightClientLoaded}
                   setLightClientLoaded={setLightClientLoaded}

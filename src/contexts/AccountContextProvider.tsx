@@ -1,15 +1,9 @@
 /* eslint-disable react-refresh/only-export-components */
-import React, {
-  useState,
-  createContext,
-  useContext,
-  useEffect,
-  // useCallback,
-  // useEffect,
-} from 'react'
-import { InjectedPolkadotAccount } from 'polkadot-api/pjs-signer'
+import React, { useState, createContext, useContext, useEffect } from 'react'
 import { api } from '@/clients'
 import { SS58String } from 'polkadot-api'
+import { useAccounts } from '@reactive-dot/react'
+import type { WalletAccount } from '@reactive-dot/core/wallets.js'
 // const LOCALSTORAGE_SELECTED_ACCOUNT_KEY = 'polkadot-fellowship.selectedAccount'
 
 type AccountContextProps = {
@@ -23,45 +17,69 @@ type ExtraInfo = {
   lastProof?: number
 }
 
-type ExtraPolkadotAccount = InjectedPolkadotAccount & {
-  membership: ExtraInfo
+type ExtraPolkadotAccount = WalletAccount & {
+  membership?: ExtraInfo
 }
 
 export interface IAccountContext {
   enchancedAccount?: ExtraPolkadotAccount
-  selectedAccount?: InjectedPolkadotAccount
-  setSelectedAccount: (account: InjectedPolkadotAccount | undefined) => void
+  selectedAccount?: WalletAccount
+  accounts: WalletAccount[]
+  setSelectedAccount: (account: WalletAccount | undefined) => void
 }
 
 const AccountContext = createContext<IAccountContext | undefined>(undefined)
 
 const AccountContextProvider = ({ children }: AccountContextProps) => {
+  const accounts = useAccounts()
   const [enchancedAccount, setEnchancedAccount] = useState<
     ExtraPolkadotAccount | undefined
   >()
   const [selectedAccount, setSelectedAccount] = useState<
-    InjectedPolkadotAccount | undefined
+    WalletAccount | undefined
   >()
 
   useEffect(() => {
+    if (!accounts.length) {
+      setSelectedAccount(undefined)
+      setEnchancedAccount(undefined)
+      return
+    }
+
+    if (
+      selectedAccount &&
+      accounts.some((account) => account.address === selectedAccount.address)
+    ) {
+      return
+    }
+
+    setSelectedAccount(accounts[0])
+  }, [accounts, selectedAccount])
+
+  useEffect(() => {
+    if (!selectedAccount?.address) {
+      setEnchancedAccount(undefined)
+      return
+    }
+
     const getExtraInfo = async () => {
-      let updateAccount: ExtraPolkadotAccount = {} as ExtraPolkadotAccount
       const member = await api.query.FellowshipCore.Member.getValue(
-        selectedAccount?.address as SS58String,
+        selectedAccount.address as SS58String,
       )
-      updateAccount = {
+      const updateAccount: ExtraPolkadotAccount = {
         ...selectedAccount,
         membership: member
           ? {
-              isActive: member?.is_active,
-              lastPromotion: member?.last_promotion,
-              lastProof: member?.last_proof,
+              isActive: member.is_active,
+              lastPromotion: member.last_promotion,
+              lastProof: member.last_proof,
             }
           : undefined,
-      } as ExtraPolkadotAccount
+      }
       setEnchancedAccount(updateAccount)
     }
-    selectedAccount?.address && getExtraInfo()
+
+    getExtraInfo()
   }, [selectedAccount])
 
   // const selectAccount = useCallback(
@@ -94,6 +112,7 @@ const AccountContextProvider = ({ children }: AccountContextProps) => {
   return (
     <AccountContext.Provider
       value={{
+        accounts,
         enchancedAccount,
         selectedAccount,
         setSelectedAccount,

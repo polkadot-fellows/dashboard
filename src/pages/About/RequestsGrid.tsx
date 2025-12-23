@@ -149,14 +149,14 @@ const columns = (
       return (
         <div className="flex justify-evenly">
           <Copy
-            className={`cursor-pointer text-primary`}
+            className={`text-primary cursor-pointer`}
             onClick={() => {
               toast.success('Address copied.')
               copy(row.getValue('address'))
             }}
           />
           <ScanEye
-            className={`cursor-pointer text-primary`}
+            className={`text-primary cursor-pointer`}
             onClick={() => {
               setChosenMember({
                 address: row.getValue('address'),
@@ -277,7 +277,7 @@ export const RequestsGrid = ({ lcStatus }: LcStatusType) => {
     <div className="w-full">
       <div className="rounded-md border">
         {loading ? (
-          <Skeleton className="h-[25rem] w-[100%] rounded-xl" />
+          <Skeleton className="h-100 w-full rounded-xl" />
         ) : (
           <Table>
             <TableHeader>

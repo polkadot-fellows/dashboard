@@ -1,4 +1,3 @@
-import { Navigation } from '@/navigation'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { Header } from '@/header'
 import { Theme, ThemeProvider } from './components/theme-provider'
@@ -21,9 +20,8 @@ const App = () => {
         <AccountContextProvider>
           <TooltipProvider>
             <div className="bg-muted/40 flex min-h-screen w-full flex-col">
-              <Navigation />
-              <div className="mb-24 flex flex-col pb-24 sm:gap-4 sm:py-4 sm:pl-56">
-                <Header />
+              <Header />
+              <div className="mt-24 mb-24 flex flex-col">
                 <Content />
                 <Footer />
               </div>

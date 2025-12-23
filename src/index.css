@@ -20,6 +20,7 @@
   --font-*: initial;
   --font-dm-serif: 'DM Serif Display', 'DM Serif Display Fallback';
   --font-unbounded: Unbounded, sans-serif;
+  --font-sans: sans-serif;
 
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));

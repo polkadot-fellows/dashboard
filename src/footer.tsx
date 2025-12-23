@@ -29,7 +29,7 @@ export const Footer = () => {
 
   return (
     <footer className="bg-background/80 w-fill supports-backdrop-filter:bg-background/60 fixed bottom-0 border-t backdrop-blur">
-      <div className="text-muted-foreground mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-4 px-4 py-6 text-sm sm:flex-row sm:items-center sm:px-6">
+      <div className="text-muted-foreground mx-auto flex w-full max-w-7xl flex-col items-center justify-between py-6 text-sm sm:flex-row sm:items-center sm:px-6">
         <div className="text-center sm:text-left">
           <p className="text-foreground text-base font-semibold">
             Polkadot Technical Fellowship

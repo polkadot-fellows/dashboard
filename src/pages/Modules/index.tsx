@@ -1,14 +1,14 @@
 export const Modules = () => {
   return (
     <>
-      <h1 className="font-unbounded text-primary flex-1 shrink-0 text-2xl font-semibold tracking-tight whitespace-nowrap sm:grow-0">
+      <h1 className="font-dm-serif text-primary flex-1 shrink-0 text-2xl font-semibold tracking-tight whitespace-nowrap sm:grow-0">
         Modules
       </h1>
       <p>
         The Polkadot Technical Fellowship is split across several on-chain
         modules (pallets).
       </p>
-      <h1 className="font-unbounded text-primary my-4 flex-1 shrink-0 text-2xl font-semibold tracking-tight whitespace-nowrap sm:grow-0">
+      <h1 className="font-dm-serif text-primary my-4 flex-1 shrink-0 text-2xl font-semibold tracking-tight whitespace-nowrap sm:grow-0">
         `pallet_ranked_collective`
       </h1>
       <p>
@@ -37,7 +37,7 @@ export const Modules = () => {
         2,629,800 blocks) from the moment the candidate was inducted into this
         pallet.
       </p>
-      <h1 className="font-unbounded text-primary my-4 flex-1 shrink-0 text-2xl font-semibold tracking-tight whitespace-nowrap sm:grow-0">
+      <h1 className="font-dm-serif text-primary my-4 flex-1 shrink-0 text-2xl font-semibold tracking-tight whitespace-nowrap sm:grow-0">
         `pallet_referenda`
       </h1>
       <p>
@@ -47,7 +47,7 @@ export const Modules = () => {
         Voting on induction of candidates, and promotion and retention of
         members are conducted by this module.
       </p>
-      <h1 className="font-unbounded text-primary my-4 flex-1 shrink-0 text-2xl font-semibold tracking-tight whitespace-nowrap sm:grow-0">
+      <h1 className="font-dm-serif text-primary my-4 flex-1 shrink-0 text-2xl font-semibold tracking-tight whitespace-nowrap sm:grow-0">
         `pallet_core_fellowship`
       </h1>
       <p>
@@ -56,7 +56,7 @@ export const Modules = () => {
         retention of "evidence" which members and candidates submit for these
         processes.
       </p>
-      <h1 className="font-unbounded text-primary my-4 flex-1 shrink-0 text-2xl font-semibold tracking-tight whitespace-nowrap sm:grow-0">
+      <h1 className="font-dm-serif text-primary my-4 flex-1 shrink-0 text-2xl font-semibold tracking-tight whitespace-nowrap sm:grow-0">
         `pallet_salary`
       </h1>
       <p>
@@ -77,7 +77,7 @@ export const Modules = () => {
         However, passivity does not exclude a member from challenges or grading
         periods.
       </p>
-      <h1 className="font-unbounded text-primary my-4 flex-1 shrink-0 text-2xl font-semibold tracking-tight whitespace-nowrap sm:grow-0">
+      <h1 className="font-dm-serif text-primary my-4 flex-1 shrink-0 text-2xl font-semibold tracking-tight whitespace-nowrap sm:grow-0">
         `pallet_treasury`
       </h1>
       <p>

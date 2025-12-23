@@ -31,7 +31,7 @@ type RankInfoType = {
   salary: number
 }
 const reusableH1 =
-  'font-unbounded text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0'
+  'font-dm-serif text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0'
 
 // Page constants
 const rankInfo: RankInfoType[] = [

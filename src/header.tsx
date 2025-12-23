@@ -1,14 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import {
-  // AccountProvider,
-  // ExtensionProvider,
-  SelectedAccountType,
-} from '@polkadot-ui/react'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Button } from '@/components/ui/button'
-import { RouterType, openInNewTab, resources, routes } from '@/lib/utils'
+import { RouterType, openInNewTab, resources, routes, cn } from '@/lib/utils'
 
-import { PanelLeft, Moon, Sun, NotebookText, BookOpenText } from 'lucide-react'
+import {
+  PanelLeft,
+  Moon,
+  Sun,
+  NotebookText,
+  BookOpenText,
+  Wallet,
+  Check,
+} from 'lucide-react'
 import { getLinks } from './Resources'
 import {
   // FaCheckCircle,
@@ -45,6 +48,7 @@ import { Link } from 'react-router-dom'
 //   DropdownMenuTrigger,
 // } from '@/components/ui/dropdown-menu'
 
+import { ConnectionButton } from 'dot-connect/react.js'
 import { useAccount } from './contexts/AccountContextProvider'
 
 interface Props {
@@ -53,12 +57,8 @@ interface Props {
 }
 
 export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
-  const { setSelectedAccount } = useAccount()
-
-  const [
-    selAccount,
-    //  setSelAccount
-  ] = useState<SelectedAccountType>({} as SelectedAccountType)
+  const { accounts, selectedAccount, setSelectedAccount } = useAccount()
+  const [accountDialogOpen, setAccountDialogOpen] = useState(false)
 
   useEffect(() => {
     collectiveClient.finalizedBlock$.subscribe((finalizedBlock) => {
@@ -68,11 +68,6 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
     })
   }, [lightClientLoaded, setLightClientLoaded])
   const { theme, setTheme } = useTheme()
-
-  // TODO Correctly map the account
-  useEffect(() => {
-    selAccount?.address && setSelectedAccount(selAccount)
-  }, [selAccount])
 
   return (
     <header className="sticky top-5 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:sticky sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
@@ -228,7 +223,7 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
           </div>
         </SheetContent>
       </Sheet>
-      <div className="flex w-full justify-between">
+      <div className="flex w-full items-center justify-between">
         <div>
           {/* <Menubar>
             <MenubarMenu>
@@ -246,70 +241,73 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
             </MenubarMenu>
           </Menubar> */}
         </div>
-        {/* TODO - ACTIVATE THIS FOR CONNECT BUTTON
-        <div>
-          {!enchancedAccount?.address ? (
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button>Connect</Button>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-[425px]">
-                <DialogHeader>
-                  <DialogTitle className="text-primary font-bold">
-                    Connect Wallet
-                  </DialogTitle>
-                </DialogHeader>
-                <ExtensionProvider setSelected={setSelAccount}>
-                  <AccountProvider
-                    selected={selAccount}
-                    setSelected={setSelAccount}
-                  />
-                </ExtensionProvider>
-              </DialogContent>
-            </Dialog>
-          ) : (
-            <Dialog>
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    className="overflow-hidden rounded-full"
-                  >
-                    <Polkicon size={36} address={enchancedAccount?.address} />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
-                  <DialogTrigger asChild>
-                    <DropdownMenuItem className="cursor-pointer">
-                      Switch Account
-                    </DropdownMenuItem>
-                  </DialogTrigger>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem
-                    className="cursor-pointer"
-                    onClick={() => setSelectedAccount(undefined)}
-                  >
-                    Logout
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-              <DialogContent className="sm:max-w-[425px]">
-                <DialogHeader>
-                  <DialogTitle className="text-primary font-bold">
-                    Connect Wallet
-                  </DialogTitle>
-                </DialogHeader>
-                <ExtensionProvider setSelected={setSelAccount}>
-                  <AccountProvider
-                    selected={selAccount}
-                    setSelected={setSelAccount}
-                  />
-                </ExtensionProvider>
-              </DialogContent>
-            </Dialog>
-          )}
-        </div> */}
+        <div className="flex items-center gap-3">
+          <Dialog open={accountDialogOpen} onOpenChange={setAccountDialogOpen}>
+            <DialogTrigger asChild>
+              <Button variant="outline" size="sm">
+                Manage accounts
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[420px]">
+              <DialogHeader>
+                <DialogTitle className="font-bold text-primary">
+                  Connected accounts
+                </DialogTitle>
+                <DialogDescription>
+                  Choose which account the dashboard should use.
+                </DialogDescription>
+              </DialogHeader>
+              {accounts.length ? (
+                <div className="flex flex-col gap-2">
+                  {accounts.map((account) => {
+                    const isSelected =
+                      selectedAccount?.address === account.address
+                    const shortAddress =
+                      account.address.length > 12
+                        ? `${account.address.slice(0, 6)}...${account.address.slice(-4)}`
+                        : account.address
+
+                    return (
+                      <button
+                        type="button"
+                        key={account.address}
+                        onClick={() => {
+                          setSelectedAccount(account)
+                          setAccountDialogOpen(false)
+                        }}
+                        className={cn(
+                          'flex w-full items-center justify-between rounded-md border p-3 text-left transition-colors hover:bg-muted',
+                          isSelected
+                            ? 'border-primary bg-primary/5'
+                            : 'border-border bg-background',
+                        )}
+                      >
+                        <div className="flex flex-col">
+                          <span className="text-sm font-medium">
+                            {account.name || 'Wallet account'}
+                          </span>
+                          <span className="text-xs text-muted-foreground">
+                            {shortAddress}
+                          </span>
+                        </div>
+                        {isSelected ? (
+                          <Check className="h-4 w-4 text-primary" />
+                        ) : (
+                          <Wallet className="h-4 w-4 text-muted-foreground" />
+                        )}
+                      </button>
+                    )
+                  })}
+                </div>
+              ) : (
+                <p className="text-sm text-muted-foreground">
+                  Connect a wallet to view available accounts.
+                </p>
+              )}
+            </DialogContent>
+          </Dialog>
+          <ConnectionButton />
+        </div>
       </div>
     </header>
   )

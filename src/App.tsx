@@ -27,7 +27,7 @@ const App = () => {
                 lightClientLoaded={lightClientLoaded}
                 setLightClientLoaded={setLightClientLoaded}
               />
-              <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-[14rem]">
+              <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-56">
                 <Header
                   lightClientLoaded={lightClientLoaded}
                   setLightClientLoaded={setLightClientLoaded}

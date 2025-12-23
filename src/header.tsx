@@ -86,7 +86,7 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
         <SheetContent side="left" className="sm:max-w-xs">
           <div className="flex text-2xl font-extrabold text-primary">
             <PolkadotIcon
-              className="pl-2.4 max-h-[100%] w-[3.2rem] pr-3"
+              className="pl-2.4 max-h-full w-[3.2rem] pr-3"
               width={'2rem'}
               height={'2rem'}
             />

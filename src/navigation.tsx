@@ -57,11 +57,11 @@ export const Navigation = ({
   }, [lightClientLoaded])
 
   return (
-    <aside className="fixed inset-y-0 left-0 z-10 hidden w-[14rem] flex-col border-r bg-background sm:flex">
+    <aside className="fixed inset-y-0 left-0 z-10 hidden w-56 flex-col border-r bg-background sm:flex">
       <nav className="items-left flex flex-col gap-4 px-4 sm:py-5">
         <div className="flex text-2xl font-extrabold text-primary">
           <PolkadotIcon
-            className="max-h-[100%] w-12"
+            className="max-h-full w-12"
             width={'2.2rem'}
             height={'2.2rem'}
           />

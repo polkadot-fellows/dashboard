@@ -108,7 +108,7 @@ export const Membership = () => {
                 below (Subsquare UI).
               </p>
 
-              <img className="w-[45rem] py-10" src={SubsquareApplication} />
+              <img className="w-180 py-10" src={SubsquareApplication} />
 
               <p className="my-4">
                 As a minimum, applicants need to provide the following
@@ -162,7 +162,7 @@ export const Membership = () => {
                   </ThemedLink>.
                 </p>
 
-                <a href="https://collectives.subsquare.io/fellowship/members"><img className="w-[45rem] py-10" src={SubsquareInduction} /></a>
+                <a href="https://collectives.subsquare.io/fellowship/members"><img className="w-180 py-10" src={SubsquareInduction} /></a>
 
                 <p>
                   Upon successful execution of the extrinsic, the candidate's
@@ -240,8 +240,8 @@ export const Membership = () => {
                   </ThemedLink>
                   , as shown below (Core Fellowship UI)
                 </p>
-                <img className="w-[45rem] pt-10" src={Evidence1} />
-                <img className="w-[45rem] pb-10" src={Evidence2} />
+                <img className="w-180 pt-10" src={Evidence1} />
+                <img className="w-180 pb-10" src={Evidence2} />
                 <p>
                   Upon successful execution of the extrinsic, the retention
                   evidence will be displayed on the{' '}
@@ -297,7 +297,7 @@ export const Membership = () => {
                   Gavin Wood.
                 </p>
 
-                <img className="w-[45rem] py-10" src={Rank} />
+                <img className="w-180 py-10" src={Rank} />
               </div>
             </AccordionContent>
           </AccordionItem>

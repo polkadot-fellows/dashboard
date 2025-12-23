@@ -175,7 +175,7 @@ export const Governance = () => {
           submission of each preimage.
         </p>
         <img
-          className="my-6 max-w-[30rem]"
+          className="my-6 max-w-120"
           src={treasurySpend}
           alt="treasury spend"
         />

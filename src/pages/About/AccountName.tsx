@@ -9,12 +9,10 @@ type AccountNameProps = {
 export const AccountName = ({ display, address }: AccountNameProps) => {
   return (
     <div style={{ display: 'flex' }}>
-      <p>
-        {display ? (
-          <CircleCheck style={{ color: 'green', marginRight: '0.5rem' }} />
-        ) : null}
-      </p>
-      <p>{display || (address ? ellipsisFn(address, 6) : null) || '-'}</p>
+      {display ? (
+        <CircleCheck style={{ color: 'green', marginRight: '0.5rem' }} />
+      ) : null}
+      <div>{display || (address ? ellipsisFn(address, 6) : null) || '-'}</div>
     </div>
   )
 }

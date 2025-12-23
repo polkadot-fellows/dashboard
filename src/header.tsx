@@ -20,7 +20,7 @@ import {
 // import { TbLoaderQuarter } from 'react-icons/tb'
 import { useTheme } from './components/theme-provider'
 import { useEffect, useState } from 'react'
-import { collectiveClient } from './clients'
+import { collectiveClient, polkadotClient } from './clients'
 import {
   Dialog,
   DialogContent,
@@ -38,6 +38,7 @@ import {
 } from '@radix-ui/react-accordion'
 import { SiElement } from 'react-icons/si'
 import { Link } from 'react-router-dom'
+import { Badge } from '@/components/ui/badge'
 
 // import { Polkicon } from '@polkadot-ui/react'
 // import {
@@ -59,6 +60,9 @@ interface Props {
 export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
   const { accounts, selectedAccount, setSelectedAccount } = useAccount()
   const [accountDialogOpen, setAccountDialogOpen] = useState(false)
+  const [latestBlockNumber, setLatestBlockNumber] = useState<number | null>(
+    null,
+  )
 
   useEffect(() => {
     collectiveClient.finalizedBlock$.subscribe((finalizedBlock) => {
@@ -67,6 +71,18 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
       }
     })
   }, [lightClientLoaded, setLightClientLoaded])
+
+  useEffect(() => {
+    const subscription = polkadotClient.finalizedBlock$.subscribe(
+      (finalizedBlock) => {
+        if (typeof finalizedBlock.number === 'number') {
+          setLatestBlockNumber(finalizedBlock.number)
+        }
+      },
+    )
+
+    return () => subscription.unsubscribe()
+  }, [])
   const { theme, setTheme } = useTheme()
 
   return (
@@ -244,7 +260,7 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
         <div className="flex items-center gap-3">
           <Dialog open={accountDialogOpen} onOpenChange={setAccountDialogOpen}>
             <DialogTrigger asChild>
-              <Button variant="outline" size="sm">
+              <Button variant="outline" size="lg" className="rounded-3xl p-5">
                 Manage accounts
               </Button>
             </DialogTrigger>
@@ -307,6 +323,11 @@ export const Header = ({ lightClientLoaded, setLightClientLoaded }: Props) => {
             </DialogContent>
           </Dialog>
           <ConnectionButton />
+          <Badge variant="secondary" className="text-nowrap p-3">
+            {latestBlockNumber
+              ? `#${latestBlockNumber.toLocaleString()}`
+              : 'Syncing block...'}
+          </Badge>
         </div>
       </div>
     </header>

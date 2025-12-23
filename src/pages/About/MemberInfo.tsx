@@ -29,7 +29,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { Skeleton } from '@/components/ui/skeleton'
 import { Link } from 'react-router-dom'
 
 export type LcStatusType = {
@@ -87,12 +86,7 @@ const MemberDetails = ({ address }: MemberDetailsProps) => {
   )
 }
 
-export const MemberInfo = ({
-  member,
-  lcStatus,
-  open,
-  onOpenChange,
-}: MemberInfoProps) => {
+export const MemberInfo = ({ member, open, onOpenChange }: MemberInfoProps) => {
   const { address, display, web, twitter, email, matrix } = member
 
   const [reserved, setReserved] = useState<string>('')
@@ -172,7 +166,7 @@ export const MemberInfo = ({
               </div>
 
               <div className="chart-wrapper mx-auto flex max-w-6xl flex-col flex-wrap items-start justify-center gap-6 p-6 sm:flex-row sm:p-8">
-                <div className="grid w-full gap-6 sm:grid-cols-2 lg:max-w-[22rem] lg:grid-cols-1 xl:max-w-[25rem]">
+                <div className="grid w-full gap-6 lg:max-w-[22rem] lg:grid-cols-1 xl:max-w-[25rem]">
                   <Card>
                     <CardHeader className="flex flex-row items-center gap-4 space-y-0 pb-2 [&>div]:flex-1">
                       <div>
@@ -180,11 +174,7 @@ export const MemberInfo = ({
                           Total
                         </CardDescription>
                         <CardTitle className="flex items-baseline gap-1 text-2xl tabular-nums">
-                          {lcStatus ? (
-                            `≃ ${total}`
-                          ) : (
-                            <Skeleton className="h-10 w-[120px]" />
-                          )}
+                          ≃ ${total}
                           <span className="text-sm font-normal tracking-normal text-muted-foreground">
                             DOT
                           </span>
@@ -197,11 +187,7 @@ export const MemberInfo = ({
                           Transferrable
                         </CardDescription>
                         <CardTitle className="flex items-baseline gap-1 text-2xl tabular-nums">
-                          {lcStatus ? (
-                            `≃ ${transferrable}`
-                          ) : (
-                            <Skeleton className="h-8 w-[80px]" />
-                          )}
+                          ≃ ${transferrable}
                           <span className="text-sm font-normal tracking-normal text-muted-foreground">
                             DOT
                           </span>
@@ -212,11 +198,7 @@ export const MemberInfo = ({
                           Reserved
                         </CardDescription>
                         <CardTitle className="flex items-baseline gap-1 text-2xl tabular-nums">
-                          {lcStatus ? (
-                            `≃ ${reserved}`
-                          ) : (
-                            <Skeleton className="h-8 w-[80px]" />
-                          )}
+                          ≃ ${reserved}
                           <span className="text-sm font-normal tracking-normal text-muted-foreground">
                             DOT
                           </span>

@@ -28,7 +28,7 @@ export const Membership = () => {
         >
           <AccordionItem value="item-1">
             <AccordionTrigger>
-              <h2 className="flex-1 shrink-0 whitespace-nowrap py-2 font-unbounded text-lg font-semibold tracking-tight text-primary sm:grow-0">
+              <h2 className="font-unbounded text-primary flex-1 shrink-0 py-2 text-lg font-semibold tracking-tight whitespace-nowrap sm:grow-0">
                 Management
               </h2>
             </AccordionTrigger>
@@ -91,7 +91,7 @@ export const Membership = () => {
           </AccordionItem>
           <AccordionItem value="item-2">
             <AccordionTrigger>
-              <h1 className="flex-1 shrink-0 whitespace-nowrap py-2 font-unbounded text-lg font-semibold tracking-tight text-primary sm:grow-0">
+              <h1 className="font-unbounded text-primary flex-1 shrink-0 py-2 text-lg font-semibold tracking-tight whitespace-nowrap sm:grow-0">
                 Application
               </h1>
             </AccordionTrigger>
@@ -108,7 +108,7 @@ export const Membership = () => {
                 below (Subsquare UI).
               </p>
 
-              <img className="w-[45rem] py-10" src={SubsquareApplication} />
+              <img className="w-180 py-10" src={SubsquareApplication} />
 
               <p className="my-4">
                 As a minimum, applicants need to provide the following
@@ -140,7 +140,7 @@ export const Membership = () => {
           </AccordionItem>
           <AccordionItem value="item-3">
             <AccordionTrigger>
-              <h1 className="flex-1 shrink-0 whitespace-nowrap py-2 font-unbounded text-lg font-semibold tracking-tight text-primary sm:grow-0">
+              <h1 className="font-unbounded text-primary flex-1 shrink-0 py-2 text-lg font-semibold tracking-tight whitespace-nowrap sm:grow-0">
                 Induction
               </h1>
             </AccordionTrigger>
@@ -159,10 +159,13 @@ export const Membership = () => {
                     target="_blank"
                   >
                     Core Fellowship page UI.
-                  </ThemedLink>.
+                  </ThemedLink>
+                  .
                 </p>
 
-                <a href="https://collectives.subsquare.io/fellowship/members"><img className="w-[45rem] py-10" src={SubsquareInduction} /></a>
+                <a href="https://collectives.subsquare.io/fellowship/members">
+                  <img className="w-180 py-10" src={SubsquareInduction} />
+                </a>
 
                 <p>
                   Upon successful execution of the extrinsic, the candidate's
@@ -192,7 +195,7 @@ export const Membership = () => {
           </AccordionItem>
           <AccordionItem value="item-4">
             <AccordionTrigger>
-              <h1 className="flex-1 shrink-0 whitespace-nowrap py-2 font-unbounded text-lg font-semibold tracking-tight text-primary sm:grow-0">
+              <h1 className="font-unbounded text-primary flex-1 shrink-0 py-2 text-lg font-semibold tracking-tight whitespace-nowrap sm:grow-0">
                 Retention
               </h1>
             </AccordionTrigger>
@@ -200,9 +203,9 @@ export const Membership = () => {
               <div>
                 <p className="my-4">
                   To retain their current rank, members of the Polkadot
-                  Technical Fellowship must submit proofs of the work they
-                  have undertaken in recent months. As a minimum, members need
-                  to provide the following information in their{' '}
+                  Technical Fellowship must submit proofs of the work they have
+                  undertaken in recent months. As a minimum, members need to
+                  provide the following information in their{' '}
                   <ThemedLink
                     to="https://github.com/polkadot-fellows/Evidences?tab=readme-ov-file#process"
                     target="_blank"
@@ -240,8 +243,8 @@ export const Membership = () => {
                   </ThemedLink>
                   , as shown below (Core Fellowship UI)
                 </p>
-                <img className="w-[45rem] pt-10" src={Evidence1} />
-                <img className="w-[45rem] pb-10" src={Evidence2} />
+                <img className="w-180 pt-10" src={Evidence1} />
+                <img className="w-180 pb-10" src={Evidence2} />
                 <p>
                   Upon successful execution of the extrinsic, the retention
                   evidence will be displayed on the{' '}
@@ -259,7 +262,7 @@ export const Membership = () => {
           </AccordionItem>
           <AccordionItem value="item-5">
             <AccordionTrigger>
-              <h1 className="flex-1 shrink-0 whitespace-nowrap py-2 font-unbounded text-lg font-semibold tracking-tight text-primary sm:grow-0">
+              <h1 className="font-unbounded text-primary flex-1 shrink-0 py-2 text-lg font-semibold tracking-tight whitespace-nowrap sm:grow-0">
                 Promotion
               </h1>
             </AccordionTrigger>
@@ -297,13 +300,13 @@ export const Membership = () => {
                   Gavin Wood.
                 </p>
 
-                <img className="w-[45rem] py-10" src={Rank} />
+                <img className="w-180 py-10" src={Rank} />
               </div>
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-6">
             <AccordionTrigger>
-              <h1 className="flex-1 shrink-0 whitespace-nowrap py-2 font-unbounded text-lg font-semibold tracking-tight text-primary sm:grow-0">
+              <h1 className="font-unbounded text-primary flex-1 shrink-0 py-2 text-lg font-semibold tracking-tight whitespace-nowrap sm:grow-0">
                 Demotion
               </h1>
             </AccordionTrigger>
@@ -335,7 +338,7 @@ export const Membership = () => {
           </AccordionItem>
           <AccordionItem value="item-7">
             <AccordionTrigger>
-              <h1 className="flex-1 shrink-0 whitespace-nowrap py-2 font-unbounded text-lg font-semibold tracking-tight text-primary sm:grow-0">
+              <h1 className="font-unbounded text-primary flex-1 shrink-0 py-2 text-lg font-semibold tracking-tight whitespace-nowrap sm:grow-0">
                 Suspension
               </h1>
             </AccordionTrigger>

@@ -80,7 +80,7 @@ const MemberDetails = ({ address }: MemberDetailsProps) => {
       {copyClicked ? (
         <Check className="w-4 text-[green]" {...props} />
       ) : (
-        <Copy className="w-4 text-primary" {...props} />
+        <Copy className="text-primary w-4" {...props} />
       )}
     </>
   )
@@ -134,7 +134,7 @@ export const MemberInfo = ({ member, open, onOpenChange }: MemberInfoProps) => {
                   {display && (
                     <AccountName display={display} address={address} />
                   )}
-                  <div className={`px-4 py-2 text-primary`}>
+                  <div className={`text-primary px-4 py-2`}>
                     Rank {rank} - {rankInfo[member.rank].name}
                   </div>
                   <div className="flex flex-row justify-center">
@@ -142,7 +142,7 @@ export const MemberInfo = ({ member, open, onOpenChange }: MemberInfoProps) => {
                   </div>
                 </div>
               </div>
-              <div className="mt-6 flex flex-row justify-evenly text-primary">
+              <div className="text-primary mt-6 flex flex-row justify-evenly">
                 {twitter && (
                   <Link to={`https://x.com/${twitter}`} target={'_blank'}>
                     <FaXTwitter size={iconSize} className="pointer" />
@@ -166,7 +166,7 @@ export const MemberInfo = ({ member, open, onOpenChange }: MemberInfoProps) => {
               </div>
 
               <div className="chart-wrapper mx-auto flex max-w-6xl flex-col flex-wrap items-start justify-center gap-6 p-6 sm:flex-row sm:p-8">
-                <div className="grid w-full gap-6 lg:max-w-[22rem] lg:grid-cols-1 xl:max-w-[25rem]">
+                <div className="grid w-full gap-6 sm:grid-cols-2 lg:max-w-88 lg:grid-cols-1 xl:max-w-100">
                   <Card>
                     <CardHeader className="flex flex-row items-center gap-4 space-y-0 pb-2 [&>div]:flex-1">
                       <div>
@@ -175,7 +175,7 @@ export const MemberInfo = ({ member, open, onOpenChange }: MemberInfoProps) => {
                         </CardDescription>
                         <CardTitle className="flex items-baseline gap-1 text-2xl tabular-nums">
                           ≃ ${total}
-                          <span className="text-sm font-normal tracking-normal text-muted-foreground">
+                          <span className="text-muted-foreground text-sm font-normal tracking-normal">
                             DOT
                           </span>
                         </CardTitle>
@@ -188,7 +188,7 @@ export const MemberInfo = ({ member, open, onOpenChange }: MemberInfoProps) => {
                         </CardDescription>
                         <CardTitle className="flex items-baseline gap-1 text-2xl tabular-nums">
                           ≃ ${transferrable}
-                          <span className="text-sm font-normal tracking-normal text-muted-foreground">
+                          <span className="text-muted-foreground text-sm font-normal tracking-normal">
                             DOT
                           </span>
                         </CardTitle>
@@ -199,7 +199,7 @@ export const MemberInfo = ({ member, open, onOpenChange }: MemberInfoProps) => {
                         </CardDescription>
                         <CardTitle className="flex items-baseline gap-1 text-2xl tabular-nums">
                           ≃ ${reserved}
-                          <span className="text-sm font-normal tracking-normal text-muted-foreground">
+                          <span className="text-muted-foreground text-sm font-normal tracking-normal">
                             DOT
                           </span>
                         </CardTitle>
@@ -212,7 +212,7 @@ export const MemberInfo = ({ member, open, onOpenChange }: MemberInfoProps) => {
                         </CardDescription>
                         <CardTitle className="flex items-baseline gap-1 text-2xl tabular-nums">
                           ≃ {(rankInfo[member.rank].salary / 12).toFixed(3)}
-                          <span className="text-sm font-normal tracking-normal text-muted-foreground">
+                          <span className="text-muted-foreground text-sm font-normal tracking-normal">
                             USDT
                           </span>
                         </CardTitle>

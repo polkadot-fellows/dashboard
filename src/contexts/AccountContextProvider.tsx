@@ -48,9 +48,7 @@ const AccountContextProvider = ({ children }: AccountContextProps) => {
 
     if (
       selectedAccount &&
-      accounts.some(
-        (account) => account.address === selectedAccount.address,
-      )
+      accounts.some((account) => account.address === selectedAccount.address)
     ) {
       return
     }

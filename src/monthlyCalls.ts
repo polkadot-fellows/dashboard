@@ -11,17 +11,17 @@ export const monthlyCalls2024 = {
   16: [
     '18th February 2025',
     'https://www.youtube.com/watch?v=BOGMg6ML-rQ',
-    'https://forum.polkadot.network/t/2025-02-18-technical-fellowship-opendev-call/12146'
+    'https://forum.polkadot.network/t/2025-02-18-technical-fellowship-opendev-call/12146',
   ],
   15: [
     '21st January 2025',
     'https://www.youtube.com/watch?v=xyHeXI_5SX8',
-    'https://forum.polkadot.network/t/2025-01-21-technical-fellowship-opendev-call/11653'
+    'https://forum.polkadot.network/t/2025-01-21-technical-fellowship-opendev-call/11653',
   ],
   14: [
     '17th December 2024',
     'https://www.youtube.com/watch?v=9MVEPhvMV1Y',
-    'https://forum.polkadot.network/t/2024-12-17-technical-fellowship-opendev-call/11649'
+    'https://forum.polkadot.network/t/2024-12-17-technical-fellowship-opendev-call/11649',
   ],
   13: [
     '18th November 2024',

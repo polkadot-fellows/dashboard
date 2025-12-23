@@ -26,7 +26,7 @@ export const getLink = ({
 export const getLinks = (title: string, arrays: GetLinksType[]) => (
   <div className="divide-y divide-dashed">
     <div>
-      <h4 className="my-4 font-extrabold text-primary">{title}</h4>
+      <h4 className="text-primary my-4 font-extrabold">{title}</h4>
       {arrays.map((arr) => (
         <p className="text-[#999] underline">{getLink(arr)}</p>
       ))}
@@ -41,7 +41,7 @@ export const Resources = () => {
         <DialogTrigger asChild>
           <a
             href="#"
-            className="flex items-center gap-4 px-2.5 py-2 text-muted-foreground transition-colors hover:text-foreground"
+            className="text-muted-foreground hover:text-foreground flex items-center gap-4 px-2.5 py-2 transition-colors"
           >
             <NotebookText className="h-5 w-5" />
             <span className="left">Resources</span>
@@ -49,7 +49,7 @@ export const Resources = () => {
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
-            <DialogTitle className="font-bold text-primary">
+            <DialogTitle className="text-primary font-bold">
               Resources
             </DialogTitle>
             <DialogDescription>

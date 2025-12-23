@@ -1,0 +1,1 @@
+const t=()=>{const e=[];return window.dispatchEvent(new CustomEvent("substrateDiscovery:requestProvider",{detail:{onProvider(o){e.push(o)}}})),e.slice()},r="smoldot-v1",s=e=>e.kind===r,n=()=>t().filter(s);export{r as Kind,n as getSmoldotExtensionProviders,s as isSmoldotExtension};

@@ -75,8 +75,8 @@ importers:
         specifier: ^3.3.3
         version: 3.3.3
       dot-connect:
-        specifier: ^0.28.1
-        version: 0.28.1(@reactive-dot/core@0.67.3(polkadot-api@1.23.1(jiti@2.6.1)(postcss@8.5.6)(rxjs@7.8.2))(typescript@5.9.3)(zod@4.2.1))(@types/react@19.2.7)(react@19.2.3)(signal-polyfill@0.2.2)
+        specifier: ^0.28.2
+        version: 0.28.2(@reactive-dot/core@0.67.3(polkadot-api@1.23.1(jiti@2.6.1)(postcss@8.5.6)(rxjs@7.8.2))(typescript@5.9.3)(zod@4.2.1))(@types/react@19.2.7)(react@19.2.3)(signal-polyfill@0.2.2)
       lucide-react:
         specifier: ^0.562.0
         version: 0.562.0(react@19.2.3)
@@ -674,16 +674,16 @@ packages:
   '@lit-labs/signals@0.1.3':
     resolution: {integrity: sha512-P0yWgH5blwVyEwBg+WFspLzeu1i0ypJP1QB0l1Omr9qZLIPsUu0p4Fy2jshOg7oQyha5n163K3GJGeUhQQ682Q==}
 
-  '@lit-labs/ssr-dom-shim@1.4.0':
-    resolution: {integrity: sha512-ficsEARKnmmW5njugNYKipTm4SFnbik7CXtoencDZzmzo/dQ+2Q0bgkzJuoJP20Aj0F+izzJjOqsnkd6F/o1bw==}
+  '@lit-labs/ssr-dom-shim@1.5.0':
+    resolution: {integrity: sha512-HLomZXMmrCFHSRKESF5vklAKsDY7/fsT/ZhqCu3V0UoW/Qbv8wxmO4W9bx4KnCCF2Zak4yuk+AGraK/bPmI4kA==}
 
   '@lit/react@1.0.8':
     resolution: {integrity: sha512-p2+YcF+JE67SRX3mMlJ1TKCSTsgyOVdAwd/nxp3NuV1+Cb6MWALbN6nT7Ld4tpmYofcE5kcaSY1YBB9erY+6fw==}
     peerDependencies:
       '@types/react': 17 || 18 || 19
 
-  '@lit/reactive-element@2.1.1':
-    resolution: {integrity: sha512-N+dm5PAYdQ8e6UlywyyrgI2t++wFGXfHx+dSJ1oBrg6FAxUj40jId++EaRm80MKX5JnlH1sBsyZ5h0bcZKemCg==}
+  '@lit/reactive-element@2.1.2':
+    resolution: {integrity: sha512-pbCDiVMnne1lYUIaYNN5wrwQXDtHaYtg7YEFPeW+hws6U47WeFvISGUWekPGKWOP1ygrs0ef0o1VJMk1exos5A==}
 
   '@lit/task@1.0.3':
     resolution: {integrity: sha512-1gJGJl8WON+2j0y9xfcD+XsS1rvcy3XDgsIhcdUW++yTR8ESjZW6o7dn8M8a4SZM8NnJe6ynS2cKWwsbfLOurg==}
@@ -2069,8 +2069,8 @@ packages:
   dot-case@3.0.4:
     resolution: {integrity: sha512-Kv5nKlh6yRrdrGvxeJ2e5y2eRUpkUosIW4A2AS38zwSz27zu7ufDwQPi5Jhs3XAlGNetl3bmnGhQsMtkKJnj3w==}
 
-  dot-connect@0.28.1:
-    resolution: {integrity: sha512-FIh8sXM4Lq1X/lZlRMeNxmYyMeoi49nPvjELExSDlKkg7WrQlKLuN+1tR380B0qQ7Gs2xOrAx0v/s2IZwJ3MFw==}
+  dot-connect@0.28.2:
+    resolution: {integrity: sha512-BuA9lCqr2qgYp/Jued78j1dbIQ3yF79x8Nmq1t7beZMmi9UAFXcNTFDeVMR27y4w7jDjEO/FANITWHOha3aO6A==}
     peerDependencies:
       '@reactive-dot/core': '>= 0.64.2'
       react: '>= 18'
@@ -2081,12 +2081,15 @@ packages:
       vue:
         optional: true
 
-  dot-identicon@0.1.6:
-    resolution: {integrity: sha512-BsJe6HYzuNOBoZR+HjHohk/S3G5q7dVOTqAjc4cadAS7VXhd2lbS28e6ooYBi///MIyyBnkRTCXb1G8/ozcKFA==}
+  dot-identicon@0.2.0:
+    resolution: {integrity: sha512-Y7YkhrKSMtFmIT0aggGnxPr4o6aB6VtIBgWj6xdzSe4gIwcCLfL+4owMf9MxRmMkkB5lZzeI2SGlnRGXnNv9og==}
     peerDependencies:
       react: '>= 18'
+      vue: '>= 3'
     peerDependenciesMeta:
       react:
+        optional: true
+      vue:
         optional: true
 
   electron-to-chromium@1.5.267:
@@ -2573,14 +2576,14 @@ packages:
   lines-and-columns@1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
 
-  lit-element@4.2.1:
-    resolution: {integrity: sha512-WGAWRGzirAgyphK2urmYOV72tlvnxw7YfyLDgQ+OZnM9vQQBQnumQ7jUJe6unEzwGU3ahFOjuz1iz1jjrpCPuw==}
+  lit-element@4.2.2:
+    resolution: {integrity: sha512-aFKhNToWxoyhkNDmWZwEva2SlQia+jfG0fjIWV//YeTaWrVnOxD89dPKfigCUspXFmjzOEUQpOkejH5Ly6sG0w==}
 
-  lit-html@3.3.1:
-    resolution: {integrity: sha512-S9hbyDu/vs1qNrithiNyeyv64c9yqiW9l+DBgI18fL+MTvOtWoFR0FWiyq1TxaYef5wNlpEmzlXoBlZEO+WjoA==}
+  lit-html@3.3.2:
+    resolution: {integrity: sha512-Qy9hU88zcmaxBXcc10ZpdK7cOLXvXpRoBxERdtqV9QOrfpMZZ6pSYP91LhpPtap3sFMUiL7Tw2RImbe0Al2/kw==}
 
-  lit@3.3.1:
-    resolution: {integrity: sha512-Ksr/8L3PTapbdXJCk+EJVB78jDodUMaP54gD24W186zGRARvwrsPfS60wae/SSCTCNZVPd1chXqio1qHQmu4NA==}
+  lit@3.3.2:
+    resolution: {integrity: sha512-NF9zbsP79l4ao2SNrH3NkfmFgN/hBYSQo90saIVI1o5GpjAdCPVstVzO1MrLOakHoEhYkrtRjPK6Ob521aoYWQ==}
 
   load-tsconfig@0.2.5:
     resolution: {integrity: sha512-IXO6OCs9yg8tMKzfPZ1YmheJbZCiEsnBdcB03l0OcfK9prKnJb96siuHCr5Fl37/yo9DnKU+TLpxzTUspw9shg==}
@@ -3802,22 +3805,22 @@ snapshots:
 
   '@lit-labs/signals@0.1.3':
     dependencies:
-      lit: 3.3.1
+      lit: 3.3.2
       signal-polyfill: 0.2.2
 
-  '@lit-labs/ssr-dom-shim@1.4.0': {}
+  '@lit-labs/ssr-dom-shim@1.5.0': {}
 
   '@lit/react@1.0.8(@types/react@19.2.7)':
     dependencies:
       '@types/react': 19.2.7
 
-  '@lit/reactive-element@2.1.1':
+  '@lit/reactive-element@2.1.2':
     dependencies:
-      '@lit-labs/ssr-dom-shim': 1.4.0
+      '@lit-labs/ssr-dom-shim': 1.5.0
 
   '@lit/task@1.0.3':
     dependencies:
-      '@lit/reactive-element': 2.1.1
+      '@lit/reactive-element': 2.1.2
 
   '@noble/ciphers@1.3.0': {}
 
@@ -5261,15 +5264,15 @@ snapshots:
       no-case: 3.0.4
       tslib: 2.8.1
 
-  dot-connect@0.28.1(@reactive-dot/core@0.67.3(polkadot-api@1.23.1(jiti@2.6.1)(postcss@8.5.6)(rxjs@7.8.2))(typescript@5.9.3)(zod@4.2.1))(@types/react@19.2.7)(react@19.2.3)(signal-polyfill@0.2.2):
+  dot-connect@0.28.2(@reactive-dot/core@0.67.3(polkadot-api@1.23.1(jiti@2.6.1)(postcss@8.5.6)(rxjs@7.8.2))(typescript@5.9.3)(zod@4.2.1))(@types/react@19.2.7)(react@19.2.3)(signal-polyfill@0.2.2):
     dependencies:
       '@lit-labs/signals': 0.1.3
       '@lit/react': 1.0.8(@types/react@19.2.7)
       '@lit/task': 1.0.3
       '@reactive-dot/core': 0.67.3(polkadot-api@1.23.1(jiti@2.6.1)(postcss@8.5.6)(rxjs@7.8.2))(typescript@5.9.3)(zod@4.2.1)
       '@undecaf/barcode-detector-polyfill': 0.9.23
-      dot-identicon: 0.1.6(@types/react@19.2.7)(react@19.2.3)
-      lit: 3.3.1
+      dot-identicon: 0.2.0(@types/react@19.2.7)(react@19.2.3)
+      lit: 3.3.2
       qrcode: 1.5.4
       signal-utils: 0.21.1(signal-polyfill@0.2.2)
     optionalDependencies:
@@ -5278,12 +5281,12 @@ snapshots:
       - '@types/react'
       - signal-polyfill
 
-  dot-identicon@0.1.6(@types/react@19.2.7)(react@19.2.3):
+  dot-identicon@0.2.0(@types/react@19.2.7)(react@19.2.3):
     dependencies:
       '@lit/react': 1.0.8(@types/react@19.2.7)
       '@noble/hashes': 2.0.1
       '@polkadot-api/substrate-bindings': 0.16.5
-      lit: 3.3.1
+      lit: 3.3.2
     optionalDependencies:
       react: 19.2.3
     transitivePeerDependencies:
@@ -5771,21 +5774,21 @@ snapshots:
 
   lines-and-columns@1.2.4: {}
 
-  lit-element@4.2.1:
+  lit-element@4.2.2:
     dependencies:
-      '@lit-labs/ssr-dom-shim': 1.4.0
-      '@lit/reactive-element': 2.1.1
-      lit-html: 3.3.1
+      '@lit-labs/ssr-dom-shim': 1.5.0
+      '@lit/reactive-element': 2.1.2
+      lit-html: 3.3.2
 
-  lit-html@3.3.1:
+  lit-html@3.3.2:
     dependencies:
       '@types/trusted-types': 2.0.7
 
-  lit@3.3.1:
+  lit@3.3.2:
     dependencies:
-      '@lit/reactive-element': 2.1.1
-      lit-element: 4.2.1
-      lit-html: 3.3.1
+      '@lit/reactive-element': 2.1.2
+      lit-element: 4.2.2
+      lit-html: 3.3.2
 
   load-tsconfig@0.2.5: {}
 

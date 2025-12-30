@@ -106,8 +106,8 @@
 
 @layer base {
   :root {
-    --dc-primary-color: #000;
-    --dc-on-primary-color: #f5f5f5;
+    --dc-primary-color: light-dark(#000, #f5f5f5);
+    --dc-on-primary-color: light-dark(#f5f5f5, #000);
     --dc-surface-color: light-dark(#ffffff, #1e1e1e);
     --dc-on-surface-color: light-dark(#000000, #ffffff);
     --dc-info-color: light-dark(#007aff, #0a84ff);
@@ -168,6 +168,7 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+    color-scheme: dark;
   }
 }
 

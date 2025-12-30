@@ -21,8 +21,12 @@ const config = defineConfig({
   wallets: [new InjectedWalletProvider()],
 })
 
+declare module '@reactive-dot/core' {
+  export interface Register {
+    config: typeof config
+  }
+}
+
 registerDotConnect(config)
 
-// TypeScript cannot emit the light client provider's private symbol, so we only
-// expose the runtime value without the inferred type information.
-export const reactiveConfig = config as never
+export const reactiveConfig = config

@@ -5,7 +5,7 @@
   "packageManager": "pnpm@10.26.1",
   "type": "module",
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
+    "preinstall": "node preinstall.js",
     "postinstall": "papi",
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -62,7 +62,7 @@
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "@types/react-router-dom": "^5.3.3",
-    "@typescript-eslint/eslint-plugin": "^8.51.0",
+    "@typescript-eslint/eslint-plugin": "^8.52.0",
     "@typescript-eslint/parser": "^8.52.0",
     "@vitejs/plugin-react": "^5.1.2",
     "eslint": "^9.39.2",

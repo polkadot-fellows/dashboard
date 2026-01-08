@@ -5,6 +5,7 @@
   "packageManager": "pnpm@10.26.1",
   "type": "module",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "postinstall": "papi",
     "dev": "vite",
     "build": "tsc -b && vite build",

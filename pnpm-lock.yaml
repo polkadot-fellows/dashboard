@@ -57,8 +57,8 @@ importers:
         specifier: ^0.68.2
         version: 0.68.2(polkadot-api@1.23.2(jiti@2.6.1)(postcss@8.5.6)(rxjs@7.8.2))(typescript@5.9.3)(zod@4.2.1)
       '@reactive-dot/react':
-        specifier: ^0.68.0
-        version: 0.68.0(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.8)(polkadot-api@1.23.2(jiti@2.6.1)(postcss@8.5.6)(rxjs@7.8.2))(react@19.2.3)(typescript@5.9.3)(zod@4.2.1)
+        specifier: ^0.68.2
+        version: 0.68.2(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.8)(polkadot-api@1.23.2(jiti@2.6.1)(postcss@8.5.6)(rxjs@7.8.2))(react@19.2.3)(typescript@5.9.3)(zod@4.2.1)
       '@tanstack/react-table':
         specifier: ^8.21.3
         version: 8.21.3(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -1381,8 +1381,8 @@ packages:
     peerDependencies:
       polkadot-api: '>=1.23.2'
 
-  '@reactive-dot/react@0.68.0':
-    resolution: {integrity: sha512-SVwanZN7kO0mgv9NhqYidztZvB8E/bqIypwotlGCu1BKh2w9PP5DR3ZQB7zdxxX1VvrJDXCZmdJpB4d13/vniw==}
+  '@reactive-dot/react@0.68.2':
+    resolution: {integrity: sha512-AF7oo7XjMItmX7fbsgpdJE7HVjWuwql3M1eN7HfQqK9/frCe04QSXNxUuUhFkhMJ+RFuPoN/YXelOzIJLWI/Jg==}
     peerDependencies:
       react: '>= 19.2.x'
 
@@ -4684,7 +4684,7 @@ snapshots:
       - typescript
       - zod
 
-  '@reactive-dot/react@0.68.0(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.8)(polkadot-api@1.23.2(jiti@2.6.1)(postcss@8.5.6)(rxjs@7.8.2))(react@19.2.3)(typescript@5.9.3)(zod@4.2.1)':
+  '@reactive-dot/react@0.68.2(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.8)(polkadot-api@1.23.2(jiti@2.6.1)(postcss@8.5.6)(rxjs@7.8.2))(react@19.2.3)(typescript@5.9.3)(zod@4.2.1)':
     dependencies:
       '@reactive-dot/core': 0.68.2(polkadot-api@1.23.2(jiti@2.6.1)(postcss@8.5.6)(rxjs@7.8.2))(typescript@5.9.3)(zod@4.2.1)
       jotai: 2.16.1(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.8)(react@19.2.3)

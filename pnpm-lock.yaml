@@ -75,8 +75,8 @@ importers:
         specifier: ^3.3.3
         version: 3.3.3
       dot-connect:
-        specifier: ^0.28.3
-        version: 0.28.3(@reactive-dot/core@0.68.2(polkadot-api@1.23.3(jiti@2.6.1)(postcss@8.5.6)(rxjs@7.8.2))(typescript@5.9.3)(zod@4.2.1))(@types/react@19.2.9)(react@19.2.3)(signal-polyfill@0.2.2)
+        specifier: ^0.29.1
+        version: 0.29.1(@reactive-dot/core@0.68.2(polkadot-api@1.23.3(jiti@2.6.1)(postcss@8.5.6)(rxjs@7.8.2))(typescript@5.9.3)(zod@4.2.1))(@types/react@19.2.9)(react@19.2.3)(signal-polyfill@0.2.2)
       lucide-react:
         specifier: ^0.563.0
         version: 0.563.0(react@19.2.3)
@@ -801,9 +801,6 @@ packages:
 
   '@polkadot-api/smoldot@0.3.15':
     resolution: {integrity: sha512-YyV+ytP8FcmKEgLRV7uXepJ5Y6md/7u2F8HKxmkWytmnGXO1z+umg2pHbOxLGifD9V2NhkPY+awpzErtVIzqAA==}
-
-  '@polkadot-api/substrate-bindings@0.16.6':
-    resolution: {integrity: sha512-cATY7HWU5hWd09C1MUEddechq7JT7QAciKL2/N/1wv5rxGcAFyAD9ZtaKBXVI4Aui9RSeGh8KvHdgKFLoozMyQ==}
 
   '@polkadot-api/substrate-bindings@0.17.0':
     resolution: {integrity: sha512-YdbkvG/27N5A94AiKE4soVjDy0Nw74Nn+KD29mUnFmIZvL3fsN/DTYkxvMDVsOuanFXyAIXmzDMoi7iky0fyIw==}
@@ -2222,8 +2219,8 @@ packages:
   dot-case@3.0.4:
     resolution: {integrity: sha512-Kv5nKlh6yRrdrGvxeJ2e5y2eRUpkUosIW4A2AS38zwSz27zu7ufDwQPi5Jhs3XAlGNetl3bmnGhQsMtkKJnj3w==}
 
-  dot-connect@0.28.3:
-    resolution: {integrity: sha512-NV7YTIk0HbV4OIkaqIz4xcI+yN+1qOOyv1TXF7UY+5BdQqTDUZD6u5RB3ttYM/Nzxrxr3ZBpel4A2+en9dhAvA==}
+  dot-connect@0.29.1:
+    resolution: {integrity: sha512-uTEs5TmBGB3qKNBcJVCE8bALDrP8fcAfxeGj67rUaNArjttD4OBzIknbeVBzTF6QDD7xsDHT7M8XMxy81PPGHQ==}
     peerDependencies:
       '@reactive-dot/core': '>= 0.68.2'
       react: '>= 18'
@@ -2234,8 +2231,8 @@ packages:
       vue:
         optional: true
 
-  dot-identicon@0.2.1:
-    resolution: {integrity: sha512-4Te9cPKfb0CLjnE2b8KdKD7fv7jEU/kxICF+mXnfWJh69H5pj3btCdO+Fi1WQzYmzRFZ9Mt4IAGd4G5aYTj6xw==}
+  dot-identicon@0.2.2:
+    resolution: {integrity: sha512-rfYUO+o4IF7lN9cjg3L6cEJ2AHbLvAi4KQOvn36wXJa2iiTTTW2+8w/DIFlhoQUR8VAevivzeiKBkcLx39GEIg==}
     peerDependencies:
       react: '>= 18'
       vue: '>= 3'
@@ -4165,13 +4162,6 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
-  '@polkadot-api/substrate-bindings@0.16.6':
-    dependencies:
-      '@noble/hashes': 2.0.1
-      '@polkadot-api/utils': 0.2.0
-      '@scure/base': 2.0.0
-      scale-ts: 1.6.1
-
   '@polkadot-api/substrate-bindings@0.17.0':
     dependencies:
       '@noble/hashes': 2.0.1
@@ -5524,14 +5514,14 @@ snapshots:
       no-case: 3.0.4
       tslib: 2.8.1
 
-  dot-connect@0.28.3(@reactive-dot/core@0.68.2(polkadot-api@1.23.3(jiti@2.6.1)(postcss@8.5.6)(rxjs@7.8.2))(typescript@5.9.3)(zod@4.2.1))(@types/react@19.2.9)(react@19.2.3)(signal-polyfill@0.2.2):
+  dot-connect@0.29.1(@reactive-dot/core@0.68.2(polkadot-api@1.23.3(jiti@2.6.1)(postcss@8.5.6)(rxjs@7.8.2))(typescript@5.9.3)(zod@4.2.1))(@types/react@19.2.9)(react@19.2.3)(signal-polyfill@0.2.2):
     dependencies:
       '@lit-labs/signals': 0.2.0
       '@lit/react': 1.0.8(@types/react@19.2.9)
       '@lit/task': 1.0.3
       '@reactive-dot/core': 0.68.2(polkadot-api@1.23.3(jiti@2.6.1)(postcss@8.5.6)(rxjs@7.8.2))(typescript@5.9.3)(zod@4.2.1)
       '@undecaf/barcode-detector-polyfill': 0.9.23
-      dot-identicon: 0.2.1(@types/react@19.2.9)(react@19.2.3)
+      dot-identicon: 0.2.2(@types/react@19.2.9)(react@19.2.3)
       lit: 3.3.2
       qrcode: 1.5.4
       signal-utils: 0.21.1(signal-polyfill@0.2.2)
@@ -5541,11 +5531,11 @@ snapshots:
       - '@types/react'
       - signal-polyfill
 
-  dot-identicon@0.2.1(@types/react@19.2.9)(react@19.2.3):
+  dot-identicon@0.2.2(@types/react@19.2.9)(react@19.2.3):
     dependencies:
       '@lit/react': 1.0.8(@types/react@19.2.9)
       '@noble/hashes': 2.0.1
-      '@polkadot-api/substrate-bindings': 0.16.6
+      '@polkadot-api/substrate-bindings': 0.17.0
       lit: 3.3.2
     optionalDependencies:
       react: 19.2.3

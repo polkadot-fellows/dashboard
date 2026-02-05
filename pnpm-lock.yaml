@@ -75,8 +75,8 @@ importers:
         specifier: ^3.3.3
         version: 3.3.3
       dot-connect:
-        specifier: ^0.29.1
-        version: 0.29.1(@reactive-dot/core@0.68.2(polkadot-api@1.23.3(jiti@2.6.1)(postcss@8.5.6)(rxjs@7.8.2))(typescript@5.9.3)(zod@4.2.1))(@types/react@19.2.9)(react@19.2.3)(signal-polyfill@0.2.2)
+        specifier: ^0.30.0
+        version: 0.30.0(@reactive-dot/core@0.68.2(polkadot-api@1.23.3(jiti@2.6.1)(postcss@8.5.6)(rxjs@7.8.2))(typescript@5.9.3)(zod@4.2.1))(@types/react@19.2.9)(react@19.2.3)(signal-polyfill@0.2.2)
       lucide-react:
         specifier: ^0.563.0
         version: 0.563.0(react@19.2.3)
@@ -1887,6 +1887,9 @@ packages:
   '@types/node@25.0.10':
     resolution: {integrity: sha512-zWW5KPngR/yvakJgGOmZ5vTBemDoSqF3AcV/LrO5u5wTWyEAVVh+IT39G4gtyAkh3CtTZs8aX/yRM82OfzHJRg==}
 
+  '@types/node@25.2.1':
+    resolution: {integrity: sha512-CPrnr8voK8vC6eEtyRzvMpgp3VyVRhgclonE7qYi6P9sXwYb59ucfrnmFBTaP0yUi8Gk4yZg/LlTJULGxvTNsg==}
+
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
 
@@ -2219,8 +2222,8 @@ packages:
   dot-case@3.0.4:
     resolution: {integrity: sha512-Kv5nKlh6yRrdrGvxeJ2e5y2eRUpkUosIW4A2AS38zwSz27zu7ufDwQPi5Jhs3XAlGNetl3bmnGhQsMtkKJnj3w==}
 
-  dot-connect@0.29.1:
-    resolution: {integrity: sha512-uTEs5TmBGB3qKNBcJVCE8bALDrP8fcAfxeGj67rUaNArjttD4OBzIknbeVBzTF6QDD7xsDHT7M8XMxy81PPGHQ==}
+  dot-connect@0.30.0:
+    resolution: {integrity: sha512-koKesX2rWj8ywvzslGwVKctMRaf9TLaZsGqYH9WnCImaJk5bsVdkNqfCvL59nnsSOul+Nmw5IuD7ZMF1LEx6Fg==}
     peerDependencies:
       '@reactive-dot/core': '>= 0.68.2'
       react: '>= 18'
@@ -5172,7 +5175,7 @@ snapshots:
 
   '@types/bn.js@5.2.0':
     dependencies:
-      '@types/node': 25.0.10
+      '@types/node': 25.2.1
 
   '@types/estree@1.0.8': {}
 
@@ -5185,6 +5188,10 @@ snapshots:
       undici-types: 7.16.0
 
   '@types/node@25.0.10':
+    dependencies:
+      undici-types: 7.16.0
+
+  '@types/node@25.2.1':
     dependencies:
       undici-types: 7.16.0
 
@@ -5514,7 +5521,7 @@ snapshots:
       no-case: 3.0.4
       tslib: 2.8.1
 
-  dot-connect@0.29.1(@reactive-dot/core@0.68.2(polkadot-api@1.23.3(jiti@2.6.1)(postcss@8.5.6)(rxjs@7.8.2))(typescript@5.9.3)(zod@4.2.1))(@types/react@19.2.9)(react@19.2.3)(signal-polyfill@0.2.2):
+  dot-connect@0.30.0(@reactive-dot/core@0.68.2(polkadot-api@1.23.3(jiti@2.6.1)(postcss@8.5.6)(rxjs@7.8.2))(typescript@5.9.3)(zod@4.2.1))(@types/react@19.2.9)(react@19.2.3)(signal-polyfill@0.2.2):
     dependencies:
       '@lit-labs/signals': 0.2.0
       '@lit/react': 1.0.8(@types/react@19.2.9)

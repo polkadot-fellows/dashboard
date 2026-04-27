@@ -1,8 +1,7 @@
 name: GitHub Pages Publish
 
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:
 
 jobs:
   gh-deploy:

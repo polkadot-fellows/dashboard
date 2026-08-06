@@ -122,7 +122,7 @@ export const resources: ResourcesType[] = [
       },
       {
         label: 'Polkadot SDK Mentor issues',
-        link: 'https://mentor.tasty.limo/',
+        link: 'https://github.com/paritytech/polkadot-sdk/issues?q=is%3Aopen+label%3AC1-mentor',
         target: '_blank',
       },
       {

@@ -57,8 +57,8 @@ importers:
         specifier: ^0.68.2
         version: 0.68.2(polkadot-api@1.23.3(jiti@2.6.1)(postcss@8.5.6)(rxjs@7.8.2))(typescript@5.9.3)(zod@4.2.1)
       '@reactive-dot/react':
-        specifier: ^0.68.3
-        version: 0.68.3(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.9)(polkadot-api@1.23.3(jiti@2.6.1)(postcss@8.5.6)(rxjs@7.8.2))(react@19.2.3)(typescript@5.9.3)(zod@4.2.1)
+        specifier: ^0.70.0
+        version: 0.70.0(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.9)(polkadot-api@1.23.3(jiti@2.6.1)(postcss@8.5.6)(rxjs@7.8.2))(react@19.2.3)(typescript@5.9.3)(zod@4.2.1)
       '@tanstack/react-table':
         specifier: ^8.21.3
         version: 8.21.3(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -1385,8 +1385,13 @@ packages:
     peerDependencies:
       polkadot-api: '>=1.23.2'
 
-  '@reactive-dot/react@0.68.3':
-    resolution: {integrity: sha512-8cYvddOhPJV6ps3lKFhVz+32jhY19/kjJnR+pK69wGhS3MRf22Fy9ywm5h3u/McSW68JHqPExSy7+qnI0JDcDg==}
+  '@reactive-dot/core@0.70.0':
+    resolution: {integrity: sha512-bYOflBLHhNqgGs1icv9bgxL4/r48H+dWWfsV7Abze4snIOtCHx5BrsnQuzBppTIsd0h9YTT4PnzAhVLA41VD5g==}
+    peerDependencies:
+      polkadot-api: '>=1.23.2'
+
+  '@reactive-dot/react@0.70.0':
+    resolution: {integrity: sha512-YsUpy+Xl/VOB9Nj6JA3yQf8owSPr1N53XEcA2R0U6V+BAI0NuBXL7c4my02Z0Gk6rI4JNy7jyf0CaALDs2Ye1g==}
     peerDependencies:
       react: '>= 19.2.x'
 
@@ -1886,6 +1891,9 @@ packages:
 
   '@types/node@25.0.10':
     resolution: {integrity: sha512-zWW5KPngR/yvakJgGOmZ5vTBemDoSqF3AcV/LrO5u5wTWyEAVVh+IT39G4gtyAkh3CtTZs8aX/yRM82OfzHJRg==}
+
+  '@types/node@25.2.3':
+    resolution: {integrity: sha512-m0jEgYlYz+mDJZ2+F4v8D1AyQb+QzsNqRuI7xg1VQX/KlKS0qT9r1Mo16yo5F/MtifXFgaofIFsdFMox2SxIbQ==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -2584,8 +2592,8 @@ packages:
       jotai: '>=2.12.2'
       react: '>=18.0.0'
 
-  jotai@2.16.2:
-    resolution: {integrity: sha512-DH0lBiTXvewsxtqqwjDW6Hg9JPTDnq9LcOsXSFWCAUEt+qj5ohl9iRVX9zQXPPHKLXCdH+5mGvM28fsXMl17/g==}
+  jotai@2.17.1:
+    resolution: {integrity: sha512-TFNZZDa/0ewCLQyRC/Sq9crtixNj/Xdf/wmj9631xxMuKToVJZDbqcHIYN0OboH+7kh6P6tpIK7uKWClj86PKw==}
     engines: {node: '>=12.20.0'}
     peerDependencies:
       '@babel/core': '>=7.0.0'
@@ -2863,6 +2871,14 @@ packages:
 
   ox@0.11.3:
     resolution: {integrity: sha512-1bWYGk/xZel3xro3l8WGg6eq4YEKlaqvyMtVhfMFpbJzK2F6rj4EDRtqDCWVEJMkzcmEi9uW2QxsqELokOlarw==}
+    peerDependencies:
+      typescript: '>=5.4.0'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+
+  ox@0.12.1:
+    resolution: {integrity: sha512-uU0llpthaaw4UJoXlseCyBHmQ3bLrQmz9rRLIAUHqv46uHuae9SE+ukYBRIPVCnlEnHKuWjDUcDFHWx9gbGNoA==}
     peerDependencies:
       typescript: '>=5.4.0'
     peerDependenciesMeta:
@@ -4794,13 +4810,24 @@ snapshots:
       - typescript
       - zod
 
-  '@reactive-dot/react@0.68.3(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.9)(polkadot-api@1.23.3(jiti@2.6.1)(postcss@8.5.6)(rxjs@7.8.2))(react@19.2.3)(typescript@5.9.3)(zod@4.2.1)':
+  '@reactive-dot/core@0.70.0(polkadot-api@1.23.3(jiti@2.6.1)(postcss@8.5.6)(rxjs@7.8.2))(typescript@5.9.3)(zod@4.2.1)':
     dependencies:
-      '@reactive-dot/core': 0.68.2(polkadot-api@1.23.3(jiti@2.6.1)(postcss@8.5.6)(rxjs@7.8.2))(typescript@5.9.3)(zod@4.2.1)
-      jotai: 2.16.2(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.9)(react@19.2.3)
-      jotai-eager: 0.2.4(jotai@2.16.2(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.9)(react@19.2.3))
-      jotai-effect: 2.2.3(jotai@2.16.2(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.9)(react@19.2.3))
-      jotai-suspense: 0.4.2(jotai@2.16.2(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.9)(react@19.2.3))(react@19.2.3)
+      '@noble/hashes': 2.0.1
+      '@reactive-dot/utils': 0.10.3
+      '@substrate/smoldot-discovery': 2.0.2
+      ox: 0.12.1(typescript@5.9.3)(zod@4.2.1)
+      polkadot-api: 1.23.3(jiti@2.6.1)(postcss@8.5.6)(rxjs@7.8.2)
+    transitivePeerDependencies:
+      - typescript
+      - zod
+
+  '@reactive-dot/react@0.70.0(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.9)(polkadot-api@1.23.3(jiti@2.6.1)(postcss@8.5.6)(rxjs@7.8.2))(react@19.2.3)(typescript@5.9.3)(zod@4.2.1)':
+    dependencies:
+      '@reactive-dot/core': 0.70.0(polkadot-api@1.23.3(jiti@2.6.1)(postcss@8.5.6)(rxjs@7.8.2))(typescript@5.9.3)(zod@4.2.1)
+      jotai: 2.17.1(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.9)(react@19.2.3)
+      jotai-eager: 0.2.4(jotai@2.17.1(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.9)(react@19.2.3))
+      jotai-effect: 2.2.3(jotai@2.17.1(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.9)(react@19.2.3))
+      jotai-suspense: 0.4.2(jotai@2.17.1(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.9)(react@19.2.3))(react@19.2.3)
       react: 19.2.3
     transitivePeerDependencies:
       - '@babel/core'
@@ -5172,7 +5199,7 @@ snapshots:
 
   '@types/bn.js@5.2.0':
     dependencies:
-      '@types/node': 25.0.10
+      '@types/node': 25.2.3
 
   '@types/estree@1.0.8': {}
 
@@ -5185,6 +5212,10 @@ snapshots:
       undici-types: 7.16.0
 
   '@types/node@25.0.10':
+    dependencies:
+      undici-types: 7.16.0
+
+  '@types/node@25.2.3':
     dependencies:
       undici-types: 7.16.0
 
@@ -5914,20 +5945,20 @@ snapshots:
 
   jiti@2.6.1: {}
 
-  jotai-eager@0.2.4(jotai@2.16.2(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.9)(react@19.2.3)):
+  jotai-eager@0.2.4(jotai@2.17.1(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.9)(react@19.2.3)):
     dependencies:
-      jotai: 2.16.2(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.9)(react@19.2.3)
+      jotai: 2.17.1(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.9)(react@19.2.3)
 
-  jotai-effect@2.2.3(jotai@2.16.2(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.9)(react@19.2.3)):
+  jotai-effect@2.2.3(jotai@2.17.1(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.9)(react@19.2.3)):
     dependencies:
-      jotai: 2.16.2(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.9)(react@19.2.3)
+      jotai: 2.17.1(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.9)(react@19.2.3)
 
-  jotai-suspense@0.4.2(jotai@2.16.2(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.9)(react@19.2.3))(react@19.2.3):
+  jotai-suspense@0.4.2(jotai@2.17.1(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.9)(react@19.2.3))(react@19.2.3):
     dependencies:
-      jotai: 2.16.2(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.9)(react@19.2.3)
+      jotai: 2.17.1(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.9)(react@19.2.3)
       react: 19.2.3
 
-  jotai@2.16.2(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.9)(react@19.2.3):
+  jotai@2.17.1(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.9)(react@19.2.3):
     optionalDependencies:
       '@babel/core': 7.28.5
       '@babel/template': 7.27.2
@@ -6177,6 +6208,21 @@ snapshots:
       string-width: 8.1.0
 
   ox@0.11.3(typescript@5.9.3)(zod@4.2.1):
+    dependencies:
+      '@adraffy/ens-normalize': 1.11.1
+      '@noble/ciphers': 1.3.0
+      '@noble/curves': 1.9.1
+      '@noble/hashes': 1.8.0
+      '@scure/bip32': 1.7.0
+      '@scure/bip39': 1.6.0
+      abitype: 1.2.3(typescript@5.9.3)(zod@4.2.1)
+      eventemitter3: 5.0.1
+    optionalDependencies:
+      typescript: 5.9.3
+    transitivePeerDependencies:
+      - zod
+
+  ox@0.12.1(typescript@5.9.3)(zod@4.2.1):
     dependencies:
       '@adraffy/ens-normalize': 1.11.1
       '@noble/ciphers': 1.3.0

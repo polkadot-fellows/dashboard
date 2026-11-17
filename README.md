@@ -30,3 +30,10 @@ pnpm preview   # serve the production build locally
 ```
 
 After a runtime upgrade, refresh the chain metadata with `pnpm papi update`.
+
+## Deployment
+
+Every push to `main` is built and published to GitHub Pages by
+`.github/workflows/gh-publish.yml` (it can also be triggered manually). The
+site is served at <https://polkadot-fellows.xyz>; `public/CNAME` is what binds
+the GitHub Pages site to that domain.

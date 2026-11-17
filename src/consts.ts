@@ -1,104 +1,53 @@
-/*
- * Global Constants
- */
-const AppVersion = '0.2.0'
-const DappName = 'Polkadot Technical Fellowship Dashboard'
-const PolkadotUrl = 'https://polkadot-fellows.xyz'
+export const DappName = 'Polkadot Technical Fellowship Dashboard'
 
-const GithubOwner = 'polkadot-fellows'
-const GithubRfc = 'RFCs'
-const GithubApiUrl = `https://api.github.com/repos/${GithubOwner}/${GithubRfc}`
+export const GithubOwner = 'polkadot-fellows'
+export const GithubUrl = `https://github.com/${GithubOwner}`
+export const RfcRepoUrl = `${GithubUrl}/RFCs`
+export const RfcApiUrl = `https://api.github.com/repos/${GithubOwner}/RFCs`
+export const ManifestoUrl = `${GithubUrl}/manifesto/blob/0c3df46d76625980b8b48742cb86f4d8fa6dda8d/manifesto.pdf`
 
-const SideMenuMaximisedWidth = 185
-const SideMenuMinimisedWidth = 75
-const SideMenuStickyThreshold = 1150
-const SectionFullWidthThreshold = 1000
-const ShowAccountsButtonWidthThreshold = 825
-const FloatingMenuWidth = 250
-const SmallFontSizeMaxWidth = 600
-const TipsThresholdSmall = 750
-const TipsThresholdMedium = 1200
-
-const collapsedWidth = '6rem'
-const uncollapsedWidth = '16rem'
-const type = 'inline'
-
-type RankInfoType = {
+export type RankInfo = {
   rank: number
+  /** Roman numeral of the "Dan" */
   dan: string
   name: string
+  /** Badge background and foreground colors */
   color: string
+  textColor: string
+  /** Yearly salary, in USD */
   salary: number
 }
-const reusableH1 =
-  'font-dm-serif text-primary flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0'
 
-// Page constants
-const rankInfo: RankInfoType[] = [
-  { rank: 0, dan: '', name: 'Candidate', color: '#738DFF', salary: 0 },
-  { rank: 1, dan: 'I', name: 'Member', color: '#3535FF', salary: 10000 },
-  { rank: 2, dan: 'II', name: 'Proficient', color: '#1A0099', salary: 20000 },
-  { rank: 3, dan: 'III', name: 'Fellow', color: '#008000', salary: 80000 },
-  { rank: 4, dan: 'IV', name: 'Architect', color: '#00BF63', salary: 120000 },
-  {
-    rank: 5,
-    dan: 'V',
-    name: 'Architect Adept',
-    color: '#C8D630',
-    salary: 160000,
-  },
-  {
-    rank: 6,
-    dan: 'VI',
-    name: 'Grand Architect',
-    color: '#D30000',
-    salary: 200000,
-  },
-  {
-    rank: 7,
-    dan: 'VII',
-    name: 'Free Master',
-    color: '#E6007A',
-    salary: 200000,
-  },
-  {
-    rank: 8,
-    dan: 'VIII',
-    name: 'Master Constant',
-    color: '#FF00FF',
-    salary: 200000,
-  },
-  {
-    rank: 9,
-    dan: 'IX',
-    name: 'Grand Master',
-    color: '#FFD700',
-    salary: 200000,
-  },
+const ranks: [string, string, string, string, number][] = [
+  ['', 'Candidate', '#738DFF', '#0b1030', 0],
+  ['I', 'Member', '#3535FF', '#ffffff', 10_000],
+  ['II', 'Proficient', '#2A12B8', '#ffffff', 20_000],
+  ['III', 'Fellow', '#008000', '#ffffff', 80_000],
+  ['IV', 'Architect', '#00BF63', '#04240f', 120_000],
+  ['V', 'Architect Adept', '#C8D630', '#262a00', 160_000],
+  ['VI', 'Grand Architect', '#D30000', '#ffffff', 200_000],
+  ['VII', 'Free Master', '#E6007A', '#ffffff', 200_000],
+  ['VIII', 'Master Constant', '#FF00FF', '#2b002b', 200_000],
+  ['IX', 'Grand Master', '#FFD700', '#2b2400', 200_000],
 ]
 
-// Exports
-export {
-  AppVersion,
-  DappName,
-  PolkadotUrl,
-  GithubOwner,
-  GithubRfc,
-  GithubApiUrl,
-  SideMenuMaximisedWidth,
-  SideMenuMinimisedWidth,
-  SideMenuStickyThreshold,
-  SectionFullWidthThreshold,
-  ShowAccountsButtonWidthThreshold,
-  FloatingMenuWidth,
-  SmallFontSizeMaxWidth,
-  TipsThresholdSmall,
-  TipsThresholdMedium,
-  collapsedWidth,
-  uncollapsedWidth,
-  type,
-  // site details
-  rankInfo,
-  //Styling
-  reusableH1,
-}
+export const rankInfo: RankInfo[] = ranks.map(
+  ([dan, name, color, textColor, salary], rank) => ({
+    rank,
+    dan,
+    name,
+    color,
+    textColor,
+    salary,
+  }),
+)
+
+export const getRank = (rank: number): RankInfo =>
+  rankInfo[rank] ?? {
+    rank,
+    dan: String(rank),
+    name: `Rank ${rank}`,
+    color: '#888888',
+    textColor: '#ffffff',
+    salary: 0,
+  }

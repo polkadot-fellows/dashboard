@@ -1,0 +1,26 @@
+var e=`{
+  "name": "Collectives",
+  "id": "collectives_polkadot",
+  "chainType": "Live",
+  "bootNodes": [
+    "/dns/polkadot-collectives-connect-ew6-0.polkadot.io/tcp/30334/p2p/12D3KooWLDZT5gAjMtC8fojiCwiz17SC61oeX2C7GWBCqqf9TwVD",
+    "/dns/polkadot-collectives-connect-ew6-1.polkadot.io/tcp/30334/p2p/12D3KooWC9BwKMDyRUTXsE7teSmoKMgbyxqAp3zi2MTGRJR5nhCL",
+    "/dns/polkadot-collectives-connect-ew6-0.polkadot.io/tcp/443/wss/p2p/12D3KooWLDZT5gAjMtC8fojiCwiz17SC61oeX2C7GWBCqqf9TwVD",
+    "/dns/polkadot-collectives-connect-ew6-1.polkadot.io/tcp/443/wss/p2p/12D3KooWC9BwKMDyRUTXsE7teSmoKMgbyxqAp3zi2MTGRJR5nhCL",
+    "/dns/collectives-polkadot-bootnode.turboflakes.io/tcp/30705/wss/p2p/12D3KooWPyzM7eX64J4aG8uRfSARakDVtiEtthEM8FUjrLWAg2sC",
+    "/dns/collectives-polkadot.bootnode.amforc.com/tcp/29999/wss/p2p/12D3KooWL6v6FHMtCP5VsiDbMHLRFiW6YBtv37BarpW3hLqnDski",
+    "/dns/boot-polkadot-collectives.luckyfriday.io/tcp/443/wss/p2p/12D3KooWCzifnPooTt4kvTnXT7FTKTymVL7xn7DURQLsS2AKpf6w"
+  ],
+  "properties": {
+    "ss58Format": 0,
+    "tokenDecimals": 10,
+    "tokenSymbol": "DOT"
+  },
+  "relay_chain": "polkadot",
+  "para_id": 1001,
+  "codeSubstitutes": {},
+  "genesis": {
+    "stateRootHash": "0x034cb60129ef41b444b28dbd93dcf2a2314b6e84d950358de47e6b7831673ba7"
+  }
+}
+`;export{e as chainSpec};

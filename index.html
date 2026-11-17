@@ -3,7 +3,8 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="Permissions-Policy" content="interest-cohort=()" />
-    <link rel="icon" href="/dashboard/assets/favicon-Jm_khw5F.ico" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="theme-color" content="#e6007a" />
     <meta name="msapplication-TileColor" content="#e6007a" />
 
     <meta name="title" content="Polkadot Technical Fellowship" />
@@ -14,10 +15,7 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta
-      property="og:url"
-      content="https://polkadot-fellows.github.io/dashboard"
-    />
+    <meta property="og:url" content="https://polkadot-fellows.xyz" />
     <meta
       property="og:title"
       content="Polkadot Technical Fellowship Collective"
@@ -28,7 +26,7 @@
     />
     <meta
       property="og:image"
-      content="https://polkadot-fellows.github.io/dashboard/img/twitter.png"
+      content="https://polkadot-fellows.xyz/img/twitter.png"
     />
 
     <!-- Twitter -->
@@ -40,13 +38,23 @@
     />
     <meta
       property="twitter:image"
-      content="https://polkadot-fellows.github.io/dashboard/img/twitter.png"
+      content="https://polkadot-fellows.xyz/img/twitter.png"
     />
 
-
     <title>Polkadot Technical Fellowship</title>
-    <script type="module" crossorigin src="/dashboard/assets/index-CYw1eJWS.js"></script>
-    <link rel="stylesheet" crossorigin href="/dashboard/assets/index-DiGJumav.css">
+    <script>
+      // Apply the theme before the first paint (see `src/state/theme.tsx`)
+      try {
+        var theme = localStorage.getItem('fellowship-theme')
+        if (
+          theme === 'dark' ||
+          (!theme && matchMedia('(prefers-color-scheme: dark)').matches)
+        )
+          document.documentElement.classList.add('dark')
+      } catch (e) {}
+    </script>
+    <script type="module" crossorigin src="/assets/index-CSq98nYH.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CSEsl01w.css">
   </head>
   <body>
     <div id="root"></div>

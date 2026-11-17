@@ -1,4 +1,4 @@
-var o=`{
+var e=`{
   "name": "Polkadot People",
   "id": "people-polkadot",
   "chainType": "Live",
@@ -6,9 +6,7 @@ var o=`{
     "/dns/polkadot-people-connect-0.polkadot.io/tcp/30334/p2p/12D3KooWP7BoJ7nAF9QnsreN8Eft1yHNUhvhxFiQyKFEUePi9mu3",
     "/dns/polkadot-people-connect-1.polkadot.io/tcp/30334/p2p/12D3KooWSSfWY3fTGJvGkuNUNBSNVCdLLNJnwkZSNQt7GCRYXu4o",
     "/dns/polkadot-people-connect-0.polkadot.io/tcp/443/wss/p2p/12D3KooWP7BoJ7nAF9QnsreN8Eft1yHNUhvhxFiQyKFEUePi9mu3",
-    "/dns/polkadot-people-connect-1.polkadot.io/tcp/443/wss/p2p/12D3KooWSSfWY3fTGJvGkuNUNBSNVCdLLNJnwkZSNQt7GCRYXu4o",
-    "/dns/people-polkadot-boot-ng.dwellir.com/tcp/443/wss/p2p/12D3KooWKMYu1L28TkDf1ooMW8D8PHcztLnjV3bausH9eiVTRUYN",
-    "/dns/people-polkadot-boot-ng.dwellir.com/tcp/30346/p2p/12D3KooWKMYu1L28TkDf1ooMW8D8PHcztLnjV3bausH9eiVTRUYN"
+    "/dns/polkadot-people-connect-1.polkadot.io/tcp/443/wss/p2p/12D3KooWSSfWY3fTGJvGkuNUNBSNVCdLLNJnwkZSNQt7GCRYXu4o"
   ],
   "telemetryEndpoints": null,
   "protocolId": null,
@@ -24,4 +22,4 @@ var o=`{
     "stateRootHash": "0x7a62a14ebf9b2e86292593414d58818324acc5701ea369734c0074f7c962bc0f"
   }
 }
-`;export{o as chainSpec};
+`;export{e as chainSpec};

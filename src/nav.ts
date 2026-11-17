@@ -133,16 +133,11 @@ export const resources: { title: string; links: ResourceLink[] }[] = [
     links: [
       {
         label: 'Polkadot Blockchain Academy',
-        href: 'https://polkadot.network/development/blockchain-academy/',
-      },
-      {
-        label: 'Kudos',
-        href: 'https://www.morekudos.com/explore/open-contributions-for-polkadot-sdk',
-        description: 'Open contributions for the Polkadot SDK',
+        href: 'https://polkadot.academy/',
       },
       {
         label: 'Polkadot SDK mentor issues',
-        href: 'https://mentor.tasty.limo/',
+        href: 'https://github.com/paritytech/polkadot-sdk/issues?q=is%3Aissue+is%3Aopen+label%3AC1-mentor',
       },
       {
         label: 'Polkadot project ideas',

@@ -139,7 +139,7 @@ export const Governance = () => (
             <p>
               More detailed instructions for locating relevant spend data
               on-chain and claiming payouts can be found in the{' '}
-              <A href="https://wiki.polkadot.network/docs/learn-guides-treasury#manually-claiming-payouts">
+              <A href="https://wiki.polkadot.com/learn/learn-guides-treasury/#manually-claiming-payouts">
                 Polkadot Wiki
               </A>
               .

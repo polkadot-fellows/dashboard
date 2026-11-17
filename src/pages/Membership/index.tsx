@@ -20,7 +20,7 @@ export const Membership = () => (
               <A href="https://github.com/polkadot-fellows/seeding">seeded</A>{' '}
               with its members and their corresponding ranks in November 2022
               and then{' '}
-              <A href="https://polkadot.polkassembly.io/motion/403">
+              <A href="https://polkadot-old.polkassembly.io/motion/403">
                 added on to Polkadot's Collectives
               </A>{' '}
               system chain. Membership is now entirely managed on-chain through
@@ -84,7 +84,7 @@ export const Membership = () => (
               <li>Contribution(s) to Polkadot SDK (if any)</li>
               <li>Link to the GitHub profile of the applicant</li>
               <li>
-                <A href="https://wiki.polkadot.network/docs/learn-identity">
+                <A href="https://wiki.polkadot.com/learn/learn-identity/">
                   Polkadot address with a verified on-chain identity
                 </A>
               </li>
@@ -108,7 +108,7 @@ export const Membership = () => (
               yet. To be added as a candidate, a pre-existing member with rank
               greater than or equal to 1 can initiate this process by submitting
               the signed <code>induct</code> call, as shown below in the{' '}
-              <A href="https://collectives.subsquare.io/fellowship/core">
+              <A href="https://collectives.subsquare.io/fellowship/members">
                 Core Fellowship page
               </A>
               .
@@ -146,7 +146,7 @@ export const Membership = () => (
               Fellowship must submit proofs of the work they have undertaken in
               recent months. As a minimum, members need to provide the following
               information in their{' '}
-              <A href="https://github.com/polkadot-fellows/Evidences?tab=readme-ov-file#process">
+              <A href="https://github.com/polkadot-fellows/Evaluations?tab=readme-ov-file#process">
                 argument report
               </A>
               :
@@ -170,7 +170,7 @@ export const Membership = () => (
             </ul>
             <p>
               Arguments need to be submitted on-chain{' '}
-              <A href="https://github.com/polkadot-fellows/Evidences?tab=readme-ov-file#timelines">
+              <A href="https://github.com/polkadot-fellows/Evaluations?tab=readme-ov-file#timelines">
                 before expiry of the demotion period
               </A>
               , as shown below.
@@ -186,7 +186,7 @@ export const Membership = () => (
             <p>
               Upon successful execution of the extrinsic, the retention evidence
               will be displayed on the{' '}
-              <A href="https://collectives.subsquare.io/fellowship/core">
+              <A href="https://collectives.subsquare.io/fellowship/members">
                 Core Fellowship page
               </A>
               . Afterwards, a proposal will be submitted to approve this
@@ -202,7 +202,9 @@ export const Membership = () => (
           <>
             <p>
               Provided they have submitted sufficient{' '}
-              <A href="https://github.com/polkadot-fellows/Evidences">proofs</A>{' '}
+              <A href="https://github.com/polkadot-fellows/Evaluations">
+                proofs
+              </A>{' '}
               to sustain their request, any member of the Polkadot Technical
               Fellowship of Rank 1-4 can be promoted to the next rank by
               approval voting of members who are 2 ranks higher. For instance, a

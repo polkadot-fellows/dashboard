@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { Polkicon } from '@polkadot-ui/react'
+import { Identicon } from '@/components/Identicon'
 import {
   ArrowDown,
   ArrowUp,
@@ -175,7 +175,7 @@ export const MembersTable = ({
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-3">
                       <span className="shrink-0">
-                        <Polkicon address={member.address} size={36} />
+                        <Identicon address={member.address} size={36} />
                       </span>
                       <div className="min-w-0">
                         <button

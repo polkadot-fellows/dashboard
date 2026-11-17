@@ -1,5 +1,5 @@
 import { type ReactNode, useEffect, useState } from 'react'
-import { Polkicon } from '@polkadot-ui/react'
+import { Identicon } from '@/components/Identicon'
 import { ArrowUpRight, Copy, Globe, Mail, MessageCircle } from 'lucide-react'
 import { api } from '@/clients'
 import { GithubIcon, XIcon } from '@/components/icons'
@@ -86,7 +86,7 @@ const MemberDetails = ({ member }: { member: Member }) => {
   return (
     <>
       <DialogHeader className="items-center text-center sm:text-center">
-        <Polkicon address={address} size={72} />
+        <Identicon address={address} size={72} />
         <DialogTitle className="mt-3 text-lg">
           <MemberName member={member} />
         </DialogTitle>

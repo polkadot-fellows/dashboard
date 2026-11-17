@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Polkicon } from '@polkadot-ui/react'
+import { Identicon } from '@/components/Identicon'
 import { RankBadge } from '@/components/RankBadge'
 import { Button } from '@/components/ui/button'
 import { useAccount } from '@/contexts/AccountContextProvider'
@@ -24,7 +24,7 @@ export const MyMembership = ({
       aria-label="Your membership"
       className="bg-card mb-12 flex flex-wrap items-center gap-4 rounded-xl border p-5"
     >
-      <Polkicon address={address} size={44} />
+      <Identicon address={address} size={44} />
       <div className="min-w-0 flex-1">
         <p className="flex flex-wrap items-center gap-2 font-medium">
           <span className="truncate">

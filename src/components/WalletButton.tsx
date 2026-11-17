@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Polkicon } from '@polkadot-ui/react'
+import { Identicon } from '@/components/Identicon'
 import { Check, ChevronDown, LogOut, Wallet } from 'lucide-react'
 import { toast } from 'sonner'
 import { Button } from '@/components/ui/button'
@@ -83,7 +83,7 @@ export const WalletButton = () => {
         <Button variant="outline" className="gap-2 rounded-full pr-3 pl-2">
           {selectedAccount ? (
             <>
-              <Polkicon address={selectedAccount.address} size={24} />
+              <Identicon address={selectedAccount.address} size={24} />
               <span className="hidden max-w-32 truncate sm:inline">
                 {selectedAccount.name ||
                   shortAddress(selectedAccount.address, 4)}
@@ -114,7 +114,7 @@ export const WalletButton = () => {
                 className="cursor-pointer gap-3"
                 onSelect={() => selectAccount(account.address)}
               >
-                <Polkicon address={account.address} size={28} />
+                <Identicon address={account.address} size={28} />
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-2">
                     <span className="truncate text-sm font-medium">

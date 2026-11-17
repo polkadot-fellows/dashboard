@@ -1,121 +1,120 @@
 /* eslint-disable react-refresh/only-export-components */
-import React, { useState, createContext, useContext, useEffect } from 'react'
-import { api } from '@/clients'
-import { SS58String } from 'polkadot-api'
-import { useAccounts } from '@reactive-dot/react'
-import type { WalletAccount } from '@reactive-dot/core/wallets.js'
-// const LOCALSTORAGE_SELECTED_ACCOUNT_KEY = 'polkadot-fellowship.selectedAccount'
+import {
+  createContext,
+  type PropsWithChildren,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from 'react'
+import {
+  connectInjectedExtension,
+  getInjectedExtensions,
+  type InjectedExtension,
+  type InjectedPolkadotAccount,
+} from 'polkadot-api/pjs-signer'
+import { DappName } from '@/consts'
 
-type AccountContextProps = {
-  children: React.ReactNode | React.ReactNode[]
-}
+const WALLET_KEY = 'fellowship-wallet'
+const ACCOUNT_KEY = 'fellowship-account'
 
-type ExtraInfo = {
-  isMember?: boolean
-  isActive?: boolean
-  lastPromotion?: number
-  lastProof?: number
+const walletNames: Record<string, string> = {
+  'polkadot-js': 'Polkadot.js',
+  'subwallet-js': 'SubWallet',
+  talisman: 'Talisman',
+  'nova-wallet': 'Nova Wallet',
+  'fearless-wallet': 'Fearless',
+  polkagate: 'PolkaGate',
+  enkrypt: 'Enkrypt',
 }
-
-type ExtraPolkadotAccount = WalletAccount & {
-  membership?: ExtraInfo
-}
+export const walletName = (id: string) =>
+  walletNames[id] ?? id.charAt(0).toUpperCase() + id.slice(1)
 
 export interface IAccountContext {
-  enchancedAccount?: ExtraPolkadotAccount
-  selectedAccount?: WalletAccount
-  accounts: WalletAccount[]
-  setSelectedAccount: (account: WalletAccount | undefined) => void
+  /** Id of the connected wallet extension, if any */
+  wallet?: string
+  connecting: boolean
+  accounts: InjectedPolkadotAccount[]
+  selectedAccount?: InjectedPolkadotAccount
+  selectAccount: (address: string) => void
+  getWallets: () => string[]
+  connect: (wallet: string) => Promise<void>
+  disconnect: () => void
 }
 
 const AccountContext = createContext<IAccountContext | undefined>(undefined)
 
-const AccountContextProvider = ({ children }: AccountContextProps) => {
-  const accounts = useAccounts()
-  const [enchancedAccount, setEnchancedAccount] = useState<
-    ExtraPolkadotAccount | undefined
-  >()
-  const [selectedAccount, setSelectedAccount] = useState<
-    WalletAccount | undefined
-  >()
+const AccountContextProvider = ({ children }: PropsWithChildren) => {
+  const [extension, setExtension] = useState<InjectedExtension>()
+  const [connecting, setConnecting] = useState(false)
+  const [accounts, setAccounts] = useState<InjectedPolkadotAccount[]>([])
+  const [selectedAddress, setSelectedAddress] = useState(() =>
+    localStorage.getItem(ACCOUNT_KEY),
+  )
+
+  const connect = useCallback(async (wallet: string) => {
+    setConnecting(true)
+    try {
+      const connected = await connectInjectedExtension(wallet, DappName)
+      localStorage.setItem(WALLET_KEY, wallet)
+      setExtension((previous) => {
+        previous?.disconnect()
+        return connected
+      })
+    } finally {
+      setConnecting(false)
+    }
+  }, [])
+
+  const disconnect = useCallback(() => {
+    localStorage.removeItem(WALLET_KEY)
+    setExtension((previous) => {
+      previous?.disconnect()
+      return undefined
+    })
+  }, [])
+
+  const selectAccount = useCallback((address: string) => {
+    localStorage.setItem(ACCOUNT_KEY, address)
+    setSelectedAddress(address)
+  }, [])
+
+  // Reconnect to the wallet that was used on the previous visit
+  useEffect(() => {
+    const wallet = localStorage.getItem(WALLET_KEY)
+    if (!wallet) return
+    // Extensions may take a moment to inject themselves into the page
+    const timeout = setTimeout(() => {
+      if (getInjectedExtensions().includes(wallet))
+        connect(wallet).catch(console.error)
+    }, 500)
+    return () => clearTimeout(timeout)
+  }, [connect])
 
   useEffect(() => {
-    if (!accounts.length) {
-      setSelectedAccount(undefined)
-      setEnchancedAccount(undefined)
+    if (!extension) {
+      setAccounts([])
       return
     }
+    setAccounts(extension.getAccounts())
+    return extension.subscribe(setAccounts)
+  }, [extension])
 
-    if (
-      selectedAccount &&
-      accounts.some((account) => account.address === selectedAccount.address)
-    ) {
-      return
-    }
-
-    setSelectedAccount(accounts[0])
-  }, [accounts, selectedAccount])
-
-  useEffect(() => {
-    if (!selectedAccount?.address) {
-      setEnchancedAccount(undefined)
-      return
-    }
-
-    const getExtraInfo = async () => {
-      const member = await api.query.FellowshipCore.Member.getValue(
-        selectedAccount.address as SS58String,
-      )
-      const updateAccount: ExtraPolkadotAccount = {
-        ...selectedAccount,
-        membership: member
-          ? {
-              isActive: member.is_active,
-              lastPromotion: member.last_promotion,
-              lastProof: member.last_proof,
-            }
-          : undefined,
-      }
-      setEnchancedAccount(updateAccount)
-    }
-
-    getExtraInfo()
-  }, [selectedAccount])
-
-  // const selectAccount = useCallback(
-  //   (account: InjectedPolkadotAccount | undefined) => {
-  //     account?.address &&
-  //       localStorage.setItem(
-  //         LOCALSTORAGE_SELECTED_ACCOUNT_KEY,
-  //         account?.address,
-  //       )
-  //     setSelectedAccount(account)
-  //   },
-  //   [],
-  // )
-
-  // useEffect(() => {
-  //   const accountAddress = localStorage.getItem(
-  //     LOCALSTORAGE_SELECTED_ACCOUNT_KEY,
-  //   )
-
-  //   if (accountAddress) {
-  //     const account = accounts.find(
-  //       (account) => account.address === previousAccountAddress,
-  //     )
-  //     !!account && selectAccount(account)
-  //   } else {
-  //     selectAccount(accounts[0])
-  //   }
-  // }, [selectAccount])
+  const selectedAccount =
+    accounts.find((account) => account.address === selectedAddress) ??
+    accounts[0]
 
   return (
     <AccountContext.Provider
       value={{
+        wallet: extension?.name,
+        connecting,
         accounts,
-        enchancedAccount,
         selectedAccount,
-        setSelectedAccount,
+        selectAccount,
+        getWallets: getInjectedExtensions,
+        connect,
+        disconnect,
       }}
     >
       {children}

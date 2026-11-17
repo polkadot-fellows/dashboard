@@ -1,7 +1,16 @@
 name: GitHub Pages Publish
 
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gh-pages
+  cancel-in-progress: true
 
 jobs:
   gh-deploy:
@@ -15,9 +24,10 @@ jobs:
           registry-url: https://registry.npmjs.org
       - run: pnpm install
       - name: Build
-        working-directory: '.'
-        run: pnpm run build:pages
+        run: pnpm run build
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
+          # `public/CNAME` ends up in here, which is what binds the site to
+          # https://polkadot-fellows.xyz
           folder: build
